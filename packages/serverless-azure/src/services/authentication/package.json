@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "devDependencies": {
+    "azure-functions-core-tools": "3"
+  }
+}

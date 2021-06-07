@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@app/mobile/*": ["packages/app-mobile/src/*"],
+      "@app/web/*": ["packages/app-web/src/*"],
+      "@lib/backend/*": ["packages/lib-backend/src/*"],
+      "@lib/common/*": ["packages/lib-common/src/*"],
+      "@lib/frontend/*": ["packages/lib-frontend/src/*"],
+      "@serverless/aws/*": ["packages/serverless-aws/src/*"],
+      "@serverless/azure/*": ["packages/serverless-azure/src/*"],
+      "react-native-vector-icons/dist/*": ["node_modules/@types/react-native-vector-icons/*"]
+    }
+  }
+}

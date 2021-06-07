@@ -1,0 +1,21 @@
+{
+  "common": {
+    "messages": {
+      "incorrectLength": "",
+      "invalidEmailAddress": "Please enter a valid email address",
+      "noNumberOrSpecialCharacter": "",
+      "required": "This is required"
+    }
+  },
+  "labels": {
+    "cancel": "Cancel",
+    "change": "Change",
+    "continue": "Continue",
+    "countryCode": "Country code",
+    "emailAddress": "Email address",
+    "noResult": "No result to show",
+    "phoneNumber": "Phone number",
+    "search": "Search",
+    "submit": "Submit"
+  }
+}

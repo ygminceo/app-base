@@ -1,0 +1,53 @@
+{
+  "name": "@serverless/aws",
+  "private": true,
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "authentication": "cd src/services/authentication && NODE_ENV=development sls offline && cd ..",
+    "payment": "cd src/services/payment && NODE_ENV=development sls offline && cd .."
+  },
+  "dependencies": {
+    "@lib/backend": "1.0.0",
+    "@lib/common": "1.0.0",
+    "@middy/core": "^2.2.0",
+    "@middy/http-json-body-parser": "^2.2.0",
+    "aws-lambda": "^1.0.6",
+    "firebase-admin": "^9.9.0",
+    "lodash": "^4.17.21",
+    "mongodb": "^3.6.9",
+    "mongodb-client-encryption": "^1.2.4",
+    "nodemailer": "^6.6.1",
+    "plaid": "^9.0.0-beta.13",
+    "react-native-progress": "^4.1.2",
+    "typeorm": "^0.2.33"
+  },
+  "devDependencies": {
+    "@serverless/typescript": "^2.43.1",
+    "@types/aws-lambda": "^8.10.76",
+    "@types/lodash": "^4.14.170",
+    "@types/mongodb": "^3.6.17",
+    "@types/nodemailer": "^6.4.2",
+    "@types/serverless": "^1.78.28",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "eslint": "^7.27.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-webpack-plugin": "^2.5.4",
+    "fork-ts-checker-webpack-plugin": "^6.2.10",
+    "serverless-dotenv-plugin": "^3.9.0",
+    "serverless-offline": "^7.0.0",
+    "serverless-webpack": "^5.5.0",
+    "ts-loader": "^9.2.2",
+    "ts-node": "^10.0.0",
+    "tsconfig-paths": "^3.9.0",
+    "tsconfig-paths-webpack-plugin": "^3.5.1",
+    "typescript": "^4.3.2",
+    "utility-types": "^3.10.0",
+    "webpack": "^5.38.1",
+    "webpack-node-externals": "^3.0.0"
+  }
+}
