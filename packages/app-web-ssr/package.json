@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "dotenv -e ../../env/.env.development next",
     "build": "dotenv -e ../../env/.env.production next build",
-    "start": "dotenv -e ../../env/.env.production next start"
+    "start": "dotenv -e ../../env/.env.production next start",
+    "export": "dotenv -e ../../env/.env.production next export"
   },
   "dependencies": {
     "@lib/common": "1.0.0",
