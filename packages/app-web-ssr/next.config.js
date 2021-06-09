@@ -24,6 +24,12 @@ const nextConfig = {
 
   i18n,
 
+  exportPathMap: async (defaultPathMap, { dev, dir, outDir, distDir, buildId }) => {
+    return {
+      '/': { page: '/' },
+    };
+  },
+
   webpack: (config) => {
     config.plugins = [...(config.plugins || []), ...overrides.config.plugins];
 
