@@ -13,7 +13,7 @@
     "web-deploy": "yarn workspace @app/web deploy",
 
     "ssr": "yarn workspace @app/web-ssr dev",
-    "ssr-buid": "yarn workspace @app/web-ssr dev",
+    "ssr-build": "yarn workspace @app/web-ssr dev",
     "ssr-start": "yarn workspace @app/web-ssr start",
     "ssr-yarn": "cd packages/app-web-ssr yarn",
     "ssr-export": "yarn workspace @app/web-ssr export",
