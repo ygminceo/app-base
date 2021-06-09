@@ -4,6 +4,7 @@
     "paths": {
       "@app/mobile/*": ["packages/app-mobile/src/*"],
       "@app/web/*": ["packages/app-web/src/*"],
+      "@app/web-ssr/*": ["packages/app-web-ssr/src/*"],
       "@lib/backend/*": ["packages/lib-backend/src/*"],
       "@lib/common/*": ["packages/lib-common/src/*"],
       "@lib/frontend/*": ["packages/lib-frontend/src/*"],

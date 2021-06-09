@@ -3,7 +3,6 @@ import { getProgressBarStyle } from '@lib/frontend/core/components/ProgressBar/P
 import { Wrapper } from '@lib/frontend/core/components/Wrapper/Wrapper';
 import { useStyles } from '@lib/frontend/core/hooks';
 import React, { useEffect, useState } from 'react';
-import { Circle } from 'react-native-progress';
 
 export const ProgressBar = ({ ...props }: ProgressBarProps) => {
   const { styles } = useStyles(props, [getProgressBarStyle]);

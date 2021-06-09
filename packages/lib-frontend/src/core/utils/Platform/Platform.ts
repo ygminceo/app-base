@@ -1,7 +1,9 @@
 import { Platform as NativePlatform } from 'react-native';
 
 export class Platform {
-  static isWebApp = window !== undefined && NativePlatform.OS === 'web';
+  static isWebApp = typeof window !== 'undefined' && NativePlatform.OS === 'web';
+
+  static isWebSsr = typeof window === 'undefined' && NativePlatform.OS === 'web';
 
   static isIos = NativePlatform.OS === 'ios';
 

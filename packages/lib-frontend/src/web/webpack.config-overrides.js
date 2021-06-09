@@ -1,10 +1,13 @@
 const { resolve } = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { startsWith, reduce } = require('lodash');
+const { DefinePlugin } = require('webpack');
 const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
 const { EXTENSIONS, ROOT_PATH, PACKAGES_PATH } = require('../../../../constants');
 
 const TRANSIPLE_MODULES = [
   'react-native-animatable',
+  'react-native-animated-spinkit',
   'react-native-iphone-x-helper',
   'react-native-modal',
   'react-native-paper',
@@ -21,6 +24,14 @@ module.exports = {
 
   config: {
     plugins: [
+      new DefinePlugin({
+        'process.env': reduce(
+          process.env,
+          (result, v, k) =>
+            startsWith(k, 'REACT_APP') ? { ...result, [k]: JSON.stringify(v) } : result,
+          {},
+        ),
+      }),
       new CopyWebpackPlugin({
         patterns: [
           {
@@ -30,7 +41,6 @@ module.exports = {
         ],
       }),
     ],
-
     resolve: {
       alias: {
         'react-native$': 'react-native-web',

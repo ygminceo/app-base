@@ -2,8 +2,5 @@
   "name": "@lib/common",
   "version": "1.0.0",
   "license": "MIT",
-  "private": true,
-  "dependencies": {
-    "react-native-progress": "^4.1.2"
-  }
+  "private": true
 }

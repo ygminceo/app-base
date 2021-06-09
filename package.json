@@ -12,6 +12,8 @@
     "web-build": "yarn workspace @app/web build",
     "web-deploy": "yarn workspace @app/web deploy",
 
+    "web-ssr": "yarn workspace @app/web-ssr dev",
+
     "aws": "yarn workspace @serverless/aws authentication",
     "azure": "yarn workspace @serverless/azure authentication",
     "aws-payment": "yarn workspace @serverless/aws payment",

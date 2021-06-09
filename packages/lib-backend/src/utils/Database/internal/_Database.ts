@@ -12,11 +12,11 @@ import { Connection, ConnectionManager, createConnection, getConnectionManager }
 
 const CONNECTION_NAME = 'default';
 
-const DATABASE_TYPE = config.get<string>('DATABASE_TYPE');
-const DATABASE_URL = config.get<string>('DATABASE_URL');
-const DATABASE_USERNAME = config.get<string>('DATABASE_USERNAME');
-const DATABASE_PASSWORD = config.get<string>('DATABASE_PASSWORD');
-const DATABASE_NAME = config.get<string>('DATABASE_NAME');
+const SERVER_DATABASE_TYPE = config.get<string>('SERVER_DATABASE_TYPE');
+const SERVER_DATABASE_URL = config.get<string>('SERVER_DATABASE_URL');
+const SERVER_DATABASE_USERNAME = config.get<string>('SERVER_DATABASE_USERNAME');
+const SERVER_DATABASE_PASSWORD = config.get<string>('SERVER_DATABASE_PASSWORD');
+const SERVER_DATABASE_NAME = config.get<string>('SERVER_DATABASE_NAME');
 
 export class _Database implements _DatabaseClass {
   private _connectionManager: ConnectionManager;
@@ -35,11 +35,11 @@ export class _Database implements _DatabaseClass {
       return connection;
     }
     return await createConnection({
-      type: DATABASE_TYPE as any,
-      url: DATABASE_URL,
-      username: DATABASE_USERNAME,
-      password: DATABASE_PASSWORD,
-      database: DATABASE_NAME,
+      type: SERVER_DATABASE_TYPE as any,
+      url: SERVER_DATABASE_URL,
+      username: SERVER_DATABASE_USERNAME,
+      password: SERVER_DATABASE_PASSWORD,
+      database: SERVER_DATABASE_NAME,
       synchronize: false,
       logging: false,
       entities: [Account, BankAccount, Otp],

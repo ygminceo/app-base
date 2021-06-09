@@ -1,6 +1,10 @@
 const { join, resolve } = require('path');
 
 const EXTENSIONS = [
+  '.web.tsx',
+  '.web.ts',
+  '.web.jsx',
+  '.web.js',
   '.tsx',
   '.ts',
   '.jsx',
