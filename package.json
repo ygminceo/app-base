@@ -12,7 +12,11 @@
     "web-build": "yarn workspace @app/web build",
     "web-deploy": "yarn workspace @app/web deploy",
 
-    "web-ssr": "yarn workspace @app/web-ssr dev",
+    "ssr": "yarn workspace @app/web-ssr dev",
+    "ssr-buid": "yarn workspace @app/web-ssr dev",
+    "ssr-start": "yarn workspace @app/web-ssr start",
+    "ssr-yarn": "cd packages/app-web-ssr yarn",
+    "ssr-export": "yarn workspace @app/web-ssr export",
 
     "aws": "yarn workspace @serverless/aws authentication",
     "azure": "yarn workspace @serverless/azure authentication",
