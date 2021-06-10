@@ -5,7 +5,7 @@ import { getCardStyle } from '@lib/frontend/payment/components/Card/Card.style';
 import { config } from '@lib/common/core/utils/Config/Config';
 import React from 'react';
 
-const PUBLIC_URL = config.get('REACT_APP_PUBLIC_URL', '');
+const PUBLIC_URL = config.get<string>('REACT_APP_PUBLIC_URL', '');
 
 export const Card = (props: CardProps) => {
   const { styles } = useStyles(props, [getCardStyle]);
