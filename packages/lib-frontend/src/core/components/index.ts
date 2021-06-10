@@ -17,6 +17,7 @@ export { Modal } from '@lib/frontend/core/components/Modal/Modal';
 export { Portal } from '@lib/frontend/core/components/Portal/Portal';
 export { Pressable } from '@lib/frontend/core/components/Pressable/Pressable';
 export { ProgressBar } from '@lib/frontend/core/components/ProgressBar/ProgressBar';
+export { SearchField } from '@lib/frontend/core/components/SearchField/SearchField';
 export { SelectField } from '@lib/frontend/core/components/SelectField/SelectField';
 export { Slidable } from '@lib/frontend/core/components/Slidable/Slidable';
 export { Steps } from '@lib/frontend/core/components/Steps/Steps';

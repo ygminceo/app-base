@@ -5,7 +5,6 @@ const withTM = require('next-transpile-modules');
 const withFonts = require('next-fonts');
 const { PACKAGES_PATH } = require('../../constants');
 
-const { i18n } = require('./next-i18next.config');
 const overrides = require(resolve(PACKAGES_PATH, 'lib-frontend/src/web/webpack.config-overrides'));
 
 const nextConfig = {
@@ -22,13 +21,11 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
 
-  i18n,
-
-  exportPathMap: async (defaultPathMap, { dev, dir, outDir, distDir, buildId }) => {
-    return {
-      '/': { page: '/' },
-    };
-  },
+  // exportPathMap: async (defaultPathMap, { dev, dir, outDir, distDir, buildId }) => {
+  //   return {
+  //     '/': { page: '/' },
+  //   };
+  // },
 
   webpack: (config) => {
     config.plugins = [...(config.plugins || []), ...overrides.config.plugins];

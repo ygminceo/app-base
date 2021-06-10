@@ -3,8 +3,8 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 export const getTranslationProps =
   (ns?: string[]) =>
-  async ({ locale }: GetStaticPropsContext | GetServerSidePropsContext) => ({
+  async ({ params }: GetStaticPropsContext | GetServerSidePropsContext) => ({
     props: {
-      ...(locale ? await serverSideTranslations(locale, ns) : null),
+      ...(params?.locale ? await serverSideTranslations(params?.locale as string, ns) : null),
     },
   });

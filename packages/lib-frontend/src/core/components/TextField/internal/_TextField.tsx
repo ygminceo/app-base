@@ -81,7 +81,6 @@ export const _TextField = forwardRef<RefObject<any>, _TextFieldProps>(
     const { styles } = useStyles(props);
     const { styles: textStyles } = useTextStyles({ center }, []);
     const [focused, setFocused] = useState<boolean>(false);
-
     return (
       <Wrapper
         style={styles}
@@ -102,9 +101,7 @@ export const _TextField = forwardRef<RefObject<any>, _TextFieldProps>(
           underlineColorAndroid="transparent"
           theme={{
             animation: { scale: 1 },
-            colors: {
-              background: 'transparent',
-            },
+            colors: { background: 'transparent' },
           }}
           disabled={isDisabled}
           error={error === true || !isEmpty(error)}
@@ -142,7 +139,7 @@ export const _TextField = forwardRef<RefObject<any>, _TextFieldProps>(
               <Wrapper row alignEnd>
                 {left}
               </Wrapper>
-              <NativeTextInput {...inputProps} />
+              <NativeTextInput {...inputProps} style={[...inputProps.style, textStyles]} />
               {(!noClear || right) && (
                 <Wrapper row center alignCenter pRightTight>
                   {!noClear && (

@@ -1,5 +1,5 @@
 import { AppLayout } from '@lib/frontend/app/layouts';
-import { Text, Wrapper } from '@lib/frontend/core/components';
+import { SearchField, Text, Wrapper } from '@lib/frontend/core/components';
 import { useTranslation } from '@lib/frontend/locale/hooks';
 import { Profile } from '@lib/frontend/settings/containers';
 import { SettingsPageProps } from '@lib/frontend/settings/pages/Settings/Settings.model';
@@ -10,6 +10,7 @@ export const SettingsPage = ({ ...props }: SettingsPageProps) => {
   return (
     <AppLayout>
       <Wrapper grow spacing p>
+        <SearchField />
         <Text title>{t('settings:labels.settings')}</Text>
         <Profile />
       </Wrapper>
