@@ -1,7 +1,6 @@
 import { useDimension } from '@lib/frontend/core/hooks';
-import { UseIsMobileReturns } from '@lib/frontend/core/hooks/useIsMobile/useIsMobile.model';
 
-export const useIsMobile = (): UseIsMobileReturns => {
+export const useIsMobile = (): boolean => {
   const { width } = useDimension();
   return width !== undefined && width < 700;
 };

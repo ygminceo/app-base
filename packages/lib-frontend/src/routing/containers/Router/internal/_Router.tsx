@@ -1,6 +1,6 @@
 import { Protected } from '@lib/frontend/authentication/containers';
 import { _RouterProps } from '@lib/frontend/routing/containers/Router/internal/_Router.model';
-import { RouteClass } from '@lib/frontend/routing/containers/Router/Router.model';
+import { RouteClassModel } from '@lib/frontend/routing/containers/Router/Router.model';
 import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
 import {
   DefaultTheme,
@@ -10,7 +10,7 @@ import {
 import { createStackNavigator } from '@react-navigation/stack';
 import React, { createRef, Fragment } from 'react';
 
-const RouteWithSubRoutes = (route: RouteClass) => (
+const RouteWithSubRoutes = (route: RouteClassModel) => (
   <Stack.Screen
     key={route.pathname}
     name={route.pathname}
@@ -64,7 +64,7 @@ export const _Router = ({ routes }: _RouterProps) => {
 
 // import { Protected } from '@lib/frontend/authentication/containers';
 // import { _RouterProps } from '@lib/frontend/routing/containers/Router/internal/_Router.model';
-// import { RouteClass } from '@lib/frontend/routing/containers/Router/Router.model';
+// import { RouteClassModel } from '@lib/frontend/routing/containers/Router/Router.model';
 // import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
 // import {
 //   DefaultTheme,
@@ -76,7 +76,7 @@ export const _Router = ({ routes }: _RouterProps) => {
 
 // type ScreensClass = { [name: string]: { path: string; screens: ScreensClass } };
 
-// const RouteWithSubRoutes = (route: RouteClass, screens: ScreensClass) => {
+// const RouteWithSubRoutes = (route: RouteClassModel, screens: ScreensClass) => {
 //   screens[route.pathname] = { path: route.pathname, screens: {} };
 //   return (
 //     <Stack.Screen

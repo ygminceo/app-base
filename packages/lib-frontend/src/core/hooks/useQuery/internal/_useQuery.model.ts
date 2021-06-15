@@ -1,8 +1,8 @@
 import {
-  UseQueryProps,
-  UseQueryReturns,
+  UseQueryParamsModel,
+  UseQueryReturnsModel,
 } from '@lib/frontend/core/hooks/useQuery/useQuery.model';
 
-export type _UseQueryProps<T, E> = UseQueryProps<T, E>;
+export type _UseQueryParamsModel<T, E> = UseQueryParamsModel<T, E>;
 
-export type _UseQueryReturns<T, E> = UseQueryReturns<T, E>;
+export type _UseQueryReturnsModel<T, E> = UseQueryReturnsModel<T, E>;

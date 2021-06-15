@@ -1,6 +1,7 @@
 {
   "labels": {
     "addBankAccount": "Add bank account",
-    "paymentReceive": "Receive payment"
+    "addCard": "Add card",
+    "payment": ""
   }
 }

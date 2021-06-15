@@ -1,5 +1,5 @@
-import { CollectionClass, DatabaseClass } from '@lib/backend/utils/Database/Database.model';
+import { CollectionModel, DatabaseModel } from '@lib/backend/utils/Database/Database.model';
 
-export interface _DatabaseClass extends DatabaseClass {}
+export interface _DatabaseModel extends DatabaseModel {}
 
-export interface _CollectionClass extends CollectionClass {}
+export interface _CollectionModel extends CollectionModel {}

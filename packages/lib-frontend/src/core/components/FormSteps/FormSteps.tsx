@@ -1,4 +1,4 @@
-import { FormSchema } from '@lib/common/core/models';
+import { FormModel } from '@lib/common/core/models';
 import { FormStepsProps } from '@lib/frontend/core/components/FormSteps/FormSteps.model';
 import { Wrapper } from '@lib/frontend/core/components/Wrapper/Wrapper';
 import { useForm, useStyles } from '@lib/frontend/core/hooks';
@@ -8,7 +8,7 @@ import React, { useCallback, useMemo, useState } from 'react';
 export const FormSteps = ({ forms, ...props }: FormStepsProps) => {
   const { styles } = useStyles(props);
   const [step, setStep] = useState<number>(0);
-  const [dataAll, setDataAll] = useState<FormSchema>({});
+  const [dataAll, setDataAll] = useState<FormModel>({});
   const isLastStep = useMemo(() => step === forms.length - 1, [step]);
 
   const form = forms[step];

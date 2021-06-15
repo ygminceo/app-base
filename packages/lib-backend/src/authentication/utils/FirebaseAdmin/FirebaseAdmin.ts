@@ -1,11 +1,13 @@
-import { TokenClaims } from '@lib/common/authentication/models';
+import { TokenClaimsModel } from '@lib/common/authentication/models';
 import { config } from '@lib/common/core/utils/Config/Config';
 import admin from 'firebase-admin';
 import { toString } from 'lodash';
 
 const SERVER_FIREBASE_ADMIN_PROJECT_ID = config.get<string>('SERVER_FIREBASE_ADMIN_PROJECT_ID', '');
 const SERVER_FIREBASE_ADMIN_EMAIL = config.get<string>('SERVER_FIREBASE_ADMIN_EMAIL', '');
-const SERVER_FIREBASE_ADMIN_SECRET = config.get<string>('SERVER_FIREBASE_ADMIN_SECRET', '');
+const SERVER_FIREBASE_ADMIN_SECRET = config
+  .get<string>('SERVER_FIREBASE_ADMIN_SECRET', '')
+  .replace(/\\n/g, '\n');
 
 class FirebaseAdmin {
   constructor() {
@@ -20,7 +22,7 @@ class FirebaseAdmin {
     }
   }
 
-  public createToken(id: string, claims: TokenClaims) {
+  public createToken(id: string, claims: TokenClaimsModel) {
     return admin.auth().createCustomToken(toString(id), claims);
   }
 

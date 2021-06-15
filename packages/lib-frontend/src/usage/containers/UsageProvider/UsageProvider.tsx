@@ -1,13 +1,13 @@
 import { useAccount } from '@lib/frontend/account/stores/account.reducer';
 import { Platform } from '@lib/frontend/core/utils/Platform/Platform';
 import {
-  UsageContextType,
+  UsageContextModel,
   UsageProviderProps,
 } from '@lib/frontend/usage/containers/UsageProvider/UsageProvider.model';
 import { _initialize } from '@lib/frontend/usage/containers/UsageProvider/_internal/_initialize';
 import React, { createContext, useEffect, useState } from 'react';
 
-export const UsageContext = createContext<UsageContextType>({
+export const UsageContext = createContext<UsageContextModel>({
   isInitialized: false,
   track: () => console.warn('Tracker not ready'),
 });

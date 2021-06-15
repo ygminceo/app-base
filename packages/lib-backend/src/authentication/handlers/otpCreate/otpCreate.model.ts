@@ -1,9 +1,9 @@
-import { MailerClass } from '@lib/backend/mail/utils/Mailer/Mailer.model';
-import { CollectionClass } from '@lib/backend/utils/Database/Database.model';
-import { OtpClass, OtpCreateRequest } from '@lib/common/authentication/models';
+import { MailerModel } from '@lib/backend/mail/utils/Mailer/Mailer.model';
+import { CollectionModel } from '@lib/backend/utils/Database/Database.model';
+import { OtpCreateRequestModel, OtpModel } from '@lib/common/authentication/models';
 
-export type otpCreateFunciton = (props: {
-  data: OtpCreateRequest;
-  otpCollection: CollectionClass;
-  mailer: MailerClass;
-}) => Promise<OtpClass>;
+export type OtpCreateHandlerModel = (params: {
+  data: OtpCreateRequestModel;
+  otpCollection: CollectionModel;
+  mailer: MailerModel;
+}) => Promise<OtpModel>;

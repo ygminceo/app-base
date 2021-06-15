@@ -21,8 +21,8 @@ export const Pressable = ({
   const [confirmModalIsOpen, setConfirmModalIsOpen] = useState<boolean>(false);
   const [isPressedState, setPressedState] = useUncontrolled(isPressed, undefined, false);
 
-  const dark = useTheme('dark');
-  const c = dark ? 255 : 0;
+  const isDark = useTheme<boolean>('isDark');
+  const c = isDark ? 255 : 0;
   const from = { backgroundColor: `rgba(${c}, ${c}, ${c}, 0)`, ...fromProps };
   const to = { backgroundColor: `rgba(${c}, ${c}, ${c}, 0.1)`, ...toProps };
 

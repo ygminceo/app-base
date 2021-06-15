@@ -1,20 +1,22 @@
 import { accountSetAction } from '@lib/frontend/account/actions/account/account.action';
-import { AccountState } from '@lib/frontend/account/stores/accountState.model';
-import { RootState } from '@lib/frontend/root/stores/rootState.model';
+import { AccountStateModel } from '@lib/frontend/account/stores/accountState.model';
+import { RootStateModel } from '@lib/frontend/root/stores/rootState.model';
 import { ACCOUNT } from '@lib/common/account/constants';
-import { AccountClassSummary } from '@lib/common/account/models';
+import { AccountSummaryModel } from '@lib/common/account/models';
 import { createReducer } from '@reduxjs/toolkit';
 import { useSelector } from 'react-redux';
 
-const initialState: AccountState = {
+const initialState: AccountStateModel = {
   account: undefined,
 };
 
-export const accountReducer = createReducer<AccountState>(initialState, (builder) =>
+export const accountReducer = createReducer<AccountStateModel>(initialState, (builder) =>
   builder.addCase(accountSetAction, (state, action) => {
     state.account = action.payload;
   }),
 );
 
 export const useAccount = () =>
-  useSelector<RootState, AccountClassSummary | undefined | null>((state) => state[ACCOUNT].account);
+  useSelector<RootStateModel, AccountSummaryModel | undefined | null>(
+    (state) => state[ACCOUNT].account,
+  );

@@ -12,7 +12,7 @@ export const _BankLink = ({ token, onSuccess, onError }: _BankLinkProps) => {
     onSuccess: (publicToken: string, metadata: any) =>
       account &&
       onSuccess({
-        account_id: account._id,
+        accountId: account._id,
         token: publicToken,
         bankAccount: {
           id: metadata.account.id,

@@ -1,11 +1,11 @@
 import {
-  FormErrorData,
-  UseFormProps,
-  UseFormReturns,
+  FormErrorModel,
+  UseFormParamsModel,
+  UseFormReturnsModel,
 } from '@lib/frontend/core/hooks/useForm/useForm.model';
 
-export interface _UseFormProps<F> extends Omit<UseFormProps<F>, 'validators'> {
-  onValidate(data: F): FormErrorData<F> | undefined;
+export interface _UseFormParamsModel<F> extends Omit<UseFormParamsModel<F>, 'validators'> {
+  onValidate(data: F): FormErrorModel<F> | undefined;
 }
 
-export type _UseFormReturns<F> = Omit<UseFormReturns<F>, 'isFilled'>;
+export type _UseFormReturnsModel<F> = Omit<UseFormReturnsModel<F>, 'isFilled'>;

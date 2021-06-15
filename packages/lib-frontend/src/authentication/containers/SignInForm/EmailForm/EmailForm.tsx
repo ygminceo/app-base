@@ -1,4 +1,4 @@
-import { EmailFormSchema } from '@lib/common/authentication/models';
+import { EmailFormModel } from '@lib/common/authentication/models';
 import { otpCreateAction } from '@lib/frontend/authentication/actions/otpCreate/otpCreate.action';
 import {
   EMAIL_FORM_INITIAL_VALUES,
@@ -8,7 +8,7 @@ import { EmailFormProps } from '@lib/frontend/authentication/containers/SignInFo
 import { Form, Text, TextField, Wrapper } from '@lib/frontend/core/components';
 import { useForm, useStyles } from '@lib/frontend/core/hooks';
 import { useTranslation } from '@lib/frontend/locale/hooks';
-import { AppDispatchType } from '@lib/frontend/root/stores/store';
+import { AppDispatchModel } from '@lib/frontend/root/stores/store';
 import { unwrapResult } from '@reduxjs/toolkit';
 import React from 'react';
 import { useDispatch } from 'react-redux';
@@ -16,10 +16,10 @@ import { useDispatch } from 'react-redux';
 export const EmailForm = ({ onSuccess, ...props }: EmailFormProps) => {
   const { styles } = useStyles(props);
   const { t } = useTranslation(['authentication']);
-  const dispatch = useDispatch<AppDispatchType>();
+  const dispatch = useDispatch<AppDispatchModel>();
 
   const { values, errors, handleChange, handleSubmit, isLoading, isFilled } =
-    useForm<EmailFormSchema>({
+    useForm<EmailFormModel>({
       initialValues: EMAIL_FORM_INITIAL_VALUES,
       validators: EMAIL_FORM_VALIDATORS,
       onSubmit: (data) =>

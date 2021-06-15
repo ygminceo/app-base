@@ -1,20 +1,20 @@
 import { accountGetHandler } from '@lib/backend/account/handlers';
 import { BankAccount } from '@lib/backend/payment/database/bankAccount.entity';
-import { bankAccountAddFunction } from '@lib/backend/payment/handlers/bankAccountAdd/bankAccountAdd.model';
+import { BankAccountAddHandlerModel } from '@lib/backend/payment/handlers/bankAccountAdd/bankAccountAdd.model';
 import { bankApi } from '@lib/backend/payment/utils/BankApi/BankApi';
 
-export const bankAccountAddHandler: bankAccountAddFunction = async ({
+export const bankAccountAddHandler: BankAccountAddHandlerModel = async ({
   data,
   accountCollection,
 }) => {
   const { stripe_bank_access_token, plaid_bank_access_token } = await bankApi.bankTokenAccessCreate(
     {
       token: data.token,
-      account_id: data.bankAccount.id,
+      accountId: data.bankAccount.id,
     },
   );
   const account = await accountGetHandler({
-    data: { _id: data.account_id },
+    data: { _id: data.accountId },
     accountCollection,
   });
 

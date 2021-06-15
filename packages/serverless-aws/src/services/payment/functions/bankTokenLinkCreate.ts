@@ -1,7 +1,10 @@
 import { bankTokenLinkCreateHandler } from '@lib/backend/payment/handlers';
-import { BankTokenLinkCreateRequest, BankTokenLinkCreateResponse } from '@lib/common/payment/models';
+import {
+  BankTokenLinkCreateRequestModel,
+  BankTokenLinkCreateResponseModel,
+} from '@lib/common/payment/models';
 import { requestHook } from '@serverless/aws/core/requestHook/requestHook';
 
-export const main = requestHook<BankTokenLinkCreateRequest, BankTokenLinkCreateResponse>(
+export const main = requestHook<BankTokenLinkCreateRequestModel, BankTokenLinkCreateResponseModel>(
   async (data) => await bankTokenLinkCreateHandler(data),
 );

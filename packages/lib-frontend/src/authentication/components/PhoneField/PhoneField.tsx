@@ -1,10 +1,10 @@
 import { COUNTRY_CODES } from '@lib/frontend/authentication/components/PhoneField/PhoneField.constants';
 import {
   PhoneFieldProps,
-  PhoneFieldValue,
+  PhoneFieldModel,
 } from '@lib/frontend/authentication/components/PhoneField/PhoneField.model';
 import { SelectField, TextField, Wrapper } from '@lib/frontend/core/components';
-import { SelectableOption } from '@lib/frontend/core/components/SelectField/SelectField.model';
+import { SelectableOptionModel } from '@lib/frontend/core/components/SelectField/SelectField.model';
 import { useStyles, useUncontrolled } from '@lib/frontend/core/hooks';
 import { useTranslation } from '@lib/frontend/locale/hooks';
 import React, { useEffect } from 'react';
@@ -20,7 +20,7 @@ export const PhoneField = ({
   const { t } = useTranslation(['common']);
   const { styles } = useStyles(props);
 
-  const [fieldValue, setFieldValue] = useUncontrolled<PhoneFieldValue>(value, onChange, {
+  const [fieldValue, setFieldValue] = useUncontrolled<PhoneFieldModel>(value, onChange, {
     countryCode: '',
     phoneNumber: '',
   });
@@ -41,8 +41,8 @@ export const PhoneField = ({
         onChange={(value: string) => setFieldValue({ ...fieldValue, countryCode: value })}
         value={fieldValue.countryCode}
         defaultValue={fieldValue.countryCode}
-        renderOption={(option: SelectableOption) => `+${option.value} ${option.label}`}
-        renderValue={(option: SelectableOption) => `+${option.value} ${option.label}`}
+        renderOption={(option: SelectableOptionModel) => `+${option.value} ${option.label}`}
+        renderValue={(option: SelectableOptionModel) => `+${option.value} ${option.label}`}
       />
       <TextField
         type="number"

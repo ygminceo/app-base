@@ -1,8 +1,8 @@
-import { _BankApiClass } from '@lib/backend/payment/utils/BankApi/internal/_BankApi.model';
+import { _BankApiModel } from '@lib/backend/payment/utils/BankApi/internal/_BankApi.model';
 import { config } from '@lib/common/core/utils/Config/Config';
 import {
-  BankTokenAccessCreateRequest,
-  BankTokenLinkCreateRequest,
+  BankTokenAccessCreateRequestModel,
+  BankTokenLinkCreateRequestModel,
 } from '@lib/common/payment/models';
 import { Configuration, PlaidApi, PlaidEnvironments } from 'plaid';
 
@@ -14,7 +14,7 @@ const SERVER_PLAID_PRODUCTS = config.get<any>('SERVER_PLAID_PRODUCTS').split(','
 const SERVER_PLAID_COUNTRY_CODES = config.get<any>('SERVER_PLAID_COUNTRY_CODES').split(',');
 const SERVER_PLAID_REDIRECT_URI = config.get<any>('SERVER_PLAID_REDIRECT_URI');
 
-export class _BankApi implements _BankApiClass {
+export class _BankApi implements _BankApiModel {
   private _client: PlaidApi;
 
   constructor() {
@@ -32,11 +32,11 @@ export class _BankApi implements _BankApiClass {
     );
   }
 
-  async bankTokenLinkCreate({ account_id }: BankTokenLinkCreateRequest) {
+  async bankTokenLinkCreate({ accountId }: BankTokenLinkCreateRequestModel) {
     //TODO: more env
     const response = await this._client.linkTokenCreate({
       user: {
-        client_user_id: account_id,
+        client_user_id: accountId,
       },
       client_name: REACT_APP_APP_NAME,
       products: SERVER_PLAID_PRODUCTS,
@@ -51,7 +51,7 @@ export class _BankApi implements _BankApiClass {
     };
   }
 
-  async bankTokenAccessCreate({ token, account_id }: BankTokenAccessCreateRequest) {
+  async bankTokenAccessCreate({ token, accountId }: BankTokenAccessCreateRequestModel) {
     return await this._client
       .itemPublicTokenExchange({
         public_token: token,
@@ -60,7 +60,7 @@ export class _BankApi implements _BankApiClass {
         const plaid_bank_access_token = response.data.access_token;
         const stripe_bank_access_token = (
           await this._client.processorStripeBankAccountTokenCreate({
-            account_id,
+            account_id: accountId,
             access_token: plaid_bank_access_token,
           })
         ).data.stripe_bank_account_token;

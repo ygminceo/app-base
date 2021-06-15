@@ -2,8 +2,8 @@ import { Account } from '@lib/backend/account/databases/account.entity';
 import { Otp } from '@lib/backend/authentication/databases/otp.entity';
 import { BankAccount } from '@lib/backend/payment/database/bankAccount.entity';
 import {
-  _CollectionClass,
-  _DatabaseClass,
+  _CollectionModel,
+  _DatabaseModel,
 } from '@lib/backend/utils/Database/internal/_Database.model';
 import { DuplicateError } from '@lib/common/core/errors';
 import { config } from '@lib/common/core/utils/Config/Config';
@@ -18,7 +18,7 @@ const SERVER_DATABASE_USERNAME = config.get<string>('SERVER_DATABASE_USERNAME');
 const SERVER_DATABASE_PASSWORD = config.get<string>('SERVER_DATABASE_PASSWORD');
 const SERVER_DATABASE_NAME = config.get<string>('SERVER_DATABASE_NAME');
 
-export class _Database implements _DatabaseClass {
+export class _Database implements _DatabaseModel {
   private _connectionManager: ConnectionManager;
 
   constructor() {
@@ -46,21 +46,18 @@ export class _Database implements _DatabaseClass {
     });
   }
 
-  public getCollection(name: string): _CollectionClass {
+  public getCollection(name: string): _CollectionModel {
     Promise;
     const self = this;
-    class Collection implements _CollectionClass {
+    class Collection implements _CollectionModel {
       get = async <P, T>(data: P, select?: (keyof T)[]) => {
         const connection = await self._getConnection();
         const repository = connection.getRepository<T>(name);
         const _id = (data as any)._id;
-        const result = await repository.findOne(
-          {
-            ...data,
-            _id: _id ? new ObjectId(_id) : undefined,
-          },
-          { select },
-        );
+        if (_id) {
+          (data as any)._id = new ObjectId(_id);
+        }
+        const result = await repository.findOne(data, { select });
         return result as T;
       };
 

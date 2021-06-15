@@ -1,11 +1,15 @@
 import {
-  BankTokenAccessCreateRequest,
-  BankTokenAccessCreateResponse,
-  BankTokenLinkCreateRequest,
-  BankTokenLinkCreateResponse,
+  BankTokenAccessCreateRequestModel,
+  BankTokenAccessCreateResponseModel,
+  BankTokenLinkCreateRequestModel,
+  BankTokenLinkCreateResponseModel,
 } from '@lib/common/payment/models';
 
-export interface BankApiClass {
-  bankTokenLinkCreate(data: BankTokenLinkCreateRequest): Promise<BankTokenLinkCreateResponse>;
-  bankTokenAccessCreate(data: BankTokenAccessCreateRequest): Promise<BankTokenAccessCreateResponse>;
+export interface BankApiModel {
+  bankTokenLinkCreate(
+    data: BankTokenLinkCreateRequestModel,
+  ): Promise<BankTokenLinkCreateResponseModel>;
+  bankTokenAccessCreate(
+    data: BankTokenAccessCreateRequestModel,
+  ): Promise<BankTokenAccessCreateResponseModel>;
 }

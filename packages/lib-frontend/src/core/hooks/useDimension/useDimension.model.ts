@@ -1,6 +1,6 @@
-export interface Dimension {
+export interface DimensionModel {
   height?: number;
   width?: number;
 }
 
-export interface UseDimensionReturns extends Dimension {}
+export type UseDimensionReturnsModel = DimensionModel;

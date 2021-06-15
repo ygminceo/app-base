@@ -19,6 +19,7 @@
     "mongodb-client-encryption": "^1.2.4",
     "nodemailer": "^6.6.1",
     "plaid": "^9.0.0-beta.13",
+    "stripe": "^8.154.0",
     "typeorm": "^0.2.33"
   },
   "devDependencies": {

@@ -1,5 +1,5 @@
-import { AccountClassSummary } from '@lib/common/account/models';
+import { AccountSummaryModel } from '@lib/common/account/models';
 
-export interface AccountState {
-  account?: AccountClassSummary | null;
+export interface AccountStateModel {
+  account?: AccountSummaryModel | null;
 }

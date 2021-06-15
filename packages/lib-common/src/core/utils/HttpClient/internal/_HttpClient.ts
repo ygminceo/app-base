@@ -32,7 +32,7 @@ export class _HttpClient implements _HttpClientClass {
     );
   }
 
-  private _request<P extends object, T extends any, E extends any>(
+  private _request<P extends object, T = any, E = HttpError<any>>(
     method: HttpMethod,
     url: string,
     config?: HttpRequestConfig,
@@ -45,7 +45,7 @@ export class _HttpClient implements _HttpClientClass {
       );
   }
 
-  get<P extends object, T extends any, E extends any>(
+  get<P extends object, T = any, E = HttpError<any>>(
     url: string,
     params?: P,
     config?: HttpRequestConfig,
@@ -54,7 +54,7 @@ export class _HttpClient implements _HttpClientClass {
     return this._request<P, T, E>('get', urlWithParams, config);
   }
 
-  delete<P extends object, T extends any, E extends any>(
+  delete<P extends object, T = any, E = HttpError<any>>(
     url: string,
     params?: P,
     config?: HttpRequestConfig,
@@ -63,7 +63,7 @@ export class _HttpClient implements _HttpClientClass {
     return this._request<P, T, E>('delete', urlWithParams, config);
   }
 
-  post<P extends object, T extends any, E extends any>(
+  post<P extends object, T = any, E = HttpError<any>>(
     url: string,
     data?: P,
     config?: HttpRequestConfig,
@@ -71,7 +71,7 @@ export class _HttpClient implements _HttpClientClass {
     return this._request<P, T, E>('post', url, config, data);
   }
 
-  put<P extends object, T extends any, E extends any>(
+  put<P extends object, T = any, E = HttpError<any>>(
     url: string,
     data?: P,
     config?: HttpRequestConfig,

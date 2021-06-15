@@ -1,6 +1,6 @@
 import { ComponentType, ReactNode } from 'react';
 
-export interface CatalogComponent<P> {
+export interface CatalogModel<P> {
   title?: string;
   props: Partial<P>;
   render?: (props: Partial<P>) => ReactNode;
@@ -8,11 +8,11 @@ export interface CatalogComponent<P> {
   height?: number;
 }
 
-export interface CatalogGroup<P> {
+export interface CatalogGroupModel<P> {
   title?: string;
   component: ComponentType<P>;
   props?: Partial<P>;
-  components: CatalogComponent<Partial<P>>[];
+  components: CatalogModel<Partial<P>>[];
   width?: number;
   height?: number;
 }

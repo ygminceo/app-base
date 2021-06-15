@@ -1,8 +1,8 @@
-import { OtpFormSchema } from '@lib/common/authentication/models';
+import { OtpFormModel } from '@lib/common/authentication/models';
 import { StepProps } from '@lib/frontend/core/components/Steps/Steps.model';
 
-export interface OtpFormProps extends StepProps<OtpFormSchema> {
+export interface OtpFormProps extends StepProps<OtpFormModel> {
   username: string;
   onSend(username: string): any;
-  onSubmit(data: OtpFormSchema): any;
+  onSubmit(data: OtpFormModel): any;
 }

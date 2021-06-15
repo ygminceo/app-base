@@ -12,5 +12,5 @@ export const Protected = ({ children }: ProtectedProps) => {
     dispatch(signInModalIsOpenSetAction(account === null));
   }, [account]);
 
-  return <>{children}</>;
+  return <>{account === undefined ? null : children}</>;
 };

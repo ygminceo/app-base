@@ -1,8 +1,8 @@
-import { _WindowClass } from '@lib/frontend/core/hooks/useDimension/internal/_window.model';
+import { _WindowModel } from '@lib/frontend/core/hooks/useDimension/internal/_window.model';
 import { useLayoutEffect } from 'react';
 import { Dimensions } from 'react-native';
 
-export const _window: _WindowClass = {
+export const _window: _WindowModel = {
   useLayoutEffect: useLayoutEffect,
   getDimension() {
     return {

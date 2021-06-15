@@ -1,4 +1,4 @@
-export interface Colors {
+export interface ColorsModel {
   black: string;
   white: string;
   border: string;
@@ -36,16 +36,16 @@ export interface Colors {
   };
 }
 
-export interface Shape {
+export interface ShapeModel {
   spacing: number | string;
   spacingTight: number | string;
   spacingWhitespace: number | string;
   borderRadius: number;
 }
 
-export interface Theme {
+export interface ThemeModel {
   name: string;
   dark: boolean;
-  shape: Shape;
-  colors: Colors;
+  shape: ShapeModel;
+  colors: ColorsModel;
 }

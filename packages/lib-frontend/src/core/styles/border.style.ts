@@ -1,5 +1,5 @@
 import { BorderProps } from '@lib/frontend/core/styles/border.model';
-import { StyleGetter } from '@lib/frontend/core/styles/style.model';
+import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 import { CommonTheme } from '@lib/frontend/theme/themes/common.theme';
 import { isNumber } from 'lodash';
 import { StyleSheet } from 'react-native';
@@ -23,7 +23,7 @@ export const borderStyle = StyleSheet.create({
   },
 });
 
-export const getBorderStyle: StyleGetter<BorderProps> = ({
+export const getBorderStyle: StyleGetterModel<BorderProps> = ({
   border,
   borderBottom,
   borderError,

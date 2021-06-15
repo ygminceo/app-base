@@ -1,8 +1,8 @@
-import { _MailerClass } from '@lib/backend/mail/utils/Mailer/internal/_Mailer.model';
+import { _MailerModel } from '@lib/backend/mail/utils/Mailer/internal/_Mailer.model';
 import { MailType } from '@lib/backend/mail/utils/Mailer/Mailer.model';
 import { createTransport, Transporter } from 'nodemailer';
 
-export class _Mailer implements _MailerClass {
+export class _Mailer implements _MailerModel {
   private _transporter: Transporter;
 
   constructor() {

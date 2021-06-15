@@ -1,5 +1,5 @@
 import { FlexProps } from '@lib/frontend/core/styles/flex.model';
-import { StyleGetter } from '@lib/frontend/core/styles/style.model';
+import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 import { isNil, isNumber } from 'lodash';
 import { StyleSheet } from 'react-native';
 
@@ -30,7 +30,7 @@ export const flexStyle = StyleSheet.create({
   wrap: { flexWrap: 'wrap' },
 });
 
-export const getFlexStyle: StyleGetter<FlexProps> = ({
+export const getFlexStyle: StyleGetterModel<FlexProps> = ({
   alignCenter,
   alignEnd,
   alignStart,

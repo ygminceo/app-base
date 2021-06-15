@@ -1,11 +1,11 @@
 import { TOKEN_CLAIM_KEYS } from '@lib/common/authentication/constants';
 import { accountSetAction } from '@lib/frontend/account/actions/account/account.action';
-import { _FirebaseAppClass } from '@lib/frontend/authentication/utils/FirebaseApp/internal/_FirebaseApp.model';
+import { _FirebaseClientModel } from '@lib/frontend/authentication/utils/FirebaseClient/internal/_FirebaseClient.model';
 import { store } from '@lib/frontend/root/stores/store';
 import auth from '@react-native-firebase/auth';
 import { pick } from 'lodash';
 
-export class _FirebaseApp implements _FirebaseAppClass {
+export class _FirebaseClient implements _FirebaseClientModel {
   public initialize() {
     auth().onAuthStateChanged((user) => {
       if (user) {
@@ -13,7 +13,7 @@ export class _FirebaseApp implements _FirebaseAppClass {
           store.dispatch(
             accountSetAction({
               ...pick(result.claims, TOKEN_CLAIM_KEYS),
-              id: user.uid,
+              _id: user.uid,
             }),
           ),
         );

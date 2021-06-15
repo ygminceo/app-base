@@ -1,6 +1,6 @@
-import { LocaleState } from '@lib/frontend/locale/stores/localeState.model';
+import { LocaleStateModel } from '@lib/frontend/locale/stores/localeState.model';
 import { createReducer } from '@reduxjs/toolkit';
 
-const initialState: LocaleState = {};
+const initialState: LocaleStateModel = {};
 
-export const localeReducer = createReducer<LocaleState>(initialState, (builder) => builder);
+export const localeReducer = createReducer<LocaleStateModel>(initialState, (builder) => builder);

@@ -1,5 +1,5 @@
-export type UseSearchProps<T> = [list: T[], keys: string[], threshold?: number];
+export type UseSearchParamsModel<T> = [list: T[], keys: string[], threshold?: number];
 
-export interface UseSearchReturns<T> {
+export interface UseSearchReturnsModel<T> {
   search(query: string): T[];
 }

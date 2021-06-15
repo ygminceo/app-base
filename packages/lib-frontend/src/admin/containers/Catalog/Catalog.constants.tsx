@@ -1,4 +1,4 @@
-import { CatalogGroup } from '@lib/frontend/admin/containers/Catalog/Catalog.model';
+import { CatalogGroupModel } from '@lib/frontend/admin/containers/Catalog/Catalog.model';
 import { OtpField } from '@lib/frontend/authentication/components';
 import { OtpFieldProps } from '@lib/frontend/authentication/components/OtpField/OtpField.model';
 import { PhoneField } from '@lib/frontend/authentication/components/PhoneField/PhoneField';
@@ -14,9 +14,9 @@ import {
 import { ButtonProps } from '@lib/frontend/core/components/Button/Button.model';
 import { IconProps } from '@lib/frontend/core/components/Icon/Icon.model';
 import { Menu } from '@lib/frontend/core/components/Menu/Menu';
-import { MenuOption, MenuProps } from '@lib/frontend/core/components/Menu/Menu.model';
+import { MenuOptionModel, MenuProps } from '@lib/frontend/core/components/Menu/Menu.model';
 import {
-  SelectableOption,
+  SelectableOptionModel,
   SelectFieldProps
 } from '@lib/frontend/core/components/SelectField/SelectField.model';
 import { TextProps } from '@lib/frontend/core/components/Text/Text.model';
@@ -26,15 +26,15 @@ import React from 'react';
 
 const ICON = 'times';
 
-const SELECT_OPTIONS: SelectableOption[] = [
+const SELECT_OPTIONS: SelectableOptionModel[] = [
   { label: 'option 1', value: '1' },
   { label: 'option 2', value: '2' },
   { label: 'option 3', value: '3' },
 ];
 
-const MENU_OPTIONS: MenuOption[] = [...SELECT_OPTIONS, { divider: true }];
+const MENU_OPTIONS: MenuOptionModel[] = [...SELECT_OPTIONS, { divider: true }];
 
-const texts: CatalogGroup<TextProps> = {
+const texts: CatalogGroupModel<TextProps> = {
   component: Text,
   components: [
     { props: { children: 'default' } },
@@ -59,7 +59,7 @@ const wrapperChildren = [
   <Wrapper key={2} width={30} height={30} backgroundColor="#bdfdff" border />,
 ];
 
-const wrappers: CatalogGroup<WrapperProps> = {
+const wrappers: CatalogGroupModel<WrapperProps> = {
   component: Wrapper,
   props: { width: 150, height: 150, children: wrapperChildren, backgroundColor: '#00f9ff' },
   components: [
@@ -80,7 +80,7 @@ const wrappers: CatalogGroup<WrapperProps> = {
   ],
 };
 
-const buttons: CatalogGroup<ButtonProps> = {
+const buttons: CatalogGroupModel<ButtonProps> = {
   component: Button,
   props: { onPress: () => null },
   components: [
@@ -102,7 +102,7 @@ const buttons: CatalogGroup<ButtonProps> = {
   ],
 };
 
-const icons: CatalogGroup<IconProps> = {
+const icons: CatalogGroupModel<IconProps> = {
   component: Icon,
   props: { icon: ICON },
   components: [
@@ -117,7 +117,7 @@ const icons: CatalogGroup<IconProps> = {
   ],
 };
 
-const textfields: CatalogGroup<TextFieldProps> = {
+const textfields: CatalogGroupModel<TextFieldProps> = {
   component: TextField,
   components: [
     { props: {} },
@@ -134,7 +134,7 @@ const textfields: CatalogGroup<TextFieldProps> = {
   ],
 };
 
-const menus: CatalogGroup<MenuProps> = {
+const menus: CatalogGroupModel<MenuProps> = {
   component: Menu,
   components: [
     { props: { anchor: <Button>Default</Button>, options: MENU_OPTIONS } },
@@ -143,7 +143,7 @@ const menus: CatalogGroup<MenuProps> = {
   ],
 };
 
-const selectFields: CatalogGroup<SelectFieldProps> = {
+const selectFields: CatalogGroupModel<SelectFieldProps> = {
   component: SelectField,
   components: [
     { props: { options: SELECT_OPTIONS } },
@@ -153,17 +153,17 @@ const selectFields: CatalogGroup<SelectFieldProps> = {
   ],
 };
 
-const otpFields: CatalogGroup<OtpFieldProps> = {
+const otpFields: CatalogGroupModel<OtpFieldProps> = {
   component: OtpField,
   components: [{ props: { autoFocus: true } }],
 };
 
-const phoneFields: CatalogGroup<PhoneFieldProps> = {
+const phoneFields: CatalogGroupModel<PhoneFieldProps> = {
   component: PhoneField,
   components: [{ props: {} }],
 };
 
-export const CATALOG_GROUPS: CatalogGroup<any>[] = [
+export const CATALOG_GROUPS: CatalogGroupModel<any>[] = [
   texts,
   wrappers,
   buttons,

@@ -1,12 +1,12 @@
 import { Divider, Icon, Pressable, Text, Wrapper } from '@lib/frontend/core/components';
 import { Dropdown } from '@lib/frontend/core/components/Dropdown/Dropdown';
 import {
-  DividerOption,
-  MenuOption,
+  DividerOptionModel,
+  MenuOptionModel,
   MenuProps,
 } from '@lib/frontend/core/components/Menu/Menu.model';
-import { getMenuOptionStyle } from '@lib/frontend/core/components/Menu/Menu.style';
-import { SelectableOption } from '@lib/frontend/core/components/SelectField/SelectField.model';
+import { getMenuOptionModelStyle } from '@lib/frontend/core/components/Menu/Menu.style';
+import { SelectableOptionModel } from '@lib/frontend/core/components/SelectField/SelectField.model';
 import { TextField } from '@lib/frontend/core/components/TextField/TextField';
 import { useSearch, useStyles } from '@lib/frontend/core/hooks';
 import { promisify } from '@lib/frontend/core/utils/promisify/promisify';
@@ -29,11 +29,11 @@ export const Menu = <T,>({
 }: MenuProps) => {
   const { t } = useTranslation(['common']);
   const { search } = useSearch(optionsProp, ['label', 'value']);
-  const { styles: menuOptionStyles } = useStyles({}, [getMenuOptionStyle]);
+  const { styles: menuOptionStyles } = useStyles({}, [getMenuOptionModelStyle]);
   const router = useRouter();
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [options, setOptions] = useState<MenuOption[]>(optionsProp);
+  const [options, setOptions] = useState<MenuOptionModel[]>(optionsProp);
   const [searchText, setSearchText] = useState<string>('');
 
   const handleToggle = (toggle: boolean) => {
@@ -50,7 +50,7 @@ export const Menu = <T,>({
     },
   });
 
-  const handlePress = (option: SelectableOption) => {
+  const handlePress = (option: SelectableOptionModel) => {
     option.onPress ? option.onPress() : onChange && onChange(option.value);
     option.pathname && router.push(option.pathname);
     handleToggle(false);
@@ -66,7 +66,7 @@ export const Menu = <T,>({
 
   const handleEnter = useCallback(() => {
     const selectedOption = options && options[0];
-    const selectedValue = (selectedOption as SelectableOption).value;
+    const selectedValue = (selectedOption as SelectableOptionModel).value;
     if (selectedValue) {
       onChange && onChange(selectedValue);
     }
@@ -97,23 +97,23 @@ export const Menu = <T,>({
       height={height}
       fullWidth={fullWidth}>
       {options.length ? (
-        map(options, (option: MenuOption, i: number) => {
-          if ((option as DividerOption).divider) {
+        map(options, (option: MenuOptionModel, i: number) => {
+          if ((option as DividerOptionModel).divider) {
             return <Divider key={i} mTopTight mBottomTight />;
           }
           const { isDisabled, confirmMessage, icon, label, value, error } =
-            option as SelectableOption;
+            option as SelectableOptionModel;
 
           return (
             <Pressable
               key={i}
-              onPress={() => handlePress(option as SelectableOption)}
+              onPress={() => handlePress(option as SelectableOptionModel)}
               isDisabled={isDisabled}
               confirmMessage={confirmMessage}>
               <Wrapper style={menuOptionStyles} row alignCenter spacing>
                 {icon && <Icon icon={icon} error={error} />}
                 <Text error={error}>
-                  {renderOption ? renderOption(option as SelectableOption) : label}
+                  {renderOption ? renderOption(option as SelectableOptionModel) : label}
                 </Text>
                 {value === menuValue && <Icon mLeftAuto icon="check" error={error} />}
               </Wrapper>

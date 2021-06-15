@@ -1,4 +1,4 @@
-import { BankAccountAddRequest } from '@lib/common/payment/models';
+import { BankAccountAddRequestModel } from '@lib/common/payment/models';
 import { useAccount } from '@lib/frontend/account/stores/account.reducer';
 import { Button } from '@lib/frontend/core/components';
 import { useStyles } from '@lib/frontend/core/hooks';
@@ -9,7 +9,7 @@ import {
 } from '@lib/frontend/payment/actions/payment/payment.action';
 import { _BankAccountButtonProps } from '@lib/frontend/payment/containers/BankAccountButton/internal/_BankAccountButton.model';
 import { _BankLink } from '@lib/frontend/payment/containers/BankAccountButton/internal/_BankLink';
-import { AppDispatchType } from '@lib/frontend/root/stores/store';
+import { AppDispatchModel } from '@lib/frontend/root/stores/store';
 import { unwrapResult } from '@reduxjs/toolkit';
 import React, { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -18,7 +18,7 @@ export const _BankAccountButton = ({ ...props }: _BankAccountButtonProps) => {
   const { styles } = useStyles(props);
   const { t } = useTranslation(['payment']);
 
-  const dispatch = useDispatch<AppDispatchType>();
+  const dispatch = useDispatch<AppDispatchModel>();
   const account = useAccount();
   const [token, setToken] = useState<string>('');
 
@@ -26,14 +26,14 @@ export const _BankAccountButton = ({ ...props }: _BankAccountButtonProps) => {
   const handleTokenCreate = useCallback(
     () =>
       account &&
-      dispatch(bankTokenLinkCreateAction({ account_id: account._id }))
+      dispatch(bankTokenLinkCreateAction({ accountId: account._id }))
         .then(unwrapResult)
         .then(({ token }) => setToken(token)),
     [account],
   );
 
   const handleBankLink = useCallback(
-    (data: BankAccountAddRequest) =>
+    (data: BankAccountAddRequestModel) =>
       dispatch(bankAccountAddAction(data))
         .then(unwrapResult)
         .finally(() => setToken('')),

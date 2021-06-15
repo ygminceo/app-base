@@ -4,11 +4,17 @@ import { CommonTheme } from '@lib/frontend/theme/themes/common.theme';
 import { createGlobalStyle } from 'styled-components';
 
 const Ionicons = require('react-native-vector-icons/Fonts/Ionicons.ttf').default;
+const Fontawesome = require('react-native-vector-icons/Fonts/FontAwesome.ttf').default;
 
 export const GlobalStyle = createGlobalStyle`
     @font-face {
         font-family: 'Ionicons';
         src: url(${Ionicons}) format('truetype');
+    }
+
+    @font-face {
+      font-family: 'FontAwesome';
+      src: url(${Fontawesome}) format('truetype');
     }
 
     html, body, #root {

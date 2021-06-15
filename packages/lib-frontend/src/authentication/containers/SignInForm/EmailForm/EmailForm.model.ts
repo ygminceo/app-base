@@ -1,4 +1,4 @@
-import { EmailFormSchema } from '@lib/common/authentication/models';
+import { EmailFormModel } from '@lib/common/authentication/models';
 import { StepProps } from '@lib/frontend/core/components/Steps/Steps.model';
 
-export interface EmailFormProps extends StepProps<EmailFormSchema> {}
+export interface EmailFormProps extends StepProps<EmailFormModel> {}

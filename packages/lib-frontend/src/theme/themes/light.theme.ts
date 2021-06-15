@@ -1,11 +1,11 @@
 import { CommonTheme } from '@lib/frontend/theme/themes/common.theme';
-import { Theme } from '@lib/frontend/theme/themes/theme.model';
+import { ThemeModel } from '@lib/frontend/theme/themes/theme.model';
 import { defaultsDeep } from 'lodash';
 
-export const LightTheme: Theme = defaultsDeep(
+export const LightTheme: ThemeModel = defaultsDeep(
   {
     name: 'theme:labels.light',
-    dark: false,
+    isDark: false,
     colors: {
       border: '#ccd0d6',
       background: {

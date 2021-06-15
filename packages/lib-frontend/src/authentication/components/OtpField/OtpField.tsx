@@ -19,7 +19,7 @@ export const OtpField = ({
   const [focused, setFocused] = useState<boolean>(false);
   const [fieldValue, setFieldValue] = useUncontrolled<string>(value, onChange, '');
   const currentSize = fieldValue.length;
-  const transition = useTheme('animation.transition');
+  const transition = useTheme<number>('animation.transition');
 
   useEffect(() => {
     const focus = autoFocus && setTimeout(() => setFocused(true), transition);

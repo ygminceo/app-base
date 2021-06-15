@@ -1,8 +1,8 @@
-import { BankAccountClass } from '@lib/common/payment/models';
+import { BankAccountModel } from '@lib/common/payment/models';
 import { Column, Entity, PrimaryColumn } from 'typeorm';
 
 @Entity()
-export class BankAccount implements BankAccountClass {
+export class BankAccount implements BankAccountModel {
   @PrimaryColumn()
   id!: string;
   @Column()

@@ -10,7 +10,6 @@ export const SettingsPage = ({ ...props }: SettingsPageProps) => {
   return (
     <AppLayout>
       <Wrapper grow spacing p>
-        <SearchField />
         <Text title>{t('settings:labels.settings')}</Text>
         <Profile />
       </Wrapper>

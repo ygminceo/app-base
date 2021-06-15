@@ -1,5 +1,5 @@
 import { useStyles } from '@lib/frontend/core/hooks';
-import { StyledPropsWithChildren, StyleGetter } from '@lib/frontend/core/styles/style.model';
+import { StyledPropsWithChildren, StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 import { ComponentClass, createElement, forwardRef, FunctionComponent, RefObject } from 'react';
 // @ts-ignore
 import { unstable_createElement } from 'react-native-web';
@@ -13,7 +13,7 @@ const compose = <P, Q>({
   component: FunctionComponent<Q> | ComponentClass<Q> | string;
   isWeb?: boolean;
   getProps?: (props: P, ref?: RefObject<any>) => Q;
-  styles?: StyleGetter<P>;
+  styles?: StyleGetterModel<P>;
 }) => {
   const ComposedComponent = forwardRef<
     RefObject<any>,

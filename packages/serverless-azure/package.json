@@ -17,6 +17,7 @@
     "nodemailer": "^6.6.1",
     "plaid": "^9.0.0-beta.13",
     "serverless-azure-functions": "^2.1.0",
+    "stripe": "^8.154.0",
     "typeorm": "^0.2.33"
   },
   "devDependencies": {

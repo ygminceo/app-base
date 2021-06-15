@@ -1,4 +1,4 @@
-import { StyleGetter } from '@lib/frontend/core/styles/style.model';
+import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 import { StyleSheet } from 'react-native';
 import { CardProps } from './Card.model';
 
@@ -10,4 +10,4 @@ export const cardStyle = StyleSheet.create({
   },
 });
 
-export const getCardStyle: StyleGetter<CardProps> = ({}) => [cardStyle.style];
+export const getCardStyle: StyleGetterModel<CardProps> = ({}) => [cardStyle.style];

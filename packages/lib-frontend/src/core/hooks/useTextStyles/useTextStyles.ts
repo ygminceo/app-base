@@ -1,7 +1,7 @@
 import { useStyles } from '@lib/frontend/core/hooks';
 import {
-  UseStylesProps,
-  UseStylesReturns,
+  UseStylesParamsModel,
+  UseStylesReturnsModel,
 } from '@lib/frontend/core/hooks/useStyles/useStyles.model';
 import { StyledTextProps } from '@lib/frontend/core/hooks/useTextStyles/useTextStyles.model';
 import { getColorStyle } from '@lib/frontend/core/styles/color.style';
@@ -11,8 +11,8 @@ import { getSizeStyle } from '@lib/frontend/core/styles/size.style';
 import { getSpacingStyle } from '@lib/frontend/core/styles/spacing.style';
 
 export const useTextStyles = <P extends StyledTextProps>(
-  ...[props, deps]: UseStylesProps<P>
-): UseStylesReturns<P> => {
+  ...[props, deps]: UseStylesParamsModel<P>
+): UseStylesReturnsModel<P> => {
   return useStyles<P>(props, [
     getColorStyle,
     getShapeStyle,

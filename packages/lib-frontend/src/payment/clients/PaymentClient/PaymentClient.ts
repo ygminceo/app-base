@@ -1,13 +1,21 @@
 import { config } from '@lib/common/core/utils/Config/Config';
+import { STRIPE_INTEGRATION_GET } from '@lib/common/integration/stripe/constants';
+import {
+  StripeIntegrationGetRequestModel,
+  StripeIntegrationGetResponseModel,
+} from '@lib/common/integration/stripe/models';
 import {
   BANK_ACCOUNT_ADD,
   BANK_TOKEN_LINK_CREATE,
   PAYMENT,
+  PAYMENT_METHODS_GET,
 } from '@lib/common/payment/constants';
 import {
-  BankAccountAddRequest,
-  BankTokenLinkCreateRequest,
-  BankTokenLinkCreateResponse,
+  BankAccountAddRequestModel,
+  BankTokenLinkCreateRequestModel,
+  BankTokenLinkCreateResponseModel,
+  PaymentMethodsGetRequestModel,
+  PaymentMethodsGetResponseModel,
 } from '@lib/common/payment/models';
 import { HttpClient } from '@lib/frontend/core/services/HttpClient/HttpClient';
 
@@ -23,14 +31,27 @@ class PaymentClient {
     });
   }
 
-  bankTokenLinkCreate = (data: BankTokenLinkCreateRequest) =>
-    this._client.post<BankTokenLinkCreateRequest, BankTokenLinkCreateResponse, any>(
+  paymentMethodsGet = (data: PaymentMethodsGetRequestModel) =>
+    this._client.post<PaymentMethodsGetRequestModel, PaymentMethodsGetResponseModel, any>(
+      PAYMENT_METHODS_GET,
+      data,
+    );
+
+  bankTokenLinkCreate = (data: BankTokenLinkCreateRequestModel) =>
+    this._client.post<BankTokenLinkCreateRequestModel, BankTokenLinkCreateResponseModel, any>(
       BANK_TOKEN_LINK_CREATE,
       data,
     );
 
-  bankAccountAdd = (data: BankAccountAddRequest) =>
-    this._client.post<BankAccountAddRequest, void, any>(BANK_ACCOUNT_ADD, data);
+  bankAccountAdd = (data: BankAccountAddRequestModel) =>
+    this._client.post<BankAccountAddRequestModel, void, any>(BANK_ACCOUNT_ADD, data);
+
+  // Stripe
+  stripeIntegrationGet = (data: StripeIntegrationGetRequestModel) =>
+    this._client.post<StripeIntegrationGetRequestModel, StripeIntegrationGetResponseModel, any>(
+      STRIPE_INTEGRATION_GET,
+      data,
+    );
 }
 
 export const paymentClient = new PaymentClient();

@@ -1,1 +1,1 @@
-export interface LocaleState {}
+export interface LocaleStateModel {}

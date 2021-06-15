@@ -1,6 +1,6 @@
-import { AccountClass } from '@lib/common/account/models';
+import { AccountModel } from '@lib/common/account/models';
 
-export interface AuthenticationState {
-  account?: AccountClass;
+export interface AuthenticationStateModel {
+  account?: AccountModel;
   signInModalIsOpen: boolean;
 }

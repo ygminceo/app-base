@@ -1,15 +1,19 @@
 import { accountCreateHandler, accountGetHandler } from '@lib/backend/account/handlers';
 import { tokenCreateHandler } from '@lib/backend/authentication/handlers';
 import { otpVerifyHandler } from '@lib/backend/authentication/handlers/otpVerify/otpVerify.handler';
-import { signInFunciton } from '@lib/backend/authentication/handlers/signIn/signIn.model';
-import { CollectionClass } from '@lib/backend/utils/Database/Database.model';
+import { SignInHandlerModel } from '@lib/backend/authentication/handlers/signIn/signIn.model';
+import { CollectionModel } from '@lib/backend/utils/Database/Database.model';
 import { ACCOUNT_PRIMARY_KEYS } from '@lib/common/account/constants';
-import { AccountClassOmitId } from '@lib/common/account/models';
+import { AccountCreateRequestModel } from '@lib/common/account/models';
 import { TOKEN_CLAIM_KEYS } from '@lib/common/authentication/constants';
-import { SignInRequest } from '@lib/common/authentication/models';
+import { SignInRequestModel } from '@lib/common/authentication/models';
 import { pick, toString, unset } from 'lodash';
 
-export const signInHandler: signInFunciton = async ({ data, accountCollection, otpCollection }) => {
+export const signInHandler: SignInHandlerModel = async ({
+  data,
+  accountCollection,
+  otpCollection,
+}) => {
   const dataFinal = await _before(data, otpCollection);
 
   let account = await accountGetHandler({
@@ -32,12 +36,12 @@ export const signInHandler: signInFunciton = async ({ data, accountCollection, o
 };
 
 const _before = async (
-  data: SignInRequest,
-  otpCollection: CollectionClass,
-): Promise<AccountClassOmitId> => {
+  data: SignInRequestModel,
+  otpCollection: CollectionModel,
+): Promise<AccountCreateRequestModel> => {
   await otpVerifyHandler({
     data: { username: data.emailAddress, otp: data.otp },
-    otpCollection: otpCollection as CollectionClass,
+    otpCollection: otpCollection as CollectionModel,
   });
   unset(data, 'otp');
   return data;

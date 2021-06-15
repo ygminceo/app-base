@@ -1,28 +1,27 @@
 import { Appearable, Wrapper } from '@lib/frontend/core/components';
 import { _DropdownProps } from '@lib/frontend/core/components/Dropdown/internal/_Dropdown.model';
 import { useStyles } from '@lib/frontend/core/hooks';
-import { CommonTheme } from '@lib/frontend/theme/themes/common.theme';
 import Tippy, { TippyProps } from '@tippyjs/react';
 import { set } from 'lodash';
 import React, { useState } from 'react';
 
 const LazyTippy = (props: TippyProps) => {
-  const [mounted, setMounted] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const computedProps = { ...props };
   computedProps.plugins = [
     {
       fn: () => ({
-        onMount: () => setMounted(true),
-        onHidden: () => setMounted(false),
+        onMount: () => setIsMounted(true),
+        onHidden: () => setIsMounted(false),
       }),
     },
     ...(props.plugins || []),
   ];
   if (props.render) {
     const render = props.render;
-    computedProps.render = (...args) => (mounted ? render(...args) : '');
+    computedProps.render = (...args) => (isMounted ? render(...args) : '');
   } else {
-    computedProps.content = mounted ? props.content : '';
+    computedProps.content = isMounted ? props.content : '';
   }
   return <Tippy {...computedProps} />;
 };
@@ -36,7 +35,6 @@ export const _Dropdown = ({
   ...props
 }: _DropdownProps) => {
   const { styles } = useStyles(props);
-  const [isVisible, setIsVisible] = useState<boolean>(false);
   return (
     <LazyTippy
       visible={isOpen}
@@ -45,13 +43,9 @@ export const _Dropdown = ({
       placement="bottom"
       appendTo={() => document.body}
       interactive
-      duration={CommonTheme.animation.duration}
       maxWidth="none"
-      onShow={() => {
-        setTimeout(() => setIsVisible(true));
-      }}
-      onHide={() => setIsVisible(false)}
-      content={<Appearable isVisible={isVisible}>{children}</Appearable>}
+      content={<Appearable isVisible={isOpen}>{children}</Appearable>}
+      duration={0}
       popperOptions={{
         modifiers: fullWidth
           ? [

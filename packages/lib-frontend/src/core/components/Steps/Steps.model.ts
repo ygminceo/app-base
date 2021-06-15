@@ -1,12 +1,12 @@
 import { StyledProps } from '@lib/frontend/core/styles/style.model';
-import { FormSchema } from '@lib/common/core/models';
+import { FormModel } from '@lib/common/core/models';
 import { ComponentType } from 'react';
 
-export interface StepsProps<F extends FormSchema> extends StyledProps {
-  steps: StepType<F, any>[];
+export interface StepsProps<F extends FormModel> extends StyledProps {
+  steps: StepModel<F, any>[];
 }
 
-export interface StepType<F extends FormSchema, P> {
+export interface StepModel<F extends FormModel, P> {
   component: ComponentType<P>;
   getProps?: (data: F) => Omit<P, 'onSuccess'>;
 }

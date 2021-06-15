@@ -1,12 +1,11 @@
+import { FormModel } from '@lib/common/core/models';
 import { Appearable, Icon, Wrapper } from '@lib/frontend/core/components';
 import { Slidable } from '@lib/frontend/core/components/Slidable/Slidable';
 import { StepsProps } from '@lib/frontend/core/components/Steps/Steps.model';
 import { useStyles } from '@lib/frontend/core/hooks';
-import { FormSchema } from '@lib/common/core/models';
-import { map } from 'lodash';
 import React, { createElement, useMemo, useState } from 'react';
 
-export const Steps = <F extends FormSchema>({ steps, ...props }: StepsProps<F>) => {
+export const Steps = <F extends FormModel>({ steps, ...props }: StepsProps<F>) => {
   const { styles } = useStyles(props);
   const [previous, setPrevious] = useState<number>(0);
   const [current, setCurrent] = useState<number>(0);

@@ -1,8 +1,8 @@
-export type ParamsType = { [key: string]: any };
+export type RouterParamsModel = { [key: string]: any };
 
-export interface UseRouterReturns {
+export interface UseRouterReturnsModel {
   location: { pathname: string; params?: object };
-  push<P extends ParamsType>(pathname: string, params?: P): any;
-  replace<P extends ParamsType>(pathname: string, params?: P): any;
+  push<P extends RouterParamsModel>(pathname: string, params?: P): any;
+  replace<P extends RouterParamsModel>(pathname: string, params?: P): any;
   back(): any;
 }

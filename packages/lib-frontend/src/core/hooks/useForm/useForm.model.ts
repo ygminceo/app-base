@@ -1,19 +1,19 @@
-import { FormSchema } from '@lib/common/core/models';
+import { FormModel } from '@lib/common/core/models';
 
-export type FormErrorData<F> = { [K in keyof F]?: string | undefined };
+export type FormErrorModel<F> = { [K in keyof F]?: string | undefined };
 
-export type FormValidator<F> = (value: any, data?: F) => string | undefined;
+export type FormValidatorModel<F> = (value: any, data?: F) => string | undefined;
 
-export type FormValidators<F> = { [K in keyof F]?: FormValidator<F> };
+export type FormValidatorsModel<F> = { [K in keyof F]?: FormValidatorModel<F> };
 
-export interface UseFormProps<F extends FormSchema> {
+export interface UseFormParamsModel<F extends FormModel> {
   initialValues: F;
   onSubmit(data: F): any;
-  validators?: FormValidators<F>;
+  validators?: FormValidatorsModel<F>;
 }
 
-export interface UseFormReturns<F extends FormSchema> {
-  errors: FormErrorData<F>;
+export interface UseFormReturnsModel<F extends FormModel> {
+  errors: FormErrorModel<F>;
   handleChange(name: string): any;
   handleReset(): any;
   handleSubmit(): any;

@@ -32,7 +32,7 @@ export const TextField = ({
   const ref = useRef<any>();
   const { t } = useTranslation(['common']);
   const [fieldValue, setFieldValue] = useUncontrolled<string>(value, onChange, '');
-  const transition = useTheme('animation.transition');
+  const transition = useTheme<number>('animation.transition');
 
   useEffect(() => {
     const focus =

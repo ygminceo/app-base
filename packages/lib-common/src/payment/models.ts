@@ -1,13 +1,21 @@
-export interface BankTokenLinkCreateRequest {
-  account_id: string;
+// Payment methods
+export interface PaymentMethodsGetRequestModel {
+  accountId: string;
 }
 
-export interface BankTokenLinkCreateResponse {
+export interface PaymentMethodsGetResponseModel {}
+
+// Bank account
+export interface BankTokenLinkCreateRequestModel {
+  accountId: string;
+}
+
+export interface BankTokenLinkCreateResponseModel {
   token: string;
   exp: string;
 }
 
-export interface BankAccountClass {
+export interface BankAccountModel {
   id: string;
   name: string;
   institution_id: string;
@@ -16,20 +24,25 @@ export interface BankAccountClass {
   plaid_bank_access_token?: string;
 }
 
-export interface BankAccountAddRequest {
-  account_id: string;
+export interface BankAccountAddRequestModel {
+  accountId: string;
   token: string;
-  bankAccount: BankAccountClass;
+  bankAccount: BankAccountModel;
 }
 
-export interface BankAccountAddResponse {}
+export interface BankAccountAddResponseModel {}
 
-export interface BankTokenAccessCreateRequest {
+export interface BankTokenAccessCreateRequestModel {
   token: string;
-  account_id: string;
+  accountId: string;
 }
 
-export interface BankTokenAccessCreateResponse {
+export interface BankTokenAccessCreateResponseModel {
   plaid_bank_access_token: string;
   stripe_bank_access_token: string;
 }
+
+// Card
+export interface CardAddRequestModel {}
+
+export interface CardAddResponseModel {}

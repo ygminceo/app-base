@@ -1,5 +1,5 @@
 import { AUTHENTICATION, OTP_CREATE, SIGNIN, SIGNOUT } from '@lib/common/authentication/constants';
-import { OtpCreateRequest, SignInRequest, SignInResponse } from '@lib/common/authentication/models';
+import { OtpCreateRequestModel, SignInRequestModel, SignInResponseModel } from '@lib/common/authentication/models';
 import { config } from '@lib/common/core/utils/Config/Config';
 import { HttpClient } from '@lib/frontend/core/services/HttpClient/HttpClient';
 
@@ -15,11 +15,11 @@ class AuthenticationClient {
     });
   }
 
-  otpCreate = (data: OtpCreateRequest) =>
-    this._client.post<OtpCreateRequest, void, any>(OTP_CREATE, data);
+  otpCreate = (data: OtpCreateRequestModel) =>
+    this._client.post<OtpCreateRequestModel, void, any>(OTP_CREATE, data);
 
-  signIn = (data: SignInRequest) =>
-    this._client.post<SignInRequest, SignInResponse, any>(SIGNIN, data);
+  signIn = (data: SignInRequestModel) =>
+    this._client.post<SignInRequestModel, SignInResponseModel, any>(SIGNIN, data);
 
   signOut = () => this._client.post<{}, void, any>(SIGNOUT);
 }

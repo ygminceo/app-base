@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import { TextInput } from 'react-native-paper';
 
-// const getKeyboardType = (type?: InputType) => {
+// const getKeyboardType = (type?: InputModel) => {
 //   switch (type) {
 //     case 'number':
 //       return 'numeric';
@@ -23,7 +23,7 @@ import { TextInput } from 'react-native-paper';
 //   }
 // };
 
-// const getAutoCompleteType = (autoComplete?: string | boolean, type?: InputType) => {
+// const getAutoCompleteType = (autoComplete?: string | boolean, type?: InputModel) => {
 //   if (autoComplete === false) {
 //     return 'off';
 //   }
@@ -37,7 +37,7 @@ import { TextInput } from 'react-native-paper';
 //   }
 // };
 
-// const getTextContentType = (autoComplete?: string | boolean, type?: InputType) => {
+// const getTextContentType = (autoComplete?: string | boolean, type?: InputModel) => {
 //   if (autoComplete === false) {
 //     return 'none';
 //   }

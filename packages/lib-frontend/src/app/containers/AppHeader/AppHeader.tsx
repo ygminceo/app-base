@@ -21,7 +21,8 @@ export const AppHeader = ({ ...props }: AppHeaderProps) => {
       row
       center
       alignCenter
-      fill>
+      fill
+      border>
       <Wrapper style={logoStyles} animatable={{ transition: ['scale'] }}>
         <Logo />
       </Wrapper>

@@ -9,12 +9,12 @@ export const ProgressBar = ({ ...props }: ProgressBarProps) => {
   const [progress, setProgress] = useState<number>(0);
 
   useEffect(() => {
-    setProgress(120);
+    setProgress(300);
   }, []);
 
   return (
-    <Wrapper style={styles} round relative secondary width={200} overflowHidden>
-      <Wrapper backgroundColor="red" absoluteLeft width={progress} animatable={{
+    <Wrapper style={styles} round relative secondary width={400} height={7} overflowHidden>
+      <Wrapper primary absoluteLeft width={progress} animatable={{
         transition: ['width'],
         duration: 1000,
        }} />

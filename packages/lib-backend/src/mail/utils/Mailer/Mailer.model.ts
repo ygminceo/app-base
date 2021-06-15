@@ -6,6 +6,6 @@ export interface MailType {
   html: string;
 }
 
-export interface MailerClass {
+export interface MailerModel {
   send(mail: MailType): Promise<void>;
 }

@@ -1,7 +1,7 @@
 import { CATALOG_GROUPS } from '@lib/frontend/admin/containers/Catalog/Catalog.constants';
 import {
-  CatalogComponent,
-  CatalogGroup,
+  CatalogGroupModel,
+  CatalogModel,
 } from '@lib/frontend/admin/containers/Catalog/Catalog.model';
 import { Text, Wrapper } from '@lib/frontend/core/components';
 import { get, isArray, isFunction, reduce, set, toString } from 'lodash';
@@ -32,7 +32,7 @@ const formatProps = (props: object): string =>
 
 export const Catalog = () => (
   <Wrapper grow p>
-    {CATALOG_GROUPS.map((componentGroup: CatalogGroup<any>, i: number) => (
+    {CATALOG_GROUPS.map((componentGroup: CatalogGroupModel<any>, i: number) => (
       <Wrapper key={`group-${i}`} spacing>
         <Text title>
           {get(componentGroup.component, 'name') ||
@@ -40,7 +40,7 @@ export const Catalog = () => (
             componentGroup.title}
         </Text>
         <Wrapper row horizontalScrollable spacing>
-          {componentGroup.components.map((component: CatalogComponent<any>, j: number) => {
+          {componentGroup.components.map((component: CatalogModel<any>, j: number) => {
             const props = { ...componentGroup.props, ...component.props };
             return (
               <Wrapper key={`component-${j}`} border p round selfStart>

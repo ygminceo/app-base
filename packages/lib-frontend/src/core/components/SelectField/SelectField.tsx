@@ -1,6 +1,6 @@
 import { Icon, Menu, Wrapper } from '@lib/frontend/core/components';
 import {
-  SelectableOption,
+  SelectableOptionModel,
   SelectFieldProps
 } from '@lib/frontend/core/components/SelectField/SelectField.model';
 import { TextField } from '@lib/frontend/core/components/TextField/TextField';
@@ -24,7 +24,7 @@ export const SelectField = <T,>({
 }: SelectFieldProps) => {
   const { styles } = useStyles(props);
   const [fieldValue, onFieldChange] = useUncontrolled<string>(value, onChange, defaultValue);
-  const selectedOption = find(options, { value: fieldValue }) as SelectableOption;
+  const selectedOption = find(options, { value: fieldValue }) as SelectableOptionModel;
   return (
     <Menu
       fullWidth

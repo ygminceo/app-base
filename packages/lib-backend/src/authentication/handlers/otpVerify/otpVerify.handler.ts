@@ -1,13 +1,13 @@
-import { otpVerifyFunction } from '@lib/backend/authentication/handlers/otpVerify/otpVerify.model';
+import { OtpVerifyHandlerModel } from '@lib/backend/authentication/handlers/otpVerify/otpVerify.model';
 import { InvalidOtpError } from '@lib/common/authentication/errors';
-import { OtpClass } from '@lib/common/authentication/models';
+import { OtpModel } from '@lib/common/authentication/models';
 
-export const otpVerifyHandler: otpVerifyFunction = async ({ data, otpCollection }) => {
-  const otp = await otpCollection.get<Pick<OtpClass, 'username'>, OtpClass>({
+export const otpVerifyHandler: OtpVerifyHandlerModel = async ({ data, otpCollection }) => {
+  const otp = await otpCollection.get<Pick<OtpModel, 'username'>, OtpModel>({
     username: data.username,
   });
   if (!otp || otp.otp !== data.otp) {
     throw new InvalidOtpError();
   }
-  await otpCollection.delete<object, OtpClass>({ username: data.username });
+  await otpCollection.delete<object, OtpModel>({ username: data.username });
 };

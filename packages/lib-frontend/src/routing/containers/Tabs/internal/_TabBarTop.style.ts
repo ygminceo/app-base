@@ -1,6 +1,6 @@
 import { flexStyle } from '@lib/frontend/core/styles/flex.style';
 import { shapeStyle } from '@lib/frontend/core/styles/shape.style';
-import { StyleGetter } from '@lib/frontend/core/styles/style.model';
+import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 import { _TabBarProps } from '@lib/frontend/routing/containers/Tabs/internal/_TabBar.model';
 import { StyleSheet } from 'react-native';
 
@@ -11,8 +11,8 @@ export const tabBarItemStyle = StyleSheet.create({
 });
 
 // TODO: get rid of partial
-export const getTabBarStyle: StyleGetter<Partial<_TabBarProps>> = ({ isMobile }) =>
+export const getTabBarStyle: StyleGetterModel<Partial<_TabBarProps>> = ({ isMobile }) =>
   isMobile ? [shapeStyle.fullWidth] : [];
 
-export const getTabBarItemStyle: StyleGetter<{}> = ({ isMobile }) =>
+export const getTabBarItemStyle: StyleGetterModel<{}> = ({ isMobile }) =>
   isMobile ? [flexStyle.grow] : [tabBarItemStyle.style];

@@ -1,8 +1,8 @@
-export type UseTranslationProps = [ns: string[]];
+export type UseTranslationParamsModel = [ns: string[]];
 
-export type TranslatorFn = (key: string, params?: object) => string;
+export type TranslatorModel = (key: string, params?: object) => string;
 
-export interface UseTranslationReturns {
-  t: TranslatorFn;
+export interface UseTranslationReturnsModel {
+  t: TranslatorModel;
   isLoading: boolean;
 }

@@ -1,1 +1,1 @@
-export type _signOutFunction = () => Promise<any>;
+export type _SignOutModel = () => Promise<any>;

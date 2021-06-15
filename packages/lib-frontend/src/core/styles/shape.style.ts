@@ -1,6 +1,6 @@
 import { flexStyle } from '@lib/frontend/core/styles/flex.style';
 import { ShapeProps } from '@lib/frontend/core/styles/shape.model';
-import { StyleGetter } from '@lib/frontend/core/styles/style.model';
+import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 import { isNil } from 'lodash';
 import { StyleSheet } from 'react-native';
 
@@ -57,7 +57,7 @@ export const shapeStyle = StyleSheet.create({
   },
 });
 
-export const getShapeStyle: StyleGetter<ShapeProps> = ({
+export const getShapeStyle: StyleGetterModel<ShapeProps> = ({
   above,
   absolute,
   absoluteBottom,

@@ -2,12 +2,11 @@ import { AppearableProps } from '@lib/frontend/core/components/Appearable/Appear
 import { Wrapper } from '@lib/frontend/core/components/Wrapper/Wrapper';
 import { useStyles } from '@lib/frontend/core/hooks';
 import { shapeStyle } from '@lib/frontend/core/styles/shape.style';
-import React, { useState } from 'react';
+import React from 'react';
 
 export const Appearable = ({ children, isVisible, ...props }: AppearableProps) => {
   const { styles } = useStyles(props);
-  const [isAnimating, setIsAnimating] = useState<boolean>(false);
-  return isVisible || isAnimating ? (
+  return (
     <Wrapper
       style={styles}
       animatable={{
@@ -15,10 +14,8 @@ export const Appearable = ({ children, isVisible, ...props }: AppearableProps) =
           from: isVisible ? shapeStyle.zoomOut : shapeStyle.zoomIn,
           to: isVisible ? shapeStyle.zoomIn : shapeStyle.zoomOut,
         },
-        onStart: () => setIsAnimating(true),
-        onEnd: () => setIsAnimating(false),
       }}>
       {children}
     </Wrapper>
-  ) : null;
+  );
 };

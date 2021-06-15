@@ -1,30 +1,30 @@
-import { AccountClass, AccountClassSummary } from '@lib/common/account/models';
+import { AccountModel, AccountSummaryModel } from '@lib/common/account/models';
 
-export interface EmailFormSchema {
+export interface EmailFormModel {
   emailAddress: string;
 }
 
-export interface OtpFormSchema {
+export interface OtpFormModel {
   otp: string;
 }
 
 // Sign up
-export interface SignInRequest extends EmailFormSchema, OtpFormSchema {}
+export interface SignInRequestModel extends EmailFormModel, OtpFormModel {}
 
-export interface SignInResponse {
-  account: AccountClassSummary;
+export interface SignInResponseModel {
+  account: AccountSummaryModel;
   token: string;
 }
 
 // Token
-export interface TokenClaims extends Pick<AccountClass, 'emailAddress' | 'phoneNumber'> {}
+export interface TokenClaimsModel extends Pick<AccountModel, 'emailAddress' | 'phoneNumber'> {}
 
 // OTP
-export interface OtpClass {
+export interface OtpModel {
   username: string;
   otp: string;
 }
 
-export interface OtpCreateRequest extends Pick<OtpClass, 'username'> {}
+export interface OtpCreateRequestModel extends Pick<OtpModel, 'username'> {}
 
-export interface OtpVerifyRequest extends OtpClass {}
+export interface OtpVerifyRequestModel extends OtpModel {}

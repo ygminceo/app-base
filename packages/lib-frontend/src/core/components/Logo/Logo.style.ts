@@ -1,5 +1,5 @@
 import { LogoProps } from '@lib/frontend/core/components/Logo/Logo.model';
-import { StyleGetter } from '@lib/frontend/core/styles/style.model';
+import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 import { StyleSheet } from 'react-native';
 
 export const logoStyle = StyleSheet.create({
@@ -17,6 +17,6 @@ export const logoStyle = StyleSheet.create({
   },
 });
 
-export const getLogoStyle: StyleGetter<LogoProps> = ({ small, large }) => [
+export const getLogoStyle: StyleGetterModel<LogoProps> = ({ small, large }) => [
   small ? logoStyle.small : large ? logoStyle.large : logoStyle.default,
 ];

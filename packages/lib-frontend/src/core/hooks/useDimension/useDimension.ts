@@ -1,12 +1,12 @@
 import { _window } from '@lib/frontend/core/hooks/useDimension/internal/_window';
 import {
-  Dimension,
-  UseDimensionReturns,
+  DimensionModel,
+  UseDimensionReturnsModel,
 } from '@lib/frontend/core/hooks/useDimension/useDimension.model';
 import { useState } from 'react';
 
-export const useDimension = (): UseDimensionReturns => {
-  const [dimension, setDimension] = useState<Dimension>(_window.getDimension());
+export const useDimension = (): UseDimensionReturnsModel => {
+  const [dimension, setDimension] = useState<DimensionModel>(_window.getDimension());
   _window.useLayoutEffect(() => {
     const update = () => setDimension(_window.getDimension());
     _window.subscribeResize(update);

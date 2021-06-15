@@ -1,7 +1,7 @@
 import { TOKEN_CLAIM_KEYS } from '@lib/common/authentication/constants';
 import { config } from '@lib/common/core/utils/Config/Config';
 import { accountSetAction } from '@lib/frontend/account/actions/account/account.action';
-import { _FirebaseAppClass } from '@lib/frontend/authentication/utils/FirebaseApp/internal/_FirebaseApp.model';
+import { _FirebaseClientModel } from '@lib/frontend/authentication/utils/FirebaseClient/internal/_FirebaseClient.model';
 import { Platform } from '@lib/frontend/core/utils/Platform/Platform';
 import { store } from '@lib/frontend/root/stores/store';
 import firebase from 'firebase/app';
@@ -13,12 +13,8 @@ const REACT_APP_FIREBASE_TOKEN = config.get<string>('REACT_APP_FIREBASE_TOKEN', 
 const REACT_APP_FIREBASE_DOMAIN = config.get<string>('REACT_APP_FIREBASE_DOMAIN', '');
 const REACT_APP_FIREBASE_STORAGE = config.get<string>('REACT_APP_FIREBASE_STORAGE', '');
 const REACT_APP_FIREBASE_SENDER_ID = config.get<string>('REACT_APP_FIREBASE_SENDER_ID', '');
-const REACT_APP_FIREBASE_MEASUREMENT_ID = config.get<string>(
-  'REACT_APP_FIREBASE_MEASUREMENT_ID',
-  '',
-);
 
-export class _FirebaseApp implements _FirebaseAppClass {
+export class _FirebaseClient implements _FirebaseClientModel {
   public initialize() {
     if (!Platform.isWebSsr) {
       if (!firebase.apps.length) {
@@ -29,7 +25,6 @@ export class _FirebaseApp implements _FirebaseAppClass {
           storageBucket: REACT_APP_FIREBASE_STORAGE,
           messagingSenderId: REACT_APP_FIREBASE_SENDER_ID,
           appId: REACT_APP_FIREBASE_APP_ID,
-          measurementId: REACT_APP_FIREBASE_MEASUREMENT_ID,
         });
       }
 

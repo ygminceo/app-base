@@ -35,14 +35,14 @@ export const AppLayout = ({ children }: AppLayoutProps) => {
         <AppHeader isMinimized={isMinimized} />
       </Wrapper>
 
-      <Wrapper pTop={APP_HEADER_HEIGHT_DEFAULT} absoluteLeft>
+      {/* <Wrapper pTop={APP_HEADER_HEIGHT_DEFAULT} absoluteLeft>
         <AppSideMenu />
-      </Wrapper>
+      </Wrapper> */}
 
       <Wrapper
         grow
         pTop={APP_HEADER_HEIGHT_DEFAULT}
-        pLeft={APP_SIDE_MENU_WIDTH}
+        // pLeft={APP_SIDE_MENU_WIDTH}
         verticalScrollable
         onScroll={({ y }) => handleScroll(y)}>
         {children}

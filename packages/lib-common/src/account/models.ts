@@ -1,21 +1,27 @@
-import { TokenClaims } from '@lib/common/authentication/models';
-import { BankAccountClass } from '@lib/common/payment/models';
+import { TokenClaimsModel } from '@lib/common/authentication/models';
+import { IntegrationModel } from '@lib/common/integration/models';
+import { BankAccountModel } from '@lib/common/payment/models';
 import { Optional } from 'utility-types';
 
-export interface AccountClass {
+export interface AccountModel {
   _id: string;
   emailAddress?: string;
   phoneNumber?: string;
-  bankAccounts?: BankAccountClass[];
+  bankAccounts?: BankAccountModel[];
+  integration?: IntegrationModel;
 }
 
-export interface AccountClassOmitId extends Omit<AccountClass, '_id'> {}
+export interface AccountPrimaryKeyModel
+  extends Pick<AccountModel, 'emailAddress' | 'phoneNumber'> {}
 
-export interface AccountClassPrimaryKey
-  extends Pick<AccountClass, 'emailAddress' | 'phoneNumber'> {}
+export interface AccountSummaryModel extends TokenClaimsModel, Pick<AccountModel, '_id'> {}
 
-export interface AccountClassSummary extends TokenClaims, Pick<AccountClass, '_id'> {}
+// Get
+export interface AccountGetRequestModel
+  extends AccountPrimaryKeyModel,
+    Optional<Pick<AccountModel, '_id'>> {}
 
-export interface AccountGetRequest
-  extends AccountClassPrimaryKey,
-    Optional<Pick<AccountClass, '_id'>> {}
+// Create
+export interface AccountCreateRequestModel extends Omit<AccountModel, '_id'> {}
+
+export interface AccountCreateResponseModel extends AccountModel {}

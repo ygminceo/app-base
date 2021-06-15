@@ -1,17 +1,17 @@
 import {
-  _UseFormProps,
-  _UseFormReturns,
+  _UseFormParamsModel,
+  _UseFormReturnsModel,
 } from '@lib/frontend/core/hooks/useForm/internal/_useForm.model';
-import { FormErrorData } from '@lib/frontend/core/hooks/useForm/useForm.model';
+import { FormErrorModel } from '@lib/frontend/core/hooks/useForm/useForm.model';
 import { promisify } from '@lib/frontend/core/utils/promisify/promisify';
-import { FormSchema } from '@lib/common/core/models';
+import { FormModel } from '@lib/common/core/models';
 import { useFormik } from 'formik';
 
-export const _useForm = <F extends FormSchema>({
+export const _useForm = <F extends FormModel>({
   onSubmit,
   initialValues,
   onValidate,
-}: _UseFormProps<F>): _UseFormReturns<F> => {
+}: _UseFormParamsModel<F>): _UseFormReturnsModel<F> => {
   const {
     handleSubmit,
     handleReset,
@@ -39,7 +39,7 @@ export const _useForm = <F extends FormSchema>({
     isLoading: isSubmitting,
     values,
     setValues,
-    errors: errors as FormErrorData<F>,
+    errors: errors as FormErrorModel<F>,
     isValid,
   };
 };

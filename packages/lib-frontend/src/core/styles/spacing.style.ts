@@ -1,5 +1,5 @@
 import { SpacingProps } from '@lib/frontend/core/styles/spacing.model';
-import { StyleGetter } from '@lib/frontend/core/styles/style.model';
+import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 import { CommonTheme } from '@lib/frontend/theme/themes/common.theme';
 import { get, isNil, set } from 'lodash';
 import { StyleSheet } from 'react-native';
@@ -43,7 +43,7 @@ const resolve = (value: boolean | number | string | undefined, keys: string[]) =
     ? []
     : keys.map((key: any) => set({}, key, value));
 
-export const getSpacingStyle: StyleGetter<SpacingProps> = ({
+export const getSpacingStyle: StyleGetterModel<SpacingProps> = ({
   m,
   mAuto,
   mTopAuto,

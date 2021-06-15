@@ -1,9 +1,9 @@
-import { Dimension } from '@lib/frontend/core/hooks/useDimension/useDimension.model';
+import { DimensionModel } from '@lib/frontend/core/hooks/useDimension/useDimension.model';
 import { DependencyList, EffectCallback } from 'react';
 
-export interface _WindowClass {
+export interface _WindowModel {
   useLayoutEffect(effect: EffectCallback, deps?: DependencyList): void;
-  getDimension(): Dimension;
+  getDimension(): DimensionModel;
   subscribeResize(cb: () => any): any;
   unsubscribeResize(cb: () => any): any;
 }

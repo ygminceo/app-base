@@ -1,3 +1,3 @@
-import { tokenCreateFunction } from '@lib/backend/authentication/handlers/tokenCreate/tokenCreate.model';
+import { TokenCreateHandlerModel } from '@lib/backend/authentication/handlers/tokenCreate/tokenCreate.model';
 
-export type _tokenCreateFunction = tokenCreateFunction;
+export type _TokenCreateHandlerModel = TokenCreateHandlerModel;

@@ -1,5 +1,5 @@
 import { ColorProps } from '@lib/frontend/core/styles/color.model';
-import { StyleGetter } from '@lib/frontend/core/styles/style.model';
+import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 import { CommonTheme } from '@lib/frontend/theme/themes/common.theme';
 import { StyleSheet } from 'react-native';
 
@@ -17,7 +17,7 @@ export const colorStyle = StyleSheet.create({
   white: { color: CommonTheme.colors.white },
 });
 
-export const getColorStyle: StyleGetter<ColorProps> = ({
+export const getColorStyle: StyleGetterModel<ColorProps> = ({
   color,
   contrast,
   dark,

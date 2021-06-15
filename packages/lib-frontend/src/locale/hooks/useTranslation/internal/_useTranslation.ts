@@ -1,10 +1,10 @@
 import {
-  _UseTranslationProps,
-  _UseTranslationReturns,
+  _UseTranslationParamsModel,
+  _UseTranslationReturnsModel,
 } from '@lib/frontend/locale/hooks/useTranslation/internal/_useTranslation.model';
 import { useTranslation } from 'react-i18next';
 
-export const _useTranslation = (...[ns]: _UseTranslationProps): _UseTranslationReturns => {
+export const _useTranslation = (...[ns]: _UseTranslationParamsModel): _UseTranslationReturnsModel => {
   const { t, ready } = useTranslation(ns);
-  return { t, isLoading: !ready };
+  return { t: ready ? t : () => ' ', isLoading: !ready };
 };

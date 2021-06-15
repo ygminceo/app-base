@@ -1,19 +1,19 @@
+import { FormModel } from '@lib/common/core/models';
 import { _useForm } from '@lib/frontend/core/hooks/useForm/internal/_useForm';
 import {
-  FormErrorData,
-  FormValidators,
-  UseFormProps,
-  UseFormReturns,
+  FormErrorModel,
+  FormValidatorsModel,
+  UseFormParamsModel,
+  UseFormReturnsModel,
 } from '@lib/frontend/core/hooks/useForm/useForm.model';
-import { FormSchema } from '@lib/common/core/models';
 import { every, get, isEmpty, keys, reduce, set, unset, values } from 'lodash';
 import { useState } from 'react';
 
-export const useForm = <F extends FormSchema>({
+export const useForm = <F extends FormModel>({
   initialValues,
   onSubmit,
   validators,
-}: UseFormProps<F>): UseFormReturns<F> => {
+}: UseFormParamsModel<F>): UseFormReturnsModel<F> => {
   const [filledState, setFilledState] = useState<{ [key: string]: boolean }>(
     reduce(keys(validators), (result, k) => ({ ...result, [k]: false }), {}),
   );
@@ -22,7 +22,7 @@ export const useForm = <F extends FormSchema>({
     initialValues,
     onSubmit,
     onValidate: (data) =>
-      reduce<FormValidators<F>, FormErrorData<F>>(
+      reduce<FormValidatorsModel<F>, FormErrorModel<F>>(
         validators,
         (result, validator, k) => {
           const error = validator && validator(get(data, k), data);

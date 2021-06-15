@@ -1,12 +1,27 @@
-import { accountCreateFunction } from '@lib/backend/account/handlers/accountCreate/accountCreate.model';
+import { AccountCreateHandlerModel } from '@lib/backend/account/handlers/accountCreate/accountCreate.model';
+import { stripeIntegrationCreateHandler } from '@lib/backend/integration/stripe/handlers/stripeIntegrationCreate/stripeIntegrationCreate.handler';
 import { AccountAlreadyExistsError } from '@lib/common/account/errors';
-import { AccountClass, AccountClassOmitId } from '@lib/common/account/models';
+import { AccountCreateRequestModel, AccountCreateResponseModel } from '@lib/common/account/models';
 import { DuplicateError } from '@lib/common/core/errors';
 
-export const accountCreateHandler: accountCreateFunction = async ({ data, accountCollection }) =>
-  accountCollection.save<AccountClassOmitId, AccountClass>(data).catch((e) => {
-    if (e instanceof DuplicateError) {
-      throw new AccountAlreadyExistsError();
-    }
-    throw Error(e);
-  });
+export const accountCreateHandler: AccountCreateHandlerModel = async ({
+  data,
+  accountCollection,
+}) => {
+  const dataFinal = await _before(data);
+  return accountCollection
+    .save<AccountCreateRequestModel, AccountCreateResponseModel>(dataFinal)
+    .catch((e) => {
+      if (e instanceof DuplicateError) {
+        throw new AccountAlreadyExistsError();
+      }
+      throw Error(e);
+    });
+};
+
+const _before = async (data: AccountCreateRequestModel): Promise<AccountCreateRequestModel> => ({
+  ...data,
+  integration: {
+    stripe: await stripeIntegrationCreateHandler(),
+  },
+});

@@ -1,8 +1,8 @@
 import {
-  UseSearchProps,
-  UseSearchReturns,
+  UseSearchParamsModel,
+  UseSearchReturnsModel,
 } from '@lib/frontend/core/hooks/useSearch/useSearch.model';
 
-export type _UseSearchProps<T> = UseSearchProps<T>;
+export type _UseSearchParamsModel<T> = UseSearchParamsModel<T>;
 
-export type _UseSearchReturns<T> = UseSearchReturns<T>;
+export type _UseSearchReturnsModel<T> = UseSearchReturnsModel<T>;

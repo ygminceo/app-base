@@ -1,17 +1,17 @@
 import {
-  UseFormProps,
-  UseFormReturns,
+  UseFormParamsModel,
+  UseFormReturnsModel,
 } from '@lib/frontend/core/hooks/useForm/useForm.model';
 import { StyledProps } from '@lib/frontend/core/styles/style.model';
-import { FormSchema } from '@lib/common/core/models';
+import { FormModel } from '@lib/common/core/models';
 import { ReactElement } from 'react';
 
-export interface FormStep<F extends FormSchema, A extends FormSchema = F>
-  extends Omit<UseFormProps<F>, 'onSubmit'> {
+export interface FormStep<F extends FormModel, A extends FormModel = F>
+  extends Omit<UseFormParamsModel<F>, 'onSubmit'> {
   onSubmit(data: F, dataAll: A): any;
   component: (
     props: Pick<
-      UseFormReturns<F>,
+      UseFormReturnsModel<F>,
       | 'values'
       | 'errors'
       | 'handleChange'

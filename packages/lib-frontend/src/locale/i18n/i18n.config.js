@@ -7,5 +7,5 @@ module.exports = {
   // debug: process.ENV.NODE_ENV === 'development',
   debug: true,
   interpolation: { escapeValue: false },
-  react: { wait: true, useSuspense: false, defaultTransParent: 'div' },
+  react: { useSuspense: false, defaultTransParent: 'div' },
 };

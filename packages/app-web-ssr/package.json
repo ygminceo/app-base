@@ -6,7 +6,8 @@
     "dev": "dotenv -e ../../env/.env.development next",
     "build": "dotenv -e ../../env/.env.production next build",
     "start": "dotenv -e ../../env/.env.production next start",
-    "export": "dotenv -e ../../env/.env.production next export"
+    "export": "dotenv -e ../../env/.env.production next export",
+    "deploy": "firebase login && firebase deploy --only hosting:web-ssr"
   },
   "dependencies": {
     "@lib/common": "1.0.0",

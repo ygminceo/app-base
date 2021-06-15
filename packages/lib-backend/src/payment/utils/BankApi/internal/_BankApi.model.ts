@@ -1,3 +1,3 @@
-import { BankApiClass } from '@lib/backend/payment/utils/BankApi/BankApi.model';
+import { BankApiModel } from '@lib/backend/payment/utils/BankApi/BankApi.model';
 
-export interface _BankApiClass extends BankApiClass {}
+export interface _BankApiModel extends BankApiModel {}

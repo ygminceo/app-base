@@ -1,13 +1,13 @@
 import {
-  NativeStyle,
+  NativeStyleModel,
   StyledPropsWithChildren,
-  StyleGetter,
+  StyleGetterModel,
 } from '@lib/frontend/core/styles/style.model';
 
-export type UseStylesProps<P> = [props: StyledPropsWithChildren<P>, deps?: StyleGetter<P>[]];
+export type UseStylesParamsModel<P> = [props: StyledPropsWithChildren<P>, deps?: StyleGetterModel<P>[]];
 
-export interface UseStylesReturns<P> {
-  styles?: NativeStyle;
-  inheritedStyles?: NativeStyle;
-  computedStyles?: NativeStyle;
+export interface UseStylesReturnsModel<P> {
+  styles?: NativeStyleModel;
+  inheritedStyles?: NativeStyleModel;
+  computedStyles?: NativeStyleModel;
 }
