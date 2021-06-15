@@ -19,6 +19,7 @@ export const PaymentPage = ({ ...props }: PaymentPageProps) => {
     () => paymentClient.paymentMethodsGet({ accountId: account._id }),
     true,
   );
+  console.warn(isLoading);
   console.warn(data);
 
   return (
