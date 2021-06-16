@@ -1,5 +1,5 @@
-import { LocaleStateModel } from '@lib/frontend/locale/stores/localeState.model';
 import { createReducer } from '@reduxjs/toolkit';
+import { LocaleStateModel } from '@lib/frontend/locale/stores/localeState.model';
 
 const initialState: LocaleStateModel = {};
 

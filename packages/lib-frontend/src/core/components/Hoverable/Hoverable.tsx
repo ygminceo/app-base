@@ -1,11 +1,11 @@
+import { isFunction } from 'lodash';
+import { Children, cloneElement, useCallback, useState } from 'react';
 import {
   HoverableChildProps,
   HoverableProps,
 } from '@lib/frontend/core/components/Hoverable/Hoverable.model';
 import { isHoverEnabled } from '@lib/frontend/core/components/Hoverable/internal/_isHoverEnabled';
 import { useUnmount } from '@lib/frontend/core/hooks';
-import { isFunction } from 'lodash';
-import { Children, cloneElement, useCallback, useState } from 'react';
 
 export const Hoverable = ({ onHoverIn, onHoverOut, children, ...props }: HoverableProps) => {
   const [isHovered, setHovered] = useState<boolean>(false);

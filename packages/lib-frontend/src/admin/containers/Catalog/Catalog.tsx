@@ -1,11 +1,11 @@
+import { get, isArray, isFunction, reduce, set, toString } from 'lodash';
+import React, { createElement, isValidElement } from 'react';
 import { CATALOG_GROUPS } from '@lib/frontend/admin/containers/Catalog/Catalog.constants';
 import {
   CatalogGroupModel,
   CatalogModel,
 } from '@lib/frontend/admin/containers/Catalog/Catalog.model';
 import { Text, Wrapper } from '@lib/frontend/core/components';
-import { get, isArray, isFunction, reduce, set, toString } from 'lodash';
-import React, { createElement, isValidElement } from 'react';
 
 const formatProps = (props: object): string =>
   JSON.stringify(

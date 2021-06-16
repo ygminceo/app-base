@@ -1,3 +1,5 @@
+const paths = require('./tsconfig.paths.json').compilerOptions.paths;
+
 module.exports = {
   bracketSpacing: true,
   jsxBracketSameLine: true,
@@ -5,4 +7,5 @@ module.exports = {
   singleQuote: true,
   tabWidth: 2,
   trailingComma: 'all',
+  importOrder: [...Object.keys(paths).map((k) => `${k.replace('*', '(.*)')}$`), '^[./]'],
 };

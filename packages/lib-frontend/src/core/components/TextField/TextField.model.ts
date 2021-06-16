@@ -1,6 +1,6 @@
+import { ReactNode } from 'react';
 import { FieldProps } from '@lib/frontend/core/components/Field/Field.model';
 import { StyledProps } from '@lib/frontend/core/styles/style.model';
-import { ReactNode } from 'react';
 
 export type InputModel = 'text' | 'number' | 'tel' | 'email' | 'password' | 'search';
 

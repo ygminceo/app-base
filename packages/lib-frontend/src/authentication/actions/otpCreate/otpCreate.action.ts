@@ -1,7 +1,7 @@
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import { OTP_CREATE } from '@lib/common/authentication/constants';
 import { OtpCreateRequestModel } from '@lib/common/authentication/models';
 import { authenticationClient } from '@lib/frontend/authentication/clients/AuthenticationClient/AuthenticationClient';
-import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const otpCreateAction = createAsyncThunk<any, OtpCreateRequestModel>(
   OTP_CREATE,

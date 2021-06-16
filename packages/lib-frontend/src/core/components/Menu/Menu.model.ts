@@ -1,8 +1,8 @@
+import { ReactElement } from 'react';
 import { DropdownProps } from '@lib/frontend/core/components/Dropdown/Dropdown.model';
 import { FieldProps } from '@lib/frontend/core/components/Field/Field.model';
 import { PressableProps } from '@lib/frontend/core/components/Pressable/Pressable.model';
 import { SelectableOptionModel } from '@lib/frontend/core/components/SelectField/SelectField.model';
-import { ReactElement } from 'react';
 
 export interface DividerOptionModel {
   divider: true;

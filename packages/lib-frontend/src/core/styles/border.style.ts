@@ -1,8 +1,8 @@
+import { isNumber } from 'lodash';
+import { StyleSheet } from 'react-native';
 import { BorderProps } from '@lib/frontend/core/styles/border.model';
 import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 import { CommonTheme } from '@lib/frontend/theme/themes/common.theme';
-import { isNumber } from 'lodash';
-import { StyleSheet } from 'react-native';
 
 export const borderStyle = StyleSheet.create({
   border: { borderStyle: 'solid', borderWidth: 1 },

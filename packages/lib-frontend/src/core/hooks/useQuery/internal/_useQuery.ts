@@ -1,8 +1,8 @@
+import { useQuery } from 'react-query';
 import {
   _UseQueryParamsModel,
   _UseQueryReturnsModel,
 } from '@lib/frontend/core/hooks/useQuery/internal/_useQuery.model';
-import { useQuery } from 'react-query';
 
 export const _useQuery = <T, E>(
   ...[key, query, isInitial]: _UseQueryParamsModel<T, E>

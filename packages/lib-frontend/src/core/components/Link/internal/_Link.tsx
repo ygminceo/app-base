@@ -1,6 +1,6 @@
+import { LinkHTMLAttributes, MouseEvent } from 'react';
 import { _LinkProps } from '@lib/frontend/core/components/Link/internal/_Link.model';
 import compose from '@lib/frontend/core/utils/compose/compose';
-import { LinkHTMLAttributes, MouseEvent } from 'react';
 
 export const _Link = compose<_LinkProps, LinkHTMLAttributes<HTMLLinkElement>>({
   component: 'a',

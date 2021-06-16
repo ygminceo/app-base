@@ -1,12 +1,12 @@
-import { Wrapper } from '@lib/frontend/core/components';
-import { useStyles } from '@lib/frontend/core/hooks';
-import { _TabBarTop } from '@lib/frontend/routing/containers/Tabs/internal/_TabBarTop';
-import { _TabsProps } from '@lib/frontend/routing/containers/Tabs/internal/_Tabs.model';
 import {
   createMaterialTopTabNavigator,
   MaterialTopTabBarProps,
 } from '@react-navigation/material-top-tabs';
 import React from 'react';
+import { Wrapper } from '@lib/frontend/core/components';
+import { useStyles } from '@lib/frontend/core/hooks';
+import { _TabBarTop } from '@lib/frontend/routing/containers/Tabs/internal/_TabBarTop';
+import { _TabsProps } from '@lib/frontend/routing/containers/Tabs/internal/_Tabs.model';
 
 const Tab = createMaterialTopTabNavigator();
 

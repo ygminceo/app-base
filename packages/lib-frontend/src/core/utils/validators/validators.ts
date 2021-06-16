@@ -1,6 +1,6 @@
+import { FormModel } from '@lib/common/core/models';
 import { FormValidatorModel } from '@lib/frontend/core/hooks/useForm/useForm.model';
 import { tLazy } from '@lib/frontend/locale/utils/tLazy/tLazy';
-import { FormModel } from '@lib/common/core/models';
 
 export const required: FormValidatorModel<FormModel> = (value: string) =>
   value ? undefined : tLazy('common.messages.required');

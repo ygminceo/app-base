@@ -1,5 +1,5 @@
-import { tLazy } from '@lib/frontend/locale/utils/tLazy/tLazy';
 import { HttpError } from '@lib/common/core/utils/HttpClient/HttpClient.error';
+import { tLazy } from '@lib/frontend/locale/utils/tLazy/tLazy';
 
 export class UnauthorizedError extends HttpError<string> {
   constructor() {

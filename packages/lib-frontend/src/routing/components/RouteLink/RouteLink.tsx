@@ -1,9 +1,9 @@
+import { isString } from 'lodash';
+import React from 'react';
 import { Link, Wrapper } from '@lib/frontend/core/components';
 import { useStyles } from '@lib/frontend/core/hooks';
 import { RouteLinkProps } from '@lib/frontend/routing/components/RouteLink/RouteLink.model';
 import { useRouter } from '@lib/frontend/routing/hooks';
-import { isString } from 'lodash';
-import React from 'react';
 
 export const RouteLink = ({ children, to, replace, ...props }: RouteLinkProps) => {
   const { styles } = useStyles(props);

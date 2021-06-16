@@ -1,6 +1,6 @@
-import { StyledProps } from '@lib/frontend/core/styles/style.model';
-import { FormModel } from '@lib/common/core/models';
 import { ComponentType } from 'react';
+import { FormModel } from '@lib/common/core/models';
+import { StyledProps } from '@lib/frontend/core/styles/style.model';
 
 export interface StepsProps<F extends FormModel> extends StyledProps {
   steps: StepModel<F, any>[];

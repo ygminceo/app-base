@@ -1,8 +1,8 @@
+import { OTP_LENGTH } from '@lib/common/authentication/constants';
+import { OtpCreateRequestModel, OtpModel } from '@lib/common/authentication/models';
 import { OtpCreateHandlerModel } from '@lib/backend/authentication/handlers/otpCreate/otpCreate.model';
 import { Crypto } from '@lib/backend/authentication/utils/Crypto/Crypto';
 import { mailSendHandler } from '@lib/backend/mail/handlers';
-import { OTP_LENGTH } from '@lib/common/authentication/constants';
-import { OtpCreateRequestModel, OtpModel } from '@lib/common/authentication/models';
 
 export const otpCreateHandler: OtpCreateHandlerModel = async ({ data, otpCollection, mailer }) => {
   const dataFinal = await _before(data);
@@ -10,6 +10,7 @@ export const otpCreateHandler: OtpCreateHandlerModel = async ({ data, otpCollect
   await otpCollection.delete<object, OtpModel>({ username: dataFinal.username });
   const otp = otpCollection.save<OtpModel, OtpModel>(dataFinal);
 
+  //TODO: email
   await mailSendHandler({
     mailer,
     mail: {

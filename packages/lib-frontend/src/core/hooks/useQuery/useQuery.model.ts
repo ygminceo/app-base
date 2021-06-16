@@ -1,8 +1,4 @@
-export type UseQueryParamsModel<T, E> = [
-  key: string,
-  query: () => Promise<T>,
-  isInitial?: boolean,
-];
+export type UseQueryParamsModel<T, E> = [key: string, query: () => Promise<T>, isInitial?: boolean];
 
 export interface UseQueryReturnsModel<T, E> {
   isLoading: boolean;

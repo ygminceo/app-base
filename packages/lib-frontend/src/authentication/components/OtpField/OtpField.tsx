@@ -1,11 +1,11 @@
+import { chain, get, isEmpty, isString, last } from 'lodash';
+import React, { useEffect, useMemo, useState } from 'react';
 import { OTP_LENGTH } from '@lib/common/authentication/constants';
 import { OtpFieldProps } from '@lib/frontend/authentication/components/OtpField/OtpField.model';
 import { otpFieldStyle } from '@lib/frontend/authentication/components/OtpField/OtpField.style';
 import { Text, TextField, Wrapper } from '@lib/frontend/core/components';
 import { useStyles, useUncontrolled } from '@lib/frontend/core/hooks';
 import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
-import { chain, get, isEmpty, isString, last } from 'lodash';
-import React, { useEffect, useMemo, useState } from 'react';
 
 export const OtpField = ({
   value,

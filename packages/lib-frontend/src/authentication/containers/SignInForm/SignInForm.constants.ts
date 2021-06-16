@@ -1,3 +1,4 @@
+import { unwrapResult } from '@reduxjs/toolkit';
 import { SignInRequestModel } from '@lib/common/authentication/models';
 import { otpCreateAction } from '@lib/frontend/authentication/actions/otpCreate/otpCreate.action';
 import { signInAction } from '@lib/frontend/authentication/actions/signIn/signIn.action';
@@ -7,7 +8,6 @@ import { OtpForm } from '@lib/frontend/authentication/containers/SignInForm/OtpF
 import { OtpFormProps } from '@lib/frontend/authentication/containers/SignInForm/OtpForm/OtpForm.model';
 import { StepModel } from '@lib/frontend/core/components/Steps/Steps.model';
 import { store } from '@lib/frontend/root/stores/store';
-import { unwrapResult } from '@reduxjs/toolkit';
 
 export const SIGNIN_FORM_STEPS: StepModel<SignInRequestModel, any>[] = [
   {

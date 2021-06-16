@@ -1,9 +1,9 @@
+import { useState } from 'react';
 import { _window } from '@lib/frontend/core/hooks/useDimension/internal/_window';
 import {
   DimensionModel,
   UseDimensionReturnsModel,
 } from '@lib/frontend/core/hooks/useDimension/useDimension.model';
-import { useState } from 'react';
 
 export const useDimension = (): UseDimensionReturnsModel => {
   const [dimension, setDimension] = useState<DimensionModel>(_window.getDimension());

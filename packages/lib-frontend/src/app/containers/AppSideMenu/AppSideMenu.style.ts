@@ -1,7 +1,7 @@
+import { StyleSheet } from 'react-native';
 import { APP_SIDE_MENU_WIDTH } from '@lib/frontend/app/containers/AppSideMenu/AppSideMenu.constants';
 import { AppSideMenuProps } from '@lib/frontend/app/containers/AppSideMenu/AppSideMenu.model';
 import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
-import { StyleSheet } from 'react-native';
 
 export const appSideMenuStyle = StyleSheet.create({
   style: {
@@ -9,4 +9,6 @@ export const appSideMenuStyle = StyleSheet.create({
   },
 });
 
-export const getAppSideMenuStyle: StyleGetterModel<AppSideMenuProps> = ({}) => [appSideMenuStyle.style];
+export const getAppSideMenuStyle: StyleGetterModel<AppSideMenuProps> = ({}) => [
+  appSideMenuStyle.style,
+];

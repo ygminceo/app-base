@@ -1,8 +1,8 @@
+import { get, isNil, set } from 'lodash';
+import { StyleSheet } from 'react-native';
 import { SpacingProps } from '@lib/frontend/core/styles/spacing.model';
 import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 import { CommonTheme } from '@lib/frontend/theme/themes/common.theme';
-import { get, isNil, set } from 'lodash';
-import { StyleSheet } from 'react-native';
 
 export const spacingStyle = StyleSheet.create({
   noPadding: { padding: 0 },

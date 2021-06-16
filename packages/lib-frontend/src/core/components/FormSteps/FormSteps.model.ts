@@ -1,10 +1,10 @@
+import { ReactElement } from 'react';
+import { FormModel } from '@lib/common/core/models';
 import {
   UseFormParamsModel,
   UseFormReturnsModel,
 } from '@lib/frontend/core/hooks/useForm/useForm.model';
 import { StyledProps } from '@lib/frontend/core/styles/style.model';
-import { FormModel } from '@lib/common/core/models';
-import { ReactElement } from 'react';
 
 export interface FormStep<F extends FormModel, A extends FormModel = F>
   extends Omit<UseFormParamsModel<F>, 'onSubmit'> {

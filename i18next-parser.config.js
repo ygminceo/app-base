@@ -3,6 +3,7 @@ const { PACKAGES_PATH } = require('./constants');
 
 module.exports = {
   contextSeparator: '_',
+  createOldCatalogs: false,
   customValueTemplate: null,
   defaultNamespace: 'common',
   defaultValue: '',

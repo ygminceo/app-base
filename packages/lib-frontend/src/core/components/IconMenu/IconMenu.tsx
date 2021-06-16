@@ -1,7 +1,7 @@
+import React from 'react';
 import { Icon, Menu } from '@lib/frontend/core/components';
 import { IconMenuProps } from '@lib/frontend/core/components/IconMenu/IconMenu.model';
 import { useStyles } from '@lib/frontend/core/hooks';
-import React from 'react';
 
 export const IconMenu = ({ options, icon, ...props }: IconMenuProps) => {
   const { styles } = useStyles(props);

@@ -1,9 +1,9 @@
+import React, { useCallback, useMemo, useState } from 'react';
 import { FormModel } from '@lib/common/core/models';
 import { FormStepsProps } from '@lib/frontend/core/components/FormSteps/FormSteps.model';
 import { Wrapper } from '@lib/frontend/core/components/Wrapper/Wrapper';
 import { useForm, useStyles } from '@lib/frontend/core/hooks';
 import { promisify } from '@lib/frontend/core/utils/promisify/promisify';
-import React, { useCallback, useMemo, useState } from 'react';
 
 export const FormSteps = ({ forms, ...props }: FormStepsProps) => {
   const { styles } = useStyles(props);

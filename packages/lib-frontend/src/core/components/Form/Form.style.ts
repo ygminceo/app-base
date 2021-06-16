@@ -1,7 +1,7 @@
+import { StyleSheet } from 'react-native';
 import { FormProps } from '@lib/frontend/core/components/Form/Form.model';
 import { shapeStyle } from '@lib/frontend/core/styles/shape.style';
 import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
-import { StyleSheet } from 'react-native';
 
 export const FORM_MEDIUM_WIDTH = 380;
 export const FORM_LARGE_WIDTH = 500;

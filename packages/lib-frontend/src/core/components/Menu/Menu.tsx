@@ -1,3 +1,5 @@
+import { get, isFunction, map } from 'lodash';
+import React, { cloneElement, useCallback, useState } from 'react';
 import { Divider, Icon, Pressable, Text, Wrapper } from '@lib/frontend/core/components';
 import { Dropdown } from '@lib/frontend/core/components/Dropdown/Dropdown';
 import {
@@ -12,8 +14,6 @@ import { useSearch, useStyles } from '@lib/frontend/core/hooks';
 import { promisify } from '@lib/frontend/core/utils/promisify/promisify';
 import { useTranslation } from '@lib/frontend/locale/hooks';
 import { useRouter } from '@lib/frontend/routing/hooks';
-import { get, isFunction, map } from 'lodash';
-import React, { cloneElement, useCallback, useState } from 'react';
 
 export const Menu = <T,>({
   anchor,
@@ -101,8 +101,14 @@ export const Menu = <T,>({
           if ((option as DividerOptionModel).divider) {
             return <Divider key={i} mTopTight mBottomTight />;
           }
-          const { isDisabled, confirmMessage, icon, label, value, error } =
-            option as SelectableOptionModel;
+          const {
+            isDisabled,
+            confirmMessage,
+            icon,
+            label,
+            value,
+            error,
+          } = option as SelectableOptionModel;
 
           return (
             <Pressable

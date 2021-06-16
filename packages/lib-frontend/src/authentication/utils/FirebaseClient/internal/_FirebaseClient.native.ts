@@ -1,9 +1,9 @@
+import auth from '@react-native-firebase/auth';
+import { pick } from 'lodash';
 import { TOKEN_CLAIM_KEYS } from '@lib/common/authentication/constants';
 import { accountSetAction } from '@lib/frontend/account/actions/account/account.action';
 import { _FirebaseClientModel } from '@lib/frontend/authentication/utils/FirebaseClient/internal/_FirebaseClient.model';
 import { store } from '@lib/frontend/root/stores/store';
-import auth from '@react-native-firebase/auth';
-import { pick } from 'lodash';
 
 export class _FirebaseClient implements _FirebaseClientModel {
   public initialize() {

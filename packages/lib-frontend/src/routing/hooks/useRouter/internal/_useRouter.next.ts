@@ -1,7 +1,7 @@
+import { useRouter } from 'next/router';
 import { _UseRouterReturnsModel } from '@lib/frontend/routing/hooks/useRouter/internal/_useRouter.model';
 import { RouterParamsModel } from '@lib/frontend/routing/hooks/useRouter/useRouter.model';
 import { toQuery } from '@lib/frontend/routing/utils/toQuery/toQuery';
-import { useRouter } from 'next/router';
 
 export const _useRouter = (): _UseRouterReturnsModel => {
   const router = useRouter();

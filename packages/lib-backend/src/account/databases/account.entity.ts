@@ -1,7 +1,6 @@
-import { BankAccount } from '@lib/backend/payment/database/bankAccount.entity';
-import { AccountModel } from '@lib/common/account/models';
-import { IntegrationModel } from '@lib/common/integration/models';
 import { Column, Entity, ObjectIdColumn } from 'typeorm';
+import { AccountModel } from '@lib/common/account/models';
+import { BankAccountModel } from '@lib/common/billing/models';
 
 @Entity()
 export class Account implements AccountModel {
@@ -9,10 +8,9 @@ export class Account implements AccountModel {
   _id!: string;
   @Column({ unique: true })
   emailAddress!: string;
+  // TODO: phone number should be unique too
   @Column()
   phoneNumber?: string;
-  @Column(() => BankAccount)
-  bankAccounts?: BankAccount[];
   @Column()
-  integration?: IntegrationModel;
+  bankAccounts?: BankAccountModel[];
 }

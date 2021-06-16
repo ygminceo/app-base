@@ -1,5 +1,9 @@
 import { AUTHENTICATION, OTP_CREATE, SIGNIN, SIGNOUT } from '@lib/common/authentication/constants';
-import { OtpCreateRequestModel, SignInRequestModel, SignInResponseModel } from '@lib/common/authentication/models';
+import {
+  OtpCreateRequestModel,
+  SignInRequestModel,
+  SignInResponseModel,
+} from '@lib/common/authentication/models';
 import { config } from '@lib/common/core/utils/Config/Config';
 import { HttpClient } from '@lib/frontend/core/services/HttpClient/HttpClient';
 

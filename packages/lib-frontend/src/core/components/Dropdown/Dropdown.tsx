@@ -1,9 +1,9 @@
+import React from 'react';
 import { Wrapper } from '@lib/frontend/core/components';
 import { DropdownProps } from '@lib/frontend/core/components/Dropdown/Dropdown.model';
 import { _Dropdown } from '@lib/frontend/core/components/Dropdown/internal/_Dropdown';
 import { Modal } from '@lib/frontend/core/components/Modal/Modal';
 import { useIsMobile, useStyles } from '@lib/frontend/core/hooks';
-import React from 'react';
 
 export const Dropdown = ({
   anchor,

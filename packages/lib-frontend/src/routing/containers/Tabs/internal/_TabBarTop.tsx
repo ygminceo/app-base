@@ -1,3 +1,4 @@
+import React, { useMemo, useState } from 'react';
 import { Text, Wrapper } from '@lib/frontend/core/components';
 import { useStyles } from '@lib/frontend/core/hooks';
 import { _TabBarProps } from '@lib/frontend/routing/containers/Tabs/internal/_TabBar.model';
@@ -5,7 +6,6 @@ import {
   getTabBarItemStyle,
   getTabBarStyle,
 } from '@lib/frontend/routing/containers/Tabs/internal/_TabBarTop.style';
-import React, { useMemo, useState } from 'react';
 
 export const _TabBarTop = ({ active, routes, ...props }: _TabBarProps) => {
   const { styles } = useStyles(props, [getTabBarStyle]);

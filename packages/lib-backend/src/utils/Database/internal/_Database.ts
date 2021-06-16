@@ -1,14 +1,14 @@
+import { ObjectId } from 'mongodb';
+import { Connection, ConnectionManager, createConnection, getConnectionManager } from 'typeorm';
+import { DuplicateError } from '@lib/common/core/errors';
+import { config } from '@lib/common/core/utils/Config/Config';
 import { Account } from '@lib/backend/account/databases/account.entity';
 import { Otp } from '@lib/backend/authentication/databases/otp.entity';
-import { BankAccount } from '@lib/backend/payment/database/bankAccount.entity';
+import { BankAccount } from '@lib/backend/billing/database/bankAccount.entity';
 import {
   _CollectionModel,
   _DatabaseModel,
 } from '@lib/backend/utils/Database/internal/_Database.model';
-import { DuplicateError } from '@lib/common/core/errors';
-import { config } from '@lib/common/core/utils/Config/Config';
-import { ObjectId } from 'mongodb';
-import { Connection, ConnectionManager, createConnection, getConnectionManager } from 'typeorm';
 
 const CONNECTION_NAME = 'default';
 

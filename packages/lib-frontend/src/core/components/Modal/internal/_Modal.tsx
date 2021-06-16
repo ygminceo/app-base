@@ -1,10 +1,10 @@
+import React from 'react';
+import Modal from 'react-native-modal';
 import { _ModalProps } from '@lib/frontend/core/components/Modal/internal/_Modal.model';
 import { useDimension, useIsMobile } from '@lib/frontend/core/hooks';
 import { flexStyle } from '@lib/frontend/core/styles/flex.style';
 import { spacingStyle } from '@lib/frontend/core/styles/spacing.style';
 import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
-import React from 'react';
-import Modal from 'react-native-modal';
 
 export const _Modal = ({
   backdrop,

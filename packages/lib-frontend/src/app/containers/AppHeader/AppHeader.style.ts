@@ -1,3 +1,4 @@
+import { StyleSheet } from 'react-native';
 import {
   APP_HEADER_HEIGHT_DEFAULT,
   APP_HEADER_HEIGHT_MINIMIZED,
@@ -5,7 +6,6 @@ import {
 import { AppHeaderProps } from '@lib/frontend/app/containers/AppHeader/AppHeader.model';
 import { shapeStyle } from '@lib/frontend/core/styles/shape.style';
 import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
-import { StyleSheet } from 'react-native';
 
 export const appHeaderStyle = StyleSheet.create({
   default: { height: APP_HEADER_HEIGHT_DEFAULT },

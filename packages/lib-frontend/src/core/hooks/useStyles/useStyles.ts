@@ -1,3 +1,6 @@
+import { flattenDepth, isFunction, isNil, reduce } from 'lodash';
+import { useMemo } from 'react';
+import { StyleSheet } from 'react-native';
 import { useIsMobile } from '@lib/frontend/core/hooks';
 import {
   UseStylesParamsModel,
@@ -5,11 +8,10 @@ import {
 } from '@lib/frontend/core/hooks/useStyles/useStyles.model';
 import { NativeStyleModel, StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
-import { flattenDepth, isFunction, isNil, reduce } from 'lodash';
-import { useMemo } from 'react';
-import { StyleSheet } from 'react-native';
 
-export const useStyles = <P>(...[props, deps]: UseStylesParamsModel<P>): UseStylesReturnsModel<P> => {
+export const useStyles = <P>(
+  ...[props, deps]: UseStylesParamsModel<P>
+): UseStylesReturnsModel<P> => {
   const theme = useTheme();
   const isMobile = useIsMobile();
   const inheritedStyles = useMemo<NativeStyleModel>(() => props.style, [props.style]);

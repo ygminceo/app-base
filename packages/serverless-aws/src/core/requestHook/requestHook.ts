@@ -1,4 +1,3 @@
-import { requestHookFunction } from '@lib/backend/serverless/serverless.model';
 import middy from '@middy/core';
 import jsonBodyParser from '@middy/http-json-body-parser';
 import {
@@ -7,14 +6,15 @@ import {
   APIGatewayProxyResult,
   Context,
 } from 'aws-lambda';
+import { RequestHookModel } from '@lib/backend/serverless/serverless.model';
 
-export const requestHook: requestHookFunction<APIGatewayProxyHandler> = <P, R>(
+export const requestHook: RequestHookModel<APIGatewayProxyHandler> = <P, R>(
   cb: (data: P) => Promise<R>,
 ) => {
   const main = middy(
     async (event: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult> => {
       context.callbackWaitsForEmptyEventLoop = false;
-      const data = event.body as unknown as P;
+      const data = (event.body as unknown) as P;
       try {
         return {
           statusCode: 200,

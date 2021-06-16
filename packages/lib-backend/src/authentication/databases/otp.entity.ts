@@ -1,5 +1,3 @@
-import { OTP_EXPIRATION_SECONDS } from '@lib/common/authentication/constants';
-import { OtpModel } from '@lib/common/authentication/models';
 import {
   BeforeInsert,
   BeforeUpdate,
@@ -9,6 +7,8 @@ import {
   ObjectIdColumn,
   PrimaryColumn,
 } from 'typeorm';
+import { OTP_EXPIRATION_SECONDS } from '@lib/common/authentication/constants';
+import { OtpModel } from '@lib/common/authentication/models';
 
 @Entity()
 export class Otp implements OtpModel {

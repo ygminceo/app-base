@@ -1,10 +1,10 @@
-import { KeyNotFoundError } from '@lib/common/core/utils/Config/Config.error';
-import { _ConfigClass } from '@lib/common/core/utils/Config/internal/_Config.model';
 import { get } from 'lodash';
+import { KeyNotFoundError } from '@lib/common/core/utils/Config/Config.error';
+import { _ConfigModel } from '@lib/common/core/utils/Config/internal/_Config.model';
 
-export class _Config implements _ConfigClass {
+export class _Config implements _ConfigModel {
   get<T>(key: string, defaultValue?: T | null) {
-    const value = get(process.env, key, defaultValue) as unknown as T;
+    const value = (get(process.env, key, defaultValue) as unknown) as T;
     if (value === undefined) {
       throw new KeyNotFoundError(key);
     }

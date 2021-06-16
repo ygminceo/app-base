@@ -52,6 +52,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.14.4",
     "@babel/preset-react": "^7.13.13",
+    "@trivago/prettier-plugin-sort-imports": "^2.0.2",
     "@types/lodash": "^4.14.170",
     "@types/react": "^17.0.9",
     "@types/react-native": "^0.64.9",

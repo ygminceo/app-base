@@ -1,8 +1,8 @@
+import { useState } from 'react';
 import {
   UseUncontrolledParamsModel,
   UseUncontrolledReturnsModel,
 } from '@lib/frontend/core/hooks/useUncontrolled/useUncontrolled.model';
-import { useState } from 'react';
 
 export const useUncontrolled = <T>(
   ...[value, onChange, defaultValue]: UseUncontrolledParamsModel<T>

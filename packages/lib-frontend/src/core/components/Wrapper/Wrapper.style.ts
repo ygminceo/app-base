@@ -1,7 +1,7 @@
+import { isNumber } from 'lodash';
 import { WrapperChildProps } from '@lib/frontend/core/components/Wrapper/Wrapper.model';
 import { spacingStyle } from '@lib/frontend/core/styles/spacing.style';
 import { NativeStyleModel } from '@lib/frontend/core/styles/style.model';
-import { isNumber } from 'lodash';
 
 export const getWrapperChildStyle = ({
   row,

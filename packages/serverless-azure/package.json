@@ -23,6 +23,7 @@
   "devDependencies": {
     "@azure/functions": "^1.2.3",
     "@serverless/typescript": "^2.43.1",
+    "@trivago/prettier-plugin-sort-imports": "^2.0.2",
     "@types/lodash": "^4.14.170",
     "@types/mongodb": "^3.6.17",
     "@types/nodemailer": "^6.4.2",

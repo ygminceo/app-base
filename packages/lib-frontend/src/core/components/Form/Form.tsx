@@ -1,9 +1,9 @@
+import React from 'react';
 import { Button, Wrapper } from '@lib/frontend/core/components';
 import { FormProps } from '@lib/frontend/core/components/Form/Form.model';
 import { getFormStyle } from '@lib/frontend/core/components/Form/Form.style';
 import { useStyles } from '@lib/frontend/core/hooks';
 import { useTranslation } from '@lib/frontend/locale/hooks';
-import React from 'react';
 
 export const Form = ({
   children,

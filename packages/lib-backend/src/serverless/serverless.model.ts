@@ -1,14 +1,14 @@
-import { HttpMethod } from '@lib/common/core/utils/HttpClient/HttpClient.model';
+import { HttpMethodModel } from '@lib/common/core/utils/HttpClient/HttpClient.model';
 
-export interface ServerlessService {
+export interface ServerlessServiceModel {
   name: string;
   port: number;
-  functions: ServerlessFunction[];
+  functions: ServerlessFunctionModel[];
 }
 
-export interface ServerlessFunction {
+export interface ServerlessFunctionModel {
   name: string;
-  method: HttpMethod;
+  method: HttpMethodModel;
 }
 
-export type requestHookFunction<F> = <P, R>(cb: (data: P) => Promise<R>) => F;
+export type RequestHookModel<F> = <P, R>(cb: (data: P) => Promise<R>) => F;

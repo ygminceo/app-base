@@ -1,7 +1,7 @@
+import { createGlobalStyle } from 'styled-components';
 import { APP_HEADER_ID } from '@lib/frontend/app/containers/AppHeader/AppHeader.constants';
 import { APP_SIDE_MENU_ID } from '@lib/frontend/app/containers/AppSideMenu/AppSideMenu.constants';
 import { CommonTheme } from '@lib/frontend/theme/themes/common.theme';
-import { createGlobalStyle } from 'styled-components';
 
 const Ionicons = require('react-native-vector-icons/Fonts/Ionicons.ttf').default;
 const Fontawesome = require('react-native-vector-icons/Fonts/FontAwesome.ttf').default;

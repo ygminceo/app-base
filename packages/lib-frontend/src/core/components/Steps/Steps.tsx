@@ -1,9 +1,9 @@
+import React, { createElement, useMemo, useState } from 'react';
 import { FormModel } from '@lib/common/core/models';
 import { Appearable, Icon, Wrapper } from '@lib/frontend/core/components';
 import { Slidable } from '@lib/frontend/core/components/Slidable/Slidable';
 import { StepsProps } from '@lib/frontend/core/components/Steps/Steps.model';
 import { useStyles } from '@lib/frontend/core/hooks';
-import React, { createElement, useMemo, useState } from 'react';
 
 export const Steps = <F extends FormModel>({ steps, ...props }: StepsProps<F>) => {
   const { styles } = useStyles(props);

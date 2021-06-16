@@ -1,6 +1,6 @@
+import { StyleSheet } from 'react-native';
 import { LogoProps } from '@lib/frontend/core/components/Logo/Logo.model';
 import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
-import { StyleSheet } from 'react-native';
 
 export const logoStyle = StyleSheet.create({
   default: {

@@ -1,10 +1,10 @@
+import { isString } from 'lodash';
+import React from 'react';
 import { appHeaderStyle } from '@lib/frontend/app/containers/AppHeader/AppHeader.style';
 import { Icon, Text, Wrapper } from '@lib/frontend/core/components';
 import { KeyboardContainer } from '@lib/frontend/core/components/KeyboardContainer/KeyboardContainer';
-import { _Modal } from '@lib/frontend/core/components/Modal/internal/_Modal';
 import { ModalProps } from '@lib/frontend/core/components/Modal/Modal.model';
-import { isString } from 'lodash';
-import React from 'react';
+import { _Modal } from '@lib/frontend/core/components/Modal/internal/_Modal';
 
 export const Modal = ({
   children,

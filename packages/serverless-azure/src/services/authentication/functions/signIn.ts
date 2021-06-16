@@ -1,6 +1,6 @@
+import { SignInRequestModel, SignInResponseModel } from '@lib/common/authentication/models';
 import { signInHandler } from '@lib/backend/authentication/handlers';
 import { Database } from '@lib/backend/utils/Database/Database';
-import { SignInRequestModel, SignInResponseModel } from '@lib/common/authentication/models';
 import { requestHook } from '@serverless/azure/core/requestHook/requestHook';
 
 const database = new Database();

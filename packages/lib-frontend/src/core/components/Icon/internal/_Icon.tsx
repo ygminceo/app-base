@@ -1,6 +1,6 @@
+import { get } from 'lodash';
 import { _IconProps } from '@lib/frontend/core/components/Icon/internal/_Icon.model';
 import compose from '@lib/frontend/core/utils/compose/compose';
-import { get } from 'lodash';
 import { IconProps } from 'react-native-vector-icons/dist/Icon';
 import { default as Ionicons } from 'react-native-vector-icons/dist/Ionicons';
 

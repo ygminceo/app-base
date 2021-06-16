@@ -1,9 +1,9 @@
+import React from 'react';
+import { default as FA } from 'react-native-vector-icons/FontAwesome';
 import { config } from '@lib/common/core/utils/Config/Config';
 import { AppLayout } from '@lib/frontend/app/layouts';
 import { Button, Image, ProgressBar, Text, Wrapper } from '@lib/frontend/core/components';
 import { CommonTheme } from '@lib/frontend/theme/themes/common.theme';
-import React from 'react';
-import { default as FA } from 'react-native-vector-icons/FontAwesome';
 
 const PUBLIC_URL = config.get<string>('REACT_APP_PUBLIC_URL', '');
 
@@ -40,9 +40,7 @@ export const EventPage = () => {
                 <Text title primary>
                   $4,262
                 </Text>
-                <Text muted>
-                  pledged of $6,000 total
-                </Text>
+                <Text muted>pledged of $6,000 total</Text>
               </Wrapper>
 
               <Text>

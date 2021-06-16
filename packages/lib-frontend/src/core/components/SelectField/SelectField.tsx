@@ -1,12 +1,12 @@
+import { find } from 'lodash';
+import React from 'react';
 import { Icon, Menu, Wrapper } from '@lib/frontend/core/components';
 import {
   SelectableOptionModel,
-  SelectFieldProps
+  SelectFieldProps,
 } from '@lib/frontend/core/components/SelectField/SelectField.model';
 import { TextField } from '@lib/frontend/core/components/TextField/TextField';
 import { useStyles, useUncontrolled } from '@lib/frontend/core/hooks';
-import { find } from 'lodash';
-import React from 'react';
 
 export const SelectField = <T,>({
   options,

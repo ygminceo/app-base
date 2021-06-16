@@ -1,7 +1,7 @@
+import React from 'react';
 import { Loading, Wrapper } from '@lib/frontend/core/components';
 import { AsyncWrapperProps } from '@lib/frontend/core/components/AsyncWrapper/AsyncWrapper.model';
 import { useStyles } from '@lib/frontend/core/hooks';
-import React from 'react';
 
 export const AsyncWrapper = ({ isLoading, children, ...props }: AsyncWrapperProps) => {
   const { styles } = useStyles(props);

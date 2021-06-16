@@ -1,19 +1,22 @@
-import { HttpError } from '@lib/common/core/utils/HttpClient/HttpClient.error';
-import { HttpMethod, HttpRequestConfig } from '@lib/common/core/utils/HttpClient/HttpClient.model';
-import {
-  _HttpClientClass,
-  _HttpClientProps,
-} from '@lib/common/core/utils/HttpClient/internal/_HttpClient.model';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { defaultsDeep } from 'lodash';
+import { HttpError } from '@lib/common/core/utils/HttpClient/HttpClient.error';
+import {
+  HttpMethodModel,
+  HttpRequestConfig,
+} from '@lib/common/core/utils/HttpClient/HttpClient.model';
+import {
+  _HttpClientModel,
+  _HttpClientProps,
+} from '@lib/common/core/utils/HttpClient/internal/_HttpClient.model';
 
 const toQueryString = (params: object) =>
   Object.entries(params)
     .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`)
     .join('&');
 
-export class _HttpClient implements _HttpClientClass {
-  private _client: _HttpClientClass;
+export class _HttpClient implements _HttpClientModel {
+  private _client: _HttpClientModel;
 
   constructor({ baseURL, config, onError, onRequest, onResponse }: _HttpClientProps) {
     this._client = axios.create(defaultsDeep({ baseURL }, config));
@@ -33,7 +36,7 @@ export class _HttpClient implements _HttpClientClass {
   }
 
   private _request<P extends object, T = any, E = HttpError<any>>(
-    method: HttpMethod,
+    method: HttpMethodModel,
     url: string,
     config?: HttpRequestConfig,
     data?: P,

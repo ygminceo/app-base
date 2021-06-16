@@ -1,6 +1,6 @@
+import { StackActions, useNavigation, useRoute } from '@react-navigation/native';
 import { _UseRouterReturnsModel } from '@lib/frontend/routing/hooks/useRouter/internal/_useRouter.model';
 import { RouterParamsModel } from '@lib/frontend/routing/hooks/useRouter/useRouter.model';
-import { StackActions, useNavigation, useRoute } from '@react-navigation/native';
 
 export const _useRouter = (): _UseRouterReturnsModel => {
   const navigation = useNavigation();

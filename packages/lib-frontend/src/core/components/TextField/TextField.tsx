@@ -1,11 +1,11 @@
+import { isNumber, isString } from 'lodash';
+import React, { useEffect, useRef } from 'react';
 import { Appearable, Text, Wrapper } from '@lib/frontend/core/components';
-import { _TextField } from '@lib/frontend/core/components/TextField/internal/_TextField';
 import { TextFieldProps } from '@lib/frontend/core/components/TextField/TextField.model';
+import { _TextField } from '@lib/frontend/core/components/TextField/internal/_TextField';
 import { useStyles, useUncontrolled } from '@lib/frontend/core/hooks';
 import { useTranslation } from '@lib/frontend/locale/hooks';
 import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
-import { isNumber, isString } from 'lodash';
-import React, { useEffect, useRef } from 'react';
 
 export const TextField = ({
   autoComplete,

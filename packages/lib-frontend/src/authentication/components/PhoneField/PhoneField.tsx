@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { COUNTRY_CODES } from '@lib/frontend/authentication/components/PhoneField/PhoneField.constants';
 import {
   PhoneFieldProps,
@@ -7,7 +8,6 @@ import { SelectField, TextField, Wrapper } from '@lib/frontend/core/components';
 import { SelectableOptionModel } from '@lib/frontend/core/components/SelectField/SelectField.model';
 import { useStyles, useUncontrolled } from '@lib/frontend/core/hooks';
 import { useTranslation } from '@lib/frontend/locale/hooks';
-import React, { useEffect } from 'react';
 
 export const PhoneField = ({
   autoFocus,

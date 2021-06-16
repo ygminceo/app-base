@@ -1,5 +1,5 @@
-import { Platform } from '@lib/frontend/core/utils/Platform/Platform';
 import { NativeModules } from 'react-native';
+import { Platform } from '@lib/frontend/core/utils/Platform/Platform';
 
 const locale = Platform.isIos
   ? NativeModules.SettingsManager.settings.AppleLocale ||

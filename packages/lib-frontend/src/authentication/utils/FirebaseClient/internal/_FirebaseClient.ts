@@ -1,11 +1,11 @@
+import firebase from 'firebase/app';
+import { pick } from 'lodash';
 import { TOKEN_CLAIM_KEYS } from '@lib/common/authentication/constants';
 import { config } from '@lib/common/core/utils/Config/Config';
 import { accountSetAction } from '@lib/frontend/account/actions/account/account.action';
 import { _FirebaseClientModel } from '@lib/frontend/authentication/utils/FirebaseClient/internal/_FirebaseClient.model';
 import { Platform } from '@lib/frontend/core/utils/Platform/Platform';
 import { store } from '@lib/frontend/root/stores/store';
-import firebase from 'firebase/app';
-import { pick } from 'lodash';
 
 const REACT_APP_FIREBASE_APP_ID = config.get<string>('REACT_APP_FIREBASE_APP_ID', '');
 const REACT_APP_FIREBASE_PROJECT_ID = config.get<string>('REACT_APP_FIREBASE_PROJECT_ID', '');

@@ -1,4 +1,4 @@
-export interface MailType {
+export interface MailModel {
   from: string;
   to: string[];
   bcc?: string[];
@@ -7,5 +7,5 @@ export interface MailType {
 }
 
 export interface MailerModel {
-  send(mail: MailType): Promise<void>;
+  send(mail: MailModel): Promise<void>;
 }

@@ -1,7 +1,7 @@
-import { ServerlessService } from '@lib/backend/serverless/serverless.model';
 import { reduce } from 'lodash';
+import { ServerlessServiceModel } from '@lib/backend/serverless/serverless.model';
 
-export const getService = (service: ServerlessService) => ({
+export const getService = (service: ServerlessServiceModel) => ({
   service: service.name,
   functions: reduce(
     service.functions,

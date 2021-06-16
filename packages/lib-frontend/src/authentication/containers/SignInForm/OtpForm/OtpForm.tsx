@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { OTP_CREATE, OTP_LENGTH } from '@lib/common/authentication/constants';
 import { OtpField } from '@lib/frontend/authentication/components';
 import {
@@ -10,7 +11,6 @@ import { useForm, useQuery, useStyles } from '@lib/frontend/core/hooks';
 import { promisify } from '@lib/frontend/core/utils/promisify/promisify';
 import { Trans } from '@lib/frontend/locale/components';
 import { useTranslation } from '@lib/frontend/locale/hooks';
-import React, { useState } from 'react';
 
 export const OtpForm = ({ username, onSubmit, onSuccess, onSend, ...props }: OtpFormProps) => {
   const { styles } = useStyles(props);

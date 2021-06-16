@@ -1,3 +1,6 @@
-import { MailerModel, MailType } from '@lib/backend/mail/utils/Mailer/Mailer.model';
+import { MailerModel, MailModel } from '@lib/backend/mail/utils/Mailer/Mailer.model';
 
-export type MailSendHandlerModel = (params: { mail: MailType; mailer: MailerModel }) => Promise<void>;
+export type MailSendHandlerModel = (params: {
+  mail: MailModel;
+  mailer: MailerModel;
+}) => Promise<void>;

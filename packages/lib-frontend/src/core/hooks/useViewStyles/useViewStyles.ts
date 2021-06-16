@@ -19,6 +19,6 @@ export const useViewStyles = <P extends StyledViewProps>(
     getFlexStyle,
     getShapeStyle,
     getSpacingStyle,
-    ...deps || [],
+    ...(deps || []),
   ]);
 };

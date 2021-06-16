@@ -1,3 +1,3 @@
-import { ConfigClass } from '@lib/common/core/utils/Config/Config.model';
+import { ConfigModel } from '@lib/common/core/utils/Config/Config.model';
 
-export interface _ConfigClass extends ConfigClass {}
+export interface _ConfigModel extends ConfigModel {}

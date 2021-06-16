@@ -1,5 +1,5 @@
-import { _WindowModel } from '@lib/frontend/core/hooks/useDimension/internal/_window.model';
 import { useEffect, useLayoutEffect } from 'react';
+import { _WindowModel } from '@lib/frontend/core/hooks/useDimension/internal/_window.model';
 
 const IS_SSR = typeof window === 'undefined';
 

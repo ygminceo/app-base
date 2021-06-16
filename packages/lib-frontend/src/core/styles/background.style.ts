@@ -1,7 +1,7 @@
+import { StyleSheet } from 'react-native';
 import { BackgroundProps } from '@lib/frontend/core/styles/background.model';
 import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 import { CommonTheme } from '@lib/frontend/theme/themes/common.theme';
-import { StyleSheet } from 'react-native';
 
 export const backgroundStyle = StyleSheet.create({
   black: { backgroundColor: CommonTheme.colors.black },

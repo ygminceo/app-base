@@ -1,8 +1,8 @@
+import React from 'react';
 import { AppearableProps } from '@lib/frontend/core/components/Appearable/Appearable.model';
 import { Wrapper } from '@lib/frontend/core/components/Wrapper/Wrapper';
 import { useStyles } from '@lib/frontend/core/hooks';
 import { shapeStyle } from '@lib/frontend/core/styles/shape.style';
-import React from 'react';
 
 export const Appearable = ({ children, isVisible, ...props }: AppearableProps) => {
   const { styles } = useStyles(props);

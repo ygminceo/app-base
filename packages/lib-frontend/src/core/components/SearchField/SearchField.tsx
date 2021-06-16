@@ -1,7 +1,7 @@
+import React from 'react';
 import { SearchFieldProps } from '@lib/frontend/core/components/SearchField/SearchField.model';
 import { TextField } from '@lib/frontend/core/components/TextField/TextField';
 import { useStyles, useUncontrolled } from '@lib/frontend/core/hooks';
-import React from 'react';
 
 export const SearchField = ({
   value,

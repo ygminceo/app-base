@@ -1,8 +1,3 @@
-import { WrapperProps } from '@lib/frontend/core/components/Wrapper/Wrapper.model';
-import { getWrapperChildStyle } from '@lib/frontend/core/components/Wrapper/Wrapper.style';
-import { useViewStyles } from '@lib/frontend/core/hooks';
-import { Platform } from '@lib/frontend/core/utils/Platform/Platform';
-import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
 import { isArray, reduce } from 'lodash';
 import {
   cloneElement,
@@ -23,6 +18,11 @@ import {
   View,
 } from 'react-native';
 import { createAnimatableComponent, View as AnimatableView } from 'react-native-animatable';
+import { WrapperProps } from '@lib/frontend/core/components/Wrapper/Wrapper.model';
+import { getWrapperChildStyle } from '@lib/frontend/core/components/Wrapper/Wrapper.style';
+import { useViewStyles } from '@lib/frontend/core/hooks';
+import { Platform } from '@lib/frontend/core/utils/Platform/Platform';
+import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
 
 const AnimatableTouchableOpacity = createAnimatableComponent(TouchableOpacity);
 

@@ -1,7 +1,7 @@
-import { FlexProps } from '@lib/frontend/core/styles/flex.model';
-import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 import { isNil, isNumber } from 'lodash';
 import { StyleSheet } from 'react-native';
+import { FlexProps } from '@lib/frontend/core/styles/flex.model';
+import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 
 export const flexStyle = StyleSheet.create({
   alignCenter: { alignItems: 'center' },

@@ -1,7 +1,7 @@
-import compose from '@lib/frontend/core/utils/compose/compose';
-import { _ThemeProviderProps } from '@lib/frontend/theme/containers/ThemeProvider/internal/_ThemeProvider.model';
 import { ReactNode } from 'react';
 import { DefaultTheme, Provider } from 'react-native-paper';
+import compose from '@lib/frontend/core/utils/compose/compose';
+import { _ThemeProviderProps } from '@lib/frontend/theme/containers/ThemeProvider/internal/_ThemeProvider.model';
 
 export const _ThemeProvider = compose<
   _ThemeProviderProps,

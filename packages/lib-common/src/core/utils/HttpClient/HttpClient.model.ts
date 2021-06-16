@@ -1,14 +1,14 @@
 import { HttpError } from '@lib/common/core/utils/HttpClient/HttpClient.error';
 
-export type HttpMethod = 'get' | 'post' | 'delete' | 'put';
+export type HttpMethodModel = 'get' | 'post' | 'delete' | 'put';
 
-export type HttpResponseType = 'arraybuffer' | 'blob' | 'json';
+export type HttpResponseModel = 'arraybuffer' | 'blob' | 'json';
 
 export interface HttpRequestConfig {
   headers?: object;
   timeout?: number;
   withCredentials?: boolean;
-  responseType?: HttpResponseType;
+  responseType?: HttpResponseModel;
 }
 
 export type GetRequest = <P extends object, T = any, E = any>(
@@ -32,7 +32,7 @@ export type PutRequest = <P extends object, T = any, E = any>(
   config?: HttpRequestConfig,
 ) => Promise<T>;
 
-export interface HttpClientClass {
+export interface HttpClientModel {
   get: GetRequest;
   delete: DeleteRequest;
   post: PostRequest;

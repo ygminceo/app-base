@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   APP_SIDE_MENU_ID,
   APP_SIDE_MENU_OPTIONS,
@@ -9,7 +10,6 @@ import { DividerOptionModel } from '@lib/frontend/core/components/Menu/Menu.mode
 import { SelectableOptionModel } from '@lib/frontend/core/components/SelectField/SelectField.model';
 import { useStyles } from '@lib/frontend/core/hooks';
 import { useTranslation } from '@lib/frontend/locale/hooks';
-import React from 'react';
 
 export const AppSideMenu = ({ ...props }: AppSideMenuProps) => {
   const { styles } = useStyles(props, [getAppSideMenuStyle]);

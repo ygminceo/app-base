@@ -1,5 +1,5 @@
-import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 import { StyleSheet } from 'react-native';
+import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 
 export const MOBILE_MENU_OPTION_HEIGHT = 32;
 

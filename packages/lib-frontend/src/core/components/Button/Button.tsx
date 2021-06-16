@@ -1,10 +1,10 @@
+import React, { useCallback } from 'react';
 import { Icon, Loading, Pressable, Text, Wrapper } from '@lib/frontend/core/components';
 import { ButtonProps } from '@lib/frontend/core/components/Button/Button.model';
 import { getButtonStyle } from '@lib/frontend/core/components/Button/Button.style';
 import { useStyles, useUncontrolled } from '@lib/frontend/core/hooks';
 import { promisify } from '@lib/frontend/core/utils/promisify/promisify';
 import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
-import React, { useCallback } from 'react';
 
 export const Button = ({
   children,

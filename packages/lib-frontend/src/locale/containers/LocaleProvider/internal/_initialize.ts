@@ -1,3 +1,5 @@
+import i18n, { InitOptions } from 'i18next';
+import { initReactI18next } from 'react-i18next';
 import {
   backend,
   _Backend,
@@ -7,8 +9,6 @@ import {
   _Detector,
 } from '@lib/frontend/locale/containers/LocaleProvider/internal/_Detector';
 import i18nConfig from '@lib/frontend/locale/i18n/i18n.config.js';
-import i18n, { InitOptions } from 'i18next';
-import { initReactI18next } from 'react-i18next';
 
 i18n
   .use(_Backend)

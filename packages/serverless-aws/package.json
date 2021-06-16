@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "authentication": "cd src/services/authentication && NODE_ENV=development sls offline && cd ..",
-    "payment": "cd src/services/payment && NODE_ENV=development sls offline && cd .."
+    "billing": "cd src/services/billing && NODE_ENV=development sls offline && cd .."
   },
   "dependencies": {
     "@lib/backend": "1.0.0",
@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@serverless/typescript": "^2.43.1",
+    "@trivago/prettier-plugin-sort-imports": "^2.0.2",
     "@types/aws-lambda": "^8.10.76",
     "@types/lodash": "^4.14.170",
     "@types/mongodb": "^3.6.17",

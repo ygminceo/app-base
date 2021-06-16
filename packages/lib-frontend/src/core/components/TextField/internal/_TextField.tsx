@@ -1,6 +1,3 @@
-import { Appearable, Icon, Wrapper } from '@lib/frontend/core/components';
-import { _TextFieldProps } from '@lib/frontend/core/components/TextField/internal/_TextField.model';
-import { useStyles, useTextStyles } from '@lib/frontend/core/hooks';
 import { isEmpty, isNil, size } from 'lodash';
 import React, { forwardRef, RefObject, useState } from 'react';
 import {
@@ -9,6 +6,9 @@ import {
   TextInputKeyPressEventData,
 } from 'react-native';
 import { TextInput } from 'react-native-paper';
+import { Appearable, Icon, Wrapper } from '@lib/frontend/core/components';
+import { _TextFieldProps } from '@lib/frontend/core/components/TextField/internal/_TextField.model';
+import { useStyles, useTextStyles } from '@lib/frontend/core/hooks';
 
 // const getKeyboardType = (type?: InputModel) => {
 //   switch (type) {

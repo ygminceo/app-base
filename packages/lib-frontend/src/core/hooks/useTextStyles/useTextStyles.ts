@@ -19,6 +19,6 @@ export const useTextStyles = <P extends StyledTextProps>(
     getSizeStyle,
     getFontStyle,
     getSpacingStyle,
-    ...deps || [],
+    ...(deps || []),
   ]);
 };

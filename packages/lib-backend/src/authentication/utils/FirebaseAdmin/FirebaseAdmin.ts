@@ -1,7 +1,7 @@
-import { TokenClaimsModel } from '@lib/common/authentication/models';
-import { config } from '@lib/common/core/utils/Config/Config';
 import admin from 'firebase-admin';
 import { toString } from 'lodash';
+import { TokenClaimsModel } from '@lib/common/authentication/models';
+import { config } from '@lib/common/core/utils/Config/Config';
 
 const SERVER_FIREBASE_ADMIN_PROJECT_ID = config.get<string>('SERVER_FIREBASE_ADMIN_PROJECT_ID', '');
 const SERVER_FIREBASE_ADMIN_EMAIL = config.get<string>('SERVER_FIREBASE_ADMIN_EMAIL', '');

@@ -1,6 +1,6 @@
-import { _MailerModel } from '@lib/backend/mail/utils/Mailer/internal/_Mailer.model';
-import { MailType } from '@lib/backend/mail/utils/Mailer/Mailer.model';
 import { createTransport, Transporter } from 'nodemailer';
+import { MailModel } from '@lib/backend/mail/utils/Mailer/Mailer.model';
+import { _MailerModel } from '@lib/backend/mail/utils/Mailer/internal/_Mailer.model';
 
 export class _Mailer implements _MailerModel {
   private _transporter: Transporter;
@@ -17,7 +17,7 @@ export class _Mailer implements _MailerModel {
     });
   }
 
-  async send({ from, to, bcc, subject, html }: MailType) {
+  async send({ from, to, bcc, subject, html }: MailModel) {
     return new Promise<void>((resolve, reject) =>
       this._transporter.sendMail({ from, to, bcc, subject, html }, (e) =>
         e ? reject(e) : resolve(),

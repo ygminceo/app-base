@@ -1,10 +1,10 @@
+import React, { Children, useState } from 'react';
+import { View as AnimatableView } from 'react-native-animatable';
 import { Wrapper } from '@lib/frontend/core/components';
 import { SlidableProps } from '@lib/frontend/core/components/Slidable/Slidable.model';
 import { useStyles } from '@lib/frontend/core/hooks';
 import { shapeStyle } from '@lib/frontend/core/styles/shape.style';
 import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
-import React, { Children, useState } from 'react';
-import { View as AnimatableView } from 'react-native-animatable';
 
 export const Slidable = ({ previous, current, children, ...props }: SlidableProps) => {
   const { styles } = useStyles(props);

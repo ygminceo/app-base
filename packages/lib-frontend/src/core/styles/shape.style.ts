@@ -1,8 +1,8 @@
+import { isNil } from 'lodash';
+import { StyleSheet } from 'react-native';
 import { flexStyle } from '@lib/frontend/core/styles/flex.style';
 import { ShapeProps } from '@lib/frontend/core/styles/shape.model';
 import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
-import { isNil } from 'lodash';
-import { StyleSheet } from 'react-native';
 
 export const shapeStyle = StyleSheet.create({
   fullWidth: { width: '100%' },

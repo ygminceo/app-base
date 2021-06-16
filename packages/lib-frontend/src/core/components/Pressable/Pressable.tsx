@@ -1,10 +1,10 @@
+import React, { useState } from 'react';
 import { Button, Hoverable, Modal, Text, Wrapper } from '@lib/frontend/core/components';
 import { PressableProps } from '@lib/frontend/core/components/Pressable/Pressable.model';
 import { getPressableStyle } from '@lib/frontend/core/components/Pressable/Pressable.style';
 import { useStyles, useUncontrolled } from '@lib/frontend/core/hooks';
 import { useTranslation } from '@lib/frontend/locale/hooks';
 import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
-import React, { useState } from 'react';
 
 export const Pressable = ({
   isDisabled,

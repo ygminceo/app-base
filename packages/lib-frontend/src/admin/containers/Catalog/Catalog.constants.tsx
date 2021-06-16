@@ -1,28 +1,21 @@
+import React from 'react';
 import { CatalogGroupModel } from '@lib/frontend/admin/containers/Catalog/Catalog.model';
 import { OtpField } from '@lib/frontend/authentication/components';
 import { OtpFieldProps } from '@lib/frontend/authentication/components/OtpField/OtpField.model';
 import { PhoneField } from '@lib/frontend/authentication/components/PhoneField/PhoneField';
 import { PhoneFieldProps } from '@lib/frontend/authentication/components/PhoneField/PhoneField.model';
-import {
-  Button,
-  Icon,
-  SelectField,
-  Text,
-  TextField,
-  Wrapper
-} from '@lib/frontend/core/components';
+import { Button, Icon, SelectField, Text, TextField, Wrapper } from '@lib/frontend/core/components';
 import { ButtonProps } from '@lib/frontend/core/components/Button/Button.model';
 import { IconProps } from '@lib/frontend/core/components/Icon/Icon.model';
 import { Menu } from '@lib/frontend/core/components/Menu/Menu';
 import { MenuOptionModel, MenuProps } from '@lib/frontend/core/components/Menu/Menu.model';
 import {
   SelectableOptionModel,
-  SelectFieldProps
+  SelectFieldProps,
 } from '@lib/frontend/core/components/SelectField/SelectField.model';
 import { TextProps } from '@lib/frontend/core/components/Text/Text.model';
 import { TextFieldProps } from '@lib/frontend/core/components/TextField/TextField.model';
 import { WrapperProps } from '@lib/frontend/core/components/Wrapper/Wrapper.model';
-import React from 'react';
 
 const ICON = 'times';
 

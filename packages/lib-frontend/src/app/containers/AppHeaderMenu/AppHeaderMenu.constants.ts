@@ -1,4 +1,3 @@
-import { PAYMENT } from '@lib/common/payment/constants';
 import { SETTINGS } from '@lib/common/settings/constants';
 import { signOutAction } from '@lib/frontend/authentication/actions/signOut/signOut.action';
 import { MenuOptionModel } from '@lib/frontend/core/components/Menu/Menu.model';
@@ -11,12 +10,6 @@ export const APP_HEADER_MENU_OPTIONS: MenuOptionModel[] = [
     value: 'settings',
     label: tLazy('settings:labels.settings'),
     pathname: SETTINGS,
-  },
-  {
-    icon: 'cash',
-    value: 'payment',
-    label: tLazy('payment:labels.payment'),
-    pathname: PAYMENT,
   },
   { divider: true },
   {

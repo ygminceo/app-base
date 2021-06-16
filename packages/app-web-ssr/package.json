@@ -52,6 +52,7 @@
     "styled-components": "^5.3.0"
   },
   "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^2.0.2",
     "@types/firebase": "^3.2.1",
     "@types/lodash": "^4.14.170",
     "@types/mixpanel-browser": "^2.35.6",

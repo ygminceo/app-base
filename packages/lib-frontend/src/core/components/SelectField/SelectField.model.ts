@@ -1,10 +1,10 @@
+import { Optional } from 'utility-types';
 import { FieldProps } from '@lib/frontend/core/components/Field/Field.model';
 import { MenuProps } from '@lib/frontend/core/components/Menu/Menu.model';
 import { PressableProps } from '@lib/frontend/core/components/Pressable/Pressable.model';
 import { TextFieldProps } from '@lib/frontend/core/components/TextField/TextField.model';
 import { ColorProps } from '@lib/frontend/core/styles/color.model';
 import { RouteClassModel } from '@lib/frontend/routing/containers/Router/Router.model';
-import { Optional } from 'utility-types';
 
 export interface SelectableOptionModel
   extends Pick<PressableProps, 'onPress' | 'isDisabled' | 'confirmMessage'>,

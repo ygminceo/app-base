@@ -1,6 +1,6 @@
-import { HomePageProps } from '@app/web-ssr/pages/Home/Home.model';
-import { Wrapper } from '@lib/frontend/core/components';
 import React from 'react';
+import { Wrapper } from '@lib/frontend/core/components';
+import { HomePageProps } from '@app/web-ssr/pages/Home/Home.model';
 
 export const HomePage = ({ ...props }: HomePageProps) => {
   return (

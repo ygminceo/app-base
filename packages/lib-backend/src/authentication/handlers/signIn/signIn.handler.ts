@@ -1,13 +1,12 @@
+import { pick, toString, unset } from 'lodash';
+import { ACCOUNT_PRIMARY_KEYS, ACCOUNT_SUMMARY_KEYS } from '@lib/common/account/constants';
+import { AccountCreateRequestModel } from '@lib/common/account/models';
+import { SignInRequestModel } from '@lib/common/authentication/models';
 import { accountCreateHandler, accountGetHandler } from '@lib/backend/account/handlers';
 import { tokenCreateHandler } from '@lib/backend/authentication/handlers';
 import { otpVerifyHandler } from '@lib/backend/authentication/handlers/otpVerify/otpVerify.handler';
 import { SignInHandlerModel } from '@lib/backend/authentication/handlers/signIn/signIn.model';
 import { CollectionModel } from '@lib/backend/utils/Database/Database.model';
-import { ACCOUNT_PRIMARY_KEYS } from '@lib/common/account/constants';
-import { AccountCreateRequestModel } from '@lib/common/account/models';
-import { TOKEN_CLAIM_KEYS } from '@lib/common/authentication/constants';
-import { SignInRequestModel } from '@lib/common/authentication/models';
-import { pick, toString, unset } from 'lodash';
 
 export const signInHandler: SignInHandlerModel = async ({
   data,
@@ -27,11 +26,12 @@ export const signInHandler: SignInHandlerModel = async ({
 
   const token = await tokenCreateHandler(account);
   return {
-    account: {
-      ...pick(account, TOKEN_CLAIM_KEYS),
-      id: toString(account._id),
-    },
     token,
+    account: {
+      ...pick(account, ACCOUNT_SUMMARY_KEYS),
+      // TODO: do we need this for non-mongo?
+      _id: toString(account._id),
+    },
   };
 };
 

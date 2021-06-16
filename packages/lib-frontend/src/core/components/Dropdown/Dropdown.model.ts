@@ -1,6 +1,6 @@
-import { StyledPropsWithChildren } from '@lib/frontend/core/styles/style.model';
 import { ReactElement, ReactNode } from 'react';
 import { PressableProps } from 'react-native';
+import { StyledPropsWithChildren } from '@lib/frontend/core/styles/style.model';
 
 export interface DropdownProps
   extends StyledPropsWithChildren<{
