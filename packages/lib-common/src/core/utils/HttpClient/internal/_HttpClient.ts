@@ -43,9 +43,13 @@ export class _HttpClient implements _HttpClientModel {
   ) {
     return this._client[method](url, data, config || {})
       .then((response: AxiosResponse<T>) => response.data)
-      .catch((error: AxiosError<E>) =>
-        Promise.reject(new HttpError<E>(error.response?.status, error.response?.data)),
-      );
+      .catch((error: AxiosError<E>) => {
+        if (error.message === 'Network Error') {
+          // TODO: network alert
+          console.warn('network');
+        }
+        throw new HttpError<E>(error.response?.status, error.response?.data);
+      });
   }
 
   get<P extends object, T = any, E = HttpError<any>>(

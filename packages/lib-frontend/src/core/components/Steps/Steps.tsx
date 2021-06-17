@@ -29,7 +29,7 @@ export const Steps = <F extends FormModel>({ steps, ...props }: StepsProps<F>) =
       <Wrapper grow relative>
         <Slidable previous={previous} current={current}>
           {steps.map((step, i) => {
-            const component = isFunction(step.component) ? step.component(dataAll) : step.component;
+            const component = step.getComponent(dataAll);
             return createElement(component, {
               key: i,
               onSuccess: (data: any) => {

@@ -27,14 +27,14 @@ const RouteWithSubRoutes = (route: RouteClassModel) => (
           <ChildStack.Navigator>{route.routes.map(RouteWithSubRoutes)}</ChildStack.Navigator>
         );
       }
-      const RouteParent = route.protected ? Protected : Fragment;
+      const RouteContainer = route.protected ? Protected : Fragment;
       const RouteComponent = route.component || Fragment;
       return (
-        <RouteParent>
+        <RouteContainer>
           <RouteComponent {...(route.props || {})} {...componentProps}>
             {children}
           </RouteComponent>
-        </RouteParent>
+        </RouteContainer>
       );
     }}
   </Stack.Screen>

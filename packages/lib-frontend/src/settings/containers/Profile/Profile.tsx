@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAccountProtected } from '@lib/frontend/account/hooks';
+import { useAccount } from '@lib/frontend/account/stores/account.reducer';
 import { Divider, Link, Text, Wrapper } from '@lib/frontend/core/components';
 import { useStyles } from '@lib/frontend/core/hooks';
 import { useTranslation } from '@lib/frontend/locale/hooks';
@@ -8,7 +8,7 @@ import { ProfileProps } from '@lib/frontend/settings/containers/Profile/Profile.
 export const Profile = ({ ...props }: ProfileProps) => {
   const { styles } = useStyles(props);
   const { t } = useTranslation(['common']);
-  const account = useAccountProtected();
+  const account = useAccount();
   return (
     <Wrapper style={styles} grow spacing>
       <Divider />

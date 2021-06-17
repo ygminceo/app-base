@@ -2,7 +2,7 @@ import { unwrapResult } from '@reduxjs/toolkit';
 import React, { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { BankAccountAddRequestModel } from '@lib/common/billing/models';
-import { useAccountProtected } from '@lib/frontend/account/hooks';
+import { useAccount } from '@lib/frontend/account/stores/account.reducer';
 import {
   bankAccountAddAction,
   bankLinkTokenCreateAction,
@@ -17,9 +17,9 @@ import { AppDispatchModel } from '@lib/frontend/root/stores/store';
 export const _BankAccountButton = ({ ...props }: _BankAccountButtonProps) => {
   const { styles } = useStyles(props);
   const { t } = useTranslation(['billing']);
-
   const dispatch = useDispatch<AppDispatchModel>();
-  const account = useAccountProtected();
+
+  const account = useAccount();
   const [token, setToken] = useState<string>('');
 
   // TODO: cache this until exp

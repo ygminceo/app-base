@@ -28,6 +28,7 @@ export const getService = (service: ServerlessServiceModel) => ({
   custom: {
     'serverless-offline': {
       httpPort: service.port,
+      lambdaPort: service.port + 1000,
     },
   },
 });

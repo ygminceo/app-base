@@ -11,11 +11,11 @@ import { store } from '@lib/frontend/root/stores/store';
 
 export const SIGNIN_FORM_STEPS: StepModel<SignInRequestModel, any>[] = [
   {
-    component: EmailForm,
+    getComponent: () => EmailForm,
   } as StepModel<SignInRequestModel, EmailFormProps>,
 
   {
-    component: OtpForm,
+    getComponent: () => OtpForm,
     getProps: (data) => ({
       username: data.emailAddress,
       onSend: (username) => store.dispatch(otpCreateAction({ username })).then(unwrapResult),

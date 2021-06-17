@@ -1,4 +1,4 @@
-import { ComponentType } from 'react';
+import { ComponentType, Component } from 'react';
 import { FormModel } from '@lib/common/core/models';
 import { StyledProps } from '@lib/frontend/core/styles/style.model';
 
@@ -7,7 +7,7 @@ export interface StepsProps<F extends FormModel> extends StyledProps {
 }
 
 export interface StepModel<F extends FormModel, P> {
-  component: ComponentType<P> | ((data: any) => ComponentType<P>);
+  getComponent: (data: any) => ComponentType<P>;
   getProps?: (data: F) => Omit<P, 'onSuccess'>;
 }
 
