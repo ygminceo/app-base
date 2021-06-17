@@ -1,4 +1,7 @@
 import { join, relative } from 'path';
+import { config } from '@lib/common/core/utils/Config/Config';
+
+const HOST = config.get<string>('HOST', '');
 
 export const baseConfig = {
   frameworkVersion: '2',
@@ -18,7 +21,7 @@ export const baseConfig = {
     'serverless-offline': {
       allowCache: false,
       //TODO: to env
-      host: '127.0.0.1',
+      host: HOST,
       httpsProtocol: '',
       noPrependStageInUrl: true,
       useChildProcesses: true,

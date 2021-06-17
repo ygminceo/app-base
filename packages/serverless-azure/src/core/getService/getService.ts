@@ -3,6 +3,7 @@ import { ServerlessServiceModel } from '@lib/backend/serverless/serverless.model
 
 export const getService = (service: ServerlessServiceModel) => ({
   service: service.name,
+
   functions: reduce(
     service.functions,
     (result, func) => ({
@@ -21,4 +22,12 @@ export const getService = (service: ServerlessServiceModel) => ({
     }),
     {},
   ),
+
+  custom: {
+    webpack: {
+      includeModules: {
+        nodeModulesRelativeDir: '../../../../../',
+      },
+    },
+  },
 });

@@ -4,6 +4,7 @@ import { ServerlessServiceModel } from '@lib/backend/serverless/serverless.model
 //TODO: model this
 export const getService = (service: ServerlessServiceModel) => ({
   service: service.name,
+
   functions: reduce(
     service.functions,
     (result, func) => ({
@@ -23,4 +24,10 @@ export const getService = (service: ServerlessServiceModel) => ({
     }),
     {},
   ),
+
+  custom: {
+    'serverless-offline': {
+      httpPort: service.port,
+    },
+  },
 });

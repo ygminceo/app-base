@@ -1,3 +1,4 @@
+import { isFunction } from 'lodash';
 import React, { createElement, useMemo, useState } from 'react';
 import { FormModel } from '@lib/common/core/models';
 import { Appearable, Icon, Wrapper } from '@lib/frontend/core/components';
@@ -11,6 +12,7 @@ export const Steps = <F extends FormModel>({ steps, ...props }: StepsProps<F>) =
   const [current, setCurrent] = useState<number>(0);
   const [dataAll, setDataAll] = useState<any>({});
   const isLastStep = useMemo(() => current === steps.length - 1, [current]);
+
   return (
     <Wrapper style={styles} grow>
       <Appearable isVisible={current > 0}>
@@ -26,8 +28,9 @@ export const Steps = <F extends FormModel>({ steps, ...props }: StepsProps<F>) =
 
       <Wrapper grow relative>
         <Slidable previous={previous} current={current}>
-          {steps.map((step, i) =>
-            createElement(step.component, {
+          {steps.map((step, i) => {
+            const component = isFunction(step.component) ? step.component(dataAll) : step.component;
+            return createElement(component, {
               key: i,
               onSuccess: (data: any) => {
                 const dataCombined = { ...dataAll, ...data };
@@ -38,8 +41,8 @@ export const Steps = <F extends FormModel>({ steps, ...props }: StepsProps<F>) =
                 return setDataAll(dataCombined);
               },
               ...(step.getProps ? step.getProps(dataAll) : {}),
-            }),
-          )}
+            });
+          })}
         </Slidable>
       </Wrapper>
     </Wrapper>

@@ -8,7 +8,7 @@ import { config } from '@lib/common/core/utils/Config/Config';
 import { HttpClient } from '@lib/frontend/core/services/HttpClient/HttpClient';
 
 const API_HOST = config.get<string>('REACT_APP_API_HOST', '');
-const API_PORT = config.get<number>('REACT_APP_API_PORT', null);
+const API_PORT = config.get<number>('REACT_APP_API_AUTHENTICATION_PORT', null);
 
 class AuthenticationClient {
   private _client: HttpClient;

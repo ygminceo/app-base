@@ -4,17 +4,7 @@ import { getService } from '@serverless/azure/core/getService/getService';
 import { serverlessConfig } from '@serverless/azure/serverless';
 
 const config = defaultsDeep(
-  {
-    ...getService(authenticationService),
-
-    custom: {
-      webpack: {
-        includeModules: {
-          nodeModulesRelativeDir: '../../../../../',
-        },
-      },
-    },
-  },
+  getService(authenticationService),
 
   serverlessConfig,
 );

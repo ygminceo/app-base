@@ -9,10 +9,10 @@ module.exports = {
   extends: ['plugin:react/recommended', 'airbnb', 'plugin:import/typescript'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
+    ecmaVersion: 12,
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 12,
     sourceType: 'module',
   },
   plugins: ['react', '@typescript-eslint'],
