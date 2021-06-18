@@ -3,32 +3,27 @@
   "private": true,
   "scripts": {
     "clean": "npx rimraf ./node_modules ./packages/*/node_modules",
-
     "mobile-start": "yarn workspace @app/mobile start",
     "ios": "yarn workspace @app/mobile ios",
-    "ios:pod": "yarn ios-pod-clean && cd packages/app-mobile/ios && pod install --repo-update && cd ../../../",
+    "ios:pod": "yarn ios:pod:clean && cd packages/app-mobile/ios && pod install --repo-update && cd ../../../",
     "ios:pod:clean": "cd packages/app-mobile/ios && rimraf ./Pods ./build ./Podfile.lock && cd ../../../",
-
     "web": "yarn workspace @app/web dev",
     "web:build": "yarn workspace @app/web build",
     "web:deploy": "yarn workspace @app/web deploy",
-
     "ssr": "yarn workspace @app/web-ssr dev",
     "ssr:build": "yarn workspace @app/web-ssr build",
     "ssr:start": "yarn workspace @app/web-ssr start",
     "ssr:yarn": "cd packages/app-web-ssr yarn",
     "ssr:export": "yarn workspace @app/web-ssr export",
-
     "aws": "run-p --print-label aws:**",
     "aws:authentication": "yarn workspace @serverless/aws authentication",
     "aws:billing": "yarn workspace @serverless/aws billing",
-
     "azure:authentication": "yarn workspace @serverless/azure authentication",
-
     "prettier": "npx prettier --write \"**/src/**/*.ts\" \"**/src/**/*.tsx\"",
     "locale": "npx i18next --silent 'packages/*/src/**/*.{ts,tsx}'",
     "list-mismatch": "npx syncpack list-mismatches",
-    "fix-mismatch": "npx syncpack fix-mismatches"
+    "fix-mismatch": "npx syncpack fix-mismatches",
+    "gen-react": "node templates/generate.js"
   },
   "version": "1.0.0",
   "license": "MIT",
@@ -36,5 +31,8 @@
     "packages": [
       "packages/*"
     ]
+  },
+  "dependencies": {
+    "generate-template-files": "^3.0.0"
   }
 }

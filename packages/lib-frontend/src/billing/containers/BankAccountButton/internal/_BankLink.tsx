@@ -1,3 +1,4 @@
+import { get } from 'lodash';
 import React, { useEffect } from 'react';
 import { usePlaidLink } from 'react-plaid-link';
 import { useAccount } from '@lib/frontend/account/stores/account.reducer';
@@ -15,10 +16,10 @@ export const _BankLink = ({ token, onSuccess, onError }: _BankLinkProps) => {
         accountId: account._id,
         token: publicToken,
         bankAccount: {
-          id: metadata.account.id,
-          name: metadata.account.name,
-          institution_id: metadata.institution.institution_id,
-          institution_name: metadata.institution.name,
+          id: get(metadata, ['accounts', 0, 'id'], ''),
+          name: get(metadata, ['accounts', 0, 'name'], ''),
+          institution_id: get(metadata, ['institution', 'id'], ''),
+          institution_name: get(metadata, ['institution', 'name'], ''),
         },
       }),
     onExit: onError,

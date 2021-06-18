@@ -1,6 +1,6 @@
 export const CommonTheme = {
   animation: {
-    duration: 200,
+    duration: 150,
     transition: 400,
   },
   shape: {

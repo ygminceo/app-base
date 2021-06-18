@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Appearable, Wrapper } from '@lib/frontend/core/components';
 import { _DropdownProps } from '@lib/frontend/core/components/Dropdown/internal/_Dropdown.model';
 import { useStyles } from '@lib/frontend/core/hooks';
+import { CommonTheme } from '@lib/frontend/theme/themes/common.theme';
 
 const LazyTippy = (props: TippyProps) => {
   const [isMounted, setIsMounted] = useState(false);
@@ -45,7 +46,7 @@ export const _Dropdown = ({
       interactive
       maxWidth="none"
       content={<Appearable isVisible={isOpen}>{children}</Appearable>}
-      duration={0}
+      duration={CommonTheme.animation.duration}
       popperOptions={{
         modifiers: fullWidth
           ? [
