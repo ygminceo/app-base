@@ -65,7 +65,7 @@
 **/coverage
 
 # Environments
-**/env
+**/.env.*
 
 # next.js
 **/.next/
