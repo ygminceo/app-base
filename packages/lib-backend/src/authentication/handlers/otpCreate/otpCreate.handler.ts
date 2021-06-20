@@ -20,7 +20,6 @@ export const otpCreateHandler: OtpCreateHandlerModel = async ({ data, otpCollect
       html: 'Test',
     },
   });
-
   return otp;
 };
 
