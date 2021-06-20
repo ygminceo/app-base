@@ -3,6 +3,7 @@ import { Router } from '@lib/frontend/routing/containers';
 import { ROUTES } from '@lib/frontend/routing/containers/Router/Router.constants';
 import { Root } from '@lib/frontend/src/root/containers';
 import React from 'react';
+import { View, Text } from 'react-native';
 
 const App = () => (
   <Root>
