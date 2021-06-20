@@ -12,7 +12,7 @@ export const baseConfig = {
 
   custom: {
     dotenv: {
-      path: join(__dirname, `../../../../env/.env.${process.env.NODE_ENV}`),
+      path: join(__dirname, `../../../../$ENV_PATH/.env.${process.env.NODE_ENV}`),
     },
     webpack: {
       packager: 'yarn',

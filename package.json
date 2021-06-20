@@ -7,18 +7,24 @@
     "ios": "yarn workspace @app/mobile ios",
     "ios:pod": "yarn ios:pod:clean && cd packages/app-mobile/ios && pod install --repo-update && cd ../../../",
     "ios:pod:clean": "cd packages/app-mobile/ios && rimraf ./Pods ./build ./Podfile.lock && cd ../../../",
+
     "web": "yarn workspace @app/web dev",
     "web:build": "yarn workspace @app/web build",
-    "web:deploy": "yarn workspace @app/web deploy",
+
     "ssr": "yarn workspace @app/web-ssr dev",
     "ssr:build": "yarn workspace @app/web-ssr build",
     "ssr:start": "yarn workspace @app/web-ssr start",
     "ssr:yarn": "cd packages/app-web-ssr yarn",
     "ssr:export": "yarn workspace @app/web-ssr export",
+
     "aws": "run-p --print-label aws:**",
     "aws:authentication": "yarn workspace @serverless/aws authentication",
     "aws:billing": "yarn workspace @serverless/aws billing",
+
+    "azure": "run-p --print-label azure:**",
     "azure:authentication": "yarn workspace @serverless/azure authentication",
+    "azure:billing": "yarn workspace @serverless/azure billing",
+
     "prettier": "npx prettier --write \"**/src/**/*.ts\" \"**/src/**/*.tsx\"",
     "locale": "npx i18next --silent 'packages/*/src/**/*.{ts,tsx}'",
     "list-mismatch": "npx syncpack list-mismatches",

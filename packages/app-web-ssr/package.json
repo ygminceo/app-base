@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "dotenv -e ../../env/.env.development next",
-    "build": "dotenv -e ../../env/.env.production next build",
-    "start": "dotenv -e ../../env/.env.production next start",
-    "export": "dotenv -e ../../env/.env.production next export",
+    "dev": "dotenv -e ../../$ENV_PATH/.env.development next",
+    "build": "dotenv -e ../../$ENV_PATH/.env.production next build",
+    "start": "dotenv -e ../../$ENV_PATH/.env.production next start",
+    "export": "dotenv -e ../../$ENV_PATH/.env.production next export",
     "deploy": "firebase login && firebase deploy --only hosting:web-ssr"
   },
   "dependencies": {

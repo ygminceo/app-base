@@ -3,9 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "dotenv -e ../../env/.env.development react-app-rewired start",
-    "build": "dotenv -e ../../env/.env.production react-app-rewired build",
-    "deploy": "firebase login && firebase deploy"
+    "dev": "dotenv -e ../../$ENV_PATH/.env.development react-app-rewired start",
+    "build": "dotenv -e ../../$ENV_PATH/.env.production react-app-rewired build"
   },
   "dependencies": {
     "@lib/common": "1.0.0",

@@ -9,7 +9,7 @@ export const getService = (service: ServerlessServiceModel) => ({
     (result, func) => ({
       ...result,
       [func.name]: {
-        handler: `functions/${func.name}.main`,
+        handler: `lambdas.${func.name}`,
         events: [
           {
             http: true,
