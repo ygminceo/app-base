@@ -17,13 +17,16 @@
     "ssr:yarn": "cd packages/app-web-ssr yarn",
     "ssr:export": "yarn workspace @app/web-ssr export",
 
-    "aws": "run-p --print-label aws:**",
+    "aws": "run-p --print-label aws:*",
     "aws:authentication": "yarn workspace @serverless/aws authentication",
     "aws:billing": "yarn workspace @serverless/aws billing",
 
-    "azure": "run-p --print-label azure:**",
+    "azure": "run-p --print-label azure:*",
     "azure:authentication": "yarn workspace @serverless/azure authentication",
     "azure:billing": "yarn workspace @serverless/azure billing",
+    "azure:deploy": "run-p --print-label azure:deploy:*",
+    "azure:deploy:authentication": "yarn workspace @serverless/azure authentication:deploy",
+    "azure:deploy:billing": "yarn workspace @serverless/azure billing:deploy",
 
     "prettier": "npx prettier --write \"**/src/**/*.ts\" \"**/src/**/*.tsx\"",
     "locale": "npx i18next --silent 'packages/*/src/**/*.{ts,tsx}'",

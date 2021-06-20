@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "ENVFILE=../../$ENV_PATH/.env.development react-native run-android",
-    "ios": "ENVFILE=../../$ENV_PATH/.env.development react-native run-ios",
+    "android": "ENVFILE=../../.env.development react-native run-android",
+    "ios": "ENVFILE=../../.env.development react-native run-ios",
     "start": "react-native start"
   },
   "dependencies": {
