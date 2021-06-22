@@ -2,7 +2,6 @@ import { HttpMethodModel } from '@lib/common/core/utils/HttpClient/HttpClient.mo
 
 export interface ServerlessServiceModel {
   name: string;
-  port: number;
   functions: ServerlessFunctionModel[];
 }
 

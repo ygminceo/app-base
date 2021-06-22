@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "authentication": "cd src/services/authentication && dotenv -e ../../../../../.env.development sls offline && cd ..",
-    "billing": "cd src/services/billing && dotenv -e ../../../../../.env.development sls offline && cd .."
+    "offline": "dotenv -e ../../.env.development sls offline",
+    "deploy": "dotenv -e ../../.env.production sls deploy"
   },
   "dependencies": {
     "@lib/backend": "1.0.0",

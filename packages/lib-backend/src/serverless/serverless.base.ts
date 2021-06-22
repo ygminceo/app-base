@@ -16,7 +16,7 @@ export const baseConfig = {
     },
     webpack: {
       packager: 'yarn',
-      webpackConfig: relative(process.cwd(), join(__dirname, 'webpack.config.js')),
+      webpackConfig: relative(process.cwd(), join(__dirname, 'serverless.webpack.config.js')),
     },
     'serverless-offline': {
       allowCache: false,
