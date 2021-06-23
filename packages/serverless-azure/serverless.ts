@@ -1,6 +1,9 @@
-import { defaultsDeep, get, set } from 'lodash';
 import { baseConfig } from '@lib/backend/serverless/serverless.base';
 import { services } from '@lib/backend/serverless/services';
+import { config } from '@lib/common/core/utils/Config/Config';
+import { defaultsDeep, get, set } from 'lodash';
+
+const REACT_APP_PUBLIC_URL = config.get('REACT_APP_PUBLIC_URL', '');
 
 const serverlessConfig = defaultsDeep(
   {
@@ -12,6 +15,16 @@ const serverlessConfig = defaultsDeep(
       region: 'West US 2',
       stage: 'dev',
       subscriptionId: '26a5b9ae-7a22-4ad3-8f89-03555ef29b36',
+
+      apim: {
+        cors: {
+          allowCredentials: true,
+          allowedOrigins: [REACT_APP_PUBLIC_URL],
+          allowedMethods: ['GET', 'POST', 'PUT', 'DELETE'],
+          allowedHeaders: ['*'],
+          exposeHeaders: ['*'],
+        }
+      },
     },
 
     plugins: ['serverless-dotenv-plugin', 'serverless-azure-functions', 'serverless-webpack'],
@@ -28,12 +41,13 @@ services.forEach((service) => {
   // Apis
   set(
     serverlessConfig,
-    ['apim', 'apis'],
+    ['provider', 'apim', 'apis'],
     [
-      ...get(serverlessConfig, ['apim', 'apis'], []),
+      ...get(serverlessConfig, ['provider', 'apim', 'apis'], []),
       {
         name: `${service.name}-api`,
-        path: service.name,
+        displayName: `${service.name}-api`,
+        path: `api/${service.name}`,
         subscriptionRequired: false,
         protocols: [process.env.NODE_ENV === 'development' ? 'http' : 'https'],
         authorization: 'none',
@@ -44,9 +58,9 @@ services.forEach((service) => {
   // Backends
   set(
     serverlessConfig,
-    ['apim', 'backends'],
+    ['provider', 'apim', 'backends'],
     [
-      ...get(serverlessConfig, ['apim', 'backends'], []),
+      ...get(serverlessConfig, ['provider', 'apim', 'backends'], []),
       {
         name: `${service.name}-backend`,
         url: `api/${service.name}`,
@@ -63,7 +77,7 @@ services.forEach((service) => {
           http: true,
           route: `${service.name}/${func.name}`,
           methods: [func.method],
-          authLevel: 'function',
+          authLevel: 'anonymous',
         },
       ],
       apim: {

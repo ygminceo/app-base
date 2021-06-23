@@ -45,7 +45,9 @@ export const BankAccountButton = ({ ...props }: BankAccountButtonProps) => {
       <Button style={styles} onPress={handleTokenCreate}>
         {t('billing:labels.addBankAccount')}
       </Button>
-      {token ? <_BankLink token={token} onSuccess={handleBankLink} onError={() => setToken('')} /> : null}
+      {token ? (
+        <_BankLink token={token} onSuccess={handleBankLink} onError={() => setToken('')} />
+      ) : null}
     </>
   );
 };

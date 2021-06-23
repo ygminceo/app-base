@@ -8,7 +8,7 @@ import {
 import { TextField } from '@lib/frontend/core/components/TextField/TextField';
 import { useStyles, useUncontrolled } from '@lib/frontend/core/hooks';
 
-export const SelectField = <T,>({
+export const SelectField = ({
   options,
   isDisabled,
   error,

@@ -5,7 +5,6 @@ import {
 import { bankLinkTokenCreateHandler } from '@lib/backend/billing/handlers';
 import { requestHook } from '@serverless/azure/core/requestHook/requestHook';
 
-export const main = requestHook<
-  BankLinkTokenCreateRequestModel,
-  BankLinkTokenCreateResponseModel
->(async (data) => await bankLinkTokenCreateHandler(data));
+export const main = requestHook<BankLinkTokenCreateRequestModel, BankLinkTokenCreateResponseModel>(
+  async (data) => await bankLinkTokenCreateHandler(data),
+);

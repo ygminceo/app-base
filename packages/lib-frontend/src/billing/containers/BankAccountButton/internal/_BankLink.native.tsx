@@ -1,9 +1,9 @@
 import { get } from 'lodash';
 import { useEffect } from 'react';
+import React from 'react';
 import { openLink } from 'react-native-plaid-link-sdk';
 import { useAccount } from '@lib/frontend/account/stores/account.reducer';
 import { _BankLinkProps } from '@lib/frontend/billing/containers/BankAccountButton/internal/_BankLink.model';
-import React from 'react';
 
 export const _BankLink = ({ token, onSuccess, onError }: _BankLinkProps) => {
   const account = useAccount();

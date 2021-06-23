@@ -34,7 +34,7 @@ export const PhoneField = ({
 
   return (
     <Wrapper style={styles} spacingTight>
-      <SelectField<string>
+      <SelectField
         searchable
         label={t('common:labels.countryCode')}
         options={COUNTRY_CODES}

@@ -8,7 +8,9 @@ export const Chart = ({ data, ...props }: ChartProps) => {
   const { styles } = useStyles(props);
   return (
     <Wrapper style={styles} border round width={500} height={500}>
-      <Text p title>Chart Title</Text>
+      <Text p title>
+        Chart Title
+      </Text>
       <Wrapper grow shrink>
         <_Chart data={data} />
       </Wrapper>

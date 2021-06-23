@@ -9,7 +9,6 @@ const { EXTENSIONS, ROOT_PATH } = require('../../../../constants');
 const isDev = slsw.lib.webpack.isLocal;
 
 const tsConfig = resolve(process.cwd(), 'tsconfig.json');
-console.warn(`@@@${tsConfig}`);
 
 module.exports = {
   mode: isDev ? 'development' : 'production',

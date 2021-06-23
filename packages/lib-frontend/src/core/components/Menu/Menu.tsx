@@ -1,5 +1,5 @@
 import { get, isFunction, map } from 'lodash';
-import React, { cloneElement, useCallback, useState } from 'react';
+import React, { cloneElement, useCallback, useState, memo } from 'react';
 import { Divider, Icon, Pressable, Text, Wrapper } from '@lib/frontend/core/components';
 import { Dropdown } from '@lib/frontend/core/components/Dropdown/Dropdown';
 import {
@@ -15,7 +15,7 @@ import { promisify } from '@lib/frontend/core/utils/promisify/promisify';
 import { useTranslation } from '@lib/frontend/locale/hooks';
 import { useRouter } from '@lib/frontend/routing/hooks';
 
-export const Menu = <T,>({
+export const Menu = ({
   anchor,
   fullWidth,
   height,
