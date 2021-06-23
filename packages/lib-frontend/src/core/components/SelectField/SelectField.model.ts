@@ -4,12 +4,12 @@ import { MenuProps } from '@lib/frontend/core/components/Menu/Menu.model';
 import { PressableProps } from '@lib/frontend/core/components/Pressable/Pressable.model';
 import { TextFieldProps } from '@lib/frontend/core/components/TextField/TextField.model';
 import { ColorProps } from '@lib/frontend/core/styles/color.model';
-import { RouteClassModel } from '@lib/frontend/routing/containers/Router/Router.model';
+import { RouteModel } from '@lib/frontend/routing/containers/Router/Router.model';
 
 export interface SelectableOptionModel
   extends Pick<PressableProps, 'onPress' | 'isDisabled' | 'confirmMessage'>,
     Pick<ColorProps, 'error'>,
-    Optional<Pick<RouteClassModel, 'pathname'>> {
+    Optional<Pick<RouteModel, 'pathname'>> {
   icon?: string;
   label?: string;
   value: string;

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { AppHeader, AppSideMenu } from '@lib/frontend/app/containers';
+import { AppHeader } from '@lib/frontend/app/containers';
 import {
   APP_HEADER_HEIGHT_DEFAULT,
   APP_HEADER_MINIMIZE_SCROLL_THRESHOLD,
 } from '@lib/frontend/app/containers/AppHeader/AppHeader.constants';
-import { APP_SIDE_MENU_WIDTH } from '@lib/frontend/app/containers/AppSideMenu/AppSideMenu.constants';
 import { AppLayoutProps } from '@lib/frontend/app/layouts/AppLayout.model';
 import { Wrapper } from '@lib/frontend/core/components';
 import { useUnmount } from '@lib/frontend/core/hooks';
