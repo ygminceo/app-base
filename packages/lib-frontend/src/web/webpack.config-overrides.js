@@ -3,7 +3,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { startsWith, reduce } = require('lodash');
 const { DefinePlugin } = require('webpack');
 const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
-const { EXTENSIONS, ROOT_PATH, PACKAGES_PATH } = require('../../../../constants');
+const { EXTENSIONS, ROOT_PATH } = require('../../../../constants');
 
 const TRANSIPLE_MODULES = [
   'react-native-animatable',
@@ -16,8 +16,8 @@ const TRANSIPLE_MODULES = [
 
 module.exports = {
   babelInclude: [
-    resolve(PACKAGES_PATH, 'lib-common/src'),
-    resolve(PACKAGES_PATH, 'lib-frontend/src'),
+    resolve(ROOT_PATH, 'packages/lib-common/src'),
+    resolve(ROOT_PATH, 'packages/lib-frontend/src'),
   ],
 
   transpileModules: TRANSIPLE_MODULES,
@@ -35,7 +35,7 @@ module.exports = {
       new CopyWebpackPlugin({
         patterns: [
           {
-            from: resolve(PACKAGES_PATH, 'lib-common/assets'),
+            from: resolve(ROOT_PATH, 'packages/lib-common/assets'),
             to: resolve(process.cwd(), 'public'),
           },
         ],

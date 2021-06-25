@@ -26,6 +26,11 @@ export class _FirebaseClient implements _FirebaseClientModel {
           messagingSenderId: REACT_APP_FIREBASE_SENDER_ID,
           appId: REACT_APP_FIREBASE_APP_ID,
         });
+
+        if (Platform.isDev) {
+          // TODO: ENV
+          firebase.auth().useEmulator('http://localhost:9099');
+        }
       }
 
       //TODO: from locale

@@ -1,6 +1,3 @@
-const { resolve } = require('path');
-const { PACKAGES_PATH } = require('./constants');
-
 module.exports = {
   contextSeparator: '_',
   createOldCatalogs: false,
@@ -15,7 +12,7 @@ module.exports = {
   lineEnding: 'auto',
   locales: ['en', 'kr'],
   namespaceSeparator: ':',
-  output: resolve(PACKAGES_PATH, 'lib-common/assets/locales/$LOCALE/$NAMESPACE.json'),
+  output: 'packages/lib-common/assets/locales/$LOCALE/$NAMESPACE.json',
   skipDefaultValues: false,
   sort: true,
   useKeysAsDefaultValue: false,

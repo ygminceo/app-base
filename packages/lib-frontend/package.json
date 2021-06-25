@@ -2,5 +2,10 @@
   "name": "@lib/frontend",
   "version": "1.0.0",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "scripts": {
+    "firebase:emulator": "dotenv -e ../../.env.test firebase emulators:start",
+    "test:web": "NODE_ENV=test jest --config ./jest.config.web.js --watch",
+    "test:native": "NODE_ENV=test jest --config ./jest.config.native.js --watch"
+  }
 }

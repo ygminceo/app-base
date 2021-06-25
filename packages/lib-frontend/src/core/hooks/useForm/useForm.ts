@@ -15,7 +15,7 @@ export const useForm = <F extends FormModel>({
   validators,
 }: UseFormParamsModel<F>): UseFormReturnsModel<F> => {
   const [filledState, setFilledState] = useState<{ [key: string]: boolean }>(
-    reduce(keys(validators), (result, k) => ({ ...result, [k]: false }), {}),
+    keys(validators).reduce((result, k) => ({ ...result, [k]: false }), {}),
   );
 
   const { handleChange, ...returns } = _useForm({

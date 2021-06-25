@@ -3,9 +3,9 @@ const optimizedImages = require('next-optimized-images');
 const withPlugins = require('next-compose-plugins');
 const withTM = require('next-transpile-modules');
 const withFonts = require('next-fonts');
-const { PACKAGES_PATH } = require('../../constants');
+const { ROOT_PATH } = require('../../constants');
 
-const overrides = require(resolve(PACKAGES_PATH, 'lib-frontend/src/web/webpack.config-overrides'));
+const overrides = require(resolve(ROOT_PATH, 'packages/lib-frontend/src/web/webpack.config-overrides'));
 
 const nextConfig = {
   future: { webpack5: true },

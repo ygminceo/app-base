@@ -8,11 +8,13 @@ module.exports = {
       'module-resolver',
       {
         alias: Object.keys(paths).reduce(
-          (result, k) => ({
+          (result, k) => k.startsWith('@') ? ({
             ...result,
             [k.replace('/*', '')]: paths[k].map((v) => resolve(ROOT_PATH, v.replace('/*', ''))),
-          }),
-          {},
+          }) : result,
+          {
+            '^react-native$': 'react-native-web',
+          },
         ),
         extensions: NATIVE_EXTENSIONS,
       },

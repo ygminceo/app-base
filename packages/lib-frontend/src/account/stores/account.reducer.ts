@@ -1,13 +1,10 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { ACCOUNT } from '@lib/common/account/constants';
 import { AccountSummaryModel } from '@lib/common/account/models';
 import { accountSetAction } from '@lib/frontend/account/actions/account/account.action';
 import { AccountStateModel } from '@lib/frontend/account/stores/accountState.model';
-import { signInModalIsOpenSetAction } from '@lib/frontend/authentication/actions/signInModalIsOpen/signInModalIsOpen.action';
 import { RootStateModel } from '@lib/frontend/root/stores/rootState.model';
-import { AppDispatchModel } from '@lib/frontend/root/stores/store';
 
 const initialState: AccountStateModel = {
   account: undefined,

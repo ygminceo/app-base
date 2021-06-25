@@ -2,8 +2,6 @@
   "name": "app",
   "private": true,
   "scripts": {
-    "clean": "npx rimraf ./node_modules ./packages/*/node_modules",
-    "mobile-start": "yarn workspace @app/mobile start",
     "ios": "yarn workspace @app/mobile ios",
     "ios:pod": "yarn ios:pod:clean && cd packages/app-mobile/ios && pod install --repo-update && cd ../../../",
     "ios:pod:clean": "cd packages/app-mobile/ios && rimraf ./Pods ./build ./Podfile.lock && cd ../../../",
@@ -23,11 +21,17 @@
     "azure": "yarn workspace @serverless/azure offline",
     "azure:deploy": "yarn workspace @serverless/azure deploy",
 
+    "test:backend": "yarn workspace @lib/backend test",
+    "test:web": "yarn workspace @lib/frontend test:native",
+    "test:native": "yarn workspace @lib/frontend test:native",
+
     "prettier": "npx prettier --write \"**/src/**/*.ts\" \"**/src/**/*.tsx\"",
     "locale": "npx i18next --silent 'packages/*/src/**/*.{ts,tsx}'",
     "list-mismatch": "npx syncpack list-mismatches",
     "fix-mismatch": "npx syncpack fix-mismatches",
-    "gen-react": "node templates/generate.js"
+    "gen-react": "node templates/generate.js",
+
+    "clean": "npx rimraf ./node_modules ./packages/*/node_modules"
   },
   "version": "1.0.0",
   "license": "MIT",

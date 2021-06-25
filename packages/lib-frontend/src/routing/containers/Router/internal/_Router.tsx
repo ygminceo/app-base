@@ -14,8 +14,7 @@ import { _RouterProps } from '@lib/frontend/routing/containers/Router/internal/_
 import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
 
 const getScreens = (routes: RouteModel[]): PathConfigMap =>
-  reduce(
-    routes,
+  routes.reduce(
     (result, route) => ({
       ...result,
       [route.pathname]: route.routes

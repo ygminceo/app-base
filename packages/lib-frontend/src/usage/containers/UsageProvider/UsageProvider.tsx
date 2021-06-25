@@ -7,22 +7,23 @@ import {
 } from '@lib/frontend/usage/containers/UsageProvider/UsageProvider.model';
 import { _initialize } from '@lib/frontend/usage/containers/UsageProvider/_internal/_initialize';
 
-export const UsageContext = createContext<UsageContextModel>({
-  isInitialized: false,
+const usageDefault = {
+  identify: () => console.warn('Tracker not ready'),
+  reset: () => console.warn('Tracker not ready'),
   track: () => console.warn('Tracker not ready'),
-});
+};
+
+export const UsageContext = createContext<UsageContextModel>(usageDefault);
 
 export const UsageProvider = ({ children }: UsageProviderProps) => {
-  const [usage, setUsage] = useState<any>();
-  const [isInitialized, setIsInitialized] = useState<boolean>(Platform.isWebSsr);
+  const [usage, setUsage] = useState<UsageContextModel>(usageDefault);
 
   const account = useAccount();
 
   useEffect(() => {
-    _initialize().then((usageInstance) => {
-      setUsage(usageInstance);
-      setIsInitialized(true);
-    });
+    if (!Platform.isDev) {
+      _initialize().then((usage) => usage && setUsage(usage));
+    }
   }, []);
 
   // TODO: get usage tracking enabled from preference / storage
@@ -36,5 +37,5 @@ export const UsageProvider = ({ children }: UsageProviderProps) => {
     }
   }, [usage, account]);
 
-  return <UsageContext.Provider value={usage}>{isInitialized && children}</UsageContext.Provider>;
+  return <UsageContext.Provider value={usage}>{children}</UsageContext.Provider>;
 };

@@ -7,9 +7,12 @@ const {
   overrideDevServer,
   removeModuleScopePlugin,
 } = require('customize-cra');
-const { ROOT_PATH, PACKAGES_PATH } = require('../../constants');
+const { ROOT_PATH } = require('../../constants');
 
-const overrides = require(resolve(PACKAGES_PATH, 'lib-frontend/src/web/webpack.config-overrides'));
+const overrides = require(resolve(
+  ROOT_PATH,
+  'packages/lib-frontend/src/web/webpack.config-overrides',
+));
 
 module.exports = {
   webpack: override(
@@ -35,4 +38,19 @@ module.exports = {
     ...config,
     writeToDisk: true,
   })),
+
+  // jest: (config) => ({
+  //   ...config,
+  //   rootDir: ROOT_PATH,
+  //   roots: ['<rootDir>/packages/lib-frontend'],
+  //   watchPlugins: [],
+  // }),
+  jest: (config) => {
+    console.warn(config);
+    return {
+      ...config,
+      roots: ['<rootDir>/packages/lib-frontend'],
+      watchPlugins: [],
+    };
+  },
 };
