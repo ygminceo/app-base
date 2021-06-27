@@ -27,7 +27,7 @@
 
     "prettier": "npx prettier --write \"**/src/**/*.ts\" \"**/src/**/*.tsx\"",
     "locale": "npx i18next --silent 'packages/*/src/**/*.{ts,tsx}'",
-    "list-mismatch": "npx syncpack list-mismatches",
+    "mismatch": "npx syncpack list-mismatches",
     "fix-mismatch": "npx syncpack fix-mismatches",
     
     "template": "node templates/generate.js",
@@ -39,8 +39,7 @@
   "workspaces": {
     "packages": [
       "packages/*"
-    ],
-    "nohoist": ["azure-functions-core-tools"]
+    ]
   },
   "dependencies": {
     "generate-template-files": "^3.0.0"

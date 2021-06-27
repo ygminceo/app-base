@@ -12,5 +12,5 @@ export interface ServerlessFunctionModel {
 }
 
 export interface HandlerModel<P, R> {
-  main(data: P, id?: string): Promise<R>;
+  main(data: P, uid?: string): Promise<R>;
 }

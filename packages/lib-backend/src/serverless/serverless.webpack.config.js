@@ -16,10 +16,10 @@ module.exports = {
   target: 'node',
   externals: [
     nodeExternals({
-      modulesDir: [resolve(process.cwd(), 'node_modules'), resolve(ROOT_PATH, 'node_modules')],
+      modulesDir: [resolve('node_modules'), resolve(ROOT_PATH, 'node_modules')],
     }),
   ],
-  externalsPresets: { node: true },
+  // externalsPresets: { node: true },
   devtool: 'source-map',
   stats: 'minimal',
   output: {
@@ -34,10 +34,9 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: 'ts-loader',
+            loader: 'babel-loader',
             options: {
-              projectReferences: true,
-              transpileOnly: true,
+              configFile: resolve(process.cwd(), 'babel.config.js'),
             },
           },
         ],
@@ -66,6 +65,6 @@ module.exports = {
         minimize: false,
       },
   node: {
-    __dirname: false,
+    __dirname: true,
   },
 };

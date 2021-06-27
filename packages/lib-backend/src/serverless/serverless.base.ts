@@ -1,5 +1,6 @@
-import { join, relative } from 'path';
+import { join, relative, resolve } from 'path';
 import { config } from '@lib/common/core/utils/Config/Config';
+import { ROOT_PATH } from '../../../../constants';
 
 const HOST = config.get<string>('HOST', '');
 
@@ -12,7 +13,7 @@ export const baseConfig = {
 
   custom: {
     dotenv: {
-      path: join(__dirname, `../../../../.env.${process.env.NODE_ENV}`),
+      path: resolve(ROOT_PATH, `.env.${process.env.NODE_ENV}`),
     },
     webpack: {
       packager: 'yarn',

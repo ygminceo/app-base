@@ -3,23 +3,25 @@ import { OtpCreateRequestModel, OtpModel } from '@lib/common/authentication/mode
 import { OtpCreateHandlerModel } from '@lib/backend/authentication/handlers/otpCreate/otpCreate.model';
 import { Crypto } from '@lib/backend/authentication/utils/Crypto/Crypto';
 import { mailSendHandler } from '@lib/backend/mail/handlers';
+import { OtpTemplateModel } from '@lib/backend/mail/templates/otp/otp.model';
 
 export const otpCreateHandler: OtpCreateHandlerModel = async ({ data, otpCollection, mailer }) => {
   const dataFinal = await _before(data);
+
   //TODO: better way to upsert?
   await otpCollection.delete<object, OtpModel>({ username: dataFinal.username });
-  const otp = otpCollection.save<OtpModel, OtpModel>(dataFinal);
+  const otp = await otpCollection.save<OtpModel, OtpModel>(dataFinal);
 
-  //TODO: email
-  await mailSendHandler({
+  await mailSendHandler<OtpTemplateModel>({
     mailer,
     mail: {
       from: 'ygminceo@gmail.com',
       to: ['yoongeemin@gmail.com'],
-      subject: 'Test',
-      html: 'Test',
+      template: 'otp',
+      params: { otp: otp.otp },
     },
   });
+
   return otp;
 };
 

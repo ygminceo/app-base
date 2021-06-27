@@ -1,11 +1,10 @@
-export interface MailModel {
+export interface MailModel<P> {
   from: string;
   to: string[];
-  bcc?: string[];
-  subject: string;
-  html: string;
+  template: string;
+  params: P;
 }
 
 export interface MailerModel {
-  send(mail: MailModel): Promise<void>;
+  send(mail: MailModel<any>): Promise<void>;
 }

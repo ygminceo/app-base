@@ -1,14 +1,19 @@
-import { Platform } from '@lib/frontend/core/utils/Platform/Platform';
+import Email from 'email-templates';
 import { createTransport, Transporter } from 'nodemailer';
+import { resolve } from 'path';
 import { MailModel } from '@lib/backend/mail/utils/Mailer/Mailer.model';
 import { _MailerModel } from '@lib/backend/mail/utils/Mailer/internal/_Mailer.model';
+import { Platform } from '@lib/frontend/core/utils/Platform/Platform';
+import { ROOT_PATH } from '../../../../../../../constants';
+
+const TEMPLATE_DIR = resolve(ROOT_PATH, 'packages/lib-backend/src/mail/templates');
 
 export class _Mailer implements _MailerModel {
-  private _transporter: Transporter;
+  private _transport: Transporter;
 
   constructor() {
     // TODO: env
-    this._transporter = createTransport({
+    this._transport = createTransport({
       pool: true,
       host: 'smtp.elasticemail.com',
       port: 2525,
@@ -19,15 +24,15 @@ export class _Mailer implements _MailerModel {
     });
   }
 
-  async send({ from, to, bcc, subject, html }: MailModel) {
-    if (Platform.isNonProduction)  {
-      console.warn('mail sent');
-      return Promise.resolve();
-    }
-    return new Promise<void>((resolve, reject) =>
-      this._transporter.sendMail({ from, to, bcc, subject, html }, (e) =>
-        e ? reject(e) : resolve(),
-      ),
-    );
+  async send({ from, to, template, params }: MailModel) {
+    return new Email({
+      preview: Platform.isDev,
+      transport: this._transport,
+      views: { root: TEMPLATE_DIR },
+    }).send({
+      template,
+      message: { from, to },
+      locals: params,
+    });
   }
 }
