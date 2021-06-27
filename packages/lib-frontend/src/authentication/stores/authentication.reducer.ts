@@ -6,7 +6,7 @@ import { AuthenticationStateModel } from '@lib/frontend/authentication/stores/au
 import { RootStateModel } from '@lib/frontend/root/stores/rootState.model';
 
 const initialState: AuthenticationStateModel = {
-  account: undefined,
+  user: undefined,
   signInModalIsOpen: false,
 };
 

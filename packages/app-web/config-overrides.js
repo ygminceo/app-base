@@ -46,7 +46,6 @@ module.exports = {
   //   watchPlugins: [],
   // }),
   jest: (config) => {
-    console.warn(config);
     return {
       ...config,
       roots: ['<rootDir>/packages/lib-frontend'],

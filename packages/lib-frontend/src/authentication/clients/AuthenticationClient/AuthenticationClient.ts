@@ -5,7 +5,7 @@ import {
   SignInResponseModel,
 } from '@lib/common/authentication/models';
 import { config } from '@lib/common/core/utils/Config/Config';
-import { HttpClient } from '@lib/frontend/core/services/HttpClient/HttpClient';
+import { HttpClient } from '@lib/frontend/core/utils/HttpClient/HttpClient';
 
 const API_HOST = config.get<string>('REACT_APP_API_HOST', '');
 const API_PORT = config.get<number>('REACT_APP_API_PORT', null);

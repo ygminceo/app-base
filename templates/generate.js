@@ -9,9 +9,22 @@ generateTemplateFiles([
     entry: {
       folderPath: resolve(__dirname, 'ReactComponent'),
     },
-    stringReplacers: ['__NAME__', '__MODULE__', '__PATH__'],
+    stringReplacers: ['{{NAME}}', '{{SERVICE}}', '{{PATH}}'],
     output: {
-      path: resolve(ROOT_PATH, 'packages/__MODULE__(kebabCase)/src/__PATH__(pathCase)/__NAME__'),
+      path: resolve(ROOT_PATH, 'packages/lib-frontend/src/{{SERVICE}}(camelCase)/{{PATH}}(pathCase)/{{NAME}}'),
+      overwrite: false,
+    },
+  },
+
+  {
+    option: 'Handler',
+    defaultCase: '(pascalCase)',
+    entry: {
+      folderPath: resolve(__dirname, 'Handler'),
+    },
+    stringReplacers: ['{{NAME}}', '{{SERVICE}}'],
+    output: {
+      path: resolve(ROOT_PATH, 'packages/lib-backend/src/{{SERVICE}}(camelCase)/handlers/{{NAME}}(camelCase)'),
       overwrite: false,
     },
   },

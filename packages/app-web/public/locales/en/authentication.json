@@ -4,7 +4,7 @@
     "signOut": "Sign out"
   },
   "messages": {
-    "accountAlreadyExists": "Account already exists",
+    "userAlreadyExists": "User already exists",
     "invalidOtp": "Your code was expired or wrong",
     "verifyDidntGet": "Didn't get it?",
     "verifyEnter": "Please enter the code we sent over to <0>{{username}}</0>",

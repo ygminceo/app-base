@@ -29,7 +29,8 @@
     "locale": "npx i18next --silent 'packages/*/src/**/*.{ts,tsx}'",
     "list-mismatch": "npx syncpack list-mismatches",
     "fix-mismatch": "npx syncpack fix-mismatches",
-    "gen-react": "node templates/generate.js",
+    
+    "template": "node templates/generate.js",
 
     "clean": "npx rimraf ./node_modules ./packages/*/node_modules"
   },

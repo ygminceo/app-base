@@ -20,11 +20,12 @@ export const baseConfig = {
     },
     'serverless-offline': {
       allowCache: false,
-      //TODO: to env
       host: HOST,
+      //TODO: to env
       httpsProtocol: '',
       noPrependStageInUrl: true,
       useChildProcesses: true,
+      ignoreJWTSignature: true,
     },
   },
 };

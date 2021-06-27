@@ -12,5 +12,9 @@ export class Platform {
 
   static isAndroid = NativePlatform.OS === 'android';
 
-  static isDev = ['development', 'test'].includes(NODE_ENV);
+  static isDev = NODE_ENV === 'development';
+
+  static isTest = NODE_ENV === 'test';
+
+  static isNonProduction = this.isDev || this.isTest;
 }

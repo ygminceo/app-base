@@ -1,18 +1,18 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { SIGNIN } from '@lib/common/authentication/constants';
 import { SignInRequestModel } from '@lib/common/authentication/models';
-import { accountSetAction } from '@lib/frontend/account/actions/account/account.action';
 import { _signInWithToken } from '@lib/frontend/authentication/actions/signIn/internal/_signIn';
 import { authenticationClient } from '@lib/frontend/authentication/clients/AuthenticationClient/AuthenticationClient';
+import { userSetAction } from '@lib/frontend/user/actions/user/user.action';
 
 export const signInAction = createAsyncThunk<any, SignInRequestModel>(
   SIGNIN,
   async (data, { dispatch, rejectWithValue }) =>
     authenticationClient
       .signIn(data)
-      .then(({ account, token }) => {
+      .then(({ user, token }) => {
         _signInWithToken(token);
-        return dispatch(accountSetAction(account));
+        return dispatch(userSetAction(user));
       })
       .catch((e) => rejectWithValue(e.data)),
 );

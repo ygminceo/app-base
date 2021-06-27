@@ -13,7 +13,7 @@ import { useTranslation } from '@lib/frontend/locale/hooks';
 
 export const AppSideMenu = ({ ...props }: AppSideMenuProps) => {
   const { styles } = useStyles(props, [getAppSideMenuStyle]);
-  const { t } = useTranslation(['account', 'authentication']);
+  const { t } = useTranslation(['user', 'authentication']);
   return (
     <Wrapper nativeID={APP_SIDE_MENU_ID} style={styles} p spacing>
       {APP_SIDE_MENU_OPTIONS.map((option, i) =>

@@ -35,7 +35,7 @@ export class _HttpClient implements _HttpClientModel {
     );
   }
 
-  private _request<P extends object, T = any, E = HttpError<any>>(
+  request<P, T = any, E = HttpError<any>>(
     method: HttpMethodModel,
     url: string,
     config?: HttpRequestConfig,
@@ -52,37 +52,21 @@ export class _HttpClient implements _HttpClientModel {
       });
   }
 
-  get<P extends object, T = any, E = HttpError<any>>(
-    url: string,
-    params?: P,
-    config?: HttpRequestConfig,
-  ) {
-    const urlWithParams = params ? `${url}?${toQueryString(params)}` : url;
-    return this._request<P, T, E>('get', urlWithParams, config);
+  get<P, T = any, E = HttpError<any>>(url: string, params?: P, config?: HttpRequestConfig) {
+    const urlWithParams = params ? `${url}?${toQueryString((params as unknown) as object)}` : url;
+    return this.request<P, T, E>('get', urlWithParams, config);
   }
 
-  delete<P extends object, T = any, E = HttpError<any>>(
-    url: string,
-    params?: P,
-    config?: HttpRequestConfig,
-  ) {
-    const urlWithParams = params ? `${url}?${toQueryString(params)}` : url;
-    return this._request<P, T, E>('delete', urlWithParams, config);
+  delete<P, T = any, E = HttpError<any>>(url: string, params?: P, config?: HttpRequestConfig) {
+    const urlWithParams = params ? `${url}?${toQueryString((params as unknown) as object)}` : url;
+    return this.request<P, T, E>('delete', urlWithParams, config);
   }
 
-  post<P extends object, T = any, E = HttpError<any>>(
-    url: string,
-    data?: P,
-    config?: HttpRequestConfig,
-  ) {
-    return this._request<P, T, E>('post', url, config, data);
+  post<P, T = any, E = HttpError<any>>(url: string, data?: P, config?: HttpRequestConfig) {
+    return this.request<P, T, E>('post', url, config, data);
   }
 
-  put<P extends object, T = any, E = HttpError<any>>(
-    url: string,
-    data?: P,
-    config?: HttpRequestConfig,
-  ) {
-    return this._request<P, T, E>('put', url, config, data);
+  put<P, T = any, E = HttpError<any>>(url: string, data?: P, config?: HttpRequestConfig) {
+    return this.request<P, T, E>('put', url, config, data);
   }
 }

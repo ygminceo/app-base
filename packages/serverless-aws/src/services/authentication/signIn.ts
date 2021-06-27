@@ -1,12 +1,21 @@
 import { SignInRequestModel, SignInResponseModel } from '@lib/common/authentication/models';
 import { signInHandler } from '@lib/backend/authentication/handlers';
-import { Database } from '@lib/backend/utils/Database/Database';
-import { requestHook } from '@serverless/aws/core/requestHook/requestHook';
+import { SessionAdmin } from '@lib/backend/authentication/utils/SessionAdmin/SessionAdmin';
+import { Database } from '@lib/backend/core/utils/Database/Database';
+import { HandlerModel } from '@lib/backend/serverless/serverless.model';
+import { handler } from '@serverless/aws/core/decorators/handler/handler';
 
 const database = new Database();
 
-export const main = requestHook<SignInRequestModel, SignInResponseModel>(async (data) => {
-  const accountCollection = database.getCollection('Account');
-  const otpCollection = database.getCollection('Otp');
-  return await signInHandler({ data, accountCollection, otpCollection });
-});
+const sessionAdmin = new SessionAdmin();
+
+class Handler implements HandlerModel<SignInRequestModel, SignInResponseModel> {
+  @handler()
+  async main(data: SignInRequestModel) {
+    const userCollection = database.getCollection('User');
+    const otpCollection = database.getCollection('Otp');
+    return await signInHandler({ data, userCollection, otpCollection, sessionAdmin });
+  }
+}
+
+export const main = new Handler().main;

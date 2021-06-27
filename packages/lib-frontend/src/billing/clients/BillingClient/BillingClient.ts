@@ -1,12 +1,17 @@
-import { BILLING } from '@lib/common/billing/constants';
-import { BANK_ACCOUNT_ADD, BANK_LINK_TOKEN_CREATE } from '@lib/common/billing/constants';
 import {
-  BankAccountAddRequestModel,
-  BankLinkTokenCreateRequestModel,
+  BANK_ADD,
+  BANK_LINK_TOKEN_CREATE,
+  BILLING,
+  CARD_TOKEN_GET,
+} from '@lib/common/billing/constants';
+import {
+  BankAddRequestModel,
   BankLinkTokenCreateResponseModel,
+  CardTokenGetRequestModel,
+  CardTokenGetResponseModel,
 } from '@lib/common/billing/models';
 import { config } from '@lib/common/core/utils/Config/Config';
-import { HttpClient } from '@lib/frontend/core/services/HttpClient/HttpClient';
+import { HttpClient } from '@lib/frontend/core/utils/HttpClient/HttpClient';
 
 const API_HOST = config.get<string>('REACT_APP_API_HOST', '');
 const API_PORT = config.get<number>('REACT_APP_API_PORT', null);
@@ -20,14 +25,13 @@ class BillingClient {
     });
   }
 
-  bankLinkTokenCreate = (data: BankLinkTokenCreateRequestModel) =>
-    this._client.post<BankLinkTokenCreateRequestModel, BankLinkTokenCreateResponseModel, any>(
-      BANK_LINK_TOKEN_CREATE,
-      data,
-    );
+  cardTokenGet = () => this._client.post<void, CardTokenGetResponseModel, any>(CARD_TOKEN_GET);
 
-  bankAccountAdd = (data: BankAccountAddRequestModel) =>
-    this._client.post<BankAccountAddRequestModel, void, any>(BANK_ACCOUNT_ADD, data);
+  bankLinkTokenCreate = () =>
+    this._client.post<void, BankLinkTokenCreateResponseModel, any>(BANK_LINK_TOKEN_CREATE);
+
+  bankAdd = (data: BankAddRequestModel) =>
+    this._client.post<BankAddRequestModel, void, any>(BANK_ADD, data);
 }
 
 export const billingClient = new BillingClient();

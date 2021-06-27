@@ -1,8 +1,10 @@
 import { SignInRequestModel, SignInResponseModel } from '@lib/common/authentication/models';
-import { CollectionModel } from '@lib/backend/utils/Database/Database.model';
+import { SessionAdminModel } from '@lib/backend/authentication/utils/SessionAdmin/SessionAdmin.model';
+import { CollectionModel } from '@lib/backend/core/utils/Database/Database.model';
 
 export type SignInHandlerModel = (params: {
   data: SignInRequestModel;
-  accountCollection: CollectionModel;
+  userCollection: CollectionModel;
   otpCollection: CollectionModel;
+  sessionAdmin: SessionAdminModel;
 }) => Promise<SignInResponseModel>;

@@ -1,14 +1,14 @@
-import { ACCOUNT } from '@lib/common/account/constants';
 import { CATALOG } from '@lib/common/admin/constants';
 import { APP } from '@lib/common/app/constants';
 import { BILLING } from '@lib/common/billing/constants';
 import { SETTINGS } from '@lib/common/settings/constants';
-import { AccountPage } from '@lib/frontend/account/pages';
+import { USER } from '@lib/common/user/constants';
 import { CatalogPage } from '@lib/frontend/admin/pages';
 import { AppLayout } from '@lib/frontend/app/layouts';
 import { BillingPage } from '@lib/frontend/billing/pages';
 import { RouteModel } from '@lib/frontend/routing/containers/Router/Router.model';
 import { SettingsPage } from '@lib/frontend/settings/pages';
+import { UserPage } from '@lib/frontend/user/pages';
 
 export const ROUTES: RouteModel[] = [
   {
@@ -21,8 +21,8 @@ export const ROUTES: RouteModel[] = [
         protected: true,
       },
       {
-        pathname: ACCOUNT,
-        component: AccountPage,
+        pathname: USER,
+        component: UserPage,
         protected: true,
       },
       {

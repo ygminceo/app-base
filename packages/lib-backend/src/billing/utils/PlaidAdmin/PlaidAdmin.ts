@@ -1,8 +1,7 @@
 import { Configuration, PlaidApi, PlaidEnvironments } from 'plaid';
 import {
-  bankAccessTokenCreateRequestModel,
-  bankAccessTokenCreateResponseModel,
-  BankLinkTokenCreateRequestModel,
+  BankAccessTokenCreateRequestModel,
+  BankAccessTokenCreateResponseModel,
   BankLinkTokenCreateResponseModel,
 } from '@lib/common/billing/models';
 import { config } from '@lib/common/core/utils/Config/Config';
@@ -34,12 +33,10 @@ export class PlaidAdmin {
     );
   }
 
-  async bankLinkTokenCreate({
-    accountId,
-  }: BankLinkTokenCreateRequestModel): Promise<BankLinkTokenCreateResponseModel> {
+  async bankLinkTokenCreate(uid: string): Promise<BankLinkTokenCreateResponseModel> {
     //TODO: more env
     const response = await this._client.linkTokenCreate({
-      user: { client_user_id: accountId },
+      user: { client_user_id: uid },
       client_name: REACT_APP_APP_NAME,
       products: SERVER_PLAID_PRODUCTS,
       country_codes: SERVER_PLAID_COUNTRY_CODES,
@@ -55,20 +52,18 @@ export class PlaidAdmin {
 
   async bankAccessTokenCreate({
     token,
-    accountId,
-  }: bankAccessTokenCreateRequestModel): Promise<bankAccessTokenCreateResponseModel> {
+    id,
+  }: BankAccessTokenCreateRequestModel): Promise<BankAccessTokenCreateResponseModel> {
     return await this._client
-      .itemPublicTokenExchange({
-        public_token: token,
-      })
+      .itemPublicTokenExchange({ public_token: token })
       .then(async (response) => {
         const plaid_bank_access_token = response.data.access_token;
         const stripe_bank_access_token = (
           await this._client.processorStripeBankAccountTokenCreate({
-            account_id: accountId,
+            account_id: id,
             access_token: plaid_bank_access_token,
           })
-        ).data.stripe_bank_account_token;
+        ).data.stripe_bank_user_token;
         return {
           plaid_bank_access_token,
           stripe_bank_access_token,

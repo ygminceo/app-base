@@ -1,5 +1,5 @@
 import { _SignOutModel } from '@lib/frontend/authentication/actions/signOut/internal/_signOut.model';
-import { firebaseApp } from '@lib/frontend/authentication/utils/FirebaseClient/FirebaseClient';
+import { sessionClient } from '@lib/frontend/authentication/utils/SessionClient/SessionClient';
 
 //TODO: handle error
-export const _signOut: _SignOutModel = firebaseApp.signOut;
+export const _signOut: _SignOutModel = sessionClient.signOut;

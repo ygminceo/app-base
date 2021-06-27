@@ -1,4 +1,4 @@
-import { AccountModel, AccountSummaryModel } from '@lib/common/account/models';
+import { UserModel, UserSummaryModel } from '@lib/common/user/models';
 
 export interface EmailFormModel {
   emailAddress: string;
@@ -12,14 +12,15 @@ export interface OtpFormModel {
 export interface SignInRequestModel extends EmailFormModel, OtpFormModel {}
 
 export interface SignInResponseModel {
-  account: AccountSummaryModel;
+  user: UserSummaryModel;
   token: string;
 }
 
 // Token
-export interface TokenClaimsModel extends Pick<AccountModel, 'emailAddress' | 'phoneNumber'> {}
+export interface TokenClaimsModel extends Pick<UserModel, 'emailAddress' | 'phoneNumber'> {}
 
 // OTP
+// TODO: limit retries
 export interface OtpModel {
   username: string;
   otp: string;
@@ -28,3 +29,17 @@ export interface OtpModel {
 export interface OtpCreateRequestModel extends Pick<OtpModel, 'username'> {}
 
 export interface OtpVerifyRequestModel extends OtpModel {}
+
+// Authorization
+export interface AuthorizeRequestModel {
+  token: string;
+}
+
+export interface AuthorizeResponseModel {
+  id: string;
+  claims: TokenClaimsModel;
+}
+
+export interface AuthorizedRequestModel {
+  uid: string;
+}

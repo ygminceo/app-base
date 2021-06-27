@@ -1,6 +1,6 @@
-import { AccountModel } from '@lib/common/account/models';
+import { UserModel } from '@lib/common/user/models';
 
 export interface AuthenticationStateModel {
-  account?: AccountModel;
+  user?: UserModel;
   signInModalIsOpen: boolean;
 }

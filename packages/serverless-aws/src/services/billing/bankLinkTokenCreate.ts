@@ -1,10 +1,13 @@
-import {
-  BankLinkTokenCreateRequestModel,
-  BankLinkTokenCreateResponseModel,
-} from '@lib/common/billing/models';
+import { BankLinkTokenCreateResponseModel } from '@lib/common/billing/models';
 import { bankLinkTokenCreateHandler } from '@lib/backend/billing/handlers';
-import { requestHook } from '@serverless/aws/core/requestHook/requestHook';
+import { HandlerModel } from '@lib/backend/serverless/serverless.model';
+import { handler } from '@serverless/aws/core/decorators/handler/handler';
 
-export const main = requestHook<BankLinkTokenCreateRequestModel, BankLinkTokenCreateResponseModel>(
-  async (data) => await bankLinkTokenCreateHandler(data),
-);
+class Handler implements HandlerModel<void, BankLinkTokenCreateResponseModel> {
+  @handler()
+  async main(data: void, uid: string) {
+    return await bankLinkTokenCreateHandler({ uid });
+  }
+}
+
+export const main = new Handler().main;

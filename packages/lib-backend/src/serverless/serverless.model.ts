@@ -7,7 +7,10 @@ export interface ServerlessServiceModel {
 
 export interface ServerlessFunctionModel {
   name: string;
-  method: HttpMethodModel;
+  method?: HttpMethodModel;
+  protected?: boolean;
 }
 
-export type RequestHookModel<F> = <P, R>(cb: (data: P) => Promise<R>) => F;
+export interface HandlerModel<P, R> {
+  main(data: P, id?: string): Promise<R>;
+}

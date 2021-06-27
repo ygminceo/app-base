@@ -11,22 +11,22 @@ export interface HttpRequestConfig {
   responseType?: HttpResponseModel;
 }
 
-export type GetRequest = <P extends object, T = any, E = any>(
+export type GetRequest = <P, T = any, E = any>(
   url: string,
   params?: P,
   config?: HttpRequestConfig,
 ) => Promise<T>;
-export type DeleteRequest = <P extends object, T = any, E = any>(
+export type DeleteRequest = <P, T = any, E = any>(
   url: string,
   params?: P,
   config?: HttpRequestConfig,
 ) => Promise<T>;
-export type PostRequest = <P extends object, T = any, E = any>(
+export type PostRequest = <P, T = any, E = any>(
   url: string,
   data?: P,
   config?: HttpRequestConfig,
 ) => Promise<T>;
-export type PutRequest = <P extends object, T = any, E = any>(
+export type PutRequest = <P, T = any, E = any>(
   url: string,
   data?: P,
   config?: HttpRequestConfig,

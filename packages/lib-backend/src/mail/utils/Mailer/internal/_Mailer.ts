@@ -1,3 +1,4 @@
+import { Platform } from '@lib/frontend/core/utils/Platform/Platform';
 import { createTransport, Transporter } from 'nodemailer';
 import { MailModel } from '@lib/backend/mail/utils/Mailer/Mailer.model';
 import { _MailerModel } from '@lib/backend/mail/utils/Mailer/internal/_Mailer.model';
@@ -6,6 +7,7 @@ export class _Mailer implements _MailerModel {
   private _transporter: Transporter;
 
   constructor() {
+    // TODO: env
     this._transporter = createTransport({
       pool: true,
       host: 'smtp.elasticemail.com',
@@ -18,6 +20,10 @@ export class _Mailer implements _MailerModel {
   }
 
   async send({ from, to, bcc, subject, html }: MailModel) {
+    if (Platform.isNonProduction)  {
+      console.warn('mail sent');
+      return Promise.resolve();
+    }
     return new Promise<void>((resolve, reject) =>
       this._transporter.sendMail({ from, to, bcc, subject, html }, (e) =>
         e ? reject(e) : resolve(),

@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useAccount } from '@lib/frontend/account/stores/account.reducer';
 import { signInModalIsOpenSetAction } from '@lib/frontend/authentication/actions/signInModalIsOpen/signInModalIsOpen.action';
 import { ProtectedProps } from '@lib/frontend/authentication/containers/Protected/Protected.model';
+import { useUser } from '@lib/frontend/user/stores/user.reducer';
 
 export const Protected = ({ children }: ProtectedProps) => {
-  const account = useAccount();
+  const user = useUser();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(signInModalIsOpenSetAction(account === null));
-  }, [account]);
+    dispatch(signInModalIsOpenSetAction(user === null));
+  }, [user]);
 
-  return <>{account === undefined ? null : children}</>;
+  return <>{user === undefined ? null : children}</>;
 };

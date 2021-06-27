@@ -1,14 +1,14 @@
-import { ACCOUNT } from '@lib/common/account/constants';
 import { AUTHENTICATION } from '@lib/common/authentication/constants';
 import { LOCALE } from '@lib/common/locale/constants';
 import { THEME } from '@lib/common/theme/constants';
-import { AccountStateModel } from '@lib/frontend/account/stores/accountState.model';
+import { USER } from '@lib/common/user/constants';
 import { AuthenticationStateModel } from '@lib/frontend/authentication/stores/authenticationState.model';
 import { LocaleStateModel } from '@lib/frontend/locale/stores/localeState.model';
 import { ThemeStateModel } from '@lib/frontend/theme/stores/themeState.model';
+import { UserStateModel } from '@lib/frontend/user/stores/userState.model';
 
 export interface RootStateModel {
-  [ACCOUNT]: AccountStateModel;
+  [USER]: UserStateModel;
   [AUTHENTICATION]: AuthenticationStateModel;
   [LOCALE]: LocaleStateModel;
   [THEME]: ThemeStateModel;

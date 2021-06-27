@@ -1,11 +1,11 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { useAccount } from '@lib/frontend/account/stores/account.reducer';
 import { Platform } from '@lib/frontend/core/utils/Platform/Platform';
 import {
   UsageContextModel,
   UsageProviderProps,
 } from '@lib/frontend/usage/containers/UsageProvider/UsageProvider.model';
 import { _initialize } from '@lib/frontend/usage/containers/UsageProvider/_internal/_initialize';
+import { useUser } from '@lib/frontend/user/stores/user.reducer';
 
 const usageDefault = {
   identify: () => console.warn('Tracker not ready'),
@@ -18,10 +18,10 @@ export const UsageContext = createContext<UsageContextModel>(usageDefault);
 export const UsageProvider = ({ children }: UsageProviderProps) => {
   const [usage, setUsage] = useState<UsageContextModel>(usageDefault);
 
-  const account = useAccount();
+  const user = useUser();
 
   useEffect(() => {
-    if (!Platform.isDev) {
+    if (!Platform.isNonProduction) {
       _initialize().then((usage) => usage && setUsage(usage));
     }
   }, []);
@@ -29,13 +29,13 @@ export const UsageProvider = ({ children }: UsageProviderProps) => {
   // TODO: get usage tracking enabled from preference / storage
   useEffect(() => {
     if (usage) {
-      if (account) {
-        usage.identify(account._id);
-      } else if (account === null) {
+      if (user) {
+        usage.identify(user._id);
+      } else if (user === null) {
         usage.reset();
       }
     }
-  }, [usage, account]);
+  }, [usage, user]);
 
   return <UsageContext.Provider value={usage}>{children}</UsageContext.Provider>;
 };

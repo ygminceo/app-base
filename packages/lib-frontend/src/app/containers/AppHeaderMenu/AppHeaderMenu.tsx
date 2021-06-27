@@ -8,7 +8,7 @@ import { useTranslation } from '@lib/frontend/locale/hooks';
 
 export const AppHeaderMenu = ({ ...props }: AppHeaderMenuProps) => {
   const { styles } = useStyles(props);
-  const { t } = useTranslation(['account', 'authentication']);
+  const { t } = useTranslation(['user', 'authentication']);
   return (
     <IconMenu
       style={styles}
