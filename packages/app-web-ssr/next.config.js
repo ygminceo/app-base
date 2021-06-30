@@ -4,11 +4,15 @@ const withPlugins = require('next-compose-plugins');
 const withTM = require('next-transpile-modules');
 const withFonts = require('next-fonts');
 const { ROOT_PATH } = require('../../constants');
+const { i18n } = require('./next-i18next.config');
 
-const overrides = require(resolve(ROOT_PATH, 'packages/lib-frontend/src/web/webpack.config-overrides'));
+const overrides = require(resolve(
+  ROOT_PATH,
+  'packages/lib-frontend/src/web/webpack.config-overrides',
+));
 
 const nextConfig = {
-  future: { webpack5: true },
+  webpack5: false,
 
   experimental: { externalDir: true },
 
@@ -17,7 +21,24 @@ const nextConfig = {
     dev: false,
   },
 
-  webpack: (config) => {
+  rewrites: async () => ({
+    afterFiles: [
+      {
+        source: '/',
+        destination: `/${i18n.defaultLocale}`,
+      },
+      {
+        source: '/:path*',
+        destination: `/${i18n.defaultLocale}/:path*`,
+      },
+    ]
+  }),
+
+  webpack: (config, { dev }) => {
+    if (dev) {
+      config.devtool = 'cheap-module-source-map';
+    }
+
     config.plugins = [...(config.plugins || []), ...overrides.config.plugins];
 
     config.resolve = {

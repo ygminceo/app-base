@@ -39,12 +39,6 @@ module.exports = {
     writeToDisk: true,
   })),
 
-  // jest: (config) => ({
-  //   ...config,
-  //   rootDir: ROOT_PATH,
-  //   roots: ['<rootDir>/packages/lib-frontend'],
-  //   watchPlugins: [],
-  // }),
   jest: (config) => {
     return {
       ...config,
