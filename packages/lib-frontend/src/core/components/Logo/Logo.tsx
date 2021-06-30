@@ -8,6 +8,7 @@ import { useStyles } from '@lib/frontend/core/hooks';
 const PUBLIC_URL = config.get<string>('REACT_APP_PUBLIC_URL', '');
 
 export const Logo = ({ light, ...props }: LogoProps) => {
+  console.warn(`PUBLIC: ${PUBLIC_URL}`);
   const { styles } = useStyles(props, [getLogoStyle]);
   return <Image src={`${PUBLIC_URL}/images/logo_${light ? 'light' : 'dark'}.png`} style={styles} />;
 };
