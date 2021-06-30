@@ -5,7 +5,6 @@ import {
   PathConfigMap,
 } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { reduce } from 'lodash';
 import React, { createRef, Fragment } from 'react';
 import { APP } from '@lib/common/app/constants';
 import { Protected } from '@lib/frontend/authentication/containers';
@@ -32,6 +31,7 @@ const RouteWithSubRoutes = (route: RouteModel) => (
       title: route.pathname,
       animationEnabled: false,
       headerShown: false,
+      cardStyle: { flexGrow: 1, flexShrink: 0, flexBasis: 'auto' },
     }}>
     {(componentProps) => {
       let children = null;

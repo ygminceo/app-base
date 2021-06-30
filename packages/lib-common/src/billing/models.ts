@@ -1,3 +1,4 @@
+// Bank
 export interface BankModel {
   id: string;
   name: string;
@@ -7,7 +8,6 @@ export interface BankModel {
   plaid_bank_access_token?: string;
 }
 
-// Bank user
 export interface BankLinkTokenCreateResponseModel {
   token: string;
   exp: string;
@@ -31,13 +31,19 @@ export interface BankAccessTokenCreateResponseModel {
 }
 
 // Card
-export interface CardTokenGetRequestModel {}
+export interface CardModel {
+  id: string;
+  brand: string;
+  exp_month: number;
+  exp_year: number;
+  last4: string;
+}
 
 export interface CardTokenGetResponseModel {
   id: string;
   token: string;
 }
 
-export interface CardAddRequestModel {}
+export interface CardAddRequestModel extends CardModel {}
 
 export interface CardAddResponseModel {}

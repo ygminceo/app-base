@@ -17,16 +17,6 @@ const nextConfig = {
     dev: false,
   },
 
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-
-  // exportPathMap: async (defaultPathMap, { dev, dir, outDir, distDir, buildId }) => {
-  //   return {
-  //     '/': { page: '/' },
-  //   };
-  // },
-
   webpack: (config) => {
     config.plugins = [...(config.plugins || []), ...overrides.config.plugins];
 

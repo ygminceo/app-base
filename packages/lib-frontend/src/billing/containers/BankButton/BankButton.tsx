@@ -5,7 +5,7 @@ import { BankAddRequestModel } from '@lib/common/billing/models';
 import {
   bankAddAction,
   bankLinkTokenCreateAction,
-} from '@lib/frontend/billing/actions/billing/billing.action';
+} from '@lib/frontend/billing/actions/bank/bank.action';
 import { BankButtonProps } from '@lib/frontend/billing/containers/BankButton/BankButton.model';
 import { _BankLink } from '@lib/frontend/billing/containers/BankButton/internal/_BankLink';
 import { Button } from '@lib/frontend/core/components';

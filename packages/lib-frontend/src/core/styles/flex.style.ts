@@ -30,6 +30,7 @@ export const flexStyle = StyleSheet.create({
   wrap: { flexWrap: 'wrap' },
 });
 
+// @ts-ignore
 export const getFlexStyle: StyleGetterModel<FlexProps> = ({
   alignCenter,
   alignEnd,

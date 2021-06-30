@@ -40,6 +40,7 @@ export const _Dropdown = ({
     <LazyTippy
       visible={isOpen}
       onClickOutside={onClose}
+      offset={[0, 0]}
       ignoreAttributes
       placement="bottom"
       appendTo={() => document.body}

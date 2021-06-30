@@ -12,7 +12,7 @@ export const shapeStyle = StyleSheet.create({
   opaque: { opacity: 0 },
   visible: { opacity: 1 },
   minimized: { transform: [{ scale: 0.7 }] },
-  zoomOut: { opacity: 0, transform: [{ scale: 0.9 }] },
+  zoomOut: { opacity: 0, transform: [{ scale: 0.95 }] },
   zoomIn: { opacity: 1, transform: [{ scale: 1 }] },
   noScale: { transform: [{ scale: 1 }] },
   absolute: { position: 'absolute' },

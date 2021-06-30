@@ -1,6 +1,6 @@
 import { isString } from 'lodash';
 import React from 'react';
-import { appHeaderStyle } from '@lib/frontend/app/containers/AppHeader/AppHeader.style';
+import { headerStyle } from '@lib/frontend/app/components/Header/Header.style';
 import { Icon, Text, Wrapper } from '@lib/frontend/core/components';
 import { KeyboardContainer } from '@lib/frontend/core/components/KeyboardContainer/KeyboardContainer';
 import { ModalProps } from '@lib/frontend/core/components/Modal/Modal.model';
@@ -30,7 +30,7 @@ export const Modal = ({
         <Wrapper grow>
           {onClose && (
             <Wrapper
-              style={[appHeaderStyle.default]}
+              style={[headerStyle.style]}
               row
               alignCenter
               borderBottom

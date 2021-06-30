@@ -12,9 +12,11 @@ export class Platform {
 
   static isAndroid = NativePlatform.OS === 'android';
 
+  static isNative = Platform.isIos || Platform.isAndroid;
+
   static isDev = NODE_ENV === 'development';
 
   static isTest = NODE_ENV === 'test';
 
-  static isNonProduction = this.isDev || this.isTest;
+  static isNonProduction = Platform.isDev || Platform.isTest;
 }

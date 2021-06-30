@@ -8,6 +8,7 @@
     "start": "react-native start"
   },
   "dependencies": {
+    "@lib/assets": "1.0.0",
     "@lib/common": "1.0.0",
     "@lib/frontend": "1.0.0",
     "@react-native-community/async-storage": "^1.12.1",
@@ -40,6 +41,7 @@
     "react-native-screens": "^3.3.0",
     "react-native-storage": "^1.0.1",
     "react-native-svg": "^12.1.1",
+    "react-native-switch": "^2.0.0",
     "react-native-tab-view": "^3.0.1",
     "react-native-vector-icons": "^8.1.0",
     "react-query": "^3.16.0",

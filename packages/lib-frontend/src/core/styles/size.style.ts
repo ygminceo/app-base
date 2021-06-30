@@ -3,7 +3,7 @@ import { SizeProps } from '@lib/frontend/core/styles/size.model';
 import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 
 export const FONT_SIZE_SMALL = 13;
-export const FONT_SIZE_MEDIUM = 16;
+export const FONT_SIZE_MEDIUM = 15;
 export const FONT_SIZE_LARGE = 20;
 export const FONT_SIZE_XLARGE = 25;
 

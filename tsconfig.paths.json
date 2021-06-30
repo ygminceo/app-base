@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@lib/assets/*": ["packages/lib-assets/src/*"],
       "@lib/common/*": ["packages/lib-common/src/*"],
       "@lib/backend/*": ["packages/lib-backend/src/*"],
       "@lib/frontend/*": ["packages/lib-frontend/src/*"],

@@ -1,12 +1,13 @@
 import { Optional } from 'utility-types';
 import { TokenClaimsModel } from '@lib/common/authentication/models';
-import { BankModel } from '@lib/common/billing/models';
+import { BankModel, CardModel } from '@lib/common/billing/models';
 
 export interface UserModel {
   _id: string;
   emailAddress?: string;
   phoneNumber?: string;
   banks?: BankModel[];
+  cards?: CardModel[];
   linkedAccounts?: {
     [name: string]: LinkedUserModel;
   };

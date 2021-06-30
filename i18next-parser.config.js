@@ -12,7 +12,7 @@ module.exports = {
   lineEnding: 'auto',
   locales: ['en', 'kr'],
   namespaceSeparator: ':',
-  output: 'packages/lib-common/assets/locales/$LOCALE/$NAMESPACE.json',
+  output: 'packages/lib-assets/src/public/locales/$LOCALE/$NAMESPACE.json',
   skipDefaultValues: false,
   sort: true,
   useKeysAsDefaultValue: false,

@@ -4,8 +4,8 @@ import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 
 export const logoStyle = StyleSheet.create({
   default: {
-    width: 150,
-    height: 80,
+    width: 120,
+    height: 42,
   },
   small: {
     width: 60,

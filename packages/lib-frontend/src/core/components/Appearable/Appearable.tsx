@@ -4,7 +4,7 @@ import { Wrapper } from '@lib/frontend/core/components/Wrapper/Wrapper';
 import { useStyles } from '@lib/frontend/core/hooks';
 import { shapeStyle } from '@lib/frontend/core/styles/shape.style';
 
-export const Appearable = ({ children, isVisible, ...props }: AppearableProps) => {
+export const Appearable = ({ children, isVisible, dimension, ...props }: AppearableProps) => {
   const { styles } = useStyles(props);
   return (
     <Wrapper

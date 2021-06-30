@@ -6,7 +6,7 @@ import { _MailerModel } from '@lib/backend/mail/utils/Mailer/internal/_Mailer.mo
 import { Platform } from '@lib/frontend/core/utils/Platform/Platform';
 import { ROOT_PATH } from '../../../../../../../constants';
 
-const TEMPLATE_DIR = resolve(ROOT_PATH, 'packages/lib-backend/src/mail/templates');
+const TEMPLATE_DIR = resolve(ROOT_PATH, 'packages/lib-assets/src/mail/templates');
 
 export class _Mailer implements _MailerModel {
   private _transport: Transporter;
@@ -24,7 +24,7 @@ export class _Mailer implements _MailerModel {
     });
   }
 
-  async send({ from, to, template, params }: MailModel) {
+  async send<P>({ from, to, template, params }: MailModel<P>) {
     return new Email({
       preview: Platform.isDev,
       transport: this._transport,

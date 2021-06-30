@@ -7,7 +7,7 @@ import {
 import { isHoverEnabled } from '@lib/frontend/core/components/Hoverable/internal/_isHoverEnabled';
 import { useUnmount } from '@lib/frontend/core/hooks';
 
-export const Hoverable = ({ onHoverIn, onHoverOut, children, ...props }: HoverableProps) => {
+export const Hoverable = ({ onHoverIn, onHoverOut, children }: HoverableProps) => {
   const [isHovered, setHovered] = useState<boolean>(false);
   const [showHover, setShowHover] = useState<boolean>(true);
 

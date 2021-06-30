@@ -4,8 +4,9 @@
     "signOut": ""
   },
   "messages": {
-    "userAlreadyExists": "",
     "invalidOtp": "",
+    "userAlreadyExists": "",
+    "userNotFound": "",
     "verifyDidntGet": "",
     "verifyEnter": "",
     "welcome": ""

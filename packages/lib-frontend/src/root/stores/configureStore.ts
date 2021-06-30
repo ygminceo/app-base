@@ -1,9 +1,11 @@
 import { configureStore as configure } from '@reduxjs/toolkit';
 import { PreloadedState } from 'redux';
+import { APP } from '@lib/common/app/constants';
 import { AUTHENTICATION } from '@lib/common/authentication/constants';
 import { LOCALE } from '@lib/common/locale/constants';
 import { THEME } from '@lib/common/theme/constants';
 import { USER } from '@lib/common/user/constants';
+import { appReducer } from '@lib/frontend/app/stores/app.reducer';
 import { authenticationReducer } from '@lib/frontend/authentication/stores/authentication.reducer';
 import { localeReducer } from '@lib/frontend/locale/stores/locale.reducer';
 import { RootStateModel } from '@lib/frontend/root/stores/rootState.model';
@@ -13,6 +15,7 @@ import { userReducer } from '@lib/frontend/user/stores/user.reducer';
 export const configureStore = (initialState?: PreloadedState<RootStateModel>) =>
   configure<RootStateModel>({
     reducer: {
+      [APP]: appReducer,
       [USER]: userReducer,
       [AUTHENTICATION]: authenticationReducer,
       [LOCALE]: localeReducer,

@@ -2,12 +2,14 @@ import {
   BANK_ADD,
   BANK_LINK_TOKEN_CREATE,
   BILLING,
+  CARD_ADD,
   CARD_TOKEN_GET,
 } from '@lib/common/billing/constants';
 import {
   BankAddRequestModel,
   BankLinkTokenCreateResponseModel,
-  CardTokenGetRequestModel,
+  CardAddRequestModel,
+  CardAddResponseModel,
   CardTokenGetResponseModel,
 } from '@lib/common/billing/models';
 import { config } from '@lib/common/core/utils/Config/Config';
@@ -25,13 +27,16 @@ class BillingClient {
     });
   }
 
-  cardTokenGet = () => this._client.post<void, CardTokenGetResponseModel, any>(CARD_TOKEN_GET);
-
   bankLinkTokenCreate = () =>
     this._client.post<void, BankLinkTokenCreateResponseModel, any>(BANK_LINK_TOKEN_CREATE);
 
   bankAdd = (data: BankAddRequestModel) =>
     this._client.post<BankAddRequestModel, void, any>(BANK_ADD, data);
+
+  cardTokenGet = () => this._client.post<void, CardTokenGetResponseModel, any>(CARD_TOKEN_GET);
+
+  cardAdd = (data: CardAddRequestModel) =>
+    this._client.post<CardAddRequestModel, CardAddResponseModel, any>(CARD_ADD, data);
 }
 
 export const billingClient = new BillingClient();

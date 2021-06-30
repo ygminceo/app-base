@@ -1,8 +1,10 @@
+export { Alert } from '@lib/frontend/core/components/Alert/Alert';
 export { Appearable } from '@lib/frontend/core/components/Appearable/Appearable';
 export { AsyncWrapper } from '@lib/frontend/core/components/AsyncWrapper/AsyncWrapper';
 export { Button } from '@lib/frontend/core/components/Button/Button';
 export { Divider } from '@lib/frontend/core/components/Divider/Divider';
 export { Dropdown } from '@lib/frontend/core/components/Dropdown/Dropdown';
+export { Droppable } from '@lib/frontend/core/components/Droppable/Droppable';
 export { Form } from '@lib/frontend/core/components/Form/Form';
 export { Hoverable } from '@lib/frontend/core/components/Hoverable/Hoverable';
 export { Icon } from '@lib/frontend/core/components/Icon/Icon';
@@ -21,6 +23,7 @@ export { SearchField } from '@lib/frontend/core/components/SearchField/SearchFie
 export { SelectField } from '@lib/frontend/core/components/SelectField/SelectField';
 export { Slidable } from '@lib/frontend/core/components/Slidable/Slidable';
 export { Steps } from '@lib/frontend/core/components/Steps/Steps';
+export { SwitchField } from '@lib/frontend/core/components/SwitchField/SwitchField';
 export { Text } from '@lib/frontend/core/components/Text/Text';
 export { TextField } from '@lib/frontend/core/components/TextField/TextField';
 export { Wrapper } from '@lib/frontend/core/components/Wrapper/Wrapper';

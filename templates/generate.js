@@ -17,6 +17,19 @@ generateTemplateFiles([
   },
 
   {
+    option: 'React Component Internal',
+    defaultCase: '(pascalCase)',
+    entry: {
+      folderPath: resolve(__dirname, 'ReactComponentInternal'),
+    },
+    stringReplacers: ['{{NAME}}', '{{SERVICE}}', '{{PATH}}'],
+    output: {
+      path: resolve(ROOT_PATH, 'packages/lib-frontend/src/{{SERVICE}}(camelCase)/{{PATH}}(pathCase)/{{NAME}}'),
+      overwrite: false,
+    },
+  },
+
+  {
     option: 'Handler',
     defaultCase: '(pascalCase)',
     entry: {

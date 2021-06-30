@@ -7,7 +7,7 @@ export const DarkTheme: ThemeModel = defaultsDeep(
     name: 'theme:labels.dark',
     isDark: true,
     colors: {
-      border: '#e3e8ee',
+      border: '#686868',
       background: {
         primary: '#3c4257',
         contrast: '#FFF',

@@ -1,6 +1,6 @@
 import { Column, Entity, ObjectIdColumn } from 'typeorm';
-import { BankModel } from '@lib/common/billing/models';
-import { UserModel, LinkedUserModel } from '@lib/common/user/models';
+import { BankModel, CardModel } from '@lib/common/billing/models';
+import { LinkedUserModel, UserModel } from '@lib/common/user/models';
 
 @Entity()
 export class User implements UserModel {
@@ -13,6 +13,8 @@ export class User implements UserModel {
   phoneNumber?: string;
   @Column()
   banks?: BankModel[];
+  @Column()
+  cards?: CardModel[];
   @Column()
   linkedAccounts?: {
     [name: string]: LinkedUserModel;

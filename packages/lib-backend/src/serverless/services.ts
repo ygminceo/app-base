@@ -1,13 +1,14 @@
 import {
   AUTHENTICATION,
+  AUTHORIZE,
   OTP_CREATE,
   SIGNIN,
-  AUTHORIZE,
 } from '@lib/common/authentication/constants';
 import {
   BANK_ADD,
   BANK_LINK_TOKEN_CREATE,
   BILLING,
+  CARD_ADD,
   CARD_TOKEN_GET,
 } from '@lib/common/billing/constants';
 import { ServerlessServiceModel } from '@lib/backend/serverless/serverless.model';
@@ -44,6 +45,11 @@ export const services: ServerlessServiceModel[] = [
       },
       {
         name: CARD_TOKEN_GET,
+        method: 'post',
+        protected: true,
+      },
+      {
+        name: CARD_ADD,
         method: 'post',
         protected: true,
       },

@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { APP_HEADER_ID } from '@lib/frontend/app/containers/AppHeader/AppHeader.constants';
-import { APP_SIDE_MENU_ID } from '@lib/frontend/app/containers/AppSideMenu/AppSideMenu.constants';
+import { HEADER_ID } from '@lib/frontend/app/components/Header/Header.constants';
 import { CommonTheme } from '@lib/frontend/theme/themes/common.theme';
 
 const Ionicons = require('react-native-vector-icons/Fonts/Ionicons.ttf').default;
@@ -8,8 +7,8 @@ const Fontawesome = require('react-native-vector-icons/Fonts/FontAwesome.ttf').d
 
 export const GlobalStyle = createGlobalStyle`
     @font-face {
-        font-family: 'Ionicons';
-        src: url(${Ionicons}) format('truetype');
+      font-family: 'Ionicons';
+      src: url(${Ionicons}) format('truetype');
     }
 
     @font-face {
@@ -18,15 +17,15 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     html, body, #root {
-        height: 100%;
-        margin: 0;
-        padding: 0;
+      height: 100%;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-        font-smoothing: antialiased;
-        overflow-y: scroll;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+      font-smoothing: antialiased;
+      overflow-y: scroll;
     }
 
     #root {
@@ -34,7 +33,7 @@ export const GlobalStyle = createGlobalStyle`
         flex-direction: column;
     }
 
-    #${APP_HEADER_ID}, #${APP_SIDE_MENU_ID} {
+    #${HEADER_ID} {
       position: fixed !important;
     }
 

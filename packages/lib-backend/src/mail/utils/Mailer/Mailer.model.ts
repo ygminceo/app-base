@@ -6,5 +6,5 @@ export interface MailModel<P> {
 }
 
 export interface MailerModel {
-  send(mail: MailModel<any>): Promise<void>;
+  send<P>(mail: MailModel<P>): Promise<void>;
 }

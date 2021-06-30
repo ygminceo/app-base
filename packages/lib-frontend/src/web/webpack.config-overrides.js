@@ -11,6 +11,7 @@ const TRANSIPLE_MODULES = [
   'react-native-iphone-x-helper',
   'react-native-modal',
   'react-native-paper',
+  'react-native-switch',
   'react-native-vector-icons',
 ];
 
@@ -35,7 +36,7 @@ module.exports = {
       new CopyWebpackPlugin({
         patterns: [
           {
-            from: resolve(ROOT_PATH, 'packages/lib-common/assets'),
+            from: resolve(ROOT_PATH, 'packages/lib-assets/src/public'),
             to: resolve(process.cwd(), 'public'),
           },
         ],
