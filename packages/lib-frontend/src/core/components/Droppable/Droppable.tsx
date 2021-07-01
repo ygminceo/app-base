@@ -1,3 +1,4 @@
+import { isFunction } from 'lodash';
 import React from 'react';
 import { Dropdown, Hoverable, Wrapper } from '@lib/frontend/core/components';
 import { DroppableProps } from '@lib/frontend/core/components/Droppable/Droppable.model';
@@ -9,7 +10,10 @@ export const Droppable = ({ render, children, ...props }: DroppableProps) => {
     <Hoverable>
       {(isHovered) => (
         <Wrapper>
-          <Dropdown style={styles} anchor={children(isHovered)} isOpen={isHovered}>
+          <Dropdown
+            style={styles}
+            anchor={isFunction(children) ? children(isHovered) : children}
+            isOpen={isHovered}>
             {render()}
           </Dropdown>
         </Wrapper>

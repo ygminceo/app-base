@@ -1,5 +1,6 @@
 import { get, isFunction, map } from 'lodash';
-import React, { cloneElement, useCallback, useState, memo } from 'react';
+import React, { cloneElement, useCallback, useState } from 'react';
+import { COMMON } from '@lib/common/core/constants';
 import { Divider, Icon, Pressable, Text, Wrapper } from '@lib/frontend/core/components';
 import { Dropdown } from '@lib/frontend/core/components/Dropdown/Dropdown';
 import {
@@ -27,7 +28,7 @@ export const Menu = ({
   value: menuValue,
   width,
 }: MenuProps) => {
-  const { t } = useTranslation(['common']);
+  const { t } = useTranslation([COMMON]);
   const { search } = useSearch(optionsProp, ['label', 'value']);
   const { styles: menuOptionStyles } = useStyles({}, [getMenuOptionModelStyle]);
   const router = useRouter();

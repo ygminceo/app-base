@@ -1,5 +1,6 @@
 import { isNumber, isString } from 'lodash';
 import React, { useEffect, useRef } from 'react';
+import { COMMON } from '@lib/common/core/constants';
 import { Appearable, Text, Wrapper } from '@lib/frontend/core/components';
 import { TextFieldProps } from '@lib/frontend/core/components/TextField/TextField.model';
 import { _TextField } from '@lib/frontend/core/components/TextField/internal/_TextField';
@@ -30,7 +31,7 @@ export const TextField = ({
 }: TextFieldProps) => {
   const { styles } = useStyles({ ...props }, []);
   const ref = useRef<any>();
-  const { t } = useTranslation(['common']);
+  const { t } = useTranslation([COMMON]);
   const [fieldValue, setFieldValue] = useUncontrolled<string>(value, onChange, '');
   const transition = useTheme<number>('animation.transition');
 

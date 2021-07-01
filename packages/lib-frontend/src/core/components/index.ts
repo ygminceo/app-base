@@ -26,4 +26,5 @@ export { Steps } from '@lib/frontend/core/components/Steps/Steps';
 export { SwitchField } from '@lib/frontend/core/components/SwitchField/SwitchField';
 export { Text } from '@lib/frontend/core/components/Text/Text';
 export { TextField } from '@lib/frontend/core/components/TextField/TextField';
+export { Tooltipable } from '@lib/frontend/core/components/Tooltipable/Tooltipable';
 export { Wrapper } from '@lib/frontend/core/components/Wrapper/Wrapper';

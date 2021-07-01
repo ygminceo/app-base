@@ -1,4 +1,6 @@
 import React from 'react';
+import { COMMON } from '@lib/common/core/constants';
+import { SETTINGS } from '@lib/common/settings/constants';
 import { Divider, Link, Text, Wrapper } from '@lib/frontend/core/components';
 import { useStyles } from '@lib/frontend/core/hooks';
 import { useTranslation } from '@lib/frontend/locale/hooks';
@@ -7,7 +9,7 @@ import { useUser } from '@lib/frontend/user/stores/user.reducer';
 
 export const Profile = ({ ...props }: ProfileProps) => {
   const { styles } = useStyles(props);
-  const { t } = useTranslation(['common']);
+  const { t } = useTranslation([COMMON, SETTINGS]);
   const user = useUser();
   return (
     <Wrapper style={styles} grow spacing>

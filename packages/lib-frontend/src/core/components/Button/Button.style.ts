@@ -4,7 +4,7 @@ import { borderStyle } from '@lib/frontend/core/styles/border.style';
 import { flexStyle } from '@lib/frontend/core/styles/flex.style';
 import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 
-export const BUTTON_HEIGHT_DEFAULT = 43;
+export const BUTTON_HEIGHT_DEFAULT = 36;
 export const BUTTON_HEIGHT_SMALL = 30;
 
 export const buttonStyle = StyleSheet.create({

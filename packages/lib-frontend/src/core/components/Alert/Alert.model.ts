@@ -8,4 +8,6 @@ export interface AlertModel extends ColorProps {
   message: string;
 }
 
+export interface AlertMessageModel extends Omit<AlertModel, 'id'> {}
+
 export interface AlertProps extends AlertModel {}

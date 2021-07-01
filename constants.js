@@ -1,4 +1,4 @@
-const { join, resolve } = require('path');
+const { resolve } = require('path');
 
 const EXTENSIONS = [
   '.web.tsx',
@@ -15,11 +15,5 @@ const EXTENSIONS = [
 module.exports = {
   ROOT_PATH: resolve(__dirname),
   EXTENSIONS,
-  NATIVE_EXTENSIONS: [
-    '.native.tsx',
-    '.ios.tsx',
-    '.android.tsx',
-    '.native.ts',
-    ...EXTENSIONS,
-  ],
+  NATIVE_EXTENSIONS: ['.native.tsx', '.ios.tsx', '.android.tsx', '.native.ts', ...EXTENSIONS],
 };

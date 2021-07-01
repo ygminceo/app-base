@@ -1,7 +1,9 @@
 import { unwrapResult } from '@reduxjs/toolkit';
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { AUTHENTICATION } from '@lib/common/authentication/constants';
 import { EmailFormModel } from '@lib/common/authentication/models';
+import { COMMON } from '@lib/common/core/constants';
 import { otpCreateAction } from '@lib/frontend/authentication/actions/otpCreate/otpCreate.action';
 import {
   EMAIL_FORM_INITIAL_VALUES,
@@ -15,7 +17,7 @@ import { AppDispatchModel } from '@lib/frontend/root/stores/store';
 
 export const EmailForm = ({ onSuccess, ...props }: EmailFormProps) => {
   const { styles } = useStyles(props);
-  const { t } = useTranslation(['authentication']);
+  const { t } = useTranslation([AUTHENTICATION, COMMON]);
   const dispatch = useDispatch<AppDispatchModel>();
 
   const {

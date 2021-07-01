@@ -1,6 +1,6 @@
 import React from 'react';
 import { HEADER_HEIGHT } from '@lib/frontend/app/components/Header/Header.constants';
-import { Alerts, Header, LandingHeader } from '@lib/frontend/app/containers';
+import { Alerts, LandingHeader } from '@lib/frontend/app/containers';
 import { useScroll } from '@lib/frontend/app/hooks';
 import { LandingLayoutProps } from '@lib/frontend/app/layouts/LandingLayout/LandingLayout.model';
 import { Wrapper } from '@lib/frontend/core/components';

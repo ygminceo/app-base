@@ -1,6 +1,7 @@
 {
   "labels": {
-    "resend": ""
+    "resend": "",
+    "signOut": ""
   },
   "messages": {
     "invalidOtp": "",

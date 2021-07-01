@@ -25,9 +25,6 @@ export const Header = ({ children, ...props }: HeaderProps) => {
       pRight>
       <Logo />
       {children}
-      <Wrapper absoluteRight center mRight row spacingTight alignCenter>
-        <ThemeSwitch />
-      </Wrapper>
     </Wrapper>
   );
 };

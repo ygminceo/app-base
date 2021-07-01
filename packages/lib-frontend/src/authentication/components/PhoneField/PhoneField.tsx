@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
+import { COMMON } from '@lib/common/core/constants';
 import { COUNTRY_CODES } from '@lib/frontend/authentication/components/PhoneField/PhoneField.constants';
 import {
-  PhoneFieldProps,
   PhoneFieldModel,
+  PhoneFieldProps,
 } from '@lib/frontend/authentication/components/PhoneField/PhoneField.model';
 import { SelectField, TextField, Wrapper } from '@lib/frontend/core/components';
 import { SelectableOptionModel } from '@lib/frontend/core/components/SelectField/SelectField.model';
@@ -17,7 +18,7 @@ export const PhoneField = ({
   isDisabled,
   ...props
 }: PhoneFieldProps) => {
-  const { t } = useTranslation(['common']);
+  const { t } = useTranslation([COMMON]);
   const { styles } = useStyles(props);
 
   const [fieldValue, setFieldValue] = useUncontrolled<PhoneFieldModel>(value, onChange, {

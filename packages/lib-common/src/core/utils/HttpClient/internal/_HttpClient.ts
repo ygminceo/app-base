@@ -10,6 +10,7 @@ import {
   _HttpClientProps,
 } from '@lib/common/core/utils/HttpClient/internal/_HttpClient.model';
 import { alertAdd } from '@lib/frontend/app/actions/alert/alert.action';
+import { NETWORK_ALERT } from '@lib/frontend/app/constants';
 import { store } from '@lib/frontend/root/stores/store';
 
 const toQueryString = (params: object) =>
@@ -47,7 +48,7 @@ export class _HttpClient implements _HttpClientModel {
       .then((response: AxiosResponse<T>) => response.data)
       .catch((error: AxiosError<E>) => {
         if (error.message === 'Network Error') {
-          store.dispatch(alertAdd({ message: 'network' }));
+          store.dispatch(alertAdd(NETWORK_ALERT));
         }
         throw new HttpError<E>(error.response?.status, error.response?.data);
       });

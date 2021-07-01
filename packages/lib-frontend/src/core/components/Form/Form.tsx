@@ -1,4 +1,5 @@
 import React from 'react';
+import { COMMON } from '@lib/common/core/constants';
 import { Button, Wrapper } from '@lib/frontend/core/components';
 import { FormProps } from '@lib/frontend/core/components/Form/Form.model';
 import { getFormStyle } from '@lib/frontend/core/components/Form/Form.style';
@@ -17,7 +18,7 @@ export const Form = ({
   submitLabel,
   ...props
 }: FormProps) => {
-  const { t } = useTranslation(['common']);
+  const { t } = useTranslation([COMMON]);
   const { styles } = useStyles(props, [getFormStyle]);
   return (
     <Wrapper style={styles} spacing>

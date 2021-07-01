@@ -1,6 +1,7 @@
 import { unwrapResult } from '@reduxjs/toolkit';
 import React, { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { BILLING } from '@lib/common/billing/constants';
 import { BankAddRequestModel } from '@lib/common/billing/models';
 import {
   bankAddAction,
@@ -15,7 +16,7 @@ import { AppDispatchModel } from '@lib/frontend/root/stores/store';
 
 export const BankButton = ({ ...props }: BankButtonProps) => {
   const { styles } = useStyles(props);
-  const { t } = useTranslation(['billing']);
+  const { t } = useTranslation([BILLING]);
   const dispatch = useDispatch<AppDispatchModel>();
 
   const [token, setToken] = useState<string>('');
@@ -36,10 +37,9 @@ export const BankButton = ({ ...props }: BankButtonProps) => {
         .finally(() => setToken('')),
     [],
   );
-
   return (
     <>
-      <Button style={styles} onPress={handleTokenCreate}>
+      <Button style={styles} onPress={handleTokenCreate} icon="building">
         {t('billing:labels.addBank')}
       </Button>
       {token ? (

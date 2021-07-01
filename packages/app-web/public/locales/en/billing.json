@@ -1,6 +1,7 @@
 {
   "labels": {
     "addBank": "Add bank account",
-    "addCard": "Add card"
+    "addCard": "Add card",
+    "billing": "Billing"
   }
 }

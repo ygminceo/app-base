@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { OTP_CREATE, OTP_LENGTH } from '@lib/common/authentication/constants';
+import { AUTHENTICATION, OTP_CREATE, OTP_LENGTH } from '@lib/common/authentication/constants';
 import { OtpField } from '@lib/frontend/authentication/components';
 import {
   OTP_FORM_INITIAL_VALUES,
@@ -14,7 +14,7 @@ import { useTranslation } from '@lib/frontend/locale/hooks';
 
 export const OtpForm = ({ username, onSubmit, onSuccess, onSend, ...props }: OtpFormProps) => {
   const { styles } = useStyles(props);
-  const { t } = useTranslation(['authentication']);
+  const { t } = useTranslation([AUTHENTICATION]);
   const [retried, setRetried] = useState<boolean>(false);
 
   const { isLoading: isQueryLoading, query } = useQuery(OTP_CREATE, () =>

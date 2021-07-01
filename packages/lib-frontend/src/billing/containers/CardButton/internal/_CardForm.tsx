@@ -1,6 +1,7 @@
 import { CardElement, Elements, useElements, useStripe } from '@stripe/react-stripe-js';
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { BILLING } from '@lib/common/billing/constants';
 import { cardAddAction } from '@lib/frontend/billing/actions/card/card.action';
 import { _CardFormProps } from '@lib/frontend/billing/containers/CardButton/internal/_CardForm.model';
 import { Form, Wrapper } from '@lib/frontend/core/components';
@@ -19,7 +20,7 @@ export const _CardForm = ({ ...props }: _CardFormProps) => (
 
 const _CardFormElement = ({ stripe, ...props }: _CardFormProps) => {
   const { styles } = useStyles(props);
-  const { t } = useTranslation(['payment']);
+  const { t } = useTranslation([BILLING]);
   const dispatch = useDispatch<AppDispatchModel>();
 
   const stripeClient = useStripe();

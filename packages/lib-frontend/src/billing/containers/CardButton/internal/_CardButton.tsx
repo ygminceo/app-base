@@ -1,6 +1,6 @@
 import { loadStripe } from '@stripe/stripe-js';
 import React, { useState } from 'react';
-import { CARD_TOKEN_GET } from '@lib/common/billing/constants';
+import { BILLING, CARD_TOKEN_GET } from '@lib/common/billing/constants';
 import { config } from '@lib/common/core/utils/Config/Config';
 import { billingClient } from '@lib/frontend/billing/clients/BillingClient/BillingClient';
 import { _CardButtonProps } from '@lib/frontend/billing/containers/CardButton/internal/_CardButton.model';
@@ -14,7 +14,7 @@ const REACT_APP_STRIPE_TOKEN = config.get<string>('REACT_APP_STRIPE_TOKEN', '');
 
 export const _CardButton = ({ ...props }: _CardButtonProps) => {
   const { styles } = useStyles(props);
-  const { t } = useTranslation(['billing']);
+  const { t } = useTranslation([BILLING]);
   const [modalIsOpen, setModalIsOpen] = useState<boolean>();
 
   const { data, query } = useQuery<_StripeCardFormModel | null>(CARD_TOKEN_GET, async () => {
@@ -29,7 +29,7 @@ export const _CardButton = ({ ...props }: _CardButtonProps) => {
 
   return (
     <>
-      <Button style={styles} onPress={query}>
+      <Button style={styles} onPress={query} icon="card">
         {t('billing:labels.addCard')}
       </Button>
       {data && (

@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import { COMMON } from '@lib/common/core/constants';
 import { Button, Hoverable, Modal, Text, Wrapper } from '@lib/frontend/core/components';
 import { PressableProps } from '@lib/frontend/core/components/Pressable/Pressable.model';
 import { getPressableStyle } from '@lib/frontend/core/components/Pressable/Pressable.style';
 import { useStyles, useUncontrolled } from '@lib/frontend/core/hooks';
 import { useTranslation } from '@lib/frontend/locale/hooks';
 import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
+import React, { useState } from 'react';
 
 export const Pressable = ({
   isDisabled,
@@ -16,7 +17,7 @@ export const Pressable = ({
   children,
   ...props
 }: PressableProps) => {
-  const { t } = useTranslation(['common']);
+  const { t } = useTranslation([COMMON]);
   const { styles } = useStyles({ from: fromProps, to: toProps, ...props }, [getPressableStyle]);
   const [confirmModalIsOpen, setConfirmModalIsOpen] = useState<boolean>(false);
   const [isPressedState, setPressedState] = useUncontrolled(isPressed, undefined, false);

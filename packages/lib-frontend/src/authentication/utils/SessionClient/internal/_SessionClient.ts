@@ -3,6 +3,8 @@ import 'firebase/auth';
 import { pick } from 'lodash';
 import { TOKEN_CLAIM_KEYS } from '@lib/common/authentication/constants';
 import { config } from '@lib/common/core/utils/Config/Config';
+import { alertAdd } from '@lib/frontend/app/actions/alert/alert.action';
+import { NETWORK_ALERT } from '@lib/frontend/app/constants';
 import { _SessionClientModel } from '@lib/frontend/authentication/utils/SessionClient/internal/_SessionClient.model';
 import { Platform } from '@lib/frontend/core/utils/Platform/Platform';
 import { store } from '@lib/frontend/root/stores/store';
@@ -37,16 +39,22 @@ export class _SessionClient implements _SessionClientModel {
       //TODO: from locale
       firebase.auth().useDeviceLanguage();
 
-      firebase.auth().onAuthStateChanged((user) => {
+      firebase.auth().onAuthStateChanged(async (user) => {
         if (user) {
-          user?.getIdTokenResult().then((result) =>
+          try {
+            const { claims } = await user.getIdTokenResult();
             store.dispatch(
               userSetAction({
-                ...pick(result.claims, TOKEN_CLAIM_KEYS),
+                ...pick(claims, TOKEN_CLAIM_KEYS),
                 _id: user.uid,
               }),
-            ),
-          );
+            );
+          } catch (e) {
+            if (e.code === 'auth/network-request-failed') {
+              store.dispatch(alertAdd(NETWORK_ALERT));
+            }
+            throw(e);
+          }
         } else {
           store.dispatch(userSetAction(null));
         }

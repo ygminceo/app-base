@@ -14,8 +14,6 @@ module.exports = defaultsDeep(
 
     testEnvironment: 'jsdom',
 
-    setupFilesAfterEnv: [resolve(ROOT_PATH, 'packages/lib-frontend/src/testing/jest.setup.web.js')],
-
     transform: { '^.+\\.(ts|tsx|js|jsx)$': 'ts-jest' },
 
     transformIgnorePatterns: [`<rootDir>/node_modules/(?!${overrides.transpileModules.join('|')})`],

@@ -22,7 +22,7 @@
     "azure:deploy": "yarn workspace @serverless/azure deploy",
 
     "test:backend": "yarn workspace @lib/backend test",
-    "test:web": "yarn workspace @lib/frontend test:native",
+    "test:web": "yarn workspace @lib/frontend test:web",
     "test:native": "yarn workspace @lib/frontend test:native",
 
     "prettier": "npx prettier --write \"**/src/**/*.ts\" \"**/src/**/*.tsx\"",
