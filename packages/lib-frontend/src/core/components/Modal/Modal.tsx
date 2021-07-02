@@ -37,14 +37,16 @@ export const Modal = ({
               pLeft
               pRight
               spacingTight>
-              <Icon large onPress={onClose} icon="arrow-left" isDisabled={isDisabled} />
-              {isString(header) ? (
-                <Text title large>
-                  {header}
-                </Text>
-              ) : (
-                header
-              )}
+              <Wrapper grow>
+                {isString(header) ? (
+                  <Text title large>
+                    {header}
+                  </Text>
+                ) : (
+                  header
+                )}
+              </Wrapper>
+              <Icon large onPress={onClose} icon="times" isDisabled={isDisabled} />
             </Wrapper>
           )}
           {/* Content */}

@@ -9,8 +9,9 @@ export const Icon = (props: IconProps) => {
   const { computedStyles: textStyles } = useTextStyles(props, []);
   const { inheritedStyles, computedStyles: iconStyles } = useStyles(props, [getIconStyle]);
   const { onPress, icon, isPressed } = props;
-
-  const component = <_Icon style={textStyles} icon={icon} />;
+  const component = (
+    <_Icon style={[textStyles, ...[onPress ? [] : [inheritedStyles]]]} icon={icon} />
+  );
   return onPress ? (
     <Pressable style={[inheritedStyles, iconStyles]} onPress={onPress} isPressed={isPressed}>
       {component}

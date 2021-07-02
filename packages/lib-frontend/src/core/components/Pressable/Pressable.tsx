@@ -1,3 +1,5 @@
+import { isFunction } from 'lodash';
+import React, { useState } from 'react';
 import { COMMON } from '@lib/common/core/constants';
 import { Button, Hoverable, Modal, Text, Wrapper } from '@lib/frontend/core/components';
 import { PressableProps } from '@lib/frontend/core/components/Pressable/Pressable.model';
@@ -5,7 +7,6 @@ import { getPressableStyle } from '@lib/frontend/core/components/Pressable/Press
 import { useStyles, useUncontrolled } from '@lib/frontend/core/hooks';
 import { useTranslation } from '@lib/frontend/locale/hooks';
 import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
-import React, { useState } from 'react';
 
 export const Pressable = ({
   isDisabled,
@@ -26,15 +27,12 @@ export const Pressable = ({
   const c = isDark ? 255 : 0;
   const from = { backgroundColor: `rgba(${c}, ${c}, ${c}, 0)`, ...fromProps };
   const to = { backgroundColor: `rgba(${c}, ${c}, ${c}, 0.1)`, ...toProps };
-
   return (
     <>
       <Hoverable>
         {(isHovered) => (
           <Wrapper
-            animatable={{
-              transition: ['backgroundColor'],
-            }}
+            animatable={{ transition: ['backgroundColor'] }}
             style={[styles, !isDisabled && (isPressedState || isHovered) ? to : from]}
             round
             center
@@ -43,7 +41,7 @@ export const Pressable = ({
             }
             onPressIn={isDisabled ? undefined : () => setPressedState(true)}
             onPressOut={isDisabled ? undefined : () => setPressedState(false)}>
-            {children}
+            {isFunction(children) ? children(isHovered || isPressedState) : children}
           </Wrapper>
         )}
       </Hoverable>

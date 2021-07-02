@@ -4,7 +4,7 @@ import { borderStyle } from '@lib/frontend/core/styles/border.style';
 import { flexStyle } from '@lib/frontend/core/styles/flex.style';
 import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 
-export const BUTTON_HEIGHT_DEFAULT = 36;
+export const BUTTON_HEIGHT_DEFAULT = 38;
 export const BUTTON_HEIGHT_SMALL = 30;
 
 export const buttonStyle = StyleSheet.create({
@@ -12,11 +12,12 @@ export const buttonStyle = StyleSheet.create({
   small: { height: BUTTON_HEIGHT_SMALL },
 });
 
-export const getButtonStyle: StyleGetterModel<ButtonProps> = ({
+export const getButtonStyle: StyleGetterModel<Partial<ButtonProps>> = ({
   small,
   transparent,
   fullWidth,
 }) => [
+  borderStyle.shadow,
   small ? buttonStyle.small : buttonStyle.default,
   fullWidth ? undefined : flexStyle.selfBaseline,
   ...(transparent ? [borderStyle.borderPrimary, borderStyle.border] : []),

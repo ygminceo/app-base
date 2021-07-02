@@ -1,4 +1,4 @@
-import { CATALOG } from '@lib/common/admin/constants';
+import { ADMIN, CATALOG } from '@lib/common/admin/constants';
 import { APP } from '@lib/common/app/constants';
 import { BILLING } from '@lib/common/billing/constants';
 import { SETTINGS } from '@lib/common/settings/constants';
@@ -16,6 +16,10 @@ export const ROUTES: RouteModel[] = [
     component: DashboardLayout,
     routes: [
       {
+        pathname: SETTINGS,
+        component: SettingsPage,
+      },
+      {
         pathname: BILLING,
         component: BillingPage,
         protected: true,
@@ -26,13 +30,13 @@ export const ROUTES: RouteModel[] = [
         protected: true,
       },
       {
-        pathname: SETTINGS,
-        component: SettingsPage,
-      },
-      {
         pathname: CATALOG,
         component: CatalogPage,
       },
     ],
+  },
+  {
+    pathname: ADMIN,
+    component: CatalogPage,
   },
 ];

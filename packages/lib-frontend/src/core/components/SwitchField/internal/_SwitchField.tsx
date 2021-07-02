@@ -20,6 +20,8 @@ export const _SwitchField = ({
     <Switch
       containerStyle={styles}
       value={value}
+      circleBorderWidth={2}
+      circleSize={25}
       onValueChange={onChange}
       disabled={isDisabled}
       backgroundActive={colorPrimary}

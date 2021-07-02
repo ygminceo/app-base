@@ -6,6 +6,8 @@ import { CommonTheme } from '@lib/frontend/theme/themes/common.theme';
 
 export const spacingStyle = StyleSheet.create({
   noPadding: { padding: 0 },
+  noPaddingHorizontal: { paddingLeft: 0, paddingRight: 0 },
+  noPaddingVertical: { paddingTop: 0, paddingBottom: 0 },
   padding: { padding: CommonTheme.shape.spacing },
   paddingLeft: { paddingLeft: CommonTheme.shape.spacing },
   paddingRight: { paddingRight: CommonTheme.shape.spacing },

@@ -9,6 +9,7 @@ import { TextInput } from 'react-native-paper';
 import { Appearable, Icon, Wrapper } from '@lib/frontend/core/components';
 import { _TextFieldProps } from '@lib/frontend/core/components/TextField/internal/_TextField.model';
 import { useStyles, useTextStyles } from '@lib/frontend/core/hooks';
+import { spacingStyle } from '@lib/frontend/core/styles/spacing.style';
 
 // const getKeyboardType = (type?: InputModel) => {
 //   switch (type) {

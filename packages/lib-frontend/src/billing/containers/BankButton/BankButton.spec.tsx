@@ -12,4 +12,3 @@ it('Renders', () => {
   const tt = screen.queryByText('Add bank account');
   expect(tt).toBeTruthy();
 });
- 

@@ -1,6 +1,6 @@
 import { ComponentType } from 'react';
 
-export interface RouteModel<P = {}> {
+export interface RouteModel<P = any> {
   pathname: string;
   component?: ComponentType<any>;
   props?: P;

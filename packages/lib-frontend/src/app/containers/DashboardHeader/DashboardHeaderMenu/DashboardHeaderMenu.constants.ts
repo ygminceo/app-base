@@ -1,5 +1,5 @@
-import { SETTINGS } from '@lib/common/settings/constants';
 import { BILLING } from '@lib/common/billing/constants';
+import { SETTINGS } from '@lib/common/settings/constants';
 import { signOutAction } from '@lib/frontend/authentication/actions/signOut/signOut.action';
 import { MenuOptionModel } from '@lib/frontend/core/components/Menu/Menu.model';
 import { tLazy } from '@lib/frontend/locale/utils/tLazy/tLazy';

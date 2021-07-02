@@ -1,11 +1,12 @@
-import { NativeStyleModel, StyledPropsWithChildren } from '@lib/frontend/core/styles/style.model';
+import { ReactNode } from 'react';
+import { NativeStyleModel, StyledProps } from '@lib/frontend/core/styles/style.model';
 
-export interface PressableProps
-  extends StyledPropsWithChildren<{
-    confirmMessage?: string;
-    isDisabled?: boolean;
-    from?: NativeStyleModel;
-    onPress?(): any;
-    isPressed?: boolean;
-    to?: NativeStyleModel;
-  }> {}
+export interface PressableProps extends StyledProps {
+  confirmMessage?: string;
+  isDisabled?: boolean;
+  from?: NativeStyleModel;
+  onPress?(): any;
+  isPressed?: boolean;
+  to?: NativeStyleModel;
+  children: ReactNode | ((isActive?: boolean) => ReactNode);
+}

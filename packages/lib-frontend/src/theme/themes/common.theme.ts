@@ -4,7 +4,7 @@ export const CommonTheme = {
     transition: 400,
   },
   shape: {
-    borderRadius: 5,
+    borderRadius: 13,
     spacing: 16,
     spacingTight: 8,
     spacingWhitespace: '0.4em',

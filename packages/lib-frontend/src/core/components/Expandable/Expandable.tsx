@@ -11,7 +11,7 @@ export const Expandable = ({ title, isOpen: isOpenProps, children, ...props }: E
   const [measure, setMeasure] = useState<MeasureModel>();
   return (
     <Wrapper style={styles}>
-      <Wrapper row spacing alignCenter onPress={() => setIsOpen(!isOpen)}>
+      <Wrapper pTopTight pBottomTight row spacing alignCenter onPress={() => setIsOpen(!isOpen)}>
         <Wrapper
           style={isOpen ? shapeStyle.rotate90 : shapeStyle.noRotate}
           animatable={{ transition: ['rotate'] }}>
@@ -26,10 +26,10 @@ export const Expandable = ({ title, isOpen: isOpenProps, children, ...props }: E
           opacity={isOpen ? 1 : 0}
           overflowHidden
           animatable={{ transition: ['height', 'opacity'] }}>
-          <Wrapper p>{children}</Wrapper>
+          <Wrapper pBottom>{children}</Wrapper>
         </Wrapper>
       ) : (
-        <Wrapper onMeasure={setMeasure} p absolute opaque>
+        <Wrapper onMeasure={setMeasure} absolute opaque pBottom>
           {children}
         </Wrapper>
       )}

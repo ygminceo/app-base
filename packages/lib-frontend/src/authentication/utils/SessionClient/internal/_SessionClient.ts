@@ -53,7 +53,7 @@ export class _SessionClient implements _SessionClientModel {
             if (e.code === 'auth/network-request-failed') {
               store.dispatch(alertAdd(NETWORK_ALERT));
             }
-            throw(e);
+            throw e;
           }
         } else {
           store.dispatch(userSetAction(null));

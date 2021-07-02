@@ -1,9 +1,10 @@
 import React from 'react';
 import { COMMON } from '@lib/common/core/constants';
 import { SETTINGS } from '@lib/common/settings/constants';
-import { Divider, Link, Text, Wrapper } from '@lib/frontend/core/components';
-import { useStyles } from '@lib/frontend/core/hooks';
+import { Button, Icon, Text, Wrapper } from '@lib/frontend/core/components';
+import { useIsMobile, useStyles } from '@lib/frontend/core/hooks';
 import { useTranslation } from '@lib/frontend/locale/hooks';
+import { PROFILE_SETTINGS_OPTIONS } from '@lib/frontend/settings/containers/Profile/Profile.constants';
 import { ProfileProps } from '@lib/frontend/settings/containers/Profile/Profile.model';
 import { useUser } from '@lib/frontend/user/stores/user.reducer';
 
@@ -11,25 +12,23 @@ export const Profile = ({ ...props }: ProfileProps) => {
   const { styles } = useStyles(props);
   const { t } = useTranslation([COMMON, SETTINGS]);
   const user = useUser();
+  const isMobile = useIsMobile();
   return (
-    <Wrapper style={styles} grow spacing>
-      <Divider />
+    <Wrapper style={styles} row={!isMobile} grow spacing>
       <Text subtitle>{t('settings:labels.profile')}</Text>
-
-      <Wrapper row alignCenter>
-        <Wrapper row alignCenter grow>
-          <Text>{t('common:labels.emailAddress')}</Text>
-          <Text>{user?.emailAddress}</Text>
-        </Wrapper>
-        <Link>{t('common:labels.change')}</Link>
-      </Wrapper>
-
-      <Wrapper row alignCenter>
-        <Wrapper row alignCenter grow>
-          <Text>{t('common:labels.phoneNumber')}</Text>
-          <Text>{user?.phoneNumber}</Text>
-        </Wrapper>
-        <Link>{t('common:labels.change')}</Link>
+      <Wrapper spacing>
+        {PROFILE_SETTINGS_OPTIONS.map((option, i) => (
+          <Wrapper key={i} row spacingTight>
+            {option.icon && <Icon icon={option.icon} />}
+            <Wrapper>
+              {option.title && <Text>{t(option.title)}</Text>}
+              {user && <Text muted>{option.value(user) || t('common:labels.notSet')}</Text>}
+            </Wrapper>
+            <Button small next>
+              Change
+            </Button>
+          </Wrapper>
+        ))}
       </Wrapper>
     </Wrapper>
   );

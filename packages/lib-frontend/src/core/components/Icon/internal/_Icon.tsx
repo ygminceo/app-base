@@ -7,7 +7,7 @@ import { default as Ionicons } from 'react-native-vector-icons/dist/Ionicons';
 const ICONS = {
   'arrow-left': 'arrow-back-outline',
   'arrow-right': 'arrow-forward-outline',
-  'building': 'business-outline',
+  building: 'business-outline',
   cash: 'cash-outline',
   'chevron-up': 'chevron-up-outline',
   'chevron-down': 'chevron-down-outline',

@@ -19,6 +19,7 @@ export const _Tabs = ({ tabs, ...props }: _TabsProps) => {
           <_TabBarTop
             active={state.index}
             routes={state.routes.map((route, i) => ({
+              props: { icon: tabs[i].icon },
               pathname: route.name,
               onPress: () => {
                 const event = navigation.emit({

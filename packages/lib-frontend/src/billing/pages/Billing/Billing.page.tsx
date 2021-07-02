@@ -4,7 +4,7 @@ import { BillingPageProps } from '@lib/frontend/billing/pages/Billing/Billing.mo
 import { Text, Wrapper, Expandable } from '@lib/frontend/core/components';
 
 export const BillingPage = ({ ...props }: BillingPageProps) => (
-  <Wrapper grow spacing p>
+  <Wrapper grow p>
     <Text subtitle>Payment Methods</Text>
     <Wrapper row spacingTight>
       <CardButton />
