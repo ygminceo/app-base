@@ -1,13 +1,12 @@
 import { get } from 'lodash';
-import { useEffect } from 'react';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { openLink } from 'react-native-plaid-link-sdk';
-import { _BankLinkProps } from '@lib/frontend/billing/containers/BankButton/internal/_BankLink.model';
-import { useUser } from '@lib/frontend/user/stores/user.reducer';
+import { _BankModalProps } from '@lib/frontend/billing/containers/BankButton/internal/_BankModal.model';
 
-export const _BankLink = ({ token, onSuccess, onError }: _BankLinkProps) => {
+export const _BankModal = ({ isOpen, token, onSuccess, onClose }: _BankModalProps) => {
   useEffect(() => {
     token &&
+      isOpen &&
       openLink({
         tokenConfig: { token },
         onSuccess: ({ publicToken, metadata }) =>
@@ -20,9 +19,9 @@ export const _BankLink = ({ token, onSuccess, onError }: _BankLinkProps) => {
               institution_name: get(metadata, ['institution', 'name'], ''),
             },
           }),
-        onExit: onError,
+        onExit: onClose,
       });
-  }, [token]);
+  }, [token, isOpen]);
 
   return <></>;
 };

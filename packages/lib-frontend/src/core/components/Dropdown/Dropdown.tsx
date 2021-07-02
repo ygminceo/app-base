@@ -3,8 +3,7 @@ import { Wrapper } from '@lib/frontend/core/components';
 import { DropdownProps } from '@lib/frontend/core/components/Dropdown/Dropdown.model';
 import { _Dropdown } from '@lib/frontend/core/components/Dropdown/internal/_Dropdown';
 import { Modal } from '@lib/frontend/core/components/Modal/Modal';
-import { useStyles } from '@lib/frontend/core/hooks';
-import { Platform } from '@lib/frontend/core/utils/Platform/Platform';
+import { useIsMobile, useStyles } from '@lib/frontend/core/hooks';
 
 export const Dropdown = ({
   anchor,
@@ -18,8 +17,9 @@ export const Dropdown = ({
   ...props
 }: DropdownProps) => {
   const { styles } = useStyles(props);
+  const isMobile = useIsMobile();
 
-  return Platform.isNative ? (
+  return isMobile ? (
     <>
       <Wrapper style={styles}>{anchor}</Wrapper>
       <Modal isOpen={isOpen} onClose={onClose} width={width} height={height} header={header}>

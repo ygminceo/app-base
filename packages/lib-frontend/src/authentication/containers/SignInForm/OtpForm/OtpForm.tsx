@@ -17,7 +17,7 @@ export const OtpForm = ({ username, onSubmit, onSuccess, onSend, ...props }: Otp
   const { t } = useTranslation([AUTHENTICATION]);
   const [retried, setRetried] = useState<boolean>(false);
 
-  const { isLoading: isQueryLoading, query } = useQuery(OTP_CREATE, () =>
+  const { isLoading: isQueryLoading, query } = useQuery<void>(OTP_CREATE, () =>
     promisify(onSend)(username).finally(() => {
       handleReset();
       setRetried(true);

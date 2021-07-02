@@ -1,9 +1,9 @@
 import { get } from 'lodash';
 import React, { useEffect } from 'react';
 import { usePlaidLink } from 'react-plaid-link';
-import { _BankLinkProps } from '@lib/frontend/billing/containers/BankButton/internal/_BankLink.model';
+import { _BankModalProps } from '@lib/frontend/billing/containers/BankButton/internal/_BankModal.model';
 
-export const _BankLink = ({ token, onSuccess, onError }: _BankLinkProps) => {
+export const _BankModal = ({ isOpen, token, onSuccess, onClose }: _BankModalProps) => {
   // TODO: handle plaid error
   const { open, ready, error } = usePlaidLink({
     token,
@@ -17,12 +17,12 @@ export const _BankLink = ({ token, onSuccess, onError }: _BankLinkProps) => {
           institution_name: get(metadata, ['institution', 'name'], ''),
         },
       }),
-    onExit: onError,
+    onExit: onClose,
   });
 
   useEffect(() => {
-    ready && open();
-  }, [ready]);
+    ready && isOpen && open();
+  }, [ready, isOpen]);
 
   return <></>;
 };

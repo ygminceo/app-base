@@ -2,7 +2,7 @@ import { Configuration, PlaidApi, PlaidEnvironments } from 'plaid';
 import {
   BankAccessTokenCreateRequestModel,
   BankAccessTokenCreateResponseModel,
-  BankLinkTokenCreateResponseModel,
+  BankLinkTokenGetResponseModel,
 } from '@lib/common/billing/models';
 import { config } from '@lib/common/core/utils/Config/Config';
 
@@ -33,7 +33,7 @@ export class PlaidAdmin {
     );
   }
 
-  async bankLinkTokenCreate(uid: string): Promise<BankLinkTokenCreateResponseModel> {
+  async bankLinkTokenGet(uid: string): Promise<BankLinkTokenGetResponseModel> {
     //TODO: more env
     const response = await this._client.linkTokenCreate({
       user: { client_user_id: uid },

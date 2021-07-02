@@ -19,7 +19,7 @@ const REACT_APP_FIREBASE_SENDER_ID = config.get<string>('REACT_APP_FIREBASE_SEND
 
 export class _SessionClient implements _SessionClientModel {
   public async initialize() {
-    if (!Platform.isWebSsr) {
+    if (!Platform.isSsr) {
       if (!firebase.apps.length) {
         firebase.initializeApp({
           apiKey: REACT_APP_FIREBASE_TOKEN,

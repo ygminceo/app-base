@@ -1,16 +1,14 @@
 import { unwrapResult } from '@reduxjs/toolkit';
 import React, { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { BILLING } from '@lib/common/billing/constants';
+import { BANK_LINK_TOKEN_GET, BILLING } from '@lib/common/billing/constants';
 import { BankAddRequestModel } from '@lib/common/billing/models';
-import {
-  bankAddAction,
-  bankLinkTokenCreateAction,
-} from '@lib/frontend/billing/actions/bank/bank.action';
+import { bankAddAction } from '@lib/frontend/billing/actions/bank/bank.action';
+import { billingClient } from '@lib/frontend/billing/clients/BillingClient/BillingClient';
 import { BankButtonProps } from '@lib/frontend/billing/containers/BankButton/BankButton.model';
-import { _BankLink } from '@lib/frontend/billing/containers/BankButton/internal/_BankLink';
+import { _BankModal } from '@lib/frontend/billing/containers/BankButton/internal/_BankModal';
 import { Button } from '@lib/frontend/core/components';
-import { useStyles } from '@lib/frontend/core/hooks';
+import { useQuery, useStyles } from '@lib/frontend/core/hooks';
 import { useTranslation } from '@lib/frontend/locale/hooks';
 import { AppDispatchModel } from '@lib/frontend/root/stores/store';
 
@@ -18,33 +16,40 @@ export const BankButton = ({ ...props }: BankButtonProps) => {
   const { styles } = useStyles(props);
   const { t } = useTranslation([BILLING]);
   const dispatch = useDispatch<AppDispatchModel>();
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>();
 
-  const [token, setToken] = useState<string>('');
-
-  // TODO: cache this until exp
-  const handleTokenCreate = useCallback(
-    () =>
-      dispatch(bankLinkTokenCreateAction())
-        .then(unwrapResult)
-        .then(({ token }) => setToken(token)),
-    [],
+  const { data, query } = useQuery<string>(
+    BANK_LINK_TOKEN_GET,
+    async () => {
+      const { token } = await billingClient.bankLinkTokenGet();
+      return token;
+    },
+    { cache: true },
   );
 
   const handleBankLink = useCallback(
     (data: BankAddRequestModel) =>
       dispatch(bankAddAction(data))
         .then(unwrapResult)
-        .finally(() => setToken('')),
+        .finally(() => setModalIsOpen(false)),
     [],
   );
   return (
     <>
-      <Button style={styles} onPress={handleTokenCreate} icon="building">
+      <Button
+        style={styles}
+        onPress={() => query().then(() => setModalIsOpen(true))}
+        icon="building">
         {t('billing:labels.addBank')}
       </Button>
-      {token ? (
-        <_BankLink token={token} onSuccess={handleBankLink} onError={() => setToken('')} />
-      ) : null}
+      {data && (
+        <_BankModal
+          isOpen={modalIsOpen}
+          token={data}
+          onSuccess={handleBankLink}
+          onClose={() => setModalIsOpen(false)}
+        />
+      )}
     </>
   );
 };

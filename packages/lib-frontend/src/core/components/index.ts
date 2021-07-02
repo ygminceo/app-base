@@ -5,6 +5,7 @@ export { Button } from '@lib/frontend/core/components/Button/Button';
 export { Divider } from '@lib/frontend/core/components/Divider/Divider';
 export { Dropdown } from '@lib/frontend/core/components/Dropdown/Dropdown';
 export { Droppable } from '@lib/frontend/core/components/Droppable/Droppable';
+export { Expandable } from '@lib/frontend/core/components/Expandable/Expandable';
 export { Form } from '@lib/frontend/core/components/Form/Form';
 export { Hoverable } from '@lib/frontend/core/components/Hoverable/Hoverable';
 export { Icon } from '@lib/frontend/core/components/Icon/Icon';

@@ -6,7 +6,7 @@ const NODE_ENV = config.get<string>('NODE_ENV', '');
 export class Platform {
   static isWebApp = typeof window !== 'undefined' && NativePlatform.OS === 'web';
 
-  static isWebSsr = typeof window === 'undefined' && NativePlatform.OS === 'web';
+  static isSsr = typeof window === 'undefined' && NativePlatform.OS === 'web';
 
   static isIos = NativePlatform.OS === 'ios';
 
@@ -19,4 +19,6 @@ export class Platform {
   static isTest = NODE_ENV === 'test';
 
   static isNonProduction = Platform.isDev || Platform.isTest;
+
+  static isServer = Platform.isSsr || Platform.isTest;
 }

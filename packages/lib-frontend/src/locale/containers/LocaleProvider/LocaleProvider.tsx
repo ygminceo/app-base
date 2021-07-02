@@ -15,10 +15,8 @@ import {
 import i18nConfig from '@lib/frontend/locale/i18n/i18n.config.js';
 import { ROOT_PATH } from '../../../../../../constants';
 
-const loadResources = Platform.isWebSsr || Platform.isTest;
-
 let resources = {};
-if (loadResources) {
+if (Platform.isServer) {
   const { readdirSync } = require('fs');
   resources = {
     resources: i18nConfig.supportedLngs.reduce((result, locale) => {

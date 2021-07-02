@@ -6,7 +6,7 @@ import {
 } from '@lib/common/authentication/constants';
 import {
   BANK_ADD,
-  BANK_LINK_TOKEN_CREATE,
+  BANK_LINK_TOKEN_GET,
   BILLING,
   CARD_ADD,
   CARD_TOKEN_GET,
@@ -34,7 +34,7 @@ export const services: ServerlessServiceModel[] = [
     name: BILLING,
     functions: [
       {
-        name: BANK_LINK_TOKEN_CREATE,
+        name: BANK_LINK_TOKEN_GET,
         method: 'post',
         protected: true,
       },

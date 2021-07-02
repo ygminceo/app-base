@@ -8,7 +8,7 @@ export interface BankModel {
   plaid_bank_access_token?: string;
 }
 
-export interface BankLinkTokenCreateResponseModel {
+export interface BankLinkTokenGetResponseModel {
   token: string;
   exp: string;
 }
@@ -40,7 +40,6 @@ export interface CardModel {
 }
 
 export interface CardTokenGetResponseModel {
-  id: string;
   token: string;
 }
 

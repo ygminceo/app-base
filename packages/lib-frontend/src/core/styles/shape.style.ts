@@ -14,9 +14,11 @@ export const shapeStyle = StyleSheet.create({
   minimized: { transform: [{ scale: 0.7 }] },
   zoomOut: { opacity: 0, transform: [{ scale: 0.95 }] },
   zoomIn: { opacity: 1, transform: [{ scale: 1 }] },
-  noScale: { transform: [{ scale: 1 }] },
+  noScale: { transform: [{ scaleX: 1 }] },
   absolute: { position: 'absolute' },
   relative: { position: 'relative' },
+  noRotate: { transform: [{ rotate: '0deg' }] },
+  rotate90: { transform: [{ rotate: '90deg' }] },
   below: { zIndex: -1 },
   above: { zIndex: 1 },
   absoluteFill: {

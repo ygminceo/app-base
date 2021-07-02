@@ -1,10 +1,12 @@
 import { CardElement, Elements, useElements, useStripe } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { BILLING } from '@lib/common/billing/constants';
+import { config } from '@lib/common/core/utils/Config/Config';
 import { cardAddAction } from '@lib/frontend/billing/actions/card/card.action';
-import { _CardFormProps } from '@lib/frontend/billing/containers/CardButton/internal/_CardForm.model';
-import { Form, Wrapper } from '@lib/frontend/core/components';
+import { _CardModalProps } from '@lib/frontend/billing/containers/CardButton/internal/_CardModal.model';
+import { Form, Modal, Wrapper } from '@lib/frontend/core/components';
 import { useStyles } from '@lib/frontend/core/hooks';
 import { FONT_SIZE_MEDIUM } from '@lib/frontend/core/styles/size.style';
 import { useTranslation } from '@lib/frontend/locale/hooks';
@@ -12,13 +14,16 @@ import { AppDispatchModel } from '@lib/frontend/root/stores/store';
 import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
 import { CommonTheme } from '@lib/frontend/theme/themes/common.theme';
 
-export const _CardForm = ({ ...props }: _CardFormProps) => (
-  <Elements stripe={props.stripe.stripe}>
-    <_CardFormElement {...props} />
+const REACT_APP_STRIPE_TOKEN = config.get<string>('REACT_APP_STRIPE_TOKEN', '');
+const stripe = loadStripe(REACT_APP_STRIPE_TOKEN);
+
+export const _CardModal = ({ ...props }: _CardModalProps) => (
+  <Elements stripe={stripe}>
+    <_CardModalElement {...props} />
   </Elements>
 );
 
-const _CardFormElement = ({ stripe, ...props }: _CardFormProps) => {
+const _CardModalElement = ({ token, isOpen, onClose, ...props }: _CardModalProps) => {
   const { styles } = useStyles(props);
   const { t } = useTranslation([BILLING]);
   const dispatch = useDispatch<AppDispatchModel>();
@@ -30,7 +35,7 @@ const _CardFormElement = ({ stripe, ...props }: _CardFormProps) => {
     if (stripeClient && elements) {
       const card = elements.getElement(CardElement);
       if (card) {
-        const result = await stripeClient.confirmCardSetup(stripe.token, {
+        const result = await stripeClient.confirmCardSetup(token, {
           payment_method: { card },
           // @ts-ignore
           expand: ['payment_method'],
@@ -49,9 +54,11 @@ const _CardFormElement = ({ stripe, ...props }: _CardFormProps) => {
   };
 
   return (
-    <Form style={styles} onSubmit={handleSubmit} submitLabel={t('billing:labels.addCard')}>
-      <_CardSection />
-    </Form>
+    <Modal isOpen={isOpen} onClose={onClose}>
+      <Form style={styles} onSubmit={handleSubmit} submitLabel={t('billing:labels.addCard')}>
+        <_CardSection />
+      </Form>
+    </Modal>
   );
 };
 

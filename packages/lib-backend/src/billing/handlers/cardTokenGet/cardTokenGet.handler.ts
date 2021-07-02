@@ -11,5 +11,5 @@ export const cardTokenGetHandler: CardTokenGetHandlerModel = async ({ uid, userC
     set(user, ['linkedAccounts', 'stripe'], { id: stripeId });
     await userCollection.save(user);
   }
-  return { id: stripeId, token: await stripeAdmin.createIntent(stripeId) };
+  return { token: await stripeAdmin.createIntent(stripeId) };
 };
