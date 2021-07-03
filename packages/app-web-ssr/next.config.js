@@ -31,12 +31,16 @@ const nextConfig = {
         source: '/:path*',
         destination: `/${i18n.defaultLocale}/:path*`,
       },
-    ]
+    ],
   }),
 
-  webpack: (config, { dev }) => {
+  webpack: (config, { dev, isServer }) => {
     if (dev) {
       config.devtool = 'cheap-module-source-map';
+    }
+
+    if (!isServer) {
+      config.node = { fs: 'empty' };
     }
 
     config.plugins = [...(config.plugins || []), ...overrides.config.plugins];

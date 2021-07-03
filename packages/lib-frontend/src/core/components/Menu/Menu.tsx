@@ -27,9 +27,11 @@ export const Menu = ({
   selectOnEnter,
   value: menuValue,
   width,
+  ...props
 }: MenuProps) => {
   const { t } = useTranslation([COMMON]);
   const { search } = useSearch(optionsProp, ['label', 'value']);
+  const { styles } = useStyles(props);
   const { styles: menuOptionStyles } = useStyles({}, [getMenuOptionModelStyle]);
   const router = useRouter();
 
@@ -90,6 +92,7 @@ export const Menu = ({
 
   return (
     <Dropdown
+      style={styles}
       header={searchbar}
       anchor={anchorPressable}
       isOpen={isOpen}

@@ -1,5 +1,6 @@
 import { isArray, reduce } from 'lodash';
 import {
+  Children,
   cloneElement,
   createElement,
   forwardRef,
@@ -41,6 +42,7 @@ export const Wrapper = forwardRef<RefObject<any>, WrapperProps>(
       verticalScrollable,
       animatable,
       safe,
+      nativeID,
       ...props
     },
     ref,
@@ -50,7 +52,7 @@ export const Wrapper = forwardRef<RefObject<any>, WrapperProps>(
 
     if (isArray(children)) {
       children = reduce<ReactNode, ReactNode[]>(
-        children,
+        Children.toArray(children),
         (result, child, i) => {
           if (isValidElement(child)) {
             const style = StyleSheet.flatten([

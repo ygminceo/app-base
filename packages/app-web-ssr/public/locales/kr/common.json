@@ -9,11 +9,11 @@
   },
   "labels": {
     "cancel": "",
-    "change": "",
     "continue": "",
     "countryCode": "",
     "emailAddress": "",
     "noResult": "",
+    "notSet": "",
     "phoneNumber": "",
     "search": "",
     "submit": ""

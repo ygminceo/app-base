@@ -1,4 +1,4 @@
-import { AnimatableProps } from '@lib/frontend/core/components/Animatable/Animatable.model';
+import { AnimatableModel } from '@lib/frontend/core/components/Animatable/Animatable.model';
 import { HoverableChildProps } from '@lib/frontend/core/components/Hoverable/Hoverable.model';
 import { StyledViewProps } from '@lib/frontend/core/hooks/useViewStyles/useViewStyles.model';
 import { StyledPropsWithChildren } from '@lib/frontend/core/styles/style.model';
@@ -28,7 +28,7 @@ export interface WrapperProps
       horizontalScrollable?: boolean;
       verticalScrollable?: boolean;
       onScroll?(scroll: ScrollModel): any;
-      animatable?: AnimatableProps;
+      animatable?: AnimatableModel;
       safe?: boolean;
     }> {}
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import { HEADER_HEIGHT } from '@lib/frontend/app/components/Header/Header.constants';
-import { Alerts, DashboardHeader } from '@lib/frontend/app/containers';
+import { Alerts } from '@lib/frontend/app/containers';
 import { useScroll } from '@lib/frontend/app/hooks';
+import { DashboardHeader } from '@lib/frontend/app/layouts/DashboardLayout/DashboardHeader/DashboardHeader';
 import { DashboardLayoutProps } from '@lib/frontend/app/layouts/DashboardLayout/DashboardLayout.model';
 import { Wrapper } from '@lib/frontend/core/components';
 

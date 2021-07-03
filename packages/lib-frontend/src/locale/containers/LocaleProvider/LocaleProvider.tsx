@@ -16,7 +16,7 @@ import i18nConfig from '@lib/frontend/locale/i18n/i18n.config.js';
 import { ROOT_PATH } from '../../../../../../constants';
 
 let resources = {};
-if (Platform.isServer) {
+if (Platform.isTest) {
   const { readdirSync } = require('fs');
   resources = {
     resources: i18nConfig.supportedLngs.reduce((result, locale) => {

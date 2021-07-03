@@ -3,6 +3,7 @@ import { DropdownProps } from '@lib/frontend/core/components/Dropdown/Dropdown.m
 import { FieldProps } from '@lib/frontend/core/components/Field/Field.model';
 import { PressableProps } from '@lib/frontend/core/components/Pressable/Pressable.model';
 import { SelectableOptionModel } from '@lib/frontend/core/components/SelectField/SelectField.model';
+import { StyledProps } from '@lib/frontend/core/styles/style.model';
 
 export interface DividerOptionModel {
   divider: true;
@@ -12,7 +13,8 @@ export type MenuOptionModel = SelectableOptionModel | DividerOptionModel;
 
 export interface MenuProps
   extends Pick<DropdownProps, 'width' | 'height' | 'fullWidth'>,
-    Pick<FieldProps<string>, 'value' | 'onChange'> {
+    Pick<FieldProps<string>, 'value' | 'onChange'>,
+    StyledProps {
   options: MenuOptionModel[];
   renderOption?(option: SelectableOptionModel): string;
   renderValue?(option: SelectableOptionModel): string;

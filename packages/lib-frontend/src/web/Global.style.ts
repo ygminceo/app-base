@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 import { HEADER_ID } from '@lib/frontend/app/components/Header/Header.constants';
-import { CommonTheme } from '@lib/frontend/theme/themes/common.theme';
 
 const Ionicons = require('react-native-vector-icons/Fonts/Ionicons.ttf').default;
 
@@ -34,10 +33,6 @@ export const GlobalStyle = createGlobalStyle`
     a, a:visited {
         cursor: pointer;
         text-decoration-line: none;
-        transition: color ${CommonTheme.animation.duration}ms ease-in-out;
-    }
-    a:hover {
-        color: ${CommonTheme.colors.primary.dark} !important;
     }
 
     [aria-disabled='true'] {

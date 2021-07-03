@@ -1,6 +1,6 @@
 import { AnimatableProperties } from 'react-native-animatable';
 
-export interface AnimatableProps
+export interface AnimatableModel
   extends Pick<AnimatableProperties<any>, 'animation' | 'duration' | 'transition'> {
   onStart?(): any;
   onEnd?(): any;

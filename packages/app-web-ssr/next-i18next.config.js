@@ -5,4 +5,5 @@ module.exports = {
     locales: i18nConfig.supportedLngs,
     defaultLocale: i18nConfig.fallbackLng,
   },
+  react: i18nConfig.react,
 };

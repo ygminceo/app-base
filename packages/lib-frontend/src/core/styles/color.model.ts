@@ -10,3 +10,6 @@ export interface ColorProps {
   success?: boolean;
   white?: boolean;
 }
+
+export interface ThemeColorProps
+  extends Pick<ColorProps, 'primary' | 'secondary' | 'success' | 'error'> {}

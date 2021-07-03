@@ -1,10 +1,10 @@
 import { isFunction } from 'lodash';
 import React, { useState } from 'react';
 import { COMMON } from '@lib/common/core/constants';
-import { Button, Hoverable, Modal, Text, Wrapper } from '@lib/frontend/core/components';
+import { Activatable, Button, Modal, Text, Wrapper } from '@lib/frontend/core/components';
 import { PressableProps } from '@lib/frontend/core/components/Pressable/Pressable.model';
 import { getPressableStyle } from '@lib/frontend/core/components/Pressable/Pressable.style';
-import { useStyles, useUncontrolled } from '@lib/frontend/core/hooks';
+import { useStyles } from '@lib/frontend/core/hooks';
 import { useTranslation } from '@lib/frontend/locale/hooks';
 import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
 
@@ -21,7 +21,6 @@ export const Pressable = ({
   const { t } = useTranslation([COMMON]);
   const { styles } = useStyles({ from: fromProps, to: toProps, ...props }, [getPressableStyle]);
   const [confirmModalIsOpen, setConfirmModalIsOpen] = useState<boolean>(false);
-  const [isPressedState, setPressedState] = useUncontrolled(isPressed, undefined, false);
 
   const isDark = useTheme<boolean>('isDark');
   const c = isDark ? 255 : 0;
@@ -29,22 +28,20 @@ export const Pressable = ({
   const to = { backgroundColor: `rgba(${c}, ${c}, ${c}, 0.1)`, ...toProps };
   return (
     <>
-      <Hoverable>
-        {(isHovered) => (
+      <Activatable>
+        {(isActive) => (
           <Wrapper
             animatable={{ transition: ['backgroundColor'] }}
-            style={[styles, !isDisabled && (isPressedState || isHovered) ? to : from]}
+            style={[styles, !isDisabled && (isActive || isPressed) ? to : from]}
             round
             center
             onPress={
               isDisabled ? undefined : confirmMessage ? () => setConfirmModalIsOpen(true) : onPress
-            }
-            onPressIn={isDisabled ? undefined : () => setPressedState(true)}
-            onPressOut={isDisabled ? undefined : () => setPressedState(false)}>
-            {isFunction(children) ? children(isHovered || isPressedState) : children}
+            }>
+            {isFunction(children) ? children(isActive || isPressed) : children}
           </Wrapper>
         )}
-      </Hoverable>
+      </Activatable>
       <Modal isOpen={confirmModalIsOpen} onClose={() => setConfirmModalIsOpen(false)}>
         <Wrapper spacing>
           {confirmMessage && <Text>{confirmMessage}</Text>}

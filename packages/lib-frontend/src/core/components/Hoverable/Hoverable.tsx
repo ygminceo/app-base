@@ -1,4 +1,4 @@
-import { isFunction } from 'lodash';
+import { get, isFunction } from 'lodash';
 import { Children, cloneElement, useCallback, useState } from 'react';
 import {
   HoverableChildProps,
@@ -31,10 +31,14 @@ export const Hoverable = ({ onHoverIn, onHoverOut, children }: HoverableProps) =
   }, [isHovered, onHoverOut]);
 
   const handleGrant = useCallback(() => {
+    const onPressIn = get(Children.only(child), 'props.onPressIn');
+    onPressIn && onPressIn();
     setShowHover(false);
   }, []);
 
   const handleRelease = useCallback(() => {
+    const onPressOut = get(Children.only(child), 'props.onPressOut');
+    onPressOut && onPressOut();
     setShowHover(true);
   }, []);
 

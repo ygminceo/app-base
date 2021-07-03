@@ -5,8 +5,8 @@ import { TextProps } from '@lib/frontend/core/components/Text/Text.model';
 import { useTextStyles } from '@lib/frontend/core/hooks';
 import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
 
-export const Text = ({ children, animatable, ...props }: TextProps) => {
-  const { styles } = useTextStyles<TextProps>(props, []);
+export const Text = ({ children, animatable, onPress, ...props }: TextProps) => {
+  const { styles } = useTextStyles<TextProps>(props);
   const duration = useTheme<number>('animation.duration');
   const Component = animatable ? AnimatableText : NativeText;
   let animationProps = {};
@@ -20,5 +20,9 @@ export const Text = ({ children, animatable, ...props }: TextProps) => {
       easing: 'ease-in-out',
     };
   }
-  return <Component style={styles}>{children}</Component>;
+  return (
+    <Component style={styles} onPress={onPress} {...animationProps}>
+      {children}
+    </Component>
+  );
 };

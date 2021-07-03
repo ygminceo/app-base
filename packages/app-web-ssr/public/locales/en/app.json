@@ -1,5 +1,8 @@
 {
   "labels": {
     "products": "Products"
+  },
+  "messages": {
+    "networkError": "Network error"
   }
 }
