@@ -1,4 +1,3 @@
-import React from 'react';
 import { COMMON } from '@lib/common/core/constants';
 import { SETTINGS } from '@lib/common/settings/constants';
 import { Button, Icon, Text, Wrapper } from '@lib/frontend/core/components';
@@ -7,6 +6,7 @@ import { useTranslation } from '@lib/frontend/locale/hooks';
 import { PROFILE_SETTINGS_OPTIONS } from '@lib/frontend/settings/containers/Profile/Profile.constants';
 import { ProfileProps } from '@lib/frontend/settings/containers/Profile/Profile.model';
 import { useUser } from '@lib/frontend/user/stores/user.reducer';
+import React from 'react';
 
 export const Profile = ({ ...props }: ProfileProps) => {
   const { styles } = useStyles(props);

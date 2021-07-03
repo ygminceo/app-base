@@ -1,6 +1,7 @@
 {
   "labels": {
     "resend": "Resend",
+    "signIn": "Sign in",
     "signOut": "Sign out"
   },
   "messages": {
