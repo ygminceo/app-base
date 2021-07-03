@@ -18,7 +18,6 @@ export const Dropdown = ({
 }: DropdownProps) => {
   const { styles } = useStyles(props);
   const isMobile = useIsMobile();
-
   return isMobile ? (
     <>
       <Wrapper style={styles}>{anchor}</Wrapper>

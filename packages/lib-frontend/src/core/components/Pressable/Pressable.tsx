@@ -12,6 +12,8 @@ export const Pressable = ({
   isDisabled,
   confirmMessage,
   onPress,
+  onPressIn,
+  onPressOut,
   isPressed,
   from: fromProps,
   to: toProps,
@@ -26,6 +28,7 @@ export const Pressable = ({
   const c = isDark ? 255 : 0;
   const from = { backgroundColor: `rgba(${c}, ${c}, ${c}, 0)`, ...fromProps };
   const to = { backgroundColor: `rgba(${c}, ${c}, ${c}, 0.1)`, ...toProps };
+
   return (
     <>
       <Activatable>
@@ -37,7 +40,9 @@ export const Pressable = ({
             center
             onPress={
               isDisabled ? undefined : confirmMessage ? () => setConfirmModalIsOpen(true) : onPress
-            }>
+            }
+            onPressIn={onPressIn}
+            onPressOut={onPressOut}>
             {isFunction(children) ? children(isActive || isPressed) : children}
           </Wrapper>
         )}

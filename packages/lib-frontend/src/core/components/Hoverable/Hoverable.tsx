@@ -32,14 +32,16 @@ export const Hoverable = ({ onHoverIn, onHoverOut, children }: HoverableProps) =
 
   const handleGrant = useCallback(() => {
     const onPressIn = get(Children.only(child), 'props.onPressIn');
-    onPressIn && onPressIn();
-    setShowHover(false);
+    // onPressIn && onPressIn();
+    // setShowHover(false);
+    onPressIn ? onPressIn() : setShowHover(false);
   }, []);
 
   const handleRelease = useCallback(() => {
     const onPressOut = get(Children.only(child), 'props.onPressOut');
-    onPressOut && onPressOut();
-    setShowHover(true);
+    // onPressOut && onPressOut();
+    // setShowHover(true);
+    onPressOut ? onPressOut() : setShowHover(true);
   }, []);
 
   const child = isFunction(children) ? children(showHover && isHovered) : children;

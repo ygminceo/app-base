@@ -21,4 +21,8 @@ export class Platform {
   static isNonProduction = Platform.isDev || Platform.isTest;
 
   static isServer = Platform.isSsr || Platform.isTest;
+
+  static isTouch =
+    typeof window !== 'undefined' &&
+    ('ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0);
 }

@@ -1,4 +1,4 @@
-import { isArray, reduce } from 'lodash';
+import { isArray, reduce, get } from 'lodash';
 import {
   Children,
   cloneElement,

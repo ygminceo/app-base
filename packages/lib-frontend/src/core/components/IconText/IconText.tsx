@@ -7,7 +7,7 @@ export const IconText = ({ icon, children, ...props }: IconTextProps) => {
   const { inheritedStyles, computedStyles } = useTextStyles(props);
   return (
     <Wrapper style={inheritedStyles} row alignCenter spacingTight>
-      <Icon style={computedStyles} icon={icon} />
+      <Icon style={computedStyles} icon={icon} {...props} />
       <Text {...props}>{children}</Text>
     </Wrapper>
   );

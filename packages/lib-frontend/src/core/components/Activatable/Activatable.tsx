@@ -7,7 +7,7 @@ export const Activatable = ({ children, ...props }: ActivatableProps) => {
   const [isPressed, setIsPressed] = useState<boolean>(false);
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
-  let component = children(isHovered || isPressed);
+  let component = children(isPressed || isHovered);
   component = cloneElement(component, {
     ...props,
     onPressIn: () => {
