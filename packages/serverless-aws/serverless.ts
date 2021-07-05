@@ -22,7 +22,7 @@ const serverlessConfig = defaultsDeep(
 
       httpApi: {
         cors: {
-          allowedOrigins: [PUBLIC_URL],
+          allowedOrigins: [STATIC_URL],
           allowedHeaders: ['*'],
         },
         authorizers: {

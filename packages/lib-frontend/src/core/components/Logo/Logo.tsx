@@ -9,7 +9,6 @@ import { RouteLink } from '@lib/frontend/routing/components';
 const STATIC_URL = config.get<string>('REACT_APP_STATIC_URL', '');
 
 export const Logo = ({ light, ...props }: LogoProps) => {
-  console.warn(`@STATIC: ${STATIC_URL}`);
   const { styles } = useStyles(props, [getLogoStyle]);
   return (
     <RouteLink to="/">

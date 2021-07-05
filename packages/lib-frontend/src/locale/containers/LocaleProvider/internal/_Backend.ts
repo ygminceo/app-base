@@ -5,5 +5,5 @@ export { default as _Backend } from 'i18next-http-backend';
 const STATIC_URL = config.get<string>('REACT_APP_STATIC_URL', '');
 
 export const backend = {
-  loadPath: `${PUBLIC_URL}/locales/{{lng}}/{{ns}}.json`,
+  loadPath: `${STATIC_URL}/locales/{{lng}}/{{ns}}.json`,
 };
