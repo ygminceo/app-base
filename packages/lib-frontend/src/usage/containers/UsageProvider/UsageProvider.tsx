@@ -22,9 +22,7 @@ export const UsageProvider = ({ children }: UsageProviderProps) => {
   const user = useUser();
 
   useEffect(() => {
-    if (!Platform.isNonProduction) {
-      _initialize().then((usage) => usage && setUsage(usage));
-    } else {
+    if (Platform.isNonProduction) {
       // TODO: mock?
       setUsage({
         isReady: true,
@@ -32,6 +30,8 @@ export const UsageProvider = ({ children }: UsageProviderProps) => {
         reset: () => console.warn('Non production reset'),
         track: (...params) => console.warn(`Non production track: ${JSON.stringify(params)}`),
       });
+    } else {
+      _initialize().then((usage) => usage && setUsage(usage));
     }
   }, []);
 
