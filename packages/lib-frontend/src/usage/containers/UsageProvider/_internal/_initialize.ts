@@ -9,7 +9,11 @@ export const _initialize = (): Promise<UsageContextModel | null> =>
   new Promise((resolve) => {
     if (Platform.isWebApp) {
       mixpanel.init(REACT_APP_MIXPANEL_TOKEN);
-      return resolve(mixpanel);
+      return resolve({
+        identify: mixpanel.identify,
+        reset: mixpanel.reset,
+        track: (event) => mixpanel.track(`${event.object} ${event.action}`, event.params),
+      });
     }
     return resolve(null);
   });
