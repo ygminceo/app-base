@@ -10,10 +10,12 @@ export const usePageUsage = ({ name }: UsePageUsageParamsModel) => {
   const router = useRouter();
 
   useEffect(() => {
-    track<UsageEventPageOpenModel>({
-      object: USAGE_OBJECT_PAGE,
-      action: USAGE_ACTION_OPEN,
-      params: { name, pathname: router.location.pathname, params: router.location.params },
-    });
+    if (isReady) {
+      track<UsageEventPageOpenModel>({
+        object: USAGE_OBJECT_PAGE,
+        action: USAGE_ACTION_OPEN,
+        params: { name, pathname: router.location.pathname, params: router.location.params },
+      });
+    }
   }, [isReady]);
 };
