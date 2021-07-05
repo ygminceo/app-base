@@ -3,8 +3,8 @@ import { FormProps } from '@lib/frontend/core/components/Form/Form.model';
 import { shapeStyle } from '@lib/frontend/core/styles/shape.style';
 import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 
-export const FORM_MEDIUM_WIDTH = 380;
-export const FORM_LARGE_WIDTH = 500;
+export const FORM_MEDIUM_WIDTH = 400;
+export const FORM_LARGE_WIDTH = 600;
 
 export const formStyle = StyleSheet.create({
   medium: {

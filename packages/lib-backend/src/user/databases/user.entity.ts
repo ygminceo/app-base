@@ -7,7 +7,7 @@ export class User implements UserModel {
   @ObjectIdColumn()
   _id!: string;
   @Column({ unique: true })
-  emailAddress!: string;
+  email!: string;
   // TODO: phone number should be unique too
   @Column()
   phoneNumber?: string;

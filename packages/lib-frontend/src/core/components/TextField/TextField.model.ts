@@ -8,6 +8,7 @@ export interface TextFieldProps extends StyledProps, Omit<FieldProps<string>, 'd
   center?: boolean;
   left?: ReactNode;
   maxLength?: number;
+  numberOfLines?: number;
   noClear?: boolean;
   placeholder?: string;
   right?: ReactNode;
@@ -18,4 +19,5 @@ export interface TextFieldProps extends StyledProps, Omit<FieldProps<string>, 'd
   onSubmit?(): any;
   onDelete?(): any;
   onEscape?(): any;
+  icon?: string;
 }

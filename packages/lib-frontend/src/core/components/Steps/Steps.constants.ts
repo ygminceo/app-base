@@ -1,0 +1,1 @@
+export const STEPS_NAVIGATION_HEIGHT = 70;

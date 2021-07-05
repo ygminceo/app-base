@@ -1,7 +1,7 @@
 import { UserModel, UserSummaryModel } from '@lib/common/user/models';
 
 export interface EmailFormModel {
-  emailAddress: string;
+  email: string;
 }
 
 export interface OtpFormModel {
@@ -17,7 +17,7 @@ export interface SignInResponseModel {
 }
 
 // Token
-export interface TokenClaimsModel extends Pick<UserModel, 'emailAddress' | 'phoneNumber'> {}
+export interface TokenClaimsModel extends Pick<UserModel, 'email' | 'phoneNumber'> {}
 
 // OTP
 // TODO: limit retries

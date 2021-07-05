@@ -21,10 +21,8 @@ export const Form = ({
   const { t } = useTranslation([COMMON]);
   const { styles } = useStyles(props, [getFormStyle]);
   return (
-    <Wrapper style={styles} spacingTight>
-      <Wrapper spacingTight>
-        <_Form onSubmit={onSubmit}>{children}</_Form>
-      </Wrapper>
+    <Wrapper style={styles} spacing selfCenter>
+      <_Form onSubmit={onSubmit}>{children}</_Form>
 
       <Wrapper row spacing>
         {onClose && (

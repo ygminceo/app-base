@@ -8,6 +8,8 @@ export class _Config implements _ConfigModel {
     if (value === undefined) {
       throw new KeyNotFoundError(key);
     }
-    return isNaN((value as unknown) as number) ? value : ((toNumber(value) as unknown) as T);
+    return ((value as unknown) as string) === '' || isNaN((value as unknown) as number)
+      ? value
+      : ((toNumber(value) as unknown) as T);
   }
 }

@@ -29,7 +29,9 @@ module.exports = {
         'process.env': reduce(
           process.env,
           (result, v, k) =>
-            k.startsWith('REACT_APP') ? { ...result, [k]: JSON.stringify(v) } : result,
+            k.startsWith('REACT_APP') || k.startsWith('NODE')
+              ? { ...result, [k]: JSON.stringify(v) }
+              : result,
           {},
         ),
       }),

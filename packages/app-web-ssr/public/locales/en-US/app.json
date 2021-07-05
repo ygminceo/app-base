@@ -1,8 +1,11 @@
 {
   "labels": {
+    "contactDetail": "Questions / Feedbacks (Optional)",
     "products": "Products"
   },
   "messages": {
+    "contact": "Contact us",
+    "contactSuccess": "Thanks for contacting us\nThe founders will reach out to you shortly",
     "networkError": "Network error"
   }
 }

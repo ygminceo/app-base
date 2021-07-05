@@ -6,9 +6,9 @@ import { useTextStyles } from '@lib/frontend/core/hooks';
 export const IconText = ({ icon, children, ...props }: IconTextProps) => {
   const { inheritedStyles, computedStyles } = useTextStyles(props);
   return (
-    <Wrapper style={inheritedStyles} row alignCenter spacingTight>
+    <Wrapper style={inheritedStyles} row alignCenter>
       <Icon style={computedStyles} icon={icon} {...props} />
-      <Text {...props}>{children}</Text>
+      <Text {...props} pLeftTight>{children}</Text>
     </Wrapper>
   );
 };

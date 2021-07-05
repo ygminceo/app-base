@@ -1,4 +1,4 @@
-import { ComponentType, Component } from 'react';
+import { ComponentType } from 'react';
 import { FormModel } from '@lib/common/core/models';
 import { StyledProps } from '@lib/frontend/core/styles/style.model';
 

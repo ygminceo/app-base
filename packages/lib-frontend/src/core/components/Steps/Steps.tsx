@@ -4,6 +4,7 @@ import { Appearable, Circle, Icon, Wrapper } from '@lib/frontend/core/components
 import { Slidable } from '@lib/frontend/core/components/Slidable/Slidable';
 import { StepsProps } from '@lib/frontend/core/components/Steps/Steps.model';
 import { useStyles } from '@lib/frontend/core/hooks';
+import { stepsStyle } from '@lib/frontend/core/components/Steps/Steps.style';
 
 export const Steps = <F extends FormModel>({ steps, onSuccess, ...props }: StepsProps<F>) => {
   const { styles } = useStyles(props);
@@ -20,8 +21,8 @@ export const Steps = <F extends FormModel>({ steps, onSuccess, ...props }: Steps
   return (
     <Wrapper style={styles} grow>
       <Wrapper row relative alignCenter>
-        <Wrapper above>
-          <Appearable isVisible={current > 0}>
+        <Wrapper above style={[stepsStyle.navigation]}>
+          <Appearable isVisible={current > 0 && !isLastStep}>
             <Icon icon="arrow-left" large onPress={() => handleSetStep(current - 1)} />
           </Appearable>
         </Wrapper>
@@ -36,7 +37,7 @@ export const Steps = <F extends FormModel>({ steps, onSuccess, ...props }: Steps
                 shadow
                 primary
                 light={!isActive}
-                onPress={isActive || i > current ? undefined : () => handleSetStep(i)}
+                onPress={isActive || i > current || isLastStep ? undefined : () => handleSetStep(i)}
               />
             );
           })}

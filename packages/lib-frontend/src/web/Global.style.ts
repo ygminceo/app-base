@@ -48,8 +48,9 @@ export const GlobalStyle = createGlobalStyle`
         -webkit-background-clip: text;
     }
     input {
-        border: none !important;
-        outline: inherit !important;
-        cursor: inherit !important;
+      min-width: 0 !important;
+      border: none !important;
+      outline: inherit !important;
+      cursor: inherit !important;
     }
 `;

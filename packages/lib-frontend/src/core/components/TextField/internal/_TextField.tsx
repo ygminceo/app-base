@@ -6,7 +6,7 @@ import {
   TextInputKeyPressEventData,
 } from 'react-native';
 import { TextInput } from 'react-native-paper';
-import { Appearable, Icon, Wrapper } from '@lib/frontend/core/components';
+import { Appearable, Icon, IconText, Wrapper } from '@lib/frontend/core/components';
 import { _TextFieldProps } from '@lib/frontend/core/components/TextField/internal/_TextField.model';
 import { useStyles, useTextStyles } from '@lib/frontend/core/hooks';
 import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
@@ -46,7 +46,7 @@ import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
 //     case 'password':
 //       return 'password';
 //     case 'email':
-//       return 'emailAddress';
+//       return 'email';
 //     default:
 //       return 'none';
 //   }
@@ -60,6 +60,7 @@ export const _TextField = forwardRef<RefObject<any>, _TextFieldProps>(
       isDisabled,
       error,
       label,
+      icon,
       left,
       maxLength,
       onBlur,
@@ -75,6 +76,7 @@ export const _TextField = forwardRef<RefObject<any>, _TextFieldProps>(
       type,
       value,
       center,
+      numberOfLines,
       ...props
     },
     ref,
@@ -97,7 +99,7 @@ export const _TextField = forwardRef<RefObject<any>, _TextFieldProps>(
         <TextInput
           // @ts-ignore
           ref={ref}
-          style={[styles, textStyles]}
+          style={[textStyles]}
           mode="flat"
           dense
           underlineColor="transparent"
@@ -108,7 +110,20 @@ export const _TextField = forwardRef<RefObject<any>, _TextFieldProps>(
           }}
           disabled={isDisabled}
           error={error === true || !isEmpty(error)}
-          label={label}
+          // @ts-ignore
+          label={
+            icon ? (
+              <IconText
+                icon={icon}
+                primary={focused}
+                color={colorBorder}
+                animatable={{ transition: ['color'] }}>
+                {label}
+              </IconText>
+            ) : (
+              label
+            )
+          }
           value={value}
           onBlur={() => {
             setFocused(false);
@@ -118,6 +133,8 @@ export const _TextField = forwardRef<RefObject<any>, _TextFieldProps>(
             setFocused(true);
             onFocus && onFocus();
           }}
+          multiline={(numberOfLines as number) > 1}
+          numberOfLines={numberOfLines}
           onSubmitEditing={onSubmit}
           onChangeText={onChange}
           maxLength={maxLength}
@@ -145,7 +162,7 @@ export const _TextField = forwardRef<RefObject<any>, _TextFieldProps>(
               <NativeTextInput {...inputProps} style={[...inputProps.style, textStyles]} />
               {(!noClear || right) && (
                 <Wrapper row center alignCenter pRightTight>
-                  {!noClear && (
+                  {!noClear && !numberOfLines && (
                     <Appearable isVisible={size(value) > 0}>
                       <Icon icon="times" onPress={() => onChange && onChange('')} />
                     </Appearable>

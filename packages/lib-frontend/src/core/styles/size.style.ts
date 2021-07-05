@@ -5,7 +5,7 @@ import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 export const FONT_SIZE_SMALL = 13;
 export const FONT_SIZE_MEDIUM = 15;
 export const FONT_SIZE_LARGE = 18;
-export const FONT_SIZE_XLARGE = 25;
+export const FONT_SIZE_XLARGE = 40;
 
 export const sizeStyle = StyleSheet.create({
   large: { fontSize: FONT_SIZE_LARGE },

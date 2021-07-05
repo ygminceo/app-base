@@ -1,4 +1,3 @@
-import { reduce } from 'lodash';
 import React from 'react';
 import { config } from '@lib/common/core/utils/Config/Config';
 import { Image } from '@lib/frontend/core/components/Image/Image';
@@ -11,16 +10,6 @@ const STATIC_URL = config.get<string>('REACT_APP_STATIC_URL', '');
 
 export const Logo = ({ light, ...props }: LogoProps) => {
   const { styles } = useStyles(props, [getLogoStyle]);
-  console.warn(
-    JSON.stringify(
-      reduce(
-        process.env,
-        (result, v, k) =>
-          k.startsWith('REACT_APP') ? { ...result, [k]: JSON.stringify(v) } : result,
-        {},
-      ),
-    ),
-  );
   return (
     <RouteLink to="/">
       <Image src={`${STATIC_URL}/images/logo_${light ? 'light' : 'dark'}.png`} style={styles} />

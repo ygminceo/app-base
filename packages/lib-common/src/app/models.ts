@@ -1,3 +1,6 @@
 export interface ContactRequestModel {
-  emailAddress: string;
+  email: string;
+  detail?: string;
 }
+
+export interface ContactFormModel extends ContactRequestModel {}

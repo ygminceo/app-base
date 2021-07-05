@@ -1,8 +1,11 @@
 {
   "labels": {
+    "contactDetail": "",
     "products": "제품"
   },
   "messages": {
+    "contact": "",
+    "contactSuccess": "",
     "networkError": ""
   }
 }

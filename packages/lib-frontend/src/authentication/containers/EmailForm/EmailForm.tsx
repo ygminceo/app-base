@@ -1,10 +1,7 @@
-import { unwrapResult } from '@reduxjs/toolkit';
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import { AUTHENTICATION } from '@lib/common/authentication/constants';
 import { EmailFormModel } from '@lib/common/authentication/models';
 import { COMMON } from '@lib/common/core/constants';
-import { otpCreateAction } from '@lib/frontend/authentication/actions/otpCreate/otpCreate.action';
 import {
   EMAIL_FORM_INITIAL_VALUES,
   EMAIL_FORM_VALIDATORS,
@@ -13,12 +10,10 @@ import { EmailFormProps } from '@lib/frontend/authentication/containers/EmailFor
 import { Form, Text, TextField, Wrapper } from '@lib/frontend/core/components';
 import { useForm, useStyles } from '@lib/frontend/core/hooks';
 import { useTranslation } from '@lib/frontend/locale/hooks';
-import { AppDispatchModel } from '@lib/frontend/root/stores/store';
 
-export const EmailForm = ({ onSuccess, ...props }: EmailFormProps) => {
+export const EmailForm = ({ onSubmit, onSuccess, ...props }: EmailFormProps) => {
   const { styles } = useStyles(props);
   const { t } = useTranslation([AUTHENTICATION, COMMON]);
-  const dispatch = useDispatch<AppDispatchModel>();
 
   const {
     values,
@@ -30,10 +25,7 @@ export const EmailForm = ({ onSuccess, ...props }: EmailFormProps) => {
   } = useForm<EmailFormModel>({
     initialValues: EMAIL_FORM_INITIAL_VALUES,
     validators: EMAIL_FORM_VALIDATORS,
-    onSubmit: (data) =>
-      dispatch(otpCreateAction({ username: data.emailAddress }))
-        .then(unwrapResult)
-        .then(() => onSuccess(data)),
+    onSubmit: (data) => onSubmit(data).then(() => onSuccess(data)),
   });
 
   return (
@@ -44,11 +36,13 @@ export const EmailForm = ({ onSuccess, ...props }: EmailFormProps) => {
       <Form isLoading={isLoading} onSubmit={handleSubmit} style={styles} isDisabled={!isFilled}>
         <TextField
           autoFocus
-          label={t('common:labels.emailAddress')}
-          value={values.emailAddress}
-          error={errors.emailAddress}
-          onChange={handleChange('emailAddress')}
+          icon="email"
+          label={t('common:labels.email')}
+          value={values.email}
+          error={errors.email}
+          onChange={handleChange('email')}
           onSubmit={handleSubmit}
+          isDisabled={isLoading}
         />
       </Form>
     </Wrapper>

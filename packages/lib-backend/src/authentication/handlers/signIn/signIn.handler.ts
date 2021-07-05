@@ -49,7 +49,7 @@ const _before = async (
 ): Promise<UserCreateRequestModel> => {
   // TODO: phone?
   await otpVerifyHandler({
-    data: { username: data.emailAddress, otp: data.otp },
+    data: { username: data.email, otp: data.otp },
     otpCollection: otpCollection as CollectionModel,
   });
   unset(data, 'otp');

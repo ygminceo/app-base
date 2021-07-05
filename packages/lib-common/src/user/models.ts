@@ -4,7 +4,7 @@ import { BankModel, CardModel } from '@lib/common/billing/models';
 
 export interface UserModel {
   _id: string;
-  emailAddress?: string;
+  email?: string;
   phoneNumber?: string;
   banks?: BankModel[];
   cards?: CardModel[];
@@ -13,7 +13,7 @@ export interface UserModel {
   };
 }
 
-export interface UserPrimaryKeyModel extends Pick<UserModel, 'emailAddress' | 'phoneNumber'> {}
+export interface UserPrimaryKeyModel extends Pick<UserModel, 'email' | 'phoneNumber'> {}
 
 // TODO: update this
 export interface UserSummaryModel extends TokenClaimsModel, Pick<UserModel, '_id'> {}

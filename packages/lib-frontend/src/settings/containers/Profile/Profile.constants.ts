@@ -4,9 +4,9 @@ import { SettingsItemModel } from '@lib/frontend/settings/pages/Settings/Setting
 
 export const PROFILE_SETTINGS_OPTIONS: SettingsItemModel[] = [
   {
-    title: tLazy('common:labels.emailAddress'),
+    title: tLazy('common:labels.email'),
     icon: 'email',
-    value: (user: UserModel) => user && user.emailAddress,
+    value: (user: UserModel) => user && user.email,
   },
   {
     title: tLazy('common:labels.phoneNumber'),

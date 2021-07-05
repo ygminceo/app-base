@@ -1,7 +1,7 @@
 import { isNumber, isString } from 'lodash';
 import React, { useEffect, useRef } from 'react';
 import { COMMON } from '@lib/common/core/constants';
-import { Appearable, Text, Wrapper } from '@lib/frontend/core/components';
+import { Appearable, IconText, Wrapper } from '@lib/frontend/core/components';
 import { TextFieldProps } from '@lib/frontend/core/components/TextField/TextField.model';
 import { _TextField } from '@lib/frontend/core/components/TextField/internal/_TextField';
 import { useStyles, useUncontrolled } from '@lib/frontend/core/hooks';
@@ -17,6 +17,7 @@ export const TextField = ({
   label,
   left,
   maxLength,
+  icon,
   noClear,
   onBlur,
   onChange,
@@ -27,6 +28,7 @@ export const TextField = ({
   transparent,
   type,
   value,
+  numberOfLines,
   ...props
 }: TextFieldProps) => {
   const { styles } = useStyles({ ...props }, []);
@@ -59,6 +61,7 @@ export const TextField = ({
         onSubmit={onSubmit}
         error={error}
         label={label}
+        icon={icon}
         left={left}
         right={right}
         maxLength={maxLength}
@@ -67,11 +70,12 @@ export const TextField = ({
         transparent={transparent}
         type={type}
         noClear={noClear}
+        numberOfLines={numberOfLines}
       />
       <Appearable isVisible={isString(error) && error.length > 0}>
-        <Text error small pLeftTight pRightTight>
+        <IconText error small pLeftTight icon="exclamation-circle">
           {t(error as string)}
-        </Text>
+        </IconText>
       </Appearable>
     </Wrapper>
   );
