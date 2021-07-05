@@ -20,6 +20,9 @@ const nextConfig = {
     build: true,
     dev: false,
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 
   webpack: (config, { dev, isServer }) => {
     if (dev) {
