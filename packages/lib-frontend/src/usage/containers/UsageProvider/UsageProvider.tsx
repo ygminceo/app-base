@@ -29,7 +29,7 @@ export const UsageProvider = ({ children }: UsageProviderProps) => {
 
   // TODO: get usage tracking enabled from preference / storage
   useEffect(() => {
-    if (usage) {
+    if (usage.isReady) {
       if (user) {
         usage.identify(user._id);
       } else if (user === null) {
