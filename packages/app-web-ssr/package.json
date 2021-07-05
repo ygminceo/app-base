@@ -71,6 +71,7 @@
     "dotenv-cli": "^4.0.0",
     "eslint": "^7.27.0",
     "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-next": "^11.0.1",
     "eslint-import-resolver-typescript": "^2.4.0",
     "eslint-plugin-import": "^2.23.4",
     "imagemin-optipng": "^8.0.0",
