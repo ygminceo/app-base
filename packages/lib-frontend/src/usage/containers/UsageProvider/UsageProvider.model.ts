@@ -5,7 +5,7 @@ export interface UsageProviderProps extends PropsWithChildren<{}> {}
 
 export type UsageContextModel = {
   isReady: boolean;
-  identify(name: string): any;
+  identify(uid: string): any;
   reset(): any;
   track<T>(event: UsageEventModel<T>): any;
 };

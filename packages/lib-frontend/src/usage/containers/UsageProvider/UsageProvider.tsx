@@ -4,7 +4,7 @@ import {
   UsageContextModel,
   UsageProviderProps,
 } from '@lib/frontend/usage/containers/UsageProvider/UsageProvider.model';
-import { _initialize } from '@lib/frontend/usage/containers/UsageProvider/_internal/_initialize';
+import { _initialize } from '@lib/frontend/usage/containers/UsageProvider/internal/_initialize';
 import { useUser } from '@lib/frontend/user/stores/user.reducer';
 
 const usageDefault: UsageContextModel = {

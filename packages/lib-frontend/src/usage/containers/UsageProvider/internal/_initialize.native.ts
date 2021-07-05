@@ -8,8 +8,8 @@ export const _initialize = async (): Promise<UsageContextModel> => {
   const mixpanel = await Mixpanel.init(REACT_APP_MIXPANEL_TOKEN);
   return {
     isReady: true,
-    identify: mixpanel.identify,
-    reset: mixpanel.reset,
+    identify: (uid: string) => mixpanel.identify(uid),
+    reset: () => mixpanel.reset(),
     track: (event) => mixpanel.track(`${event.object} ${event.action}`, event.params),
   };
 };
