@@ -1,6 +1,6 @@
 const { resolve } = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const { startsWith, reduce } = require('lodash');
+const { reduce } = require('lodash');
 const { DefinePlugin } = require('webpack');
 const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
 const { EXTENSIONS, ROOT_PATH } = require('../../../../constants');
@@ -29,7 +29,7 @@ module.exports = {
         'process.env': reduce(
           process.env,
           (result, v, k) =>
-            startsWith(k, 'REACT_APP') ? { ...result, [k]: JSON.stringify(v) } : result,
+            k.startsWith('REACT_APP') ? { ...result, [k]: JSON.stringify(v) } : result,
           {},
         ),
       }),
