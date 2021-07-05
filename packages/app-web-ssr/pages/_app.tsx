@@ -5,7 +5,7 @@ import { appWithTranslation } from 'next-i18next';
 import { AppProps } from 'next/app';
 import React from 'react';
 
-const AppPage: NextPage<AppProps> = ({ Component, pageProps }) => (
+const AppPage: NextPage<AppProps> = ({ Component, pageProps }: AppProps) => (
   <Root>
     <GlobalStyle />
     <Component {...pageProps} />

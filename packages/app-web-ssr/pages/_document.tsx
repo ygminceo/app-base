@@ -10,7 +10,7 @@ export default class DocumentPage extends Document {
     // @ts-ignore
     const { getStyleElement } = AppRegistry.getApplication('App');
     const sheet = new ServerStyleSheet();
-    const renderPage = ctx.renderPage;
+    const { renderPage } = ctx;
     try {
       ctx.renderPage = () =>
         renderPage({

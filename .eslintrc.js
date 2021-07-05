@@ -28,7 +28,11 @@ module.exports = {
     'no-trailing-spaces': 'warn',
     'no-unused-vars': 'warn',
     'no-use-before-define': 'off',
+    'react/jsx-closing-tag-location': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.jsx'] }],
+    'react/jsx-one-expression-per-line': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'object-curly-newline': 'off',
   },
   settings: {
     'import/parsers': {
