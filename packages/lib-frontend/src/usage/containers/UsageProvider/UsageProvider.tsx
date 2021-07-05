@@ -23,7 +23,7 @@ export const UsageProvider = ({ children }: UsageProviderProps) => {
 
   useEffect(() => {
     if (!Platform.isNonProduction) {
-      _initialize().then((usage) => usage && setUsage({ ...usage, isReady: true }));
+      _initialize().then((usage) => usage && setUsage(usage));
     }
   }, []);
 
