@@ -1,5 +1,4 @@
-import { unwrapResult } from '@reduxjs/toolkit';
-import { ContactRequestModel } from '@lib/common/landing/models';
+import { ContactRequestModel } from '@lib/common/app/models';
 import { otpCreateAction } from '@lib/frontend/authentication/actions/otpCreate/otpCreate.action';
 import { signInAction } from '@lib/frontend/authentication/actions/signIn/signIn.action';
 import { EmailForm, OtpForm } from '@lib/frontend/authentication/containers';
@@ -7,6 +6,7 @@ import { EmailFormProps } from '@lib/frontend/authentication/containers/EmailFor
 import { OtpFormProps } from '@lib/frontend/authentication/containers/OtpForm/OtpForm.model';
 import { StepModel } from '@lib/frontend/core/components/Steps/Steps.model';
 import { store } from '@lib/frontend/root/stores/store';
+import { unwrapResult } from '@reduxjs/toolkit';
 
 export const CONTACT_FORM_STEPS: StepModel<ContactRequestModel, any>[] = [
   {
