@@ -1,8 +1,7 @@
 {
   "labels": {
-    "resend": "",
-    "signIn": "",
-    "signOut": ""
+    "resend": "다시 보내기",
+    "signOut": "로그아웃"
   },
   "messages": {
     "invalidOtp": "",

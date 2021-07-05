@@ -11,4 +11,5 @@ export interface PressableProps extends StyledProps {
   isPressed?: boolean;
   to?: NativeStyleModel;
   children: ReactNode | ((isActive?: boolean) => ReactNode);
+  center?: boolean;
 }

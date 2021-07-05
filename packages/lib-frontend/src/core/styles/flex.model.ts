@@ -14,4 +14,5 @@ export interface FlexProps {
   selfStretch?: boolean;
   shrink?: boolean | number;
   wrap?: boolean;
+  spaceBetween?: boolean;
 }

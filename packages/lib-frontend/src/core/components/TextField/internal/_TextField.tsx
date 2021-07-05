@@ -9,7 +9,7 @@ import { TextInput } from 'react-native-paper';
 import { Appearable, Icon, Wrapper } from '@lib/frontend/core/components';
 import { _TextFieldProps } from '@lib/frontend/core/components/TextField/internal/_TextField.model';
 import { useStyles, useTextStyles } from '@lib/frontend/core/hooks';
-import { spacingStyle } from '@lib/frontend/core/styles/spacing.style';
+import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
 
 // const getKeyboardType = (type?: InputModel) => {
 //   switch (type) {
@@ -82,6 +82,8 @@ export const _TextField = forwardRef<RefObject<any>, _TextFieldProps>(
     const { styles } = useStyles(props);
     const { styles: textStyles } = useTextStyles({ center }, []);
     const [focused, setFocused] = useState<boolean>(false);
+    const colorPrimary = useTheme<string>('colors.primary.main');
+    const colorBorder = useTheme<string>('colors.border');
     return (
       <Wrapper
         style={styles}
@@ -102,7 +104,7 @@ export const _TextField = forwardRef<RefObject<any>, _TextFieldProps>(
           underlineColorAndroid="transparent"
           theme={{
             animation: { scale: 1 },
-            colors: { background: 'transparent' },
+            colors: { background: 'transparent', primary: colorPrimary, placeholder: colorBorder },
           }}
           disabled={isDisabled}
           error={error === true || !isEmpty(error)}

@@ -45,14 +45,6 @@ export const getBackgroundStyle: StyleGetterModel<BackgroundProps> = ({
     ? [{ backgroundColor: theme?.colors.background.contrast }]
     : transparent
     ? [backgroundStyle.transparent]
-    : primary
-    ? [
-        light
-          ? backgroundStyle.primaryLight
-          : dark
-          ? backgroundStyle.primaryDark
-          : backgroundStyle.primary,
-      ]
     : success
     ? [
         light
@@ -68,6 +60,14 @@ export const getBackgroundStyle: StyleGetterModel<BackgroundProps> = ({
           : dark
           ? backgroundStyle.errorDark
           : backgroundStyle.error,
+      ]
+    : primary
+    ? [
+        light
+          ? backgroundStyle.primaryLight
+          : dark
+          ? backgroundStyle.primaryDark
+          : backgroundStyle.primary,
       ]
     : backgroundColor
     ? [{ backgroundColor }]

@@ -5,4 +5,6 @@ export interface LandingHeaderMenuOptionModel {
   component: ComponentType;
 }
 
-export interface LandingHeaderProps {}
+export interface LandingHeaderProps {
+  onContactModalOpen(): any;
+}

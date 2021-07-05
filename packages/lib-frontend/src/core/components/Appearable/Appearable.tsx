@@ -14,7 +14,9 @@ export const Appearable = ({ children, isVisible, dimension, ...props }: Appeara
           from: isVisible ? shapeStyle.zoomOut : shapeStyle.zoomIn,
           to: isVisible ? shapeStyle.zoomIn : shapeStyle.zoomOut,
         },
-      }}>
+      }}
+      center
+      alignCenter>
       {children}
     </Wrapper>
   );

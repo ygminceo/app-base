@@ -1,4 +1,6 @@
-export interface LandingFooterProps {}
+export interface LandingFooterProps {
+  onContactModalOpen(): any;
+}
 
 interface LandingFooterLinkModel {
   title: string;

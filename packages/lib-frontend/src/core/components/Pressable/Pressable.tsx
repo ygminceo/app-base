@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { COMMON } from '@lib/common/core/constants';
 import { Activatable, Button, Modal, Text, Wrapper } from '@lib/frontend/core/components';
 import { PressableProps } from '@lib/frontend/core/components/Pressable/Pressable.model';
-import { getPressableStyle } from '@lib/frontend/core/components/Pressable/Pressable.style';
 import { useStyles } from '@lib/frontend/core/hooks';
 import { useTranslation } from '@lib/frontend/locale/hooks';
 import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
@@ -17,11 +16,12 @@ export const Pressable = ({
   isPressed,
   from: fromProps,
   to: toProps,
+  center,
   children,
   ...props
 }: PressableProps) => {
   const { t } = useTranslation([COMMON]);
-  const { styles } = useStyles({ from: fromProps, to: toProps, ...props }, [getPressableStyle]);
+  const { styles } = useStyles(props);
   const [confirmModalIsOpen, setConfirmModalIsOpen] = useState<boolean>(false);
 
   const isDark = useTheme<boolean>('isDark');
@@ -36,8 +36,13 @@ export const Pressable = ({
           <Wrapper
             animatable={{ transition: ['backgroundColor'] }}
             style={[styles, !isDisabled && (isActive || isPressed) ? to : from]}
+            pLeft
+            pRight
+            pTopTight
+            pBottomTight
             round
             center
+            alignCenter={center}
             onPress={
               isDisabled ? undefined : confirmMessage ? () => setConfirmModalIsOpen(true) : onPress
             }

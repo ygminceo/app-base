@@ -6,7 +6,7 @@ import { toQuery } from '@lib/frontend/routing/utils/toQuery/toQuery';
 export const _useRouter = (): _UseRouterReturnsModel => {
   const router = useRouter();
   const location = {
-    pathname: router.pathname,
+    pathname: router.asPath,
     params: {
       ...(router.query || {}),
     },

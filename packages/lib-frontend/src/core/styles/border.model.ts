@@ -1,6 +1,7 @@
 export interface BorderProps {
   border?: boolean;
   borderBottom?: boolean;
+  borderContrast?: boolean;
   borderLeft?: boolean;
   borderPrimary?: boolean;
   borderError?: boolean;

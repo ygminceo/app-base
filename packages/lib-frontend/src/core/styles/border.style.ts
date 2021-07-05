@@ -26,6 +26,7 @@ export const borderStyle = StyleSheet.create({
 export const getBorderStyle: StyleGetterModel<BorderProps> = ({
   border,
   borderBottom,
+  borderContrast,
   borderError,
   borderLeft,
   borderPrimary,
@@ -45,5 +46,11 @@ export const getBorderStyle: StyleGetterModel<BorderProps> = ({
   ...(isNumber(borderRadius) ? [{ borderRadius }] : round === true ? [borderStyle.round] : []),
   ...(shadow ? [borderStyle.shadow] : []),
   ...(borderThick ? [borderStyle.thick] : []),
-  ...(borderError ? [borderStyle.borderError] : borderPrimary ? [borderStyle.borderPrimary] : []),
+  ...(borderError
+    ? [borderStyle.borderError]
+    : borderPrimary
+    ? [borderStyle.borderPrimary]
+    : borderContrast
+    ? [{ borderColor: theme?.colors.text.contrast }]
+    : []),
 ];

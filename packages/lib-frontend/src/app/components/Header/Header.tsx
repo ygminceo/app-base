@@ -4,7 +4,6 @@ import { HeaderProps } from '@lib/frontend/app/components/Header/Header.model';
 import { getHeaderStyle } from '@lib/frontend/app/components/Header/Header.style';
 import { Logo, Wrapper } from '@lib/frontend/core/components';
 import { useStyles } from '@lib/frontend/core/hooks';
-import { ThemeSwitch } from '@lib/frontend/theme/containers';
 
 export const Header = ({ children, ...props }: HeaderProps) => {
   const { styles } = useStyles(props, [getHeaderStyle]);
@@ -23,7 +22,10 @@ export const Header = ({ children, ...props }: HeaderProps) => {
       spacingTight
       pLeft
       pRight>
-      <Logo />
+      <Wrapper absoluteFill center alignCenter>
+        <Logo />
+      </Wrapper>
+
       {children}
     </Wrapper>
   );

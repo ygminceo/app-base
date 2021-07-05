@@ -21,19 +21,6 @@ const nextConfig = {
     dev: false,
   },
 
-  rewrites: async () => ({
-    afterFiles: [
-      {
-        source: '/',
-        destination: `/${i18n.defaultLocale}`,
-      },
-      {
-        source: '/:path*',
-        destination: `/${i18n.defaultLocale}/:path*`,
-      },
-    ],
-  }),
-
   webpack: (config, { dev, isServer }) => {
     if (dev) {
       config.devtool = 'cheap-module-source-map';

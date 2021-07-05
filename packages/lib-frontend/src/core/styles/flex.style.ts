@@ -27,6 +27,7 @@ export const flexStyle = StyleSheet.create({
   selfStretch: { alignSelf: 'stretch' },
   shrink: { flexShrink: 1 },
   start: { justifyContent: 'flex-start' },
+  spaceBetween: { justifyContent: 'space-between' },
   wrap: { flexWrap: 'wrap' },
 });
 
@@ -38,6 +39,7 @@ export const getFlexStyle: StyleGetterModel<FlexProps> = ({
   basis,
   center,
   end,
+  spaceBetween,
   grow,
   row,
   selfBaseline,
@@ -50,7 +52,7 @@ export const getFlexStyle: StyleGetterModel<FlexProps> = ({
 }) => [
   flexStyle.flex,
   row ? flexStyle.row : flexStyle.column,
-  end ? flexStyle.end : center ? flexStyle.center : flexStyle.start,
+  end ? flexStyle.end : center ? flexStyle.center : spaceBetween ? flexStyle.spaceBetween : flexStyle.start,
   alignStart
     ? flexStyle.alignStart
     : alignCenter

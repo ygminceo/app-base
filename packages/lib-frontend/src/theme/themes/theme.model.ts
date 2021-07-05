@@ -45,7 +45,7 @@ export interface ShapeModel {
 
 export interface ThemeModel {
   name: string;
-  dark: boolean;
+  isDark: boolean;
   shape: ShapeModel;
   colors: ColorsModel;
 }

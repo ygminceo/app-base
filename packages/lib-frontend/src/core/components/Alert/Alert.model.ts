@@ -1,6 +1,6 @@
-import { ColorProps } from '@lib/frontend/core/styles/color.model';
+import { ThemeColorProps } from '@lib/frontend/core/styles/color.model';
 
-export interface AlertModel extends ColorProps {
+export interface AlertModel extends ThemeColorProps {
   id: string;
   title?: string;
   icon?: string;

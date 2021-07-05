@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { alertDelete } from '@lib/frontend/app/actions/alert/alert.action';
 import { Appearable, Icon, Text, Wrapper } from '@lib/frontend/core/components';
@@ -8,7 +8,17 @@ import { useStyles } from '@lib/frontend/core/hooks';
 import { AppDispatchModel } from '@lib/frontend/root/stores/store';
 import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
 
-export const Alert = ({ id, icon, message, duration, ...props }: AlertProps) => {
+export const Alert = ({
+  id,
+  icon,
+  message,
+  duration,
+  primary,
+  success,
+  error,
+  secondary,
+  ...props
+}: AlertProps) => {
   const { styles } = useStyles(props, [getAlertStyle]);
   const [isVisible, setIsVisible] = useState<boolean>(true);
   const dispatch = useDispatch<AppDispatchModel>();
@@ -33,11 +43,14 @@ export const Alert = ({ id, icon, message, duration, ...props }: AlertProps) => 
         pBottomTight
         round
         primary
+        secondary={secondary}
+        success={success}
+        error={error}
         shadow
         row
         alignCenter
         spacingTight>
-        {icon && <Icon contrast icon={icon} />}
+        {icon && <Icon contrast icon={icon} large />}
         <Wrapper grow>
           <Text contrast>
             {id} {message}

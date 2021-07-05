@@ -3,7 +3,6 @@ import { Icon, Loading, Pressable, Text, Wrapper } from '@lib/frontend/core/comp
 import { ButtonProps } from '@lib/frontend/core/components/Button/Button.model';
 import { getButtonStyle } from '@lib/frontend/core/components/Button/Button.style';
 import { useStyles, useUncontrolled } from '@lib/frontend/core/hooks';
-import { shapeStyle } from '@lib/frontend/core/styles/shape.style';
 import { promisify } from '@lib/frontend/core/utils/promisify/promisify';
 import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
 
@@ -17,13 +16,16 @@ export const Button = ({
   onPress,
   isPressed,
   small,
+  large,
   success,
   transparent,
   fullWidth,
   next,
   ...props
 }: ButtonProps) => {
-  const { styles } = useStyles({ small, transparent, fullWidth, ...props }, [getButtonStyle]);
+  const { styles } = useStyles({ small, large, transparent, fullWidth, ...props }, [
+    getButtonStyle,
+  ]);
   const [isLoadingState, setLoadingState] = useUncontrolled<boolean>(isLoading, undefined, false);
 
   const blocked = isDisabled || isLoadingState;
@@ -64,37 +66,38 @@ export const Button = ({
       to={to}>
       {(isActive) => (
         <>
-          <Wrapper
-            grow
-            row
-            center
-            alignCenter
-            pLeft
-            pRight
-            relative
-            opaque={isLoadingState}
-            spacingTight>
+          <Wrapper grow row center alignCenter relative opaque={isLoadingState} spacingTight>
             {icon && (
               <Icon
                 icon={icon}
                 contrast={!transparent}
                 primary={transparent}
                 small={small}
+                large={large}
                 mLeft={fullWidth}
                 absoluteLeft={fullWidth}
                 center
               />
             )}
             {children && (
-              <Text capitalize contrast={!transparent} primary={transparent} small={small}>
+              <Text
+                capitalize
+                contrast={!transparent}
+                primary={transparent}
+                small={small}
+                large={large}>
                 {children}
               </Text>
             )}
             {next && (
-              <Wrapper relative style={shapeStyle.square}>
-                <Wrapper absoluteLeft left={isActive ? 3 : 0} animatable={{ transition: ['left'] }}>
-                  <Icon icon="chevron-right" contrast={!transparent} primary={transparent} />
-                </Wrapper>
+              <Wrapper left={isActive ? 3 : 0} animatable={{ transition: ['left'] }} center alignCenter>
+                <Icon
+                  icon="chevron-right"
+                  contrast={!transparent}
+                  primary={transparent}
+                  large={large}
+                  small={small}
+                />
               </Wrapper>
             )}
           </Wrapper>

@@ -1,18 +1,28 @@
-import React from 'react';
-import { DroppableMenu, Wrapper, Text, Icon } from '@lib/frontend/core/components';
+import { find } from 'lodash';
+import React, { useMemo } from 'react';
+import { DroppableMenu, IconText } from '@lib/frontend/core/components';
 import { useStyles } from '@lib/frontend/core/hooks';
+import { LOCALE_SWITCH_MENU_OPTIONS } from '@lib/frontend/locale/containers/LocaleSwitch/LocaleSwitch.constants';
 import { LocaleSwitchProps } from '@lib/frontend/locale/containers/LocaleSwitch/LocaleSwitch.model';
-import { useTranslation } from '@lib/frontend/locale/hooks';
+import { useLocale } from '@lib/frontend/locale/hooks';
 
 export const LocaleSwitch = ({ ...props }: LocaleSwitchProps) => {
   const { styles } = useStyles(props);
-  const { t } = useTranslation(['locale']);
+  const { currentLocale, onLocaleChange } = useLocale();
+
+  const currentOption = useMemo(
+    () => find(LOCALE_SWITCH_MENU_OPTIONS, (option) => option.value === currentLocale),
+    [currentLocale],
+  );
+
   return (
-    <DroppableMenu style={styles} options={[]}>
-      <Wrapper row spacingTight center alignCenter>
-        <Icon icon="globe" />
-        <Text>{'English'}</Text>
-      </Wrapper>
+    <DroppableMenu
+      style={styles}
+      options={LOCALE_SWITCH_MENU_OPTIONS.map((option) => ({
+        ...option,
+        onPress: () => onLocaleChange(option.value),
+      }))}>
+      <IconText icon="globe">{currentOption && currentOption.label}</IconText>
     </DroppableMenu>
   );
 };

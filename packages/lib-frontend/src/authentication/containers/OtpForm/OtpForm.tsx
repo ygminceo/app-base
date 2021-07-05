@@ -4,8 +4,8 @@ import { OtpField } from '@lib/frontend/authentication/components';
 import {
   OTP_FORM_INITIAL_VALUES,
   OTP_FORM_VALIDATORS,
-} from '@lib/frontend/authentication/containers/SignInForm/OtpForm/OtpForm.constants';
-import { OtpFormProps } from '@lib/frontend/authentication/containers/SignInForm/OtpForm/OtpForm.model';
+} from '@lib/frontend/authentication/containers/OtpForm/OtpForm.constants';
+import { OtpFormProps } from '@lib/frontend/authentication/containers/OtpForm/OtpForm.model';
 import { AsyncWrapper, Link, Text, Wrapper } from '@lib/frontend/core/components';
 import { useForm, useQuery, useStyles } from '@lib/frontend/core/hooks';
 import { promisify } from '@lib/frontend/core/utils/promisify/promisify';

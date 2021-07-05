@@ -1,7 +1,6 @@
 module.exports = {
-  fallbackLng: 'en',
-  supportedLngs: ['en', 'kr'],
-  load: 'languageOnly',
+  fallbackLng: 'en-US',
+  supportedLngs: ['en-US', 'kr'],
   ns: [],
   //TODO: get from env variable
   // debug: process.ENV.NODE_ENV === 'development',

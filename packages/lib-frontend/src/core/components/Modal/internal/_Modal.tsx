@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-native-modal';
+import { MODAL_SIZE_DEFAULT } from '@lib/frontend/core/components/Modal/Modal.constants';
 import { _ModalProps } from '@lib/frontend/core/components/Modal/internal/_Modal.model';
 import { useDimension, useIsMobile } from '@lib/frontend/core/hooks';
 import { flexStyle } from '@lib/frontend/core/styles/flex.style';
@@ -16,11 +17,11 @@ export const _Modal = ({
   isOpen,
   width,
   children,
+  ...props
 }: _ModalProps) => {
-  const mobile = useIsMobile();
+  const isMobile = useIsMobile();
   const duration = useTheme<number>('animation.duration');
   const { width: deviceWidth, height: deviceHeight } = useDimension();
-
   return (
     <Modal
       isVisible={isOpen}
@@ -29,13 +30,15 @@ export const _Modal = ({
       supportedOrientations={['portrait', 'landscape']}
       animationIn={
         // @ts-ignore
-        mobile ? 'slideInUp' : { from: { scale: 0.9, opacity: 0 }, to: { scale: 1, opacity: 1 } }
+        isMobile ? 'slideInUp' : { from: { scale: 0.9, opacity: 0 }, to: { scale: 1, opacity: 1 } }
       }
       animationOut={
-        // @ts-ignore
-        mobile ? 'slideOutDown' : { from: { scale: 1, opacity: 1 }, to: { scale: 0.9, opacity: 0 } }
+        isMobile
+          ? 'slideOutDown'
+          : // @ts-ignore
+            { from: { scale: 1, opacity: 1 }, to: { scale: 0.9, opacity: 0 } }
       }
-      presentationStyle={isFullSize ? 'formSheet' : undefined}
+      presentationStyle={isFullSize || isMobile ? 'formSheet' : undefined}
       animationInTiming={duration}
       animationOutTiming={duration}
       backdropTransitionInTiming={duration}
@@ -46,16 +49,17 @@ export const _Modal = ({
       backdropOpacity={backdrop ? 0.5 : 0}
       onBackdropPress={!isDisabled && closeOnBackdropPress ? onClose : undefined}
       // propagateSwipe
-      onSwipeComplete={!isDisabled && mobile ? onClose : undefined}
-      swipeDirection={!isDisabled && mobile ? 'down' : undefined}
+      onSwipeComplete={!isDisabled && isMobile ? onClose : undefined}
+      swipeDirection={!isDisabled && isMobile ? 'down' : undefined}
       style={[
-        spacingStyle.noMargin,
-        ...(mobile ? [] : [spacingStyle.padding]),
+        spacingStyle.marginAuto,
+        ...(isMobile ? [] : [spacingStyle.padding]),
         {
-          width: isFullSize ? deviceWidth : width,
-          height: isFullSize ? deviceHeight : height,
+          width: isFullSize || isMobile ? deviceWidth : width || MODAL_SIZE_DEFAULT,
+          height: isFullSize || isMobile ? deviceHeight : height || MODAL_SIZE_DEFAULT,
+          maxHeight: isFullSize || isMobile ? deviceHeight : height || MODAL_SIZE_DEFAULT,
         },
-        mobile ? flexStyle.end : flexStyle.alignCenter,
+        isMobile ? flexStyle.end : flexStyle.alignCenter,
       ]}>
       {children}
     </Modal>

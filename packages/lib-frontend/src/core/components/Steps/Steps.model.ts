@@ -4,6 +4,7 @@ import { StyledProps } from '@lib/frontend/core/styles/style.model';
 
 export interface StepsProps<F extends FormModel> extends StyledProps {
   steps: StepModel<F, any>[];
+  onSuccess?(data: F): any;
 }
 
 export interface StepModel<F extends FormModel, P> {

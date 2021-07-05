@@ -17,7 +17,7 @@ export const _ThemeProvider = compose<
       ...DefaultTheme,
       myOwnProperty: true,
       animation: { scale: 0 },
-      dark: theme.dark,
+      dark: theme.isDark,
       roundness: theme.shape.borderRadius,
       colors: {
         ...DefaultTheme.colors,

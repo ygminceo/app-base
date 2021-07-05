@@ -2,6 +2,7 @@ import { AlertMessageModel } from '@lib/frontend/core/components/Alert/Alert.mod
 import { tLazy } from '@lib/frontend/locale/utils/tLazy/tLazy';
 
 export const NETWORK_ALERT: AlertMessageModel = {
-  icon: 'network',
+  icon: 'internet',
   message: tLazy('app:messages.networkError'),
+  error: true,
 };

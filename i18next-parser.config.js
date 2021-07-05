@@ -10,7 +10,7 @@ module.exports = {
   keepRemoved: false,
   keySeparator: '.',
   lineEnding: 'auto',
-  locales: ['en', 'kr'],
+  locales: ['en-US', 'kr'],
   namespaceSeparator: ':',
   output: 'packages/lib-assets/src/public/locales/$LOCALE/$NAMESPACE.json',
   skipDefaultValues: false,

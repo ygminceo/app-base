@@ -8,8 +8,8 @@ import { otpCreateAction } from '@lib/frontend/authentication/actions/otpCreate/
 import {
   EMAIL_FORM_INITIAL_VALUES,
   EMAIL_FORM_VALIDATORS,
-} from '@lib/frontend/authentication/containers/SignInForm/EmailForm/EmailForm.constants';
-import { EmailFormProps } from '@lib/frontend/authentication/containers/SignInForm/EmailForm/EmailForm.model';
+} from '@lib/frontend/authentication/containers/EmailForm/EmailForm.constants';
+import { EmailFormProps } from '@lib/frontend/authentication/containers/EmailForm/EmailForm.model';
 import { Form, Text, TextField, Wrapper } from '@lib/frontend/core/components';
 import { useForm, useStyles } from '@lib/frontend/core/hooks';
 import { useTranslation } from '@lib/frontend/locale/hooks';
