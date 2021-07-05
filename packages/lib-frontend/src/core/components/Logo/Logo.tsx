@@ -10,7 +10,7 @@ const STATIC_URL = config.get<string>('REACT_APP_STATIC_URL', '');
 
 export const Logo = ({ light, ...props }: LogoProps) => {
   const { styles } = useStyles(props, [getLogoStyle]);
-  config.get<string>('REACT_APP_STATIC_URL', '');
+  console.warn(JSON.stringify(process.env.REACT_APP_STATIC_URL));
   return (
     <RouteLink to="/">
       <Image src={`${STATIC_URL}/images/logo_${light ? 'light' : 'dark'}.png`} style={styles} />
