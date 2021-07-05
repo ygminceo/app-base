@@ -6,7 +6,7 @@ import { getLogoStyle } from '@lib/frontend/core/components/Logo/Logo.style';
 import { useStyles } from '@lib/frontend/core/hooks';
 import { RouteLink } from '@lib/frontend/routing/components';
 
-const PUBLIC_URL = config.get<string>('REACT_APP_PUBLIC_URL', '');
+const PUBLIC_URL = config.get<string>('REACT_APP_PUBLIC_URL', 'test');
 
 export const Logo = ({ light, ...props }: LogoProps) => {
   console.warn(`@PUBLIC: ${PUBLIC_URL}`);
