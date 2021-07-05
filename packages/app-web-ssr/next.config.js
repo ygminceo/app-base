@@ -17,7 +17,7 @@ const nextConfig = {
   experimental: { externalDir: true },
 
   eslint: {
-    build: false,
+    build: true,
     dev: false,
   },
   typescript: {
