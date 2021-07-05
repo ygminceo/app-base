@@ -1,7 +1,7 @@
 import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document';
+import React from 'react';
 import { AppRegistry } from 'react-native';
 import { ServerStyleSheet } from 'styled-components';
-import React from 'react';
 
 export default class DocumentPage extends Document {
   static async getInitialProps(ctx: DocumentContext) {

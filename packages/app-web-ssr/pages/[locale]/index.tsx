@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import React from 'react';
 import { APP } from '@lib/common/app/constants';
 import { AUTHENTICATION } from '@lib/common/authentication/constants';
 import { COMMON } from '@lib/common/core/constants';
