@@ -9,9 +9,7 @@ export const RouteLink = <P,>({ children, to, replace, params, ...props }: Route
   const { styles } = useStyles(props);
   const router = useRouter();
   return (
-    <Wrapper
-      style={styles}
-      onPress={() => (replace ? router.replace : router.push)(`[[...locale]]/${to}`, params)}>
+    <Wrapper style={styles} onPress={() => (replace ? router.replace : router.push)(to, params)}>
       {isString(children) ? <Link>{children}</Link> : children}
     </Wrapper>
   );

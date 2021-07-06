@@ -1,5 +1,12 @@
 {
   "labels": {
+    "about": "",
+    "careers": "",
+    "company": "",
     "getStarted": "시작하기"
+  },
+  "messages": {
+    "about": "",
+    "careers": ""
   }
 }

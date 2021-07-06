@@ -4,6 +4,7 @@ import { Text as AnimatableText } from 'react-native-animatable';
 import { TextProps } from '@lib/frontend/core/components/Text/Text.model';
 import { useTextStyles } from '@lib/frontend/core/hooks';
 import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
+import { CommonTheme } from '@lib/frontend/theme/themes/common.theme';
 
 export const Text = ({ children, animatable, onPress, ...props }: TextProps) => {
   const { styles } = useTextStyles<TextProps>(props);
@@ -21,7 +22,10 @@ export const Text = ({ children, animatable, onPress, ...props }: TextProps) => 
     };
   }
   return (
-    <Component style={styles} onPress={onPress} {...animationProps}>
+    <Component
+      style={styles}
+      onPress={onPress}
+      {...animationProps}>
       {children}
     </Component>
   );

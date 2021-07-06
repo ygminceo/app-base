@@ -9,6 +9,7 @@
   },
   "labels": {
     "cancel": "Cancel",
+    "close": "",
     "continue": "Continue",
     "countryCode": "Country code",
     "email": "Email address",

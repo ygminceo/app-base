@@ -1,3 +1,4 @@
+import { APP, CONTACT_ADD } from '@lib/common/app/constants';
 import {
   AUTHENTICATION,
   AUTHORIZE,
@@ -14,6 +15,15 @@ import {
 import { ServerlessServiceModel } from '@lib/backend/serverless/serverless.model';
 
 export const services: ServerlessServiceModel[] = [
+  {
+    name: APP,
+    functions: [
+      {
+        name: CONTACT_ADD,
+        method: 'post',
+      },
+    ],
+  },
   {
     name: AUTHENTICATION,
     functions: [

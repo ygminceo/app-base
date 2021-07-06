@@ -2,8 +2,10 @@ import { StyleSheet } from 'react-native';
 import { FontProps } from '@lib/frontend/core/styles/font.model';
 import { sizeStyle } from '@lib/frontend/core/styles/size.style';
 import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
+import { CommonTheme } from '@lib/frontend/theme/themes/common.theme';
 
 export const fontStyle = StyleSheet.create({
+  style: { lineHeight: CommonTheme.shape.lineHeight },
   bold: { fontWeight: '500' },
   center: { textAlign: 'center' },
   alignRight: { textAlign: 'right' },
@@ -20,6 +22,7 @@ export const getFontStyle: StyleGetterModel<FontProps> = ({
   title,
   uppercase,
 }) => [
+  fontStyle.style,
   ...(bold || title ? [fontStyle.bold] : []),
   ...(center ? [fontStyle.center] : alignRight ? [fontStyle.alignRight] : []),
   ...(title || subtitle ? [sizeStyle.large] : []),

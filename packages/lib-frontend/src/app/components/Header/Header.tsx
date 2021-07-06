@@ -19,12 +19,11 @@ export const Header = ({ children, ...props }: HeaderProps) => {
       alignCenter
       fill
       borderBottom
-      spacingTight
       pLeft
-      pRight>
-      <Wrapper absoluteFill center alignCenter>
-        <Logo />
-      </Wrapper>
+      pRight
+      spacing>
+
+      <Logo />
 
       {children}
     </Wrapper>

@@ -41,6 +41,7 @@ export interface ShapeModel {
   spacingTight: number | string;
   spacingWhitespace: number | string;
   borderRadius: number;
+  lineHeight: number;
 }
 
 export interface ThemeModel {

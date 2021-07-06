@@ -26,7 +26,7 @@ export const Modal = ({
       closeOnBackdropPress
       width={width}
       height={height}>
-      <Wrapper grow fullWidth fill round shadow>
+      <Wrapper grow fullWidth fill round shadow center>
         <KeyboardContainer>
           <Wrapper grow>
             {onClose && (

@@ -32,7 +32,15 @@ export const Dropdown = ({
       onClose={onClose}
       anchor={anchor}
       fullWidth={fullWidth}>
-      <Wrapper fill shadow round mTop mBottom width={fullWidth ? undefined : width} height={height}>
+      <Wrapper
+        fill
+        shadow
+        border
+        round
+        mTop
+        mBottom
+        width={fullWidth ? undefined : width}
+        height={height}>
         {header}
         <Wrapper grow p>
           {children}

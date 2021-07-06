@@ -8,3 +8,9 @@ export interface RouteLinkProps<P>
       replace?: boolean;
       params?: P;
     }> {}
+
+export interface RouteLinkModel {
+  label: string;
+  icon: string;
+  pathname: string;
+}

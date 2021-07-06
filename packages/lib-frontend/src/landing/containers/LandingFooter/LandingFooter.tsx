@@ -19,20 +19,18 @@ export const LandingFooter = ({ onContactModalOpen, ...props }: LandingFooterPro
   return (
     <>
       <Portal>
-        <Wrapper row absoluteBottom mAuto mBottom={48} center>
+        <Wrapper row absoluteBottom mAuto mBottom={80} center>
           <Button large next onPress={onContactModalOpen}>
             {t('landing:labels.getStarted')}
           </Button>
         </Wrapper>
       </Portal>
 
-      <Wrapper pTight fullWidth spacing>
-        <Wrapper row spacing>
+      <Wrapper pTight fullWidth>
+        <Wrapper spacing row center alignCenter>
           {LANDING_FOOTER_LINK_GROUPS.map((group, i) => (
-            <Wrapper key={i} spacingTight>
-              <IconText bold icon={group.icon}>
-                {t(group.title)}
-              </IconText>
+            <Wrapper key={i} spacing row center alignCenter>
+              <IconText icon={group.icon}>{t(group.label)}</IconText>
               {group.links.map((link, j) => (
                 <Activatable key={j}>
                   {(isActive) => (
@@ -43,7 +41,7 @@ export const LandingFooter = ({ onContactModalOpen, ...props }: LandingFooterPro
                           dark={isActive}
                           icon={link.icon}
                           animatable={{ transition: ['color'] }}>
-                          {t(link.title)}
+                          {t(link.label)}
                         </IconText>
                       </RouteLink>
                     </Wrapper>
@@ -52,10 +50,11 @@ export const LandingFooter = ({ onContactModalOpen, ...props }: LandingFooterPro
               ))}
             </Wrapper>
           ))}
+
+          <LocaleSwitch />
         </Wrapper>
         <Wrapper row center alignCenter spacing>
           <Copyright />
-          <LocaleSwitch />
         </Wrapper>
       </Wrapper>
     </>

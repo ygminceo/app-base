@@ -1,6 +1,8 @@
-export interface ContactRequestModel {
+export interface ContactModel {
   email: string;
   detail?: string;
 }
 
-export interface ContactFormModel extends ContactRequestModel {}
+export interface ContactAddRequestModel extends ContactModel {}
+
+export interface ContactFormModel extends ContactAddRequestModel {}

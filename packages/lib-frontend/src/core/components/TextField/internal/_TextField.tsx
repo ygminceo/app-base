@@ -6,7 +6,7 @@ import {
   TextInputKeyPressEventData,
 } from 'react-native';
 import { TextInput } from 'react-native-paper';
-import { Appearable, Icon, IconText, Wrapper } from '@lib/frontend/core/components';
+import { Appearable, Icon, IconText, Text, Wrapper } from '@lib/frontend/core/components';
 import { _TextFieldProps } from '@lib/frontend/core/components/TextField/internal/_TextField.model';
 import { useStyles, useTextStyles } from '@lib/frontend/core/hooks';
 import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
@@ -91,7 +91,9 @@ export const _TextField = forwardRef<RefObject<any>, _TextFieldProps>(
         style={styles}
         round
         fill
+        center
         overflowHidden
+        relative
         border={!transparent}
         borderError={error === true || size(error as any) > 0}
         borderPrimary={focused}>
@@ -173,6 +175,14 @@ export const _TextField = forwardRef<RefObject<any>, _TextFieldProps>(
             </Wrapper>
           )}
         />
+
+        {maxLength && (
+          <Wrapper absoluteRight pTopTight pRightTight>
+            <Appearable isVisible={focused}>
+              <Text small color={colorBorder}>{`${(value || '').length}/${maxLength}`}</Text>
+            </Appearable>
+          </Wrapper>
+        )}
       </Wrapper>
     );
   },

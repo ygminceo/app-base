@@ -1,5 +1,12 @@
 {
   "labels": {
+    "about": "About",
+    "careers": "Careers",
+    "company": "Company",
     "getStarted": "Get started"
+  },
+  "messages": {
+    "about": "We are a team of software engineers, data scientists, and quants from firms like Goldman Sachs and Google.",
+    "careers": "We are hiring"
   }
 }

@@ -1,15 +1,11 @@
+import { RouteLinkModel } from '@lib/frontend/routing/components/RouteLink/RouteLink.model';
+
 export interface LandingFooterProps {
   onContactModalOpen(): any;
 }
 
-interface LandingFooterLinkModel {
-  title: string;
-  icon: string;
-  pathname: string;
-}
-
 export interface LandingFooterLinkGroupModel {
-  title: string;
+  label: string;
   icon: string;
-  links: LandingFooterLinkModel[];
+  links: RouteLinkModel[];
 }

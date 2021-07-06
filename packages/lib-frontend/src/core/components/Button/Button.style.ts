@@ -6,7 +6,7 @@ import {
 } from '@lib/frontend/core/components/Button/Button.constants';
 import { ButtonProps } from '@lib/frontend/core/components/Button/Button.model';
 import { borderStyle } from '@lib/frontend/core/styles/border.style';
-import { flexStyle } from '@lib/frontend/core/styles/flex.style';
+import { shapeStyle } from '@lib/frontend/core/styles/shape.style';
 import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 
 export const buttonStyle = StyleSheet.create({
@@ -23,6 +23,6 @@ export const getButtonStyle: StyleGetterModel<Partial<ButtonProps>> = ({
 }) => [
   borderStyle.shadow,
   large ? buttonStyle.large : small ? buttonStyle.small : buttonStyle.default,
-  fullWidth ? undefined : flexStyle.selfBaseline,
+  ...(fullWidth ? [shapeStyle.fullWidth] : []),
   ...(transparent ? [borderStyle.borderPrimary, borderStyle.border] : []),
 ];

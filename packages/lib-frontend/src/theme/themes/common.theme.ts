@@ -8,6 +8,7 @@ export const CommonTheme = {
     spacing: 16,
     spacingTight: 8,
     spacingWhitespace: '0.4em',
+    lineHeight: 25,
   },
   colors: {
     black: '#000',

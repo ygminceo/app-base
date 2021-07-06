@@ -6,6 +6,7 @@ import { PressableProps } from '@lib/frontend/core/components/Pressable/Pressabl
 import { useStyles } from '@lib/frontend/core/hooks';
 import { useTranslation } from '@lib/frontend/locale/hooks';
 import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
+import { CommonTheme } from '@lib/frontend/theme/themes/common.theme';
 
 export const Pressable = ({
   isDisabled,
@@ -25,9 +26,13 @@ export const Pressable = ({
   const [confirmModalIsOpen, setConfirmModalIsOpen] = useState<boolean>(false);
 
   const isDark = useTheme<boolean>('isDark');
-  const c = isDark ? 255 : 0;
-  const from = { backgroundColor: `rgba(${c}, ${c}, ${c}, 0)`, ...fromProps };
-  const to = { backgroundColor: `rgba(${c}, ${c}, ${c}, 0.1)`, ...toProps };
+  
+  const backgroundPrimary = useTheme<string>('colors.background.primary');
+  const from = { backgroundColor: backgroundPrimary, ...fromProps };
+  const to = {
+    backgroundColor: isDark ? CommonTheme.colors.primary.dark : CommonTheme.colors.primary.light,
+    ...toProps,
+  };
 
   return (
     <>

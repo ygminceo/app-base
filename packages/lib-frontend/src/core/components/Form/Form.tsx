@@ -2,7 +2,6 @@ import React from 'react';
 import { COMMON } from '@lib/common/core/constants';
 import { Button, Wrapper } from '@lib/frontend/core/components';
 import { FormProps } from '@lib/frontend/core/components/Form/Form.model';
-import { getFormStyle } from '@lib/frontend/core/components/Form/Form.style';
 import { _Form } from '@lib/frontend/core/components/Form/internal/_Form';
 import { useStyles } from '@lib/frontend/core/hooks';
 import { useTranslation } from '@lib/frontend/locale/hooks';
@@ -19,9 +18,9 @@ export const Form = ({
   ...props
 }: FormProps) => {
   const { t } = useTranslation([COMMON]);
-  const { styles } = useStyles(props, [getFormStyle]);
+  const { styles } = useStyles(props);
   return (
-    <Wrapper style={styles} spacing selfCenter>
+    <Wrapper style={styles} spacing selfCenter fullWidth>
       <_Form onSubmit={onSubmit}>{children}</_Form>
 
       <Wrapper row spacing>

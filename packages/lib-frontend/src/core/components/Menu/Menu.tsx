@@ -1,6 +1,7 @@
 import { get, isFunction, map } from 'lodash';
 import React, { cloneElement, useCallback, useState } from 'react';
 import { COMMON } from '@lib/common/core/constants';
+import { headerStyle } from '@lib/frontend/app/components/Header/Header.style';
 import { Divider, Icon, Pressable, Text, Wrapper } from '@lib/frontend/core/components';
 import { Dropdown } from '@lib/frontend/core/components/Dropdown/Dropdown';
 import {
@@ -79,12 +80,14 @@ export const Menu = ({
   const searchbar = searchable ? (
     <>
       <TextField
+        icon="search"
+        label={t('common:labels.search')}
+        style={headerStyle.style}
         autoFocus
         value={searchText}
         onChange={handleSearch}
         onSubmit={selectOnEnter && onChange ? handleEnter : undefined}
         transparent
-        placeholder={t('common:labels.search')}
       />
       <Divider />
     </>

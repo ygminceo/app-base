@@ -10,6 +10,7 @@ import { ContactFormProps } from '@lib/frontend/app/containers/ContactForm/Conta
 import { Form, Text, TextField, Wrapper } from '@lib/frontend/core/components';
 import { useForm, useStyles } from '@lib/frontend/core/hooks';
 import { useTranslation } from '@lib/frontend/locale/hooks';
+import { appClient } from '@lib/frontend/app/clients/AppClient/AppClient';
 
 export const ContactForm = ({ onSuccess, ...props }: ContactFormProps) => {
   const { styles } = useStyles(props);
@@ -25,8 +26,7 @@ export const ContactForm = ({ onSuccess, ...props }: ContactFormProps) => {
   } = useForm<ContactFormModel>({
     initialValues: CONTACT_FORM_INITIAL_VALUES,
     validators: CONTACT_FORM_VALIDTATORS,
-    // onSubmit: (data) => onSubmit(data).then(() => onSuccess(data)),
-    onSubmit: (data) => onSuccess(data),
+    onSubmit: (data) => appClient.contactAdd(data).then(() => onSuccess(data)),
   });
 
   return (
@@ -47,7 +47,8 @@ export const ContactForm = ({ onSuccess, ...props }: ContactFormProps) => {
         />
         <TextField
           label={t('app:labels.contactDetail')}
-          numberOfLines={5}
+          maxLength={300}
+          numberOfLines={6}
           icon="ear"
           error={errors.detail}
           value={values.detail}
