@@ -30,6 +30,6 @@ export const useStyles = <P>(
   return {
     inheritedStyles: StyleSheet.flatten(inheritedStyles),
     computedStyles: StyleSheet.flatten(computedStyles),
-    styles: StyleSheet.flatten([inheritedStyles, computedStyles]),
+    styles: StyleSheet.flatten([computedStyles, inheritedStyles]),
   };
 };

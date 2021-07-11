@@ -4,7 +4,6 @@ import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 import { CommonTheme } from '@lib/frontend/theme/themes/common.theme';
 
 export const backgroundStyle = StyleSheet.create({
-  black: { backgroundColor: CommonTheme.colors.black },
   error: { backgroundColor: CommonTheme.colors.error.main },
   errorDark: { backgroundColor: CommonTheme.colors.error.dark },
   errorLight: { backgroundColor: CommonTheme.colors.error.light },
@@ -15,13 +14,12 @@ export const backgroundStyle = StyleSheet.create({
   successDark: { backgroundColor: CommonTheme.colors.success.dark },
   successLight: { backgroundColor: CommonTheme.colors.success.light },
   transparent: { backgroundColor: 'transparent' },
-  white: { backgroundColor: CommonTheme.colors.white },
 });
 
 export const getBackgroundStyle: StyleGetterModel<BackgroundProps> = ({
   backgroundColor,
-  black,
   secondary,
+  muted,
   contrast,
   dark,
   error,
@@ -31,16 +29,13 @@ export const getBackgroundStyle: StyleGetterModel<BackgroundProps> = ({
   success,
   theme,
   transparent,
-  white,
 }) => [
-  ...(black
-    ? [backgroundStyle.black]
-    : secondary
+  ...(secondary
     ? [{ backgroundColor: theme?.colors.border }]
-    : white
-    ? [backgroundStyle.white]
+    : muted
+    ? [{ backgroundColor: theme?.colors.background.muted }]
     : fill
-    ? [{ backgroundColor: theme?.colors.background.primary }]
+    ? [{ backgroundColor: theme?.colors.background.main }]
     : contrast
     ? [{ backgroundColor: theme?.colors.background.contrast }]
     : transparent

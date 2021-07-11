@@ -9,7 +9,7 @@ export const AsyncWrapper = ({ isLoading, children, ...props }: AsyncWrapperProp
     <Wrapper style={styles} grow relative>
       {isLoading && (
         <Wrapper absoluteFill above center alignCenter>
-          <Loading large />
+          <Loading large primary />
         </Wrapper>
       )}
       <Wrapper {...props} grow muted={isLoading}>

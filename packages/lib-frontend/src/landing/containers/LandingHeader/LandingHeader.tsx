@@ -3,32 +3,32 @@ import { APP } from '@lib/common/app/constants';
 import { AUTHENTICATION } from '@lib/common/authentication/constants';
 import { LANDING } from '@lib/common/landing/constants';
 import { Header } from '@lib/frontend/app/components';
-import { Button, Droppable, Pressable, Text, Wrapper } from '@lib/frontend/core/components';
+import { Droppable, Pressable, Text, Wrapper } from '@lib/frontend/core/components';
+import { LandingChatButton } from '@lib/frontend/landing/containers';
 import { LANDING_HEADER_MENU_OPTIONS } from '@lib/frontend/landing/containers/LandingHeader/LandingHeader.constants';
 import { LandingHeaderProps } from '@lib/frontend/landing/containers/LandingHeader/LandingHeader.model';
 import { useTranslation } from '@lib/frontend/locale/hooks';
 import { ThemeSwitch } from '@lib/frontend/theme/containers';
 
-export const LandingHeader = ({ onContactModalOpen, ...props }: LandingHeaderProps) => {
+export const LandingHeader = ({ ...props }: LandingHeaderProps) => {
   const { t } = useTranslation([APP, AUTHENTICATION, LANDING]);
-
   return (
     <Header>
-      {LANDING_HEADER_MENU_OPTIONS.map((menuOption, i) => (
-        <Droppable key={i} render={() => <menuOption.component />}>
-          {(isActive) => (
-            <Pressable isPressed={isActive}>
-              <Text>{t(menuOption.title)}</Text>
-            </Pressable>
-          )}
-        </Droppable>
-      ))}
+      <Wrapper grow row alignCenter>
+        {LANDING_HEADER_MENU_OPTIONS.map((menuOption, i) => (
+          <Droppable key={i} render={() => <menuOption.component />}>
+            {(isActive) => (
+              <Pressable isPressed={isActive}>
+                <Text>{t(menuOption.title)}</Text>
+              </Pressable>
+            )}
+          </Droppable>
+        ))}
+      </Wrapper>
 
-      <Wrapper mLeftAuto row spacing alignCenter>
+      <Wrapper row spacing alignCenter>
         <ThemeSwitch />
-        <Button small next onPress={onContactModalOpen}>
-          {t('landing:labels.getStarted')}
-        </Button>
+        <LandingChatButton small />
       </Wrapper>
     </Header>
   );

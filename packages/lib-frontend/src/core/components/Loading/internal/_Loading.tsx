@@ -4,5 +4,5 @@ import compose from '@lib/frontend/core/utils/compose/compose';
 
 export const _Loading = compose<_LoadingProps, any>({
   component: Flow,
-  getProps: ({ size, color }) => ({ size, color }),
+  getProps: ({ size }) => ({ size }),
 });

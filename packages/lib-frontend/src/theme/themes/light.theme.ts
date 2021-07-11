@@ -9,11 +9,13 @@ export const LightTheme: ThemeModel = defaultsDeep(
     colors: {
       border: '#ccd0d6',
       background: {
-        primary: '#FFF',
+        main: '#FFF',
+        muted: '#eeeeee',
         contrast: '#000',
       },
       text: {
-        primary: '#3c4257',
+        main: '#3c4257',
+        muted: '#e5e5e5',
         contrast: '#FFF',
       },
     },

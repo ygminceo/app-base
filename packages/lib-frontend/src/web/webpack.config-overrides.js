@@ -6,12 +6,18 @@ const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
 const { EXTENSIONS, ROOT_PATH } = require('../../../../constants');
 
 const TRANSIPLE_MODULES = [
+  '@expo/react-native-action-sheet',
   'react-native-animatable',
   'react-native-animated-spinkit',
+  'react-native-communications',
+  'react-native-gifted-chat',
   'react-native-iphone-x-helper',
+  'react-native-lightbox',
   'react-native-modal',
   'react-native-paper',
+  'react-native-parsed-text',
   'react-native-switch',
+  'react-native-typing-animation',
   'react-native-vector-icons',
 ];
 
@@ -45,9 +51,7 @@ module.exports = {
       }),
     ],
     resolve: {
-      alias: {
-        'react-native$': 'react-native-web',
-      },
+      alias: { 'react-native$': 'react-native-web' },
       extensions: [...EXTENSIONS, '...'],
       modules: [resolve(ROOT_PATH, 'node_modules')],
       plugins: [new TsconfigPathsPlugin({ silent: true })],

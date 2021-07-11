@@ -23,7 +23,7 @@ export const SelectField = ({
   ...props
 }: SelectFieldProps) => {
   const { styles } = useStyles(props);
-  const [fieldValue, onFieldChange] = useUncontrolled<string>(value, onChange, defaultValue);
+  const [fieldValue, onFieldChange] = useUncontrolled<string>(value, onChange, defaultValue || '');
   const selectedOption = find(options, { value: fieldValue }) as SelectableOptionModel;
   return (
     <Menu

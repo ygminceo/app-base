@@ -1,1 +1,1 @@
-export const STEPS_NAVIGATION_HEIGHT = 70;
+export const STEPS_NAVIGATION_HEIGHT = 50;

@@ -4,7 +4,6 @@ import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 import { CommonTheme } from '@lib/frontend/theme/themes/common.theme';
 
 export const colorStyle = StyleSheet.create({
-  black: { color: CommonTheme.colors.black },
   error: { color: CommonTheme.colors.error.main },
   errorDark: { color: CommonTheme.colors.error.dark },
   errorLight: { color: CommonTheme.colors.error.light },
@@ -14,7 +13,6 @@ export const colorStyle = StyleSheet.create({
   success: { color: CommonTheme.colors.success.main },
   successDark: { color: CommonTheme.colors.success.dark },
   successLight: { color: CommonTheme.colors.success.light },
-  white: { color: CommonTheme.colors.white },
 });
 
 export const getColorStyle: StyleGetterModel<ColorProps> = ({
@@ -25,15 +23,10 @@ export const getColorStyle: StyleGetterModel<ColorProps> = ({
   light,
   primary,
   success,
-  black,
-  white,
   theme,
+  muted,
 }) => [
-  black
-    ? [colorStyle.black]
-    : white
-    ? [colorStyle.white]
-    : primary
+  primary
     ? light
       ? colorStyle.primaryLight
       : dark
@@ -53,7 +46,9 @@ export const getColorStyle: StyleGetterModel<ColorProps> = ({
       : colorStyle.error
     : color
     ? { color }
+    : muted
+    ? { color: theme?.colors.text.muted }
     : contrast
     ? { color: theme?.colors.text.contrast }
-    : { color: theme?.colors.text.primary },
+    : { color: theme?.colors.text.main },
 ];

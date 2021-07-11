@@ -7,7 +7,7 @@ export type FormValidatorModel<F> = (value: any, data?: F) => string | undefined
 export type FormValidatorsModel<F> = { [K in keyof F]?: FormValidatorModel<F> };
 
 export interface UseFormParamsModel<F extends FormModel> {
-  initialValues: F;
+  initialValues: F | (() => F);
   onSubmit(data: F): any;
   validators?: FormValidatorsModel<F>;
 }

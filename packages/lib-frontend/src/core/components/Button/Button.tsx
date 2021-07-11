@@ -1,3 +1,4 @@
+import { isString } from 'lodash';
 import React, { useCallback } from 'react';
 import { Icon, Loading, Pressable, Text, Wrapper } from '@lib/frontend/core/components';
 import { ButtonProps } from '@lib/frontend/core/components/Button/Button.model';
@@ -31,7 +32,7 @@ export const Button = ({
   const blocked = isDisabled || isLoadingState;
 
   const theme = success ? 'success' : error ? 'error' : 'primary';
-  const backgroundColor = useTheme<string>('colors.background.primary');
+  const backgroundColor = useTheme<string>('colors.background.main');
   const lightColor = useTheme<string>(`colors.${theme}.light`);
   const mainColor = useTheme<string>(`colors.${theme}.main`);
   const darkColor = useTheme<string>(`colors.${theme}.dark`);
@@ -79,7 +80,7 @@ export const Button = ({
                 center
               />
             )}
-            {children && (
+            {isString(children) ? (
               <Text
                 capitalize
                 contrast={!transparent}
@@ -88,9 +89,15 @@ export const Button = ({
                 large={large}>
                 {children}
               </Text>
+            ) : (
+              children
             )}
             {next && (
-              <Wrapper left={isActive ? 3 : 0} animatable={{ transition: ['left'] }} center alignCenter>
+              <Wrapper
+                left={isActive ? 3 : 0}
+                animatable={{ transition: ['left'] }}
+                center
+                alignCenter>
                 <Icon
                   icon="chevron-right"
                   contrast={!transparent}
@@ -104,7 +111,7 @@ export const Button = ({
 
           {isLoadingState && (
             <Wrapper absoluteFill center alignCenter>
-              <Loading large={!small} />
+              <Loading large={!small} primary />
             </Wrapper>
           )}
         </>

@@ -7,7 +7,6 @@ import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 export const shapeStyle = StyleSheet.create({
   fullWidth: { width: '100%' },
   overflowHidden: { overflow: 'hidden' },
-  muted: { opacity: 0.5 },
   hidden: { display: 'none' },
   opaque: { opacity: 0 },
   visible: { opacity: 1 },
@@ -73,7 +72,6 @@ export const getShapeStyle: StyleGetterModel<ShapeProps> = ({
   height,
   hidden,
   left,
-  muted,
   opacity,
   opaque,
   overflowHidden,
@@ -88,7 +86,6 @@ export const getShapeStyle: StyleGetterModel<ShapeProps> = ({
   ...(hidden ? [shapeStyle.hidden] : []),
   ...(opaque ? [shapeStyle.opaque] : []),
   ...(overflowHidden ? [shapeStyle.overflowHidden] : []),
-  ...(muted ? [shapeStyle.muted] : []),
   ...(isNil(opacity) ? [] : [{ opacity }]),
   ...(absolute ? [shapeStyle.absolute] : []),
   ...(relative ? [shapeStyle.relative] : []),

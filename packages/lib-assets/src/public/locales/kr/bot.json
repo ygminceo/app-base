@@ -1,0 +1,19 @@
+{
+  "labels": {
+    "botDescription": "",
+    "botName": ""
+  },
+  "messages": {
+    "emailSuccess": "",
+    "help": "",
+    "introduction": "",
+    "ok": "",
+    "optionAbout": "",
+    "optionCareers": "",
+    "optionContact": "",
+    "other": "",
+    "replyEmail": "",
+    "replyLink": "",
+    "signIn": ""
+  }
+}

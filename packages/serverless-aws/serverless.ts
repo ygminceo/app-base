@@ -5,7 +5,7 @@ import { baseConfig } from '@lib/backend/serverless/serverless.base';
 import { services } from '@lib/backend/serverless/services';
 
 const API_PORT = config.get<number>('REACT_APP_API_PORT', null);
-const STATIC_URL = config.get<number>('REACT_APP_STATIC_URL', null);
+const PUBLIC_URL = config.get<number>('REACT_APP_PUBLIC_URL', null);
 
 const serverlessConfig = defaultsDeep(
   {
@@ -22,7 +22,7 @@ const serverlessConfig = defaultsDeep(
 
       httpApi: {
         cors: {
-          allowedOrigins: [STATIC_URL],
+          allowedOrigins: [PUBLIC_URL],
           allowedHeaders: ['*'],
         },
         authorizers: {

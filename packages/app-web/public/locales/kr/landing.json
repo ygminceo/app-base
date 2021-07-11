@@ -1,9 +1,13 @@
 {
   "labels": {
     "about": "",
+    "careers": "",
     "company": "",
-    "jobs": "",
-    "resources": "",
-    "support": ""
+    "getStarted": "시작하기",
+    "products": ""
+  },
+  "messages": {
+    "about": "",
+    "careers": ""
   }
 }

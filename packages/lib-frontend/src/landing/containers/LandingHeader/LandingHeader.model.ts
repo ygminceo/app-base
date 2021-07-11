@@ -6,9 +6,7 @@ export interface LandingHeaderMenuOptionModel {
   component: ComponentType;
 }
 
-export interface LandingHeaderProps {
-  onContactModalOpen(): any;
-}
+export interface LandingHeaderProps {}
 
 export interface LandingHeaderLinkGroupModel {
   label: string;

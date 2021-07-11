@@ -17,13 +17,15 @@ import { CommonTheme } from '@lib/frontend/theme/themes/common.theme';
 const REACT_APP_STRIPE_TOKEN = config.get<string>('REACT_APP_STRIPE_TOKEN', '');
 const stripe = loadStripe(REACT_APP_STRIPE_TOKEN);
 
-export const _CardModal = ({ ...props }: _CardModalProps) => (
-  <Elements stripe={stripe}>
-    <_CardModalElement {...props} />
-  </Elements>
+export const _CardModal = ({ isOpen, onClose, ...props }: _CardModalProps) => (
+  <Modal isOpen={isOpen} onClose={onClose}>
+    <Elements stripe={stripe}>
+      <_CardForm {...props} />
+    </Elements>
+  </Modal>
 );
 
-const _CardModalElement = ({ token, isOpen, onClose, ...props }: _CardModalProps) => {
+const _CardForm = ({ token, isOpen, onClose, ...props }: _CardModalProps) => {
   const { styles } = useStyles(props);
   const { t } = useTranslation([BILLING]);
   const dispatch = useDispatch<AppDispatchModel>();
@@ -54,11 +56,9 @@ const _CardModalElement = ({ token, isOpen, onClose, ...props }: _CardModalProps
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
-      <Form style={styles} onSubmit={handleSubmit} submitLabel={t('billing:labels.addCard')}>
-        <_CardSection />
-      </Form>
-    </Modal>
+    <Form style={styles} onSubmit={handleSubmit} submitLabel={t('billing:labels.addCard')}>
+      <_CardSection />
+    </Form>
   );
 };
 

@@ -4,10 +4,16 @@ import { Wrapper } from '@lib/frontend/core/components/Wrapper/Wrapper';
 import { useStyles } from '@lib/frontend/core/hooks';
 import { shapeStyle } from '@lib/frontend/core/styles/shape.style';
 
-export const Appearable = ({ children, isVisible, dimension, ...props }: AppearableProps) => {
+export const Appearable = ({
+  children,
+  isVisible,
+  render,
+  dimension,
+  ...props
+}: AppearableProps) => {
   const { styles } = useStyles(props);
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
-  return isVisible || isAnimating ? (
+  return isVisible || isAnimating || render ? (
     <Wrapper
       style={styles}
       animatable={{

@@ -7,7 +7,7 @@ export const IconText = ({ icon, children, ...props }: IconTextProps) => {
   const { inheritedStyles, computedStyles } = useTextStyles(props);
   return (
     <Wrapper style={inheritedStyles} row alignCenter>
-      <Icon style={computedStyles} icon={icon} {...props} />
+      {icon && <Icon style={computedStyles} icon={icon} {...props} />}
       <Text {...props} pLeftTight>{children}</Text>
     </Wrapper>
   );

@@ -53,7 +53,7 @@ export const Alert = ({
         {icon && <Icon contrast icon={icon} large />}
         <Wrapper grow>
           <Text contrast>
-            {id} {message}
+            {message}
           </Text>
         </Wrapper>
         <Icon contrast icon="times" onPress={handleClose} />

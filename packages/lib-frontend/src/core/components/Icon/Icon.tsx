@@ -10,7 +10,7 @@ import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
 const _AnimatableIcon = createAnimatableComponent(_Icon);
 
 export const Icon = ({ animatable, ...props }: IconProps) => {
-  const { computedStyles: textStyles } = useTextStyles(props, []);
+  const { computedStyles: textStyles } = useTextStyles({ ...props, muted: props.isDisabled }, []);
   const { inheritedStyles, computedStyles: iconStyles } = useStyles(props, [getIconStyle]);
   const { onPress, icon, isPressed } = props;
   const duration = useTheme<number>('animation.duration');
@@ -36,7 +36,12 @@ export const Icon = ({ animatable, ...props }: IconProps) => {
   );
 
   return onPress ? (
-    <Pressable style={[inheritedStyles, iconStyles]} onPress={onPress} isPressed={isPressed} center>
+    <Pressable
+      style={[inheritedStyles, iconStyles]}
+      onPress={onPress}
+      isPressed={isPressed}
+      isDisabled={props.isDisabled}
+      center>
       {component}
     </Pressable>
   ) : (

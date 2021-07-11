@@ -1,0 +1,18 @@
+{
+  "labels": {
+    "botDescription": "Your personal chatbot",
+    "botName": "Bot {{id}}"
+  },
+  "messages": {
+    "emailSuccess": "Email sent!",
+    "optionAbout": "Tell me more about you guys",
+    "optionCareers": "Are you hiring?",
+    "optionContact": "Let's talk",
+    "other": "Is there anything else we can help with?",
+    "replyEmail": "What is your email?",
+    "replyLink": "Sure, check out <0>this link</0> to learn more",
+    "signIn": "Do you want to sign in with this email?",
+    "introduction": "Hi, I am <0>Bot {{id}}</0>. Your personal chatbot",
+    "help": "What can I do for you today?"
+  }
+}

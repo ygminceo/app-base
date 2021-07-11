@@ -9,11 +9,13 @@ export const DarkTheme: ThemeModel = defaultsDeep(
     colors: {
       border: '#686868',
       background: {
-        primary: '#3c4257',
+        main: '#3c4257',
+        muted: '#eeeeee',
         contrast: '#FFF',
       },
       text: {
-        primary: '#FFF',
+        main: '#FFF',
+        muted: '#e5e5e5',
         contrast: '#f9fafb',
       },
     },

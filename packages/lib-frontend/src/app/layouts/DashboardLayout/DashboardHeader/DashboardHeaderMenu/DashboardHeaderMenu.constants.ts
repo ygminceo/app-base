@@ -10,13 +10,13 @@ export const DASHBOARD_HEADER_MENU_OPTIONS: MenuOptionModel[] = [
     icon: 'settings',
     value: 'settings',
     label: tLazy('settings:labels.settings'),
-    pathname: SETTINGS,
+    pathname: `/${SETTINGS}`,
   },
   {
     icon: 'card',
     value: 'billing',
     label: tLazy('billing:labels.billing'),
-    pathname: BILLING,
+    pathname: `/${BILLING}`,
   },
   { divider: true },
   {

@@ -21,7 +21,7 @@ export const DashboardHeaderMenu = ({ ...props }: DashboardHeaderMenuProps) => {
           ? t((option as SelectableOptionModel).label || '')
           : undefined,
       }))}>
-      <Icon icon="user-circle" xlarge />
+      <Icon icon="user-circle" large />
     </DroppableMenu>
   );
 };

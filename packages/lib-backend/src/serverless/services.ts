@@ -1,4 +1,3 @@
-import { APP, CONTACT_ADD } from '@lib/common/app/constants';
 import {
   AUTHENTICATION,
   AUTHORIZE,
@@ -12,14 +11,15 @@ import {
   CARD_ADD,
   CARD_TOKEN_GET,
 } from '@lib/common/billing/constants';
+import { LANDING, SUBSCRIPTION_CREATE } from '@lib/common/landing/constants';
 import { ServerlessServiceModel } from '@lib/backend/serverless/serverless.model';
 
 export const services: ServerlessServiceModel[] = [
   {
-    name: APP,
+    name: LANDING,
     functions: [
       {
-        name: CONTACT_ADD,
+        name: SUBSCRIPTION_CREATE,
         method: 'post',
       },
     ],

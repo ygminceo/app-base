@@ -1,17 +1,17 @@
 export interface ColorsModel {
-  black: string;
-  white: string;
   border: string;
   animation: {
     duration: number;
     transition: number;
   };
   background: {
-    primary: string;
+    main: string;
+    muted: string;
     contrast: string;
   };
   text: {
-    primary: string;
+    main: string;
+    muted: string;
     contrast: string;
   };
   primary: {

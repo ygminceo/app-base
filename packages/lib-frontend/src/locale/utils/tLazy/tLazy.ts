@@ -1,1 +1,1 @@
-export const tLazy = (value: string) => value;
+export const tLazy = (key: string, params?: object) => key;

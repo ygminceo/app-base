@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import React from 'react';
 import { APP } from '@lib/common/app/constants';
 import { AUTHENTICATION } from '@lib/common/authentication/constants';
+import { BOT } from '@lib/common/chat/constants';
 import { COMMON } from '@lib/common/core/constants';
 import { LANDING } from '@lib/common/landing/constants';
 import { USER } from '@lib/common/user/constants';
@@ -17,6 +18,7 @@ export const getStaticProps: GetStaticProps = getTranslationProps([
   APP,
   LANDING,
   USER,
+  BOT,
 ]);
 
 export const getStaticPaths: GetStaticPaths = getTranslationPaths;

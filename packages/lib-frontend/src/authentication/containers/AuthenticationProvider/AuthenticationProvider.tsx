@@ -8,7 +8,7 @@ export const AuthenticationProvider = ({ children }: AuthenticationProviderProps
   const signInModalIsOpen = useSignInModalIsOpen();
   return (
     <>
-      <Modal isOpen={signInModalIsOpen} isFullSize>
+      <Modal isOpen={signInModalIsOpen}>
         <SignInForm />
       </Modal>
       {children}

@@ -15,7 +15,7 @@ export const _SwitchField = ({
 }: _SwitchFieldProps) => {
   const { styles } = useStyles(props);
   const colorPrimary = useTheme<string>('colors.primary.main');
-  const colorBorder = useTheme<string>('colors.border');
+  const colorMuted = useTheme<string>('colors.border');
   return (
     <Switch
       containerStyle={styles}
@@ -25,19 +25,19 @@ export const _SwitchField = ({
       onValueChange={onChange}
       disabled={isDisabled}
       backgroundActive={colorPrimary}
-      backgroundInactive={colorBorder}
+      backgroundInactive={colorMuted}
       renderActiveText={false}
       renderInActiveText={false}
       changeValueImmediately
       innerCircleStyle={{
-        borderColor: value ? colorPrimary : colorBorder,
+        borderColor: value ? colorPrimary : colorMuted,
         alignItems: 'center',
         justifyContent: 'center',
       }}
       renderInsideCircle={() => (
         <Icon
           icon={value ? activeIcon || 'check' : inactiveIncon || 'times'}
-          color={value ? colorPrimary : colorBorder}
+          color={value ? colorPrimary : colorMuted}
         />
       )}
     />

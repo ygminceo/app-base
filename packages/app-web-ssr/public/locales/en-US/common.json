@@ -1,4 +1,11 @@
 {
+  "app": {
+    "labels": {
+      "app1": "",
+      "app2": "",
+      "other": ""
+    }
+  },
   "common": {
     "messages": {
       "incorrectLength": "",
@@ -9,14 +16,15 @@
   },
   "labels": {
     "cancel": "Cancel",
-    "close": "",
     "continue": "Continue",
     "countryCode": "Country code",
     "email": "Email address",
+    "no": "No",
     "noResult": "No result to show",
     "notSet": "Not set",
     "phoneNumber": "Phone number",
     "search": "Search",
-    "submit": "Submit"
+    "submit": "Submit",
+    "yes": "Yes"
   }
 }

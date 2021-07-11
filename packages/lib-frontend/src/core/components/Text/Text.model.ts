@@ -2,7 +2,7 @@ import { AnimatableModel } from '@lib/frontend/core/components/Animatable/Animat
 import { StyledTextProps } from '@lib/frontend/core/hooks/useTextStyles/useTextStyles.model';
 
 export interface TextProps extends StyledTextProps {
-  children?: string | object;
+  children?: string;
   animatable?: AnimatableModel;
   onPress?(): any;
 }

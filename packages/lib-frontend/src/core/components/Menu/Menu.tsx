@@ -4,6 +4,7 @@ import { COMMON } from '@lib/common/core/constants';
 import { headerStyle } from '@lib/frontend/app/components/Header/Header.style';
 import { Divider, Icon, Pressable, Text, Wrapper } from '@lib/frontend/core/components';
 import { Dropdown } from '@lib/frontend/core/components/Dropdown/Dropdown';
+import { IconText } from '@lib/frontend/core/components/IconText/IconText';
 import {
   DividerOptionModel,
   MenuOptionModel,
@@ -124,10 +125,9 @@ export const Menu = ({
               isDisabled={isDisabled}
               confirmMessage={confirmMessage}>
               <Wrapper style={menuOptionStyles} row alignCenter spacing>
-                {icon && <Icon icon={icon} error={error} />}
-                <Text error={error}>
+                <IconText icon={icon} error={error}>
                   {renderOption ? renderOption(option as SelectableOptionModel) : label}
-                </Text>
+                </IconText>
                 {value === menuValue && <Icon mLeftAuto icon="check" error={error} />}
               </Wrapper>
             </Pressable>

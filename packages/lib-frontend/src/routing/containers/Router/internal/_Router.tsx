@@ -17,7 +17,7 @@ const getScreens = (routes: RouteModel[]): PathConfigMap =>
     (result, route) => ({
       ...result,
       [route.pathname]: route.routes
-        ? { path: route.pathname.replace(APP, ''), screens: getScreens(route.routes) }
+        ? { path: route.pathname.replace(`/${APP}`, ''), screens: getScreens(route.routes) }
         : route.pathname,
     }),
     {},
@@ -68,7 +68,7 @@ export const _Router = ({ routes }: _RouterProps) => {
         ...DefaultTheme,
         colors: {
           ...DefaultTheme.colors,
-          background: theme.colors.background.primary,
+          background: theme.colors.background.main,
         },
       }}
       linking={{ prefixes: [''], config: { screens } }}>

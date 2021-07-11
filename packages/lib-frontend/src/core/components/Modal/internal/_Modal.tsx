@@ -54,12 +54,12 @@ export const _Modal = ({
       style={[
         spacingStyle.marginAuto,
         ...(isMobile ? [] : [spacingStyle.padding]),
+        isMobile ? flexStyle.end : flexStyle.alignCenter,
         {
           width: isFullSize || isMobile ? deviceWidth : width || MODAL_SIZE_DEFAULT,
           height: isFullSize || isMobile ? deviceHeight : height || MODAL_SIZE_DEFAULT,
           maxHeight: isFullSize || isMobile ? deviceHeight : height || MODAL_SIZE_DEFAULT,
         },
-        isMobile ? flexStyle.end : flexStyle.alignCenter,
       ]}>
       {children}
     </Modal>

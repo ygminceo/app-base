@@ -8,8 +8,8 @@ import {
   _CollectionModel,
   _DatabaseModel,
 } from '@lib/backend/core/utils/Database/internal/_Database.model';
+import { Subscription } from '@lib/backend/landing/databases/subscription.entity';
 import { User } from '@lib/backend/user/databases/user.entity';
-import { Contact } from '@lib/backend/app/databases/otp.entity';
 
 const CONNECTION_NAME = 'default';
 
@@ -43,7 +43,7 @@ export class _Database implements _DatabaseModel {
       database: SERVER_DATABASE_NAME,
       synchronize: false,
       logging: false,
-      entities: [User, Bank, Otp, Contact],
+      entities: [User, Bank, Otp, Subscription],
     });
   }
 

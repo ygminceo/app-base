@@ -3,6 +3,6 @@ import { ReactNode } from 'react';
 export interface TransProps {
   ns: string;
   i18nKey: string;
-  values: object;
+  values?: object;
   components: ReactNode[];
 }

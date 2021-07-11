@@ -12,31 +12,31 @@ import { UserPage } from '@lib/frontend/user/pages';
 
 export const ROUTES: RouteModel[] = [
   {
-    pathname: APP,
+    pathname: `/${APP}`,
     component: DashboardLayout,
     routes: [
       {
-        pathname: SETTINGS,
+        pathname: `/${SETTINGS}`,
         component: SettingsPage,
       },
       {
-        pathname: BILLING,
+        pathname: `/${BILLING}`,
         component: BillingPage,
         protected: true,
       },
       {
-        pathname: USER,
+        pathname: `/${USER}`,
         component: UserPage,
         protected: true,
       },
       {
-        pathname: CATALOG,
+        pathname: `/${CATALOG}`,
         component: CatalogPage,
       },
     ],
   },
   {
-    pathname: ADMIN,
+    pathname: `/${ADMIN}`,
     component: CatalogPage,
   },
 ];

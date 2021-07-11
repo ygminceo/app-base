@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { HEADER_HEIGHT } from '@lib/frontend/app/components/Header/Header.constants';
-import { Alerts, ContactModal } from '@lib/frontend/app/containers';
+import { Alerts } from '@lib/frontend/app/containers';
 import { useScroll } from '@lib/frontend/app/hooks';
 import { Wrapper } from '@lib/frontend/core/components';
 import { LandingFooter, LandingHeader } from '@lib/frontend/landing/containers';
@@ -8,11 +8,10 @@ import { LandingLayoutProps } from '@lib/frontend/landing/layouts/LandingLayout/
 
 export const LandingLayout = ({ children }: LandingLayoutProps) => {
   const { isMinimized, handleScroll } = useScroll();
-  const [contactModalIsOpen, setContactModalIsOpen] = useState<boolean>();
 
   return (
     <Wrapper grow fill relative>
-      <LandingHeader onContactModalOpen={() => setContactModalIsOpen(true)} />
+      <LandingHeader />
 
       <Wrapper
         pTop={HEADER_HEIGHT}
@@ -23,10 +22,9 @@ export const LandingLayout = ({ children }: LandingLayoutProps) => {
         {children}
       </Wrapper>
 
-      <LandingFooter onContactModalOpen={() => setContactModalIsOpen(true)} />
-      <Alerts />
+      <LandingFooter />
 
-      <ContactModal isOpen={contactModalIsOpen} onClose={() => setContactModalIsOpen(false)} />
+      <Alerts />
     </Wrapper>
   );
 };

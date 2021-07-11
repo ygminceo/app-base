@@ -6,4 +6,5 @@ export interface FontProps {
   subtitle?: boolean;
   title?: boolean;
   uppercase?: boolean;
+  tight?: boolean;
 }

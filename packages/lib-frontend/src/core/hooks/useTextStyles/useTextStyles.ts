@@ -13,7 +13,7 @@ import { getSpacingStyle } from '@lib/frontend/core/styles/spacing.style';
 export const useTextStyles = <P extends StyledTextProps>(
   ...[props, deps]: UseStylesParamsModel<P>
 ): UseStylesReturnsModel<P> => {
-  return useStyles<P>(props, [
+  return useStyles<P>({ ...props }, [
     getColorStyle,
     getShapeStyle,
     getSizeStyle,

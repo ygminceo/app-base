@@ -1,4 +1,4 @@
-import { isEmpty, isNil, size } from 'lodash';
+import { isNil, size } from 'lodash';
 import React, { forwardRef, RefObject, useState } from 'react';
 import {
   NativeSyntheticEvent,
@@ -86,18 +86,20 @@ export const _TextField = forwardRef<RefObject<any>, _TextFieldProps>(
     const [focused, setFocused] = useState<boolean>(false);
     const colorPrimary = useTheme<string>('colors.primary.main');
     const colorBorder = useTheme<string>('colors.border');
+    const isError = error === true || size(error as any) > 0;
     return (
       <Wrapper
         style={styles}
         round
-        fill
+        fill={!transparent}
+        muted={isDisabled}
         center
         overflowHidden
         relative
         border={!transparent}
-        borderError={error === true || size(error as any) > 0}
+        borderError={isError}
         borderPrimary={focused}>
-        <Wrapper absoluteBottom above fill height={3} />
+        <Wrapper absoluteBottom above fill muted={isDisabled} height={3} />
         <TextInput
           // @ts-ignore
           ref={ref}
@@ -111,13 +113,14 @@ export const _TextField = forwardRef<RefObject<any>, _TextFieldProps>(
             colors: { background: 'transparent', primary: colorPrimary, placeholder: colorBorder },
           }}
           disabled={isDisabled}
-          error={error === true || !isEmpty(error)}
+          error={isError}
           // @ts-ignore
           label={
             icon ? (
               <IconText
                 icon={icon}
-                primary={focused}
+                primary={!isError && focused}
+                error={isError}
                 color={colorBorder}
                 animatable={{ transition: ['color'] }}>
                 {label}

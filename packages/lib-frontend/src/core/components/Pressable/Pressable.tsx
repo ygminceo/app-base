@@ -26,13 +26,17 @@ export const Pressable = ({
   const [confirmModalIsOpen, setConfirmModalIsOpen] = useState<boolean>(false);
 
   const isDark = useTheme<boolean>('isDark');
-  
-  const backgroundPrimary = useTheme<string>('colors.background.primary');
-  const from = { backgroundColor: backgroundPrimary, ...fromProps };
-  const to = {
-    backgroundColor: isDark ? CommonTheme.colors.primary.dark : CommonTheme.colors.primary.light,
-    ...toProps,
-  };
+
+  const backgroundMain = useTheme<string>('colors.background.main');
+  const from = { backgroundColor: backgroundMain, ...fromProps };
+  const to = isDisabled
+    ? from
+    : {
+        backgroundColor: isDark
+          ? CommonTheme.colors.primary.dark
+          : CommonTheme.colors.primary.light,
+        ...toProps,
+      };
 
   return (
     <>

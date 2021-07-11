@@ -1,7 +1,8 @@
-import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document';
+import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
 import React from 'react';
 import { AppRegistry } from 'react-native';
 import { ServerStyleSheet } from 'styled-components';
+import i18nConfig from '@lib/frontend/locale/i18n/i18n.config';
 
 export default class DocumentPage extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -35,7 +36,7 @@ export default class DocumentPage extends Document {
 
   render() {
     return (
-      <Html>
+      <Html lang={i18nConfig.fallbackLng}>
         <Head />
         <body>
           <Main />

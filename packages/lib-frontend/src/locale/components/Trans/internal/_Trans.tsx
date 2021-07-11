@@ -5,7 +5,7 @@ import { _TransProps } from '@lib/frontend/locale/components/Trans/internal/_Tra
 
 export const _Trans = compose<_TransProps, TransProps<string, string, Element>>({
   component: Trans,
-  getProps: ({ ns, i18nKey, values, components }) => ({
+  getProps: ({ ns, i18nKey, values, components, ...props }) => ({
     ns,
     i18nKey,
     values,

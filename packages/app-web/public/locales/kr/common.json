@@ -1,21 +1,15 @@
 {
-  "common": {
-    "messages": {
-      "incorrectLength": "",
-      "invalidEmailAddress": "",
-      "noNumberOrSpecialCharacter": "",
-      "required": ""
-    }
-  },
   "labels": {
     "cancel": "",
     "continue": "",
     "countryCode": "",
     "email": "",
+    "no": "",
     "noResult": "",
     "notSet": "",
     "phoneNumber": "",
     "search": "",
-    "submit": ""
+    "submit": "",
+    "yes": ""
   }
 }

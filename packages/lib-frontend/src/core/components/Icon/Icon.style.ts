@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { IconProps } from '@lib/frontend/core/components/Icon/Icon.model';
+import { fontStyle } from '@lib/frontend/core/styles/font.style';
 import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
-import { fontStyle } from './../../styles/font.style';
 
 export const PRESSABLE_ICON_SIZE_SMALL = 32;
 export const PRESSABLE_ICON_SIZE_LARGE = 40;

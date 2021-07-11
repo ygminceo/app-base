@@ -1,0 +1,10 @@
+{
+  "common": {
+    "messages": {
+      "incorrectLength": "",
+      "invalidEmailAddress": "",
+      "noNumberOrSpecialCharacter": "",
+      "required": ""
+    }
+  }
+}

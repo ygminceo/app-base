@@ -7,7 +7,7 @@ import { useViewStyles } from '@lib/frontend/core/hooks';
 export const Circle = ({ children, ...props }: CircleProps) => {
   const { styles } = useViewStyles(props, [getCircleStyle]);
   return (
-    <Wrapper {...props} style={styles} center alignCenter>
+    <Wrapper {...props} style={styles}>
       {children}
     </Wrapper>
   );

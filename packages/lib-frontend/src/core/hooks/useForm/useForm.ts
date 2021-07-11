@@ -1,4 +1,4 @@
-import { every, get, isEmpty, keys, reduce, set, unset, values } from 'lodash';
+import { every, get, isEmpty, isFunction, reduce, set, unset, values } from 'lodash';
 import { useState } from 'react';
 import { FormModel } from '@lib/common/core/models';
 import { _useForm } from '@lib/frontend/core/hooks/useForm/internal/_useForm';
@@ -10,12 +10,18 @@ import {
 } from '@lib/frontend/core/hooks/useForm/useForm.model';
 
 export const useForm = <F extends FormModel>({
-  initialValues,
+  initialValues: initialValuesProps,
   onSubmit,
   validators,
 }: UseFormParamsModel<F>): UseFormReturnsModel<F> => {
+  const initialValues = isFunction(initialValuesProps) ? initialValuesProps() : initialValuesProps;
+
   const [filledState, setFilledState] = useState<{ [key: string]: boolean }>(
-    keys(validators).reduce((result, k) => ({ ...result, [k]: false }), {}),
+    reduce(
+      validators,
+      (result, v, k) => ({ ...result, [k]: !v || !v(initialValues[k], initialValues) }),
+      {},
+    ),
   );
 
   const { handleChange, ...returns } = _useForm({

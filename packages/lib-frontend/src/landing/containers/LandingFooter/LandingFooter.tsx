@@ -1,59 +1,42 @@
 import React from 'react';
 import { LANDING } from '@lib/common/landing/constants';
-import {
-  Activatable,
-  Button,
-  Copyright,
-  IconText,
-  Portal,
-  Wrapper,
-} from '@lib/frontend/core/components';
+import { Copyright, IconText, Link, Portal, Wrapper } from '@lib/frontend/core/components';
+import { LandingChatButton } from '@lib/frontend/landing/containers';
 import { LANDING_FOOTER_LINK_GROUPS } from '@lib/frontend/landing/containers/LandingFooter/LandingFooter.constants';
 import { LandingFooterProps } from '@lib/frontend/landing/containers/LandingFooter/LandingFooter.model';
 import { LocaleSwitch } from '@lib/frontend/locale/containers';
 import { useTranslation } from '@lib/frontend/locale/hooks';
-import { RouteLink } from '@lib/frontend/routing/components';
 
-export const LandingFooter = ({ onContactModalOpen, ...props }: LandingFooterProps) => {
+export const LandingFooter = ({ ...props }: LandingFooterProps) => {
   const { t } = useTranslation([LANDING]);
   return (
     <>
       <Portal>
         <Wrapper row absoluteBottom mAuto mBottom={80} center>
-          <Button large next onPress={onContactModalOpen}>
-            {t('landing:labels.getStarted')}
-          </Button>
+          <LandingChatButton large />
         </Wrapper>
       </Portal>
 
-      <Wrapper pTight fullWidth>
+      <Wrapper pBottom fullWidth>
         <Wrapper spacing row center alignCenter>
           {LANDING_FOOTER_LINK_GROUPS.map((group, i) => (
-            <Wrapper key={i} spacing row center alignCenter>
+            <Wrapper key={i} spacingTight row center alignCenter>
               <IconText icon={group.icon}>{t(group.label)}</IconText>
+
               {group.links.map((link, j) => (
-                <Activatable key={j}>
-                  {(isActive) => (
-                    <Wrapper>
-                      <RouteLink to={link.pathname}>
-                        <IconText
-                          primary
-                          dark={isActive}
-                          icon={link.icon}
-                          animatable={{ transition: ['color'] }}>
-                          {t(link.label)}
-                        </IconText>
-                      </RouteLink>
-                    </Wrapper>
-                  )}
-                </Activatable>
+                <Link key={i} to={link.pathname}>
+                  {t(link.label)}
+                </Link>
               ))}
+
+              <Wrapper height={20} borderRight />
             </Wrapper>
           ))}
 
           <LocaleSwitch />
         </Wrapper>
-        <Wrapper row center alignCenter spacing>
+
+        <Wrapper row center alignCenter>
           <Copyright />
         </Wrapper>
       </Wrapper>

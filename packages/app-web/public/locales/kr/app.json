@@ -1,6 +1,8 @@
 {
   "labels": {
-    "products": ""
+    "email": "",
+    "product1": "",
+    "product2": ""
   },
   "messages": {
     "networkError": ""

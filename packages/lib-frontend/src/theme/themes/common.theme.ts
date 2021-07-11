@@ -11,8 +11,6 @@ export const CommonTheme = {
     lineHeight: 25,
   },
   colors: {
-    black: '#000',
-    white: '#FFF',
     primary: {
       light: '#BACFFF',
       main: '#5469d4',
