@@ -6,7 +6,7 @@ import { CopyrightProps } from '@lib/frontend/core/components/Copyright/Copyrigh
 const REACT_APP_APP_NAME = config.get<string>('REACT_APP_APP_NAME', '');
 
 export const Copyright = ({ ...props }: CopyrightProps) => (
-  <Text {...props}>
+  <Text {...props} contrast>
     {`${'\u00A9'} ${REACT_APP_APP_NAME}`}
   </Text>
 );

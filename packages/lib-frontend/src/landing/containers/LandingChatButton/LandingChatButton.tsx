@@ -29,10 +29,10 @@ export const LandingChatButton = ({ small, large, ...props }: LandingChatButtonP
               <Image src={`${PUBLIC_URL}/images/chatbot.png`} width={30} height={30} />
             </Circle>
             <Wrapper center>
-              <Text bold small tight>
+              <Text bold small>
                 {t('bot:labels.botName', { id: ChatBotUser._id })}
               </Text>
-              <Text small tight>
+              <Text small>
                 {t('bot:labels.botDescription')}
               </Text>
             </Wrapper>

@@ -22,12 +22,13 @@ const serverlessConfig = defaultsDeep(
 
       httpApi: {
         cors: {
-          allowedOrigins: [PUBLIC_URL],
+          // allowedOrigins: [PUBLIC_URL],
+          allowedOrigins: ['*'],
           allowedHeaders: ['*'],
         },
         authorizers: {
           [AUTHORIZE]: {
-            type: 'token',
+            type: 'request',
             functionName: AUTHORIZE,
             identitySource: ['$request.header.Authorization'],
           },
@@ -55,7 +56,7 @@ services.forEach((service) => {
         ? [
             {
               httpApi: {
-                path: `api/${service.name}/${func.name}`,
+                path: `/api/${service.name}/${func.name}`,
                 method: func.method,
                 authorizer: func.protected ? { name: AUTHORIZE } : undefined,
               },

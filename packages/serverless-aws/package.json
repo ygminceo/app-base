@@ -21,7 +21,7 @@
     "plaid": "^9.0.0-beta.13",
     "pug": "^3.0.2",
     "stripe": "^8.154.0",
-    "typeorm": "^0.2.33",
+    "typeorm": "^0.2.34",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

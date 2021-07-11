@@ -11,7 +11,7 @@ export const LightTheme: ThemeModel = defaultsDeep(
       background: {
         main: '#FFF',
         muted: '#eeeeee',
-        contrast: '#000',
+        contrast: '#171717',
       },
       text: {
         main: '#3c4257',

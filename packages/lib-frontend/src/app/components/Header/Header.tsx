@@ -18,7 +18,6 @@ export const Header = ({ children, ...props }: HeaderProps) => {
       row
       alignCenter
       fill
-      borderBottom
       pLeft
       pRight
       spacing>

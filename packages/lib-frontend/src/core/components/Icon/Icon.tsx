@@ -5,6 +5,7 @@ import { IconProps } from '@lib/frontend/core/components/Icon/Icon.model';
 import { getIconStyle } from '@lib/frontend/core/components/Icon/Icon.style';
 import { _Icon } from '@lib/frontend/core/components/Icon/internal/_Icon';
 import { useStyles, useTextStyles } from '@lib/frontend/core/hooks';
+import { flexStyle } from '@lib/frontend/core/styles/flex.style';
 import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
 
 const _AnimatableIcon = createAnimatableComponent(_Icon);
@@ -37,7 +38,7 @@ export const Icon = ({ animatable, ...props }: IconProps) => {
 
   return onPress ? (
     <Pressable
-      style={[inheritedStyles, iconStyles]}
+      style={[inheritedStyles, iconStyles, flexStyle.alignCenter, flexStyle.center]}
       onPress={onPress}
       isPressed={isPressed}
       isDisabled={props.isDisabled}

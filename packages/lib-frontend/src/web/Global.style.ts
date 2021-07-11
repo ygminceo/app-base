@@ -38,7 +38,7 @@ export const GlobalStyle = createGlobalStyle`
       transition: color ${CommonTheme.animation.duration}ms ease-in-out;
     }
     a:hover {
-      color: ${CommonTheme.colors.primary.dark} !important;
+      color: ${CommonTheme.colors.primary.light} !important;
     }
 
     [aria-disabled='true'] {

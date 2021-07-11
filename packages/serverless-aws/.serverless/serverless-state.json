@@ -1,0 +1,1921 @@
+{
+  "service": {
+    "service": "aws",
+    "serviceObject": {
+      "name": "aws"
+    },
+    "provider": {
+      "name": "aws",
+      "runtime": "nodejs14.x",
+      "lambdaHashingVersion": "20201221",
+      "region": "us-east-1",
+      "stage": "dev",
+      "memorySize": 128,
+      "httpApi": {
+        "cors": {
+          "allowedOrigins": [
+            "*"
+          ],
+          "allowedHeaders": [
+            "*"
+          ]
+        },
+        "authorizers": {
+          "authorize": {
+            "type": "request",
+            "functionName": "authorize",
+            "identitySource": "$request.header.Authorization"
+          }
+        }
+      },
+      "versionFunctions": true,
+      "environment": {
+        "SKIP_PREFLIGHT_CHECK": "true",
+        "NODE_ENV": "production",
+        "HOST": "",
+        "REACT_APP_APP_NAME": "Lemonade",
+        "REACT_APP_PUBLIC_URL": "",
+        "REACT_APP_API_HOST": "https://sls-wus2-dev-f6320f-apim.azure-api.net",
+        "REACT_APP_API_PORT": "",
+        "REACT_APP_MIXPANEL_TOKEN": "3288da7567f2d0baf82153c2086bb293",
+        "SERVER_DATABASE_TYPE": "mongodb",
+        "SERVER_DATABASE_URL": "mongodb+srv://admin:admin@cluster0.hh2hk.mongodb.net",
+        "SERVER_DATABASE_NAME": "development",
+        "SERVER_DATABASE_USERNAME": "admin",
+        "SERVER_DATABASE_PASSWORD": "admin",
+        "SERVER_FIREBASE_ADMIN_PROJECT_ID": "development-dc20e",
+        "SERVER_FIREBASE_ADMIN_EMAIL": "firebase-adminsdk-uhtrs@development-dc20e.iam.gserviceaccount.com",
+        "SERVER_FIREBASE_ADMIN_SECRET": "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDAKwfc5up3ZcRj\\n0dknRjs85lzRORGnsw7WIkWcY9eXi6WwsYfdo9K4ilcHMiafh8SeVnWi4upR9wSM\\nJkdtAPp3vsMbE1lEfiRokAQCDLpOyzZiMxOlFa8r/6A+nMABfwdUBYwiTvWr23gc\\nCyTdBLRzIFpKG4ubuq4mytlko6vxrz2c0TrwuFP3OCEXs/yMyMAouAqwVkYRkquc\\nVp0BOQu06eFtQC2pofy5yWogBpsEodrqkRQxXqxSrGuUQaV6MBawIb2rAC/FN5Wn\\nBHhXC9QKf0BP+8Tz+PDL0I+/Oq/TGBdAJLJxWXFRHMROQTL5B8R6p4ueCVbdMx/R\\n5qDrT38fAgMBAAECggEADTZU+pB0oDpPfkhAMWdhpqzB+e9kcg7C30cijExmPZJw\\nFTQ6vqrgtigD/S5eCHIWh+2ZQrzUo0dw0rMsQWejt0lW2cA2G+bxjHzf9N7rwLbp\\nEAEqAYItqPOqdu0vdSR6Nc7FCHQJIRFCv07aChYkn/u79kQ39sBaVx5AQ+w0fYMF\\nYfV2UF3oKWQA9L+4Nv/epkWE5fsUsxfLCiYKSjArQ+c09bZSodORN7aXtTgmIQSp\\noJA6HQ9Z6BQ/sQsisMD+8zjBT2M5oT6XJHQ/6VfsVuGmsL9d2dOCW0fOZjPwpSLf\\nnEGdy+805VN5o1GWpQO8UzdCjVo/QReydGRDG1anoQKBgQD0sjuvJoMfQAxg5BPU\\nmk9glC93TDqZBtany3hqQtONj5HMMq5AESUKMwiGMKsE81dzGT/jtPNn/hh0EZPC\\nHcy+1ZdNYMC3PM81lecRlBSkCYdreXRodA2ogrsF2kT9Rc0k0oE388g8qub9N6LE\\nOsAlNOljcCxhJYjYE2D9qAs7vwKBgQDJC5omSg/QkxiBTh0mWArGki1vkFs5VdCo\\nzudAk5EA/bNYk1OT1PBKGehqOfxliGnztdPHUsPDTxBYudyNtUZj7Pz1JehOINhk\\nKpRbDXKBD4TP71vtQ1/N0pgZaxuRNXq4NXhpAAkdzWWIQIGyrRPW2d1N7n4NDfab\\nkxM5mWwUoQKBgQC2ekgKCPVVk6TniI7FSEITqs5u77jvL2tafGETFTzAX6WBmvXZ\\nLy/pGD+uGpMewP2hBt5fSC0QiyvfOtBuvVxXn98SRCnTPBTmSCCmOkDeR4DmhA9s\\nacdZuAwShEBYg/pFEHpuqGzV2Tki8p9+KLXryTaXAisGU0BmqqT05KFj7wKBgBHf\\nSCrTNqiyCuGj0g+QkBSq9gMO8C0epdf73K7u71sJMqJTJoDj0yCjQPgAg6F7CQAz\\nT8pOXzzDkI5yp1qpnMJRVQNuBUK8xL/S0TFu9pjmikX531AuRxwC9qZ70Q2NlYU+\\nq5+Z8zWFBtuf8Gez3ymgYH4HD4mVjjCyWGksbGFBAoGAee44A2e1D6FgvbY4P3P6\\nwEidg0ZJqYtV0qSR6FudpF3Tgw3heXCYJUpc+Pl2SS9aUI/Lg5WImd7lUrasCAW4\\n+JRBrjkg0xiY3fZpNFN/MOG9L0lmmx1XZwZYevCopqVUaHeV0PLM07TbfYC+g2xN\\nP+bFhV9rgv7GeTIja+eSnJI=\\n-----END PRIVATE KEY-----\\n",
+        "REACT_APP_FIREBASE_APP_ID": "1:398277661440:web:2f8c8cb39224ba73a499e5",
+        "REACT_APP_FIREBASE_PROJECT_ID": "development-dc20e",
+        "REACT_APP_FIREBASE_TOKEN": "AIzaSyAM3iOSmgvSYMYJXhBwpfa-lzSP0hKm54g",
+        "REACT_APP_FIREBASE_DOMAIN": "development-dc20e.firebaseapp.com",
+        "REACT_APP_FIREBASE_STORAGE": "development-dc20e.appspot.com",
+        "REACT_APP_FIREBASE_SENDER_ID": "398277661440",
+        "AZURE_SUBSCRIPTION_ID": "26a5b9ae-7a22-4ad3-8f89-03555ef29b36",
+        "AZURE_TENANT_ID": "8d3ba5f4-c864-48b7-a679-e51c1441e9a1",
+        "AZURE_CLIENT_ID": "http://azure-cli-2021-06-05-22-25-29",
+        "AZURE_CLIENT_SECRET": "XBDGDtfCwd9TTtiTA45_DK7kf3uUf5tP5C",
+        "SERVER_PLAID_CLIENT_ID": "60bc20fb778b4c0010c076b1",
+        "SERVER_PLAID_SECRET": "1d68ebec3ac6f7c0b3478ceb79315f",
+        "SERVER_PLAID_ENV": "sandbox",
+        "SERVER_PLAID_PRODUCTS": "auth",
+        "SERVER_PLAID_COUNTRY_CODES": "US,CA",
+        "SERVER_PLAID_REDIRECT_URI": "http://localhost:3000/oauth",
+        "SERVER_PLAID_VERSION": "2020-09-14",
+        "REACT_APP_STRIPE_TOKEN": "pk_test_51HfAO8KTa80YHlmGqNN8oOyePWh2AGXAKEA5dc4AUSAhXdZlPERgoq2Zrb7ST3XT3AkjtoQrJdTDrg4nwQRfUKqM00ABrIAR6Y",
+        "SERVER_STRIPE_TOKEN": "sk_test_51HfAO8KTa80YHlmGMcQxLsgp4Ny7yGtPDaplDsBERxNoMveRmUvYpVyXsTDHTUgYAOkZI7qHVgCDtjpel9eJ0hGC00gCMxSwn5"
+      },
+      "compiledCloudFormationTemplate": {
+        "AWSTemplateFormatVersion": "2010-09-09",
+        "Description": "The AWS CloudFormation template for this Serverless application",
+        "Resources": {
+          "ServerlessDeploymentBucket": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {
+              "BucketEncryption": {
+                "ServerSideEncryptionConfiguration": [
+                  {
+                    "ServerSideEncryptionByDefault": {
+                      "SSEAlgorithm": "AES256"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "ServerlessDeploymentBucketPolicy": {
+            "Type": "AWS::S3::BucketPolicy",
+            "Properties": {
+              "Bucket": {
+                "Ref": "ServerlessDeploymentBucket"
+              },
+              "PolicyDocument": {
+                "Statement": [
+                  {
+                    "Action": "s3:*",
+                    "Effect": "Deny",
+                    "Principal": "*",
+                    "Resource": [
+                      {
+                        "Fn::Join": [
+                          "",
+                          [
+                            "arn:",
+                            {
+                              "Ref": "AWS::Partition"
+                            },
+                            ":s3:::",
+                            {
+                              "Ref": "ServerlessDeploymentBucket"
+                            },
+                            "/*"
+                          ]
+                        ]
+                      },
+                      {
+                        "Fn::Join": [
+                          "",
+                          [
+                            "arn:",
+                            {
+                              "Ref": "AWS::Partition"
+                            },
+                            ":s3:::",
+                            {
+                              "Ref": "ServerlessDeploymentBucket"
+                            }
+                          ]
+                        ]
+                      }
+                    ],
+                    "Condition": {
+                      "Bool": {
+                        "aws:SecureTransport": false
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "SubscriptionCreateLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/aws-dev-subscriptionCreate"
+            }
+          },
+          "AuthorizeLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/aws-dev-authorize"
+            }
+          },
+          "OtpCreateLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/aws-dev-otpCreate"
+            }
+          },
+          "SignInLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/aws-dev-signIn"
+            }
+          },
+          "BankLinkTokenGetLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/aws-dev-bankLinkTokenGet"
+            }
+          },
+          "BankAddLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/aws-dev-bankAdd"
+            }
+          },
+          "CardTokenGetLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/aws-dev-cardTokenGet"
+            }
+          },
+          "CardAddLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/aws-dev-cardAdd"
+            }
+          },
+          "IamRoleLambdaExecution": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+              "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                  {
+                    "Effect": "Allow",
+                    "Principal": {
+                      "Service": [
+                        "lambda.amazonaws.com"
+                      ]
+                    },
+                    "Action": [
+                      "sts:AssumeRole"
+                    ]
+                  }
+                ]
+              },
+              "Policies": [
+                {
+                  "PolicyName": {
+                    "Fn::Join": [
+                      "-",
+                      [
+                        "aws",
+                        "dev",
+                        "lambda"
+                      ]
+                    ]
+                  },
+                  "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                      {
+                        "Effect": "Allow",
+                        "Action": [
+                          "logs:CreateLogStream",
+                          "logs:CreateLogGroup"
+                        ],
+                        "Resource": [
+                          {
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/aws-dev*:*"
+                          }
+                        ]
+                      },
+                      {
+                        "Effect": "Allow",
+                        "Action": [
+                          "logs:PutLogEvents"
+                        ],
+                        "Resource": [
+                          {
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/aws-dev*:*:*"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ],
+              "Path": "/",
+              "RoleName": {
+                "Fn::Join": [
+                  "-",
+                  [
+                    "aws",
+                    "dev",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    "lambdaRole"
+                  ]
+                ]
+              }
+            }
+          },
+          "SubscriptionCreateLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/aws/dev/1626026752778-2021-07-11T18:05:52.778Z/subscriptionCreate.zip"
+              },
+              "Handler": "src/services/landing/subscriptionCreate.main",
+              "Runtime": "nodejs14.x",
+              "FunctionName": "aws-dev-subscriptionCreate",
+              "MemorySize": 128,
+              "Timeout": 6,
+              "Environment": {
+                "Variables": {
+                  "SKIP_PREFLIGHT_CHECK": "true",
+                  "NODE_ENV": "production",
+                  "HOST": "",
+                  "REACT_APP_APP_NAME": "Lemonade",
+                  "REACT_APP_PUBLIC_URL": "",
+                  "REACT_APP_API_HOST": "https://sls-wus2-dev-f6320f-apim.azure-api.net",
+                  "REACT_APP_API_PORT": "",
+                  "REACT_APP_MIXPANEL_TOKEN": "3288da7567f2d0baf82153c2086bb293",
+                  "SERVER_DATABASE_TYPE": "mongodb",
+                  "SERVER_DATABASE_URL": "mongodb+srv://admin:admin@cluster0.hh2hk.mongodb.net",
+                  "SERVER_DATABASE_NAME": "development",
+                  "SERVER_DATABASE_USERNAME": "admin",
+                  "SERVER_DATABASE_PASSWORD": "admin",
+                  "SERVER_FIREBASE_ADMIN_PROJECT_ID": "development-dc20e",
+                  "SERVER_FIREBASE_ADMIN_EMAIL": "firebase-adminsdk-uhtrs@development-dc20e.iam.gserviceaccount.com",
+                  "SERVER_FIREBASE_ADMIN_SECRET": "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDAKwfc5up3ZcRj\\n0dknRjs85lzRORGnsw7WIkWcY9eXi6WwsYfdo9K4ilcHMiafh8SeVnWi4upR9wSM\\nJkdtAPp3vsMbE1lEfiRokAQCDLpOyzZiMxOlFa8r/6A+nMABfwdUBYwiTvWr23gc\\nCyTdBLRzIFpKG4ubuq4mytlko6vxrz2c0TrwuFP3OCEXs/yMyMAouAqwVkYRkquc\\nVp0BOQu06eFtQC2pofy5yWogBpsEodrqkRQxXqxSrGuUQaV6MBawIb2rAC/FN5Wn\\nBHhXC9QKf0BP+8Tz+PDL0I+/Oq/TGBdAJLJxWXFRHMROQTL5B8R6p4ueCVbdMx/R\\n5qDrT38fAgMBAAECggEADTZU+pB0oDpPfkhAMWdhpqzB+e9kcg7C30cijExmPZJw\\nFTQ6vqrgtigD/S5eCHIWh+2ZQrzUo0dw0rMsQWejt0lW2cA2G+bxjHzf9N7rwLbp\\nEAEqAYItqPOqdu0vdSR6Nc7FCHQJIRFCv07aChYkn/u79kQ39sBaVx5AQ+w0fYMF\\nYfV2UF3oKWQA9L+4Nv/epkWE5fsUsxfLCiYKSjArQ+c09bZSodORN7aXtTgmIQSp\\noJA6HQ9Z6BQ/sQsisMD+8zjBT2M5oT6XJHQ/6VfsVuGmsL9d2dOCW0fOZjPwpSLf\\nnEGdy+805VN5o1GWpQO8UzdCjVo/QReydGRDG1anoQKBgQD0sjuvJoMfQAxg5BPU\\nmk9glC93TDqZBtany3hqQtONj5HMMq5AESUKMwiGMKsE81dzGT/jtPNn/hh0EZPC\\nHcy+1ZdNYMC3PM81lecRlBSkCYdreXRodA2ogrsF2kT9Rc0k0oE388g8qub9N6LE\\nOsAlNOljcCxhJYjYE2D9qAs7vwKBgQDJC5omSg/QkxiBTh0mWArGki1vkFs5VdCo\\nzudAk5EA/bNYk1OT1PBKGehqOfxliGnztdPHUsPDTxBYudyNtUZj7Pz1JehOINhk\\nKpRbDXKBD4TP71vtQ1/N0pgZaxuRNXq4NXhpAAkdzWWIQIGyrRPW2d1N7n4NDfab\\nkxM5mWwUoQKBgQC2ekgKCPVVk6TniI7FSEITqs5u77jvL2tafGETFTzAX6WBmvXZ\\nLy/pGD+uGpMewP2hBt5fSC0QiyvfOtBuvVxXn98SRCnTPBTmSCCmOkDeR4DmhA9s\\nacdZuAwShEBYg/pFEHpuqGzV2Tki8p9+KLXryTaXAisGU0BmqqT05KFj7wKBgBHf\\nSCrTNqiyCuGj0g+QkBSq9gMO8C0epdf73K7u71sJMqJTJoDj0yCjQPgAg6F7CQAz\\nT8pOXzzDkI5yp1qpnMJRVQNuBUK8xL/S0TFu9pjmikX531AuRxwC9qZ70Q2NlYU+\\nq5+Z8zWFBtuf8Gez3ymgYH4HD4mVjjCyWGksbGFBAoGAee44A2e1D6FgvbY4P3P6\\nwEidg0ZJqYtV0qSR6FudpF3Tgw3heXCYJUpc+Pl2SS9aUI/Lg5WImd7lUrasCAW4\\n+JRBrjkg0xiY3fZpNFN/MOG9L0lmmx1XZwZYevCopqVUaHeV0PLM07TbfYC+g2xN\\nP+bFhV9rgv7GeTIja+eSnJI=\\n-----END PRIVATE KEY-----\\n",
+                  "REACT_APP_FIREBASE_APP_ID": "1:398277661440:web:2f8c8cb39224ba73a499e5",
+                  "REACT_APP_FIREBASE_PROJECT_ID": "development-dc20e",
+                  "REACT_APP_FIREBASE_TOKEN": "AIzaSyAM3iOSmgvSYMYJXhBwpfa-lzSP0hKm54g",
+                  "REACT_APP_FIREBASE_DOMAIN": "development-dc20e.firebaseapp.com",
+                  "REACT_APP_FIREBASE_STORAGE": "development-dc20e.appspot.com",
+                  "REACT_APP_FIREBASE_SENDER_ID": "398277661440",
+                  "AZURE_SUBSCRIPTION_ID": "26a5b9ae-7a22-4ad3-8f89-03555ef29b36",
+                  "AZURE_TENANT_ID": "8d3ba5f4-c864-48b7-a679-e51c1441e9a1",
+                  "AZURE_CLIENT_ID": "http://azure-cli-2021-06-05-22-25-29",
+                  "AZURE_CLIENT_SECRET": "XBDGDtfCwd9TTtiTA45_DK7kf3uUf5tP5C",
+                  "SERVER_PLAID_CLIENT_ID": "60bc20fb778b4c0010c076b1",
+                  "SERVER_PLAID_SECRET": "1d68ebec3ac6f7c0b3478ceb79315f",
+                  "SERVER_PLAID_ENV": "sandbox",
+                  "SERVER_PLAID_PRODUCTS": "auth",
+                  "SERVER_PLAID_COUNTRY_CODES": "US,CA",
+                  "SERVER_PLAID_REDIRECT_URI": "http://localhost:3000/oauth",
+                  "SERVER_PLAID_VERSION": "2020-09-14",
+                  "REACT_APP_STRIPE_TOKEN": "pk_test_51HfAO8KTa80YHlmGqNN8oOyePWh2AGXAKEA5dc4AUSAhXdZlPERgoq2Zrb7ST3XT3AkjtoQrJdTDrg4nwQRfUKqM00ABrIAR6Y",
+                  "SERVER_STRIPE_TOKEN": "sk_test_51HfAO8KTa80YHlmGMcQxLsgp4Ny7yGtPDaplDsBERxNoMveRmUvYpVyXsTDHTUgYAOkZI7qHVgCDtjpel9eJ0hGC00gCMxSwn5"
+                }
+              },
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              }
+            },
+            "DependsOn": [
+              "SubscriptionCreateLogGroup"
+            ]
+          },
+          "AuthorizeLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/aws/dev/1626026752778-2021-07-11T18:05:52.778Z/authorize.zip"
+              },
+              "Handler": "src/services/authentication/authorize.main",
+              "Runtime": "nodejs14.x",
+              "FunctionName": "aws-dev-authorize",
+              "MemorySize": 128,
+              "Timeout": 6,
+              "Environment": {
+                "Variables": {
+                  "SKIP_PREFLIGHT_CHECK": "true",
+                  "NODE_ENV": "production",
+                  "HOST": "",
+                  "REACT_APP_APP_NAME": "Lemonade",
+                  "REACT_APP_PUBLIC_URL": "",
+                  "REACT_APP_API_HOST": "https://sls-wus2-dev-f6320f-apim.azure-api.net",
+                  "REACT_APP_API_PORT": "",
+                  "REACT_APP_MIXPANEL_TOKEN": "3288da7567f2d0baf82153c2086bb293",
+                  "SERVER_DATABASE_TYPE": "mongodb",
+                  "SERVER_DATABASE_URL": "mongodb+srv://admin:admin@cluster0.hh2hk.mongodb.net",
+                  "SERVER_DATABASE_NAME": "development",
+                  "SERVER_DATABASE_USERNAME": "admin",
+                  "SERVER_DATABASE_PASSWORD": "admin",
+                  "SERVER_FIREBASE_ADMIN_PROJECT_ID": "development-dc20e",
+                  "SERVER_FIREBASE_ADMIN_EMAIL": "firebase-adminsdk-uhtrs@development-dc20e.iam.gserviceaccount.com",
+                  "SERVER_FIREBASE_ADMIN_SECRET": "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDAKwfc5up3ZcRj\\n0dknRjs85lzRORGnsw7WIkWcY9eXi6WwsYfdo9K4ilcHMiafh8SeVnWi4upR9wSM\\nJkdtAPp3vsMbE1lEfiRokAQCDLpOyzZiMxOlFa8r/6A+nMABfwdUBYwiTvWr23gc\\nCyTdBLRzIFpKG4ubuq4mytlko6vxrz2c0TrwuFP3OCEXs/yMyMAouAqwVkYRkquc\\nVp0BOQu06eFtQC2pofy5yWogBpsEodrqkRQxXqxSrGuUQaV6MBawIb2rAC/FN5Wn\\nBHhXC9QKf0BP+8Tz+PDL0I+/Oq/TGBdAJLJxWXFRHMROQTL5B8R6p4ueCVbdMx/R\\n5qDrT38fAgMBAAECggEADTZU+pB0oDpPfkhAMWdhpqzB+e9kcg7C30cijExmPZJw\\nFTQ6vqrgtigD/S5eCHIWh+2ZQrzUo0dw0rMsQWejt0lW2cA2G+bxjHzf9N7rwLbp\\nEAEqAYItqPOqdu0vdSR6Nc7FCHQJIRFCv07aChYkn/u79kQ39sBaVx5AQ+w0fYMF\\nYfV2UF3oKWQA9L+4Nv/epkWE5fsUsxfLCiYKSjArQ+c09bZSodORN7aXtTgmIQSp\\noJA6HQ9Z6BQ/sQsisMD+8zjBT2M5oT6XJHQ/6VfsVuGmsL9d2dOCW0fOZjPwpSLf\\nnEGdy+805VN5o1GWpQO8UzdCjVo/QReydGRDG1anoQKBgQD0sjuvJoMfQAxg5BPU\\nmk9glC93TDqZBtany3hqQtONj5HMMq5AESUKMwiGMKsE81dzGT/jtPNn/hh0EZPC\\nHcy+1ZdNYMC3PM81lecRlBSkCYdreXRodA2ogrsF2kT9Rc0k0oE388g8qub9N6LE\\nOsAlNOljcCxhJYjYE2D9qAs7vwKBgQDJC5omSg/QkxiBTh0mWArGki1vkFs5VdCo\\nzudAk5EA/bNYk1OT1PBKGehqOfxliGnztdPHUsPDTxBYudyNtUZj7Pz1JehOINhk\\nKpRbDXKBD4TP71vtQ1/N0pgZaxuRNXq4NXhpAAkdzWWIQIGyrRPW2d1N7n4NDfab\\nkxM5mWwUoQKBgQC2ekgKCPVVk6TniI7FSEITqs5u77jvL2tafGETFTzAX6WBmvXZ\\nLy/pGD+uGpMewP2hBt5fSC0QiyvfOtBuvVxXn98SRCnTPBTmSCCmOkDeR4DmhA9s\\nacdZuAwShEBYg/pFEHpuqGzV2Tki8p9+KLXryTaXAisGU0BmqqT05KFj7wKBgBHf\\nSCrTNqiyCuGj0g+QkBSq9gMO8C0epdf73K7u71sJMqJTJoDj0yCjQPgAg6F7CQAz\\nT8pOXzzDkI5yp1qpnMJRVQNuBUK8xL/S0TFu9pjmikX531AuRxwC9qZ70Q2NlYU+\\nq5+Z8zWFBtuf8Gez3ymgYH4HD4mVjjCyWGksbGFBAoGAee44A2e1D6FgvbY4P3P6\\nwEidg0ZJqYtV0qSR6FudpF3Tgw3heXCYJUpc+Pl2SS9aUI/Lg5WImd7lUrasCAW4\\n+JRBrjkg0xiY3fZpNFN/MOG9L0lmmx1XZwZYevCopqVUaHeV0PLM07TbfYC+g2xN\\nP+bFhV9rgv7GeTIja+eSnJI=\\n-----END PRIVATE KEY-----\\n",
+                  "REACT_APP_FIREBASE_APP_ID": "1:398277661440:web:2f8c8cb39224ba73a499e5",
+                  "REACT_APP_FIREBASE_PROJECT_ID": "development-dc20e",
+                  "REACT_APP_FIREBASE_TOKEN": "AIzaSyAM3iOSmgvSYMYJXhBwpfa-lzSP0hKm54g",
+                  "REACT_APP_FIREBASE_DOMAIN": "development-dc20e.firebaseapp.com",
+                  "REACT_APP_FIREBASE_STORAGE": "development-dc20e.appspot.com",
+                  "REACT_APP_FIREBASE_SENDER_ID": "398277661440",
+                  "AZURE_SUBSCRIPTION_ID": "26a5b9ae-7a22-4ad3-8f89-03555ef29b36",
+                  "AZURE_TENANT_ID": "8d3ba5f4-c864-48b7-a679-e51c1441e9a1",
+                  "AZURE_CLIENT_ID": "http://azure-cli-2021-06-05-22-25-29",
+                  "AZURE_CLIENT_SECRET": "XBDGDtfCwd9TTtiTA45_DK7kf3uUf5tP5C",
+                  "SERVER_PLAID_CLIENT_ID": "60bc20fb778b4c0010c076b1",
+                  "SERVER_PLAID_SECRET": "1d68ebec3ac6f7c0b3478ceb79315f",
+                  "SERVER_PLAID_ENV": "sandbox",
+                  "SERVER_PLAID_PRODUCTS": "auth",
+                  "SERVER_PLAID_COUNTRY_CODES": "US,CA",
+                  "SERVER_PLAID_REDIRECT_URI": "http://localhost:3000/oauth",
+                  "SERVER_PLAID_VERSION": "2020-09-14",
+                  "REACT_APP_STRIPE_TOKEN": "pk_test_51HfAO8KTa80YHlmGqNN8oOyePWh2AGXAKEA5dc4AUSAhXdZlPERgoq2Zrb7ST3XT3AkjtoQrJdTDrg4nwQRfUKqM00ABrIAR6Y",
+                  "SERVER_STRIPE_TOKEN": "sk_test_51HfAO8KTa80YHlmGMcQxLsgp4Ny7yGtPDaplDsBERxNoMveRmUvYpVyXsTDHTUgYAOkZI7qHVgCDtjpel9eJ0hGC00gCMxSwn5"
+                }
+              },
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              }
+            },
+            "DependsOn": [
+              "AuthorizeLogGroup"
+            ]
+          },
+          "OtpCreateLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/aws/dev/1626026752778-2021-07-11T18:05:52.778Z/otpCreate.zip"
+              },
+              "Handler": "src/services/authentication/otpCreate.main",
+              "Runtime": "nodejs14.x",
+              "FunctionName": "aws-dev-otpCreate",
+              "MemorySize": 128,
+              "Timeout": 6,
+              "Environment": {
+                "Variables": {
+                  "SKIP_PREFLIGHT_CHECK": "true",
+                  "NODE_ENV": "production",
+                  "HOST": "",
+                  "REACT_APP_APP_NAME": "Lemonade",
+                  "REACT_APP_PUBLIC_URL": "",
+                  "REACT_APP_API_HOST": "https://sls-wus2-dev-f6320f-apim.azure-api.net",
+                  "REACT_APP_API_PORT": "",
+                  "REACT_APP_MIXPANEL_TOKEN": "3288da7567f2d0baf82153c2086bb293",
+                  "SERVER_DATABASE_TYPE": "mongodb",
+                  "SERVER_DATABASE_URL": "mongodb+srv://admin:admin@cluster0.hh2hk.mongodb.net",
+                  "SERVER_DATABASE_NAME": "development",
+                  "SERVER_DATABASE_USERNAME": "admin",
+                  "SERVER_DATABASE_PASSWORD": "admin",
+                  "SERVER_FIREBASE_ADMIN_PROJECT_ID": "development-dc20e",
+                  "SERVER_FIREBASE_ADMIN_EMAIL": "firebase-adminsdk-uhtrs@development-dc20e.iam.gserviceaccount.com",
+                  "SERVER_FIREBASE_ADMIN_SECRET": "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDAKwfc5up3ZcRj\\n0dknRjs85lzRORGnsw7WIkWcY9eXi6WwsYfdo9K4ilcHMiafh8SeVnWi4upR9wSM\\nJkdtAPp3vsMbE1lEfiRokAQCDLpOyzZiMxOlFa8r/6A+nMABfwdUBYwiTvWr23gc\\nCyTdBLRzIFpKG4ubuq4mytlko6vxrz2c0TrwuFP3OCEXs/yMyMAouAqwVkYRkquc\\nVp0BOQu06eFtQC2pofy5yWogBpsEodrqkRQxXqxSrGuUQaV6MBawIb2rAC/FN5Wn\\nBHhXC9QKf0BP+8Tz+PDL0I+/Oq/TGBdAJLJxWXFRHMROQTL5B8R6p4ueCVbdMx/R\\n5qDrT38fAgMBAAECggEADTZU+pB0oDpPfkhAMWdhpqzB+e9kcg7C30cijExmPZJw\\nFTQ6vqrgtigD/S5eCHIWh+2ZQrzUo0dw0rMsQWejt0lW2cA2G+bxjHzf9N7rwLbp\\nEAEqAYItqPOqdu0vdSR6Nc7FCHQJIRFCv07aChYkn/u79kQ39sBaVx5AQ+w0fYMF\\nYfV2UF3oKWQA9L+4Nv/epkWE5fsUsxfLCiYKSjArQ+c09bZSodORN7aXtTgmIQSp\\noJA6HQ9Z6BQ/sQsisMD+8zjBT2M5oT6XJHQ/6VfsVuGmsL9d2dOCW0fOZjPwpSLf\\nnEGdy+805VN5o1GWpQO8UzdCjVo/QReydGRDG1anoQKBgQD0sjuvJoMfQAxg5BPU\\nmk9glC93TDqZBtany3hqQtONj5HMMq5AESUKMwiGMKsE81dzGT/jtPNn/hh0EZPC\\nHcy+1ZdNYMC3PM81lecRlBSkCYdreXRodA2ogrsF2kT9Rc0k0oE388g8qub9N6LE\\nOsAlNOljcCxhJYjYE2D9qAs7vwKBgQDJC5omSg/QkxiBTh0mWArGki1vkFs5VdCo\\nzudAk5EA/bNYk1OT1PBKGehqOfxliGnztdPHUsPDTxBYudyNtUZj7Pz1JehOINhk\\nKpRbDXKBD4TP71vtQ1/N0pgZaxuRNXq4NXhpAAkdzWWIQIGyrRPW2d1N7n4NDfab\\nkxM5mWwUoQKBgQC2ekgKCPVVk6TniI7FSEITqs5u77jvL2tafGETFTzAX6WBmvXZ\\nLy/pGD+uGpMewP2hBt5fSC0QiyvfOtBuvVxXn98SRCnTPBTmSCCmOkDeR4DmhA9s\\nacdZuAwShEBYg/pFEHpuqGzV2Tki8p9+KLXryTaXAisGU0BmqqT05KFj7wKBgBHf\\nSCrTNqiyCuGj0g+QkBSq9gMO8C0epdf73K7u71sJMqJTJoDj0yCjQPgAg6F7CQAz\\nT8pOXzzDkI5yp1qpnMJRVQNuBUK8xL/S0TFu9pjmikX531AuRxwC9qZ70Q2NlYU+\\nq5+Z8zWFBtuf8Gez3ymgYH4HD4mVjjCyWGksbGFBAoGAee44A2e1D6FgvbY4P3P6\\nwEidg0ZJqYtV0qSR6FudpF3Tgw3heXCYJUpc+Pl2SS9aUI/Lg5WImd7lUrasCAW4\\n+JRBrjkg0xiY3fZpNFN/MOG9L0lmmx1XZwZYevCopqVUaHeV0PLM07TbfYC+g2xN\\nP+bFhV9rgv7GeTIja+eSnJI=\\n-----END PRIVATE KEY-----\\n",
+                  "REACT_APP_FIREBASE_APP_ID": "1:398277661440:web:2f8c8cb39224ba73a499e5",
+                  "REACT_APP_FIREBASE_PROJECT_ID": "development-dc20e",
+                  "REACT_APP_FIREBASE_TOKEN": "AIzaSyAM3iOSmgvSYMYJXhBwpfa-lzSP0hKm54g",
+                  "REACT_APP_FIREBASE_DOMAIN": "development-dc20e.firebaseapp.com",
+                  "REACT_APP_FIREBASE_STORAGE": "development-dc20e.appspot.com",
+                  "REACT_APP_FIREBASE_SENDER_ID": "398277661440",
+                  "AZURE_SUBSCRIPTION_ID": "26a5b9ae-7a22-4ad3-8f89-03555ef29b36",
+                  "AZURE_TENANT_ID": "8d3ba5f4-c864-48b7-a679-e51c1441e9a1",
+                  "AZURE_CLIENT_ID": "http://azure-cli-2021-06-05-22-25-29",
+                  "AZURE_CLIENT_SECRET": "XBDGDtfCwd9TTtiTA45_DK7kf3uUf5tP5C",
+                  "SERVER_PLAID_CLIENT_ID": "60bc20fb778b4c0010c076b1",
+                  "SERVER_PLAID_SECRET": "1d68ebec3ac6f7c0b3478ceb79315f",
+                  "SERVER_PLAID_ENV": "sandbox",
+                  "SERVER_PLAID_PRODUCTS": "auth",
+                  "SERVER_PLAID_COUNTRY_CODES": "US,CA",
+                  "SERVER_PLAID_REDIRECT_URI": "http://localhost:3000/oauth",
+                  "SERVER_PLAID_VERSION": "2020-09-14",
+                  "REACT_APP_STRIPE_TOKEN": "pk_test_51HfAO8KTa80YHlmGqNN8oOyePWh2AGXAKEA5dc4AUSAhXdZlPERgoq2Zrb7ST3XT3AkjtoQrJdTDrg4nwQRfUKqM00ABrIAR6Y",
+                  "SERVER_STRIPE_TOKEN": "sk_test_51HfAO8KTa80YHlmGMcQxLsgp4Ny7yGtPDaplDsBERxNoMveRmUvYpVyXsTDHTUgYAOkZI7qHVgCDtjpel9eJ0hGC00gCMxSwn5"
+                }
+              },
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              }
+            },
+            "DependsOn": [
+              "OtpCreateLogGroup"
+            ]
+          },
+          "SignInLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/aws/dev/1626026752778-2021-07-11T18:05:52.778Z/signIn.zip"
+              },
+              "Handler": "src/services/authentication/signIn.main",
+              "Runtime": "nodejs14.x",
+              "FunctionName": "aws-dev-signIn",
+              "MemorySize": 128,
+              "Timeout": 6,
+              "Environment": {
+                "Variables": {
+                  "SKIP_PREFLIGHT_CHECK": "true",
+                  "NODE_ENV": "production",
+                  "HOST": "",
+                  "REACT_APP_APP_NAME": "Lemonade",
+                  "REACT_APP_PUBLIC_URL": "",
+                  "REACT_APP_API_HOST": "https://sls-wus2-dev-f6320f-apim.azure-api.net",
+                  "REACT_APP_API_PORT": "",
+                  "REACT_APP_MIXPANEL_TOKEN": "3288da7567f2d0baf82153c2086bb293",
+                  "SERVER_DATABASE_TYPE": "mongodb",
+                  "SERVER_DATABASE_URL": "mongodb+srv://admin:admin@cluster0.hh2hk.mongodb.net",
+                  "SERVER_DATABASE_NAME": "development",
+                  "SERVER_DATABASE_USERNAME": "admin",
+                  "SERVER_DATABASE_PASSWORD": "admin",
+                  "SERVER_FIREBASE_ADMIN_PROJECT_ID": "development-dc20e",
+                  "SERVER_FIREBASE_ADMIN_EMAIL": "firebase-adminsdk-uhtrs@development-dc20e.iam.gserviceaccount.com",
+                  "SERVER_FIREBASE_ADMIN_SECRET": "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDAKwfc5up3ZcRj\\n0dknRjs85lzRORGnsw7WIkWcY9eXi6WwsYfdo9K4ilcHMiafh8SeVnWi4upR9wSM\\nJkdtAPp3vsMbE1lEfiRokAQCDLpOyzZiMxOlFa8r/6A+nMABfwdUBYwiTvWr23gc\\nCyTdBLRzIFpKG4ubuq4mytlko6vxrz2c0TrwuFP3OCEXs/yMyMAouAqwVkYRkquc\\nVp0BOQu06eFtQC2pofy5yWogBpsEodrqkRQxXqxSrGuUQaV6MBawIb2rAC/FN5Wn\\nBHhXC9QKf0BP+8Tz+PDL0I+/Oq/TGBdAJLJxWXFRHMROQTL5B8R6p4ueCVbdMx/R\\n5qDrT38fAgMBAAECggEADTZU+pB0oDpPfkhAMWdhpqzB+e9kcg7C30cijExmPZJw\\nFTQ6vqrgtigD/S5eCHIWh+2ZQrzUo0dw0rMsQWejt0lW2cA2G+bxjHzf9N7rwLbp\\nEAEqAYItqPOqdu0vdSR6Nc7FCHQJIRFCv07aChYkn/u79kQ39sBaVx5AQ+w0fYMF\\nYfV2UF3oKWQA9L+4Nv/epkWE5fsUsxfLCiYKSjArQ+c09bZSodORN7aXtTgmIQSp\\noJA6HQ9Z6BQ/sQsisMD+8zjBT2M5oT6XJHQ/6VfsVuGmsL9d2dOCW0fOZjPwpSLf\\nnEGdy+805VN5o1GWpQO8UzdCjVo/QReydGRDG1anoQKBgQD0sjuvJoMfQAxg5BPU\\nmk9glC93TDqZBtany3hqQtONj5HMMq5AESUKMwiGMKsE81dzGT/jtPNn/hh0EZPC\\nHcy+1ZdNYMC3PM81lecRlBSkCYdreXRodA2ogrsF2kT9Rc0k0oE388g8qub9N6LE\\nOsAlNOljcCxhJYjYE2D9qAs7vwKBgQDJC5omSg/QkxiBTh0mWArGki1vkFs5VdCo\\nzudAk5EA/bNYk1OT1PBKGehqOfxliGnztdPHUsPDTxBYudyNtUZj7Pz1JehOINhk\\nKpRbDXKBD4TP71vtQ1/N0pgZaxuRNXq4NXhpAAkdzWWIQIGyrRPW2d1N7n4NDfab\\nkxM5mWwUoQKBgQC2ekgKCPVVk6TniI7FSEITqs5u77jvL2tafGETFTzAX6WBmvXZ\\nLy/pGD+uGpMewP2hBt5fSC0QiyvfOtBuvVxXn98SRCnTPBTmSCCmOkDeR4DmhA9s\\nacdZuAwShEBYg/pFEHpuqGzV2Tki8p9+KLXryTaXAisGU0BmqqT05KFj7wKBgBHf\\nSCrTNqiyCuGj0g+QkBSq9gMO8C0epdf73K7u71sJMqJTJoDj0yCjQPgAg6F7CQAz\\nT8pOXzzDkI5yp1qpnMJRVQNuBUK8xL/S0TFu9pjmikX531AuRxwC9qZ70Q2NlYU+\\nq5+Z8zWFBtuf8Gez3ymgYH4HD4mVjjCyWGksbGFBAoGAee44A2e1D6FgvbY4P3P6\\nwEidg0ZJqYtV0qSR6FudpF3Tgw3heXCYJUpc+Pl2SS9aUI/Lg5WImd7lUrasCAW4\\n+JRBrjkg0xiY3fZpNFN/MOG9L0lmmx1XZwZYevCopqVUaHeV0PLM07TbfYC+g2xN\\nP+bFhV9rgv7GeTIja+eSnJI=\\n-----END PRIVATE KEY-----\\n",
+                  "REACT_APP_FIREBASE_APP_ID": "1:398277661440:web:2f8c8cb39224ba73a499e5",
+                  "REACT_APP_FIREBASE_PROJECT_ID": "development-dc20e",
+                  "REACT_APP_FIREBASE_TOKEN": "AIzaSyAM3iOSmgvSYMYJXhBwpfa-lzSP0hKm54g",
+                  "REACT_APP_FIREBASE_DOMAIN": "development-dc20e.firebaseapp.com",
+                  "REACT_APP_FIREBASE_STORAGE": "development-dc20e.appspot.com",
+                  "REACT_APP_FIREBASE_SENDER_ID": "398277661440",
+                  "AZURE_SUBSCRIPTION_ID": "26a5b9ae-7a22-4ad3-8f89-03555ef29b36",
+                  "AZURE_TENANT_ID": "8d3ba5f4-c864-48b7-a679-e51c1441e9a1",
+                  "AZURE_CLIENT_ID": "http://azure-cli-2021-06-05-22-25-29",
+                  "AZURE_CLIENT_SECRET": "XBDGDtfCwd9TTtiTA45_DK7kf3uUf5tP5C",
+                  "SERVER_PLAID_CLIENT_ID": "60bc20fb778b4c0010c076b1",
+                  "SERVER_PLAID_SECRET": "1d68ebec3ac6f7c0b3478ceb79315f",
+                  "SERVER_PLAID_ENV": "sandbox",
+                  "SERVER_PLAID_PRODUCTS": "auth",
+                  "SERVER_PLAID_COUNTRY_CODES": "US,CA",
+                  "SERVER_PLAID_REDIRECT_URI": "http://localhost:3000/oauth",
+                  "SERVER_PLAID_VERSION": "2020-09-14",
+                  "REACT_APP_STRIPE_TOKEN": "pk_test_51HfAO8KTa80YHlmGqNN8oOyePWh2AGXAKEA5dc4AUSAhXdZlPERgoq2Zrb7ST3XT3AkjtoQrJdTDrg4nwQRfUKqM00ABrIAR6Y",
+                  "SERVER_STRIPE_TOKEN": "sk_test_51HfAO8KTa80YHlmGMcQxLsgp4Ny7yGtPDaplDsBERxNoMveRmUvYpVyXsTDHTUgYAOkZI7qHVgCDtjpel9eJ0hGC00gCMxSwn5"
+                }
+              },
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              }
+            },
+            "DependsOn": [
+              "SignInLogGroup"
+            ]
+          },
+          "BankLinkTokenGetLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/aws/dev/1626026752778-2021-07-11T18:05:52.778Z/bankLinkTokenGet.zip"
+              },
+              "Handler": "src/services/billing/bankLinkTokenGet.main",
+              "Runtime": "nodejs14.x",
+              "FunctionName": "aws-dev-bankLinkTokenGet",
+              "MemorySize": 128,
+              "Timeout": 6,
+              "Environment": {
+                "Variables": {
+                  "SKIP_PREFLIGHT_CHECK": "true",
+                  "NODE_ENV": "production",
+                  "HOST": "",
+                  "REACT_APP_APP_NAME": "Lemonade",
+                  "REACT_APP_PUBLIC_URL": "",
+                  "REACT_APP_API_HOST": "https://sls-wus2-dev-f6320f-apim.azure-api.net",
+                  "REACT_APP_API_PORT": "",
+                  "REACT_APP_MIXPANEL_TOKEN": "3288da7567f2d0baf82153c2086bb293",
+                  "SERVER_DATABASE_TYPE": "mongodb",
+                  "SERVER_DATABASE_URL": "mongodb+srv://admin:admin@cluster0.hh2hk.mongodb.net",
+                  "SERVER_DATABASE_NAME": "development",
+                  "SERVER_DATABASE_USERNAME": "admin",
+                  "SERVER_DATABASE_PASSWORD": "admin",
+                  "SERVER_FIREBASE_ADMIN_PROJECT_ID": "development-dc20e",
+                  "SERVER_FIREBASE_ADMIN_EMAIL": "firebase-adminsdk-uhtrs@development-dc20e.iam.gserviceaccount.com",
+                  "SERVER_FIREBASE_ADMIN_SECRET": "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDAKwfc5up3ZcRj\\n0dknRjs85lzRORGnsw7WIkWcY9eXi6WwsYfdo9K4ilcHMiafh8SeVnWi4upR9wSM\\nJkdtAPp3vsMbE1lEfiRokAQCDLpOyzZiMxOlFa8r/6A+nMABfwdUBYwiTvWr23gc\\nCyTdBLRzIFpKG4ubuq4mytlko6vxrz2c0TrwuFP3OCEXs/yMyMAouAqwVkYRkquc\\nVp0BOQu06eFtQC2pofy5yWogBpsEodrqkRQxXqxSrGuUQaV6MBawIb2rAC/FN5Wn\\nBHhXC9QKf0BP+8Tz+PDL0I+/Oq/TGBdAJLJxWXFRHMROQTL5B8R6p4ueCVbdMx/R\\n5qDrT38fAgMBAAECggEADTZU+pB0oDpPfkhAMWdhpqzB+e9kcg7C30cijExmPZJw\\nFTQ6vqrgtigD/S5eCHIWh+2ZQrzUo0dw0rMsQWejt0lW2cA2G+bxjHzf9N7rwLbp\\nEAEqAYItqPOqdu0vdSR6Nc7FCHQJIRFCv07aChYkn/u79kQ39sBaVx5AQ+w0fYMF\\nYfV2UF3oKWQA9L+4Nv/epkWE5fsUsxfLCiYKSjArQ+c09bZSodORN7aXtTgmIQSp\\noJA6HQ9Z6BQ/sQsisMD+8zjBT2M5oT6XJHQ/6VfsVuGmsL9d2dOCW0fOZjPwpSLf\\nnEGdy+805VN5o1GWpQO8UzdCjVo/QReydGRDG1anoQKBgQD0sjuvJoMfQAxg5BPU\\nmk9glC93TDqZBtany3hqQtONj5HMMq5AESUKMwiGMKsE81dzGT/jtPNn/hh0EZPC\\nHcy+1ZdNYMC3PM81lecRlBSkCYdreXRodA2ogrsF2kT9Rc0k0oE388g8qub9N6LE\\nOsAlNOljcCxhJYjYE2D9qAs7vwKBgQDJC5omSg/QkxiBTh0mWArGki1vkFs5VdCo\\nzudAk5EA/bNYk1OT1PBKGehqOfxliGnztdPHUsPDTxBYudyNtUZj7Pz1JehOINhk\\nKpRbDXKBD4TP71vtQ1/N0pgZaxuRNXq4NXhpAAkdzWWIQIGyrRPW2d1N7n4NDfab\\nkxM5mWwUoQKBgQC2ekgKCPVVk6TniI7FSEITqs5u77jvL2tafGETFTzAX6WBmvXZ\\nLy/pGD+uGpMewP2hBt5fSC0QiyvfOtBuvVxXn98SRCnTPBTmSCCmOkDeR4DmhA9s\\nacdZuAwShEBYg/pFEHpuqGzV2Tki8p9+KLXryTaXAisGU0BmqqT05KFj7wKBgBHf\\nSCrTNqiyCuGj0g+QkBSq9gMO8C0epdf73K7u71sJMqJTJoDj0yCjQPgAg6F7CQAz\\nT8pOXzzDkI5yp1qpnMJRVQNuBUK8xL/S0TFu9pjmikX531AuRxwC9qZ70Q2NlYU+\\nq5+Z8zWFBtuf8Gez3ymgYH4HD4mVjjCyWGksbGFBAoGAee44A2e1D6FgvbY4P3P6\\nwEidg0ZJqYtV0qSR6FudpF3Tgw3heXCYJUpc+Pl2SS9aUI/Lg5WImd7lUrasCAW4\\n+JRBrjkg0xiY3fZpNFN/MOG9L0lmmx1XZwZYevCopqVUaHeV0PLM07TbfYC+g2xN\\nP+bFhV9rgv7GeTIja+eSnJI=\\n-----END PRIVATE KEY-----\\n",
+                  "REACT_APP_FIREBASE_APP_ID": "1:398277661440:web:2f8c8cb39224ba73a499e5",
+                  "REACT_APP_FIREBASE_PROJECT_ID": "development-dc20e",
+                  "REACT_APP_FIREBASE_TOKEN": "AIzaSyAM3iOSmgvSYMYJXhBwpfa-lzSP0hKm54g",
+                  "REACT_APP_FIREBASE_DOMAIN": "development-dc20e.firebaseapp.com",
+                  "REACT_APP_FIREBASE_STORAGE": "development-dc20e.appspot.com",
+                  "REACT_APP_FIREBASE_SENDER_ID": "398277661440",
+                  "AZURE_SUBSCRIPTION_ID": "26a5b9ae-7a22-4ad3-8f89-03555ef29b36",
+                  "AZURE_TENANT_ID": "8d3ba5f4-c864-48b7-a679-e51c1441e9a1",
+                  "AZURE_CLIENT_ID": "http://azure-cli-2021-06-05-22-25-29",
+                  "AZURE_CLIENT_SECRET": "XBDGDtfCwd9TTtiTA45_DK7kf3uUf5tP5C",
+                  "SERVER_PLAID_CLIENT_ID": "60bc20fb778b4c0010c076b1",
+                  "SERVER_PLAID_SECRET": "1d68ebec3ac6f7c0b3478ceb79315f",
+                  "SERVER_PLAID_ENV": "sandbox",
+                  "SERVER_PLAID_PRODUCTS": "auth",
+                  "SERVER_PLAID_COUNTRY_CODES": "US,CA",
+                  "SERVER_PLAID_REDIRECT_URI": "http://localhost:3000/oauth",
+                  "SERVER_PLAID_VERSION": "2020-09-14",
+                  "REACT_APP_STRIPE_TOKEN": "pk_test_51HfAO8KTa80YHlmGqNN8oOyePWh2AGXAKEA5dc4AUSAhXdZlPERgoq2Zrb7ST3XT3AkjtoQrJdTDrg4nwQRfUKqM00ABrIAR6Y",
+                  "SERVER_STRIPE_TOKEN": "sk_test_51HfAO8KTa80YHlmGMcQxLsgp4Ny7yGtPDaplDsBERxNoMveRmUvYpVyXsTDHTUgYAOkZI7qHVgCDtjpel9eJ0hGC00gCMxSwn5"
+                }
+              },
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              }
+            },
+            "DependsOn": [
+              "BankLinkTokenGetLogGroup"
+            ]
+          },
+          "BankAddLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/aws/dev/1626026752778-2021-07-11T18:05:52.778Z/bankAdd.zip"
+              },
+              "Handler": "src/services/billing/bankAdd.main",
+              "Runtime": "nodejs14.x",
+              "FunctionName": "aws-dev-bankAdd",
+              "MemorySize": 128,
+              "Timeout": 6,
+              "Environment": {
+                "Variables": {
+                  "SKIP_PREFLIGHT_CHECK": "true",
+                  "NODE_ENV": "production",
+                  "HOST": "",
+                  "REACT_APP_APP_NAME": "Lemonade",
+                  "REACT_APP_PUBLIC_URL": "",
+                  "REACT_APP_API_HOST": "https://sls-wus2-dev-f6320f-apim.azure-api.net",
+                  "REACT_APP_API_PORT": "",
+                  "REACT_APP_MIXPANEL_TOKEN": "3288da7567f2d0baf82153c2086bb293",
+                  "SERVER_DATABASE_TYPE": "mongodb",
+                  "SERVER_DATABASE_URL": "mongodb+srv://admin:admin@cluster0.hh2hk.mongodb.net",
+                  "SERVER_DATABASE_NAME": "development",
+                  "SERVER_DATABASE_USERNAME": "admin",
+                  "SERVER_DATABASE_PASSWORD": "admin",
+                  "SERVER_FIREBASE_ADMIN_PROJECT_ID": "development-dc20e",
+                  "SERVER_FIREBASE_ADMIN_EMAIL": "firebase-adminsdk-uhtrs@development-dc20e.iam.gserviceaccount.com",
+                  "SERVER_FIREBASE_ADMIN_SECRET": "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDAKwfc5up3ZcRj\\n0dknRjs85lzRORGnsw7WIkWcY9eXi6WwsYfdo9K4ilcHMiafh8SeVnWi4upR9wSM\\nJkdtAPp3vsMbE1lEfiRokAQCDLpOyzZiMxOlFa8r/6A+nMABfwdUBYwiTvWr23gc\\nCyTdBLRzIFpKG4ubuq4mytlko6vxrz2c0TrwuFP3OCEXs/yMyMAouAqwVkYRkquc\\nVp0BOQu06eFtQC2pofy5yWogBpsEodrqkRQxXqxSrGuUQaV6MBawIb2rAC/FN5Wn\\nBHhXC9QKf0BP+8Tz+PDL0I+/Oq/TGBdAJLJxWXFRHMROQTL5B8R6p4ueCVbdMx/R\\n5qDrT38fAgMBAAECggEADTZU+pB0oDpPfkhAMWdhpqzB+e9kcg7C30cijExmPZJw\\nFTQ6vqrgtigD/S5eCHIWh+2ZQrzUo0dw0rMsQWejt0lW2cA2G+bxjHzf9N7rwLbp\\nEAEqAYItqPOqdu0vdSR6Nc7FCHQJIRFCv07aChYkn/u79kQ39sBaVx5AQ+w0fYMF\\nYfV2UF3oKWQA9L+4Nv/epkWE5fsUsxfLCiYKSjArQ+c09bZSodORN7aXtTgmIQSp\\noJA6HQ9Z6BQ/sQsisMD+8zjBT2M5oT6XJHQ/6VfsVuGmsL9d2dOCW0fOZjPwpSLf\\nnEGdy+805VN5o1GWpQO8UzdCjVo/QReydGRDG1anoQKBgQD0sjuvJoMfQAxg5BPU\\nmk9glC93TDqZBtany3hqQtONj5HMMq5AESUKMwiGMKsE81dzGT/jtPNn/hh0EZPC\\nHcy+1ZdNYMC3PM81lecRlBSkCYdreXRodA2ogrsF2kT9Rc0k0oE388g8qub9N6LE\\nOsAlNOljcCxhJYjYE2D9qAs7vwKBgQDJC5omSg/QkxiBTh0mWArGki1vkFs5VdCo\\nzudAk5EA/bNYk1OT1PBKGehqOfxliGnztdPHUsPDTxBYudyNtUZj7Pz1JehOINhk\\nKpRbDXKBD4TP71vtQ1/N0pgZaxuRNXq4NXhpAAkdzWWIQIGyrRPW2d1N7n4NDfab\\nkxM5mWwUoQKBgQC2ekgKCPVVk6TniI7FSEITqs5u77jvL2tafGETFTzAX6WBmvXZ\\nLy/pGD+uGpMewP2hBt5fSC0QiyvfOtBuvVxXn98SRCnTPBTmSCCmOkDeR4DmhA9s\\nacdZuAwShEBYg/pFEHpuqGzV2Tki8p9+KLXryTaXAisGU0BmqqT05KFj7wKBgBHf\\nSCrTNqiyCuGj0g+QkBSq9gMO8C0epdf73K7u71sJMqJTJoDj0yCjQPgAg6F7CQAz\\nT8pOXzzDkI5yp1qpnMJRVQNuBUK8xL/S0TFu9pjmikX531AuRxwC9qZ70Q2NlYU+\\nq5+Z8zWFBtuf8Gez3ymgYH4HD4mVjjCyWGksbGFBAoGAee44A2e1D6FgvbY4P3P6\\nwEidg0ZJqYtV0qSR6FudpF3Tgw3heXCYJUpc+Pl2SS9aUI/Lg5WImd7lUrasCAW4\\n+JRBrjkg0xiY3fZpNFN/MOG9L0lmmx1XZwZYevCopqVUaHeV0PLM07TbfYC+g2xN\\nP+bFhV9rgv7GeTIja+eSnJI=\\n-----END PRIVATE KEY-----\\n",
+                  "REACT_APP_FIREBASE_APP_ID": "1:398277661440:web:2f8c8cb39224ba73a499e5",
+                  "REACT_APP_FIREBASE_PROJECT_ID": "development-dc20e",
+                  "REACT_APP_FIREBASE_TOKEN": "AIzaSyAM3iOSmgvSYMYJXhBwpfa-lzSP0hKm54g",
+                  "REACT_APP_FIREBASE_DOMAIN": "development-dc20e.firebaseapp.com",
+                  "REACT_APP_FIREBASE_STORAGE": "development-dc20e.appspot.com",
+                  "REACT_APP_FIREBASE_SENDER_ID": "398277661440",
+                  "AZURE_SUBSCRIPTION_ID": "26a5b9ae-7a22-4ad3-8f89-03555ef29b36",
+                  "AZURE_TENANT_ID": "8d3ba5f4-c864-48b7-a679-e51c1441e9a1",
+                  "AZURE_CLIENT_ID": "http://azure-cli-2021-06-05-22-25-29",
+                  "AZURE_CLIENT_SECRET": "XBDGDtfCwd9TTtiTA45_DK7kf3uUf5tP5C",
+                  "SERVER_PLAID_CLIENT_ID": "60bc20fb778b4c0010c076b1",
+                  "SERVER_PLAID_SECRET": "1d68ebec3ac6f7c0b3478ceb79315f",
+                  "SERVER_PLAID_ENV": "sandbox",
+                  "SERVER_PLAID_PRODUCTS": "auth",
+                  "SERVER_PLAID_COUNTRY_CODES": "US,CA",
+                  "SERVER_PLAID_REDIRECT_URI": "http://localhost:3000/oauth",
+                  "SERVER_PLAID_VERSION": "2020-09-14",
+                  "REACT_APP_STRIPE_TOKEN": "pk_test_51HfAO8KTa80YHlmGqNN8oOyePWh2AGXAKEA5dc4AUSAhXdZlPERgoq2Zrb7ST3XT3AkjtoQrJdTDrg4nwQRfUKqM00ABrIAR6Y",
+                  "SERVER_STRIPE_TOKEN": "sk_test_51HfAO8KTa80YHlmGMcQxLsgp4Ny7yGtPDaplDsBERxNoMveRmUvYpVyXsTDHTUgYAOkZI7qHVgCDtjpel9eJ0hGC00gCMxSwn5"
+                }
+              },
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              }
+            },
+            "DependsOn": [
+              "BankAddLogGroup"
+            ]
+          },
+          "CardTokenGetLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/aws/dev/1626026752778-2021-07-11T18:05:52.778Z/cardTokenGet.zip"
+              },
+              "Handler": "src/services/billing/cardTokenGet.main",
+              "Runtime": "nodejs14.x",
+              "FunctionName": "aws-dev-cardTokenGet",
+              "MemorySize": 128,
+              "Timeout": 6,
+              "Environment": {
+                "Variables": {
+                  "SKIP_PREFLIGHT_CHECK": "true",
+                  "NODE_ENV": "production",
+                  "HOST": "",
+                  "REACT_APP_APP_NAME": "Lemonade",
+                  "REACT_APP_PUBLIC_URL": "",
+                  "REACT_APP_API_HOST": "https://sls-wus2-dev-f6320f-apim.azure-api.net",
+                  "REACT_APP_API_PORT": "",
+                  "REACT_APP_MIXPANEL_TOKEN": "3288da7567f2d0baf82153c2086bb293",
+                  "SERVER_DATABASE_TYPE": "mongodb",
+                  "SERVER_DATABASE_URL": "mongodb+srv://admin:admin@cluster0.hh2hk.mongodb.net",
+                  "SERVER_DATABASE_NAME": "development",
+                  "SERVER_DATABASE_USERNAME": "admin",
+                  "SERVER_DATABASE_PASSWORD": "admin",
+                  "SERVER_FIREBASE_ADMIN_PROJECT_ID": "development-dc20e",
+                  "SERVER_FIREBASE_ADMIN_EMAIL": "firebase-adminsdk-uhtrs@development-dc20e.iam.gserviceaccount.com",
+                  "SERVER_FIREBASE_ADMIN_SECRET": "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDAKwfc5up3ZcRj\\n0dknRjs85lzRORGnsw7WIkWcY9eXi6WwsYfdo9K4ilcHMiafh8SeVnWi4upR9wSM\\nJkdtAPp3vsMbE1lEfiRokAQCDLpOyzZiMxOlFa8r/6A+nMABfwdUBYwiTvWr23gc\\nCyTdBLRzIFpKG4ubuq4mytlko6vxrz2c0TrwuFP3OCEXs/yMyMAouAqwVkYRkquc\\nVp0BOQu06eFtQC2pofy5yWogBpsEodrqkRQxXqxSrGuUQaV6MBawIb2rAC/FN5Wn\\nBHhXC9QKf0BP+8Tz+PDL0I+/Oq/TGBdAJLJxWXFRHMROQTL5B8R6p4ueCVbdMx/R\\n5qDrT38fAgMBAAECggEADTZU+pB0oDpPfkhAMWdhpqzB+e9kcg7C30cijExmPZJw\\nFTQ6vqrgtigD/S5eCHIWh+2ZQrzUo0dw0rMsQWejt0lW2cA2G+bxjHzf9N7rwLbp\\nEAEqAYItqPOqdu0vdSR6Nc7FCHQJIRFCv07aChYkn/u79kQ39sBaVx5AQ+w0fYMF\\nYfV2UF3oKWQA9L+4Nv/epkWE5fsUsxfLCiYKSjArQ+c09bZSodORN7aXtTgmIQSp\\noJA6HQ9Z6BQ/sQsisMD+8zjBT2M5oT6XJHQ/6VfsVuGmsL9d2dOCW0fOZjPwpSLf\\nnEGdy+805VN5o1GWpQO8UzdCjVo/QReydGRDG1anoQKBgQD0sjuvJoMfQAxg5BPU\\nmk9glC93TDqZBtany3hqQtONj5HMMq5AESUKMwiGMKsE81dzGT/jtPNn/hh0EZPC\\nHcy+1ZdNYMC3PM81lecRlBSkCYdreXRodA2ogrsF2kT9Rc0k0oE388g8qub9N6LE\\nOsAlNOljcCxhJYjYE2D9qAs7vwKBgQDJC5omSg/QkxiBTh0mWArGki1vkFs5VdCo\\nzudAk5EA/bNYk1OT1PBKGehqOfxliGnztdPHUsPDTxBYudyNtUZj7Pz1JehOINhk\\nKpRbDXKBD4TP71vtQ1/N0pgZaxuRNXq4NXhpAAkdzWWIQIGyrRPW2d1N7n4NDfab\\nkxM5mWwUoQKBgQC2ekgKCPVVk6TniI7FSEITqs5u77jvL2tafGETFTzAX6WBmvXZ\\nLy/pGD+uGpMewP2hBt5fSC0QiyvfOtBuvVxXn98SRCnTPBTmSCCmOkDeR4DmhA9s\\nacdZuAwShEBYg/pFEHpuqGzV2Tki8p9+KLXryTaXAisGU0BmqqT05KFj7wKBgBHf\\nSCrTNqiyCuGj0g+QkBSq9gMO8C0epdf73K7u71sJMqJTJoDj0yCjQPgAg6F7CQAz\\nT8pOXzzDkI5yp1qpnMJRVQNuBUK8xL/S0TFu9pjmikX531AuRxwC9qZ70Q2NlYU+\\nq5+Z8zWFBtuf8Gez3ymgYH4HD4mVjjCyWGksbGFBAoGAee44A2e1D6FgvbY4P3P6\\nwEidg0ZJqYtV0qSR6FudpF3Tgw3heXCYJUpc+Pl2SS9aUI/Lg5WImd7lUrasCAW4\\n+JRBrjkg0xiY3fZpNFN/MOG9L0lmmx1XZwZYevCopqVUaHeV0PLM07TbfYC+g2xN\\nP+bFhV9rgv7GeTIja+eSnJI=\\n-----END PRIVATE KEY-----\\n",
+                  "REACT_APP_FIREBASE_APP_ID": "1:398277661440:web:2f8c8cb39224ba73a499e5",
+                  "REACT_APP_FIREBASE_PROJECT_ID": "development-dc20e",
+                  "REACT_APP_FIREBASE_TOKEN": "AIzaSyAM3iOSmgvSYMYJXhBwpfa-lzSP0hKm54g",
+                  "REACT_APP_FIREBASE_DOMAIN": "development-dc20e.firebaseapp.com",
+                  "REACT_APP_FIREBASE_STORAGE": "development-dc20e.appspot.com",
+                  "REACT_APP_FIREBASE_SENDER_ID": "398277661440",
+                  "AZURE_SUBSCRIPTION_ID": "26a5b9ae-7a22-4ad3-8f89-03555ef29b36",
+                  "AZURE_TENANT_ID": "8d3ba5f4-c864-48b7-a679-e51c1441e9a1",
+                  "AZURE_CLIENT_ID": "http://azure-cli-2021-06-05-22-25-29",
+                  "AZURE_CLIENT_SECRET": "XBDGDtfCwd9TTtiTA45_DK7kf3uUf5tP5C",
+                  "SERVER_PLAID_CLIENT_ID": "60bc20fb778b4c0010c076b1",
+                  "SERVER_PLAID_SECRET": "1d68ebec3ac6f7c0b3478ceb79315f",
+                  "SERVER_PLAID_ENV": "sandbox",
+                  "SERVER_PLAID_PRODUCTS": "auth",
+                  "SERVER_PLAID_COUNTRY_CODES": "US,CA",
+                  "SERVER_PLAID_REDIRECT_URI": "http://localhost:3000/oauth",
+                  "SERVER_PLAID_VERSION": "2020-09-14",
+                  "REACT_APP_STRIPE_TOKEN": "pk_test_51HfAO8KTa80YHlmGqNN8oOyePWh2AGXAKEA5dc4AUSAhXdZlPERgoq2Zrb7ST3XT3AkjtoQrJdTDrg4nwQRfUKqM00ABrIAR6Y",
+                  "SERVER_STRIPE_TOKEN": "sk_test_51HfAO8KTa80YHlmGMcQxLsgp4Ny7yGtPDaplDsBERxNoMveRmUvYpVyXsTDHTUgYAOkZI7qHVgCDtjpel9eJ0hGC00gCMxSwn5"
+                }
+              },
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              }
+            },
+            "DependsOn": [
+              "CardTokenGetLogGroup"
+            ]
+          },
+          "CardAddLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/aws/dev/1626026752778-2021-07-11T18:05:52.778Z/cardAdd.zip"
+              },
+              "Handler": "src/services/billing/cardAdd.main",
+              "Runtime": "nodejs14.x",
+              "FunctionName": "aws-dev-cardAdd",
+              "MemorySize": 128,
+              "Timeout": 6,
+              "Environment": {
+                "Variables": {
+                  "SKIP_PREFLIGHT_CHECK": "true",
+                  "NODE_ENV": "production",
+                  "HOST": "",
+                  "REACT_APP_APP_NAME": "Lemonade",
+                  "REACT_APP_PUBLIC_URL": "",
+                  "REACT_APP_API_HOST": "https://sls-wus2-dev-f6320f-apim.azure-api.net",
+                  "REACT_APP_API_PORT": "",
+                  "REACT_APP_MIXPANEL_TOKEN": "3288da7567f2d0baf82153c2086bb293",
+                  "SERVER_DATABASE_TYPE": "mongodb",
+                  "SERVER_DATABASE_URL": "mongodb+srv://admin:admin@cluster0.hh2hk.mongodb.net",
+                  "SERVER_DATABASE_NAME": "development",
+                  "SERVER_DATABASE_USERNAME": "admin",
+                  "SERVER_DATABASE_PASSWORD": "admin",
+                  "SERVER_FIREBASE_ADMIN_PROJECT_ID": "development-dc20e",
+                  "SERVER_FIREBASE_ADMIN_EMAIL": "firebase-adminsdk-uhtrs@development-dc20e.iam.gserviceaccount.com",
+                  "SERVER_FIREBASE_ADMIN_SECRET": "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDAKwfc5up3ZcRj\\n0dknRjs85lzRORGnsw7WIkWcY9eXi6WwsYfdo9K4ilcHMiafh8SeVnWi4upR9wSM\\nJkdtAPp3vsMbE1lEfiRokAQCDLpOyzZiMxOlFa8r/6A+nMABfwdUBYwiTvWr23gc\\nCyTdBLRzIFpKG4ubuq4mytlko6vxrz2c0TrwuFP3OCEXs/yMyMAouAqwVkYRkquc\\nVp0BOQu06eFtQC2pofy5yWogBpsEodrqkRQxXqxSrGuUQaV6MBawIb2rAC/FN5Wn\\nBHhXC9QKf0BP+8Tz+PDL0I+/Oq/TGBdAJLJxWXFRHMROQTL5B8R6p4ueCVbdMx/R\\n5qDrT38fAgMBAAECggEADTZU+pB0oDpPfkhAMWdhpqzB+e9kcg7C30cijExmPZJw\\nFTQ6vqrgtigD/S5eCHIWh+2ZQrzUo0dw0rMsQWejt0lW2cA2G+bxjHzf9N7rwLbp\\nEAEqAYItqPOqdu0vdSR6Nc7FCHQJIRFCv07aChYkn/u79kQ39sBaVx5AQ+w0fYMF\\nYfV2UF3oKWQA9L+4Nv/epkWE5fsUsxfLCiYKSjArQ+c09bZSodORN7aXtTgmIQSp\\noJA6HQ9Z6BQ/sQsisMD+8zjBT2M5oT6XJHQ/6VfsVuGmsL9d2dOCW0fOZjPwpSLf\\nnEGdy+805VN5o1GWpQO8UzdCjVo/QReydGRDG1anoQKBgQD0sjuvJoMfQAxg5BPU\\nmk9glC93TDqZBtany3hqQtONj5HMMq5AESUKMwiGMKsE81dzGT/jtPNn/hh0EZPC\\nHcy+1ZdNYMC3PM81lecRlBSkCYdreXRodA2ogrsF2kT9Rc0k0oE388g8qub9N6LE\\nOsAlNOljcCxhJYjYE2D9qAs7vwKBgQDJC5omSg/QkxiBTh0mWArGki1vkFs5VdCo\\nzudAk5EA/bNYk1OT1PBKGehqOfxliGnztdPHUsPDTxBYudyNtUZj7Pz1JehOINhk\\nKpRbDXKBD4TP71vtQ1/N0pgZaxuRNXq4NXhpAAkdzWWIQIGyrRPW2d1N7n4NDfab\\nkxM5mWwUoQKBgQC2ekgKCPVVk6TniI7FSEITqs5u77jvL2tafGETFTzAX6WBmvXZ\\nLy/pGD+uGpMewP2hBt5fSC0QiyvfOtBuvVxXn98SRCnTPBTmSCCmOkDeR4DmhA9s\\nacdZuAwShEBYg/pFEHpuqGzV2Tki8p9+KLXryTaXAisGU0BmqqT05KFj7wKBgBHf\\nSCrTNqiyCuGj0g+QkBSq9gMO8C0epdf73K7u71sJMqJTJoDj0yCjQPgAg6F7CQAz\\nT8pOXzzDkI5yp1qpnMJRVQNuBUK8xL/S0TFu9pjmikX531AuRxwC9qZ70Q2NlYU+\\nq5+Z8zWFBtuf8Gez3ymgYH4HD4mVjjCyWGksbGFBAoGAee44A2e1D6FgvbY4P3P6\\nwEidg0ZJqYtV0qSR6FudpF3Tgw3heXCYJUpc+Pl2SS9aUI/Lg5WImd7lUrasCAW4\\n+JRBrjkg0xiY3fZpNFN/MOG9L0lmmx1XZwZYevCopqVUaHeV0PLM07TbfYC+g2xN\\nP+bFhV9rgv7GeTIja+eSnJI=\\n-----END PRIVATE KEY-----\\n",
+                  "REACT_APP_FIREBASE_APP_ID": "1:398277661440:web:2f8c8cb39224ba73a499e5",
+                  "REACT_APP_FIREBASE_PROJECT_ID": "development-dc20e",
+                  "REACT_APP_FIREBASE_TOKEN": "AIzaSyAM3iOSmgvSYMYJXhBwpfa-lzSP0hKm54g",
+                  "REACT_APP_FIREBASE_DOMAIN": "development-dc20e.firebaseapp.com",
+                  "REACT_APP_FIREBASE_STORAGE": "development-dc20e.appspot.com",
+                  "REACT_APP_FIREBASE_SENDER_ID": "398277661440",
+                  "AZURE_SUBSCRIPTION_ID": "26a5b9ae-7a22-4ad3-8f89-03555ef29b36",
+                  "AZURE_TENANT_ID": "8d3ba5f4-c864-48b7-a679-e51c1441e9a1",
+                  "AZURE_CLIENT_ID": "http://azure-cli-2021-06-05-22-25-29",
+                  "AZURE_CLIENT_SECRET": "XBDGDtfCwd9TTtiTA45_DK7kf3uUf5tP5C",
+                  "SERVER_PLAID_CLIENT_ID": "60bc20fb778b4c0010c076b1",
+                  "SERVER_PLAID_SECRET": "1d68ebec3ac6f7c0b3478ceb79315f",
+                  "SERVER_PLAID_ENV": "sandbox",
+                  "SERVER_PLAID_PRODUCTS": "auth",
+                  "SERVER_PLAID_COUNTRY_CODES": "US,CA",
+                  "SERVER_PLAID_REDIRECT_URI": "http://localhost:3000/oauth",
+                  "SERVER_PLAID_VERSION": "2020-09-14",
+                  "REACT_APP_STRIPE_TOKEN": "pk_test_51HfAO8KTa80YHlmGqNN8oOyePWh2AGXAKEA5dc4AUSAhXdZlPERgoq2Zrb7ST3XT3AkjtoQrJdTDrg4nwQRfUKqM00ABrIAR6Y",
+                  "SERVER_STRIPE_TOKEN": "sk_test_51HfAO8KTa80YHlmGMcQxLsgp4Ny7yGtPDaplDsBERxNoMveRmUvYpVyXsTDHTUgYAOkZI7qHVgCDtjpel9eJ0hGC00gCMxSwn5"
+                }
+              },
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              }
+            },
+            "DependsOn": [
+              "CardAddLogGroup"
+            ]
+          },
+          "AuthorizeLambdaVersionR106sBytUiJWz6ycjqwv7VaiJ2sbuut39tFnxr40": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "AuthorizeLambdaFunction"
+              },
+              "CodeSha256": "uRaexYpEjuQKkeDr9v6DjUxOqLwrgIC+t6XXAD4JvyI="
+            }
+          },
+          "BankLinkTokenGetLambdaVersionoxNIwH3dktZSZFLPqgGMizFEDDTRGIKSTVmE4Qn4Ng": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "BankLinkTokenGetLambdaFunction"
+              },
+              "CodeSha256": "TtnPx9+q/eHpgIQOx99SJUy1ZW/I+yuwhko4ZIgKu4A="
+            }
+          },
+          "CardTokenGetLambdaVersionyyV6pwg28fy0l27d9qDZF6ZUyUvP3lELavtvFclU1lU": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "CardTokenGetLambdaFunction"
+              },
+              "CodeSha256": "/dVgE1cWoKTscP4z6Fo4seyN2KZmkvOGTVfP5VDTH6k="
+            }
+          },
+          "BankAddLambdaVersionaV0y49YY1KhTDSUVe3hnbJxNDBTlmQXxyq26EVHgihc": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "BankAddLambdaFunction"
+              },
+              "CodeSha256": "0uzB5VAVK3TPo5zc5WOkxC954MYXmQRY8qlO+KddsWA="
+            }
+          },
+          "CardAddLambdaVersionWO5zZNIw5U0pKLChOr1YH3kUcRsA9pQHgGOMcTkr7no": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "CardAddLambdaFunction"
+              },
+              "CodeSha256": "dVlAal9Ht0vglDQQsl8GxkiWBDVT8SDVdr6WToi8uws="
+            }
+          },
+          "SubscriptionCreateLambdaVersion5iXYYJVbucoS7RbDgfTwWHlMH5hzl4yZ7S749DOac": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "SubscriptionCreateLambdaFunction"
+              },
+              "CodeSha256": "ye3Fai0usF9AafMV0fZJbqIMTIm2ock1ByFGYrsz5KM="
+            }
+          },
+          "OtpCreateLambdaVersionMLuOKS7p2yZq0XFrFXxBQwBGFpXoH2dUJMKBvexAzI": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "OtpCreateLambdaFunction"
+              },
+              "CodeSha256": "NIlCOrUGOEDuVnMJQiR/pJsJYrs5g1nXOyhU3fuQfdg="
+            }
+          },
+          "SignInLambdaVersionxBu21MGfnIM8DmhiR8ZOnEGcTP6RDloZ3Aje0QQuBcQ": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "SignInLambdaFunction"
+              },
+              "CodeSha256": "NbuTPBZYLWtynhc48zhMLxMw7eD/Y/DlJRCQwCf9UJ4="
+            }
+          },
+          "HttpApi": {
+            "Type": "AWS::ApiGatewayV2::Api",
+            "Properties": {
+              "Name": "dev-aws",
+              "ProtocolType": "HTTP",
+              "CorsConfiguration": {
+                "AllowHeaders": [
+                  "*"
+                ],
+                "AllowMethods": [
+                  "OPTIONS",
+                  "POST"
+                ],
+                "AllowOrigins": [
+                  "*"
+                ]
+              }
+            }
+          },
+          "HttpApiStage": {
+            "Type": "AWS::ApiGatewayV2::Stage",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "StageName": "$default",
+              "AutoDeploy": true,
+              "DefaultRouteSettings": {
+                "DetailedMetricsEnabled": false
+              }
+            }
+          },
+          "AuthorizeLambdaAuthorizerPermissionHttpApi": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "AuthorizeLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "HttpApi"
+                    },
+                    "/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "HttpApiAuthorizerAuthorize": {
+            "Type": "AWS::ApiGatewayV2::Authorizer",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "Name": "authorize",
+              "IdentitySource": [
+                "$request.header.Authorization"
+              ],
+              "AuthorizerType": "REQUEST",
+              "AuthorizerPayloadFormatVersion": "2.0",
+              "AuthorizerUri": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":apigateway:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":lambda:path/2015-03-31/functions/",
+                    {
+                      "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"AuthorizeLambdaAuthorizerPermissionHttpApi\"][\"Properties\"][\"FunctionName\"]"
+                    },
+                    "/invocations"
+                  ]
+                ]
+              }
+            }
+          },
+          "SubscriptionCreateLambdaPermissionHttpApi": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "SubscriptionCreateLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "HttpApi"
+                    },
+                    "/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "HttpApiIntegrationSubscriptionCreate": {
+            "Type": "AWS::ApiGatewayV2::Integration",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "IntegrationType": "AWS_PROXY",
+              "IntegrationUri": {
+                "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"SubscriptionCreateLambdaPermissionHttpApi\"][\"Properties\"][\"FunctionName\"]"
+              },
+              "PayloadFormatVersion": "2.0",
+              "TimeoutInMillis": 6500
+            }
+          },
+          "HttpApiRoutePostApiLandingSubscriptioncreate": {
+            "Type": "AWS::ApiGatewayV2::Route",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "RouteKey": "POST /api/landing/subscriptionCreate",
+              "Target": {
+                "Fn::Join": [
+                  "/",
+                  [
+                    "integrations",
+                    {
+                      "Ref": "HttpApiIntegrationSubscriptionCreate"
+                    }
+                  ]
+                ]
+              }
+            },
+            "DependsOn": "HttpApiIntegrationSubscriptionCreate"
+          },
+          "OtpCreateLambdaPermissionHttpApi": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "OtpCreateLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "HttpApi"
+                    },
+                    "/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "HttpApiIntegrationOtpCreate": {
+            "Type": "AWS::ApiGatewayV2::Integration",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "IntegrationType": "AWS_PROXY",
+              "IntegrationUri": {
+                "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"OtpCreateLambdaPermissionHttpApi\"][\"Properties\"][\"FunctionName\"]"
+              },
+              "PayloadFormatVersion": "2.0",
+              "TimeoutInMillis": 6500
+            }
+          },
+          "HttpApiRoutePostApiAuthenticationOtpcreate": {
+            "Type": "AWS::ApiGatewayV2::Route",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "RouteKey": "POST /api/authentication/otpCreate",
+              "Target": {
+                "Fn::Join": [
+                  "/",
+                  [
+                    "integrations",
+                    {
+                      "Ref": "HttpApiIntegrationOtpCreate"
+                    }
+                  ]
+                ]
+              }
+            },
+            "DependsOn": "HttpApiIntegrationOtpCreate"
+          },
+          "SignInLambdaPermissionHttpApi": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "SignInLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "HttpApi"
+                    },
+                    "/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "HttpApiIntegrationSignIn": {
+            "Type": "AWS::ApiGatewayV2::Integration",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "IntegrationType": "AWS_PROXY",
+              "IntegrationUri": {
+                "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"SignInLambdaPermissionHttpApi\"][\"Properties\"][\"FunctionName\"]"
+              },
+              "PayloadFormatVersion": "2.0",
+              "TimeoutInMillis": 6500
+            }
+          },
+          "HttpApiRoutePostApiAuthenticationSignin": {
+            "Type": "AWS::ApiGatewayV2::Route",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "RouteKey": "POST /api/authentication/signIn",
+              "Target": {
+                "Fn::Join": [
+                  "/",
+                  [
+                    "integrations",
+                    {
+                      "Ref": "HttpApiIntegrationSignIn"
+                    }
+                  ]
+                ]
+              }
+            },
+            "DependsOn": "HttpApiIntegrationSignIn"
+          },
+          "BankLinkTokenGetLambdaPermissionHttpApi": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "BankLinkTokenGetLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "HttpApi"
+                    },
+                    "/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "HttpApiIntegrationBankLinkTokenGet": {
+            "Type": "AWS::ApiGatewayV2::Integration",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "IntegrationType": "AWS_PROXY",
+              "IntegrationUri": {
+                "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"BankLinkTokenGetLambdaPermissionHttpApi\"][\"Properties\"][\"FunctionName\"]"
+              },
+              "PayloadFormatVersion": "2.0",
+              "TimeoutInMillis": 6500
+            }
+          },
+          "HttpApiRoutePostApiBillingBanklinktokenget": {
+            "Type": "AWS::ApiGatewayV2::Route",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "RouteKey": "POST /api/billing/bankLinkTokenGet",
+              "Target": {
+                "Fn::Join": [
+                  "/",
+                  [
+                    "integrations",
+                    {
+                      "Ref": "HttpApiIntegrationBankLinkTokenGet"
+                    }
+                  ]
+                ]
+              },
+              "AuthorizationType": "CUSTOM",
+              "AuthorizerId": {
+                "Ref": "HttpApiAuthorizerAuthorize"
+              }
+            },
+            "DependsOn": "HttpApiIntegrationBankLinkTokenGet"
+          },
+          "BankAddLambdaPermissionHttpApi": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "BankAddLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "HttpApi"
+                    },
+                    "/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "HttpApiIntegrationBankAdd": {
+            "Type": "AWS::ApiGatewayV2::Integration",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "IntegrationType": "AWS_PROXY",
+              "IntegrationUri": {
+                "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"BankAddLambdaPermissionHttpApi\"][\"Properties\"][\"FunctionName\"]"
+              },
+              "PayloadFormatVersion": "2.0",
+              "TimeoutInMillis": 6500
+            }
+          },
+          "HttpApiRoutePostApiBillingBankadd": {
+            "Type": "AWS::ApiGatewayV2::Route",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "RouteKey": "POST /api/billing/bankAdd",
+              "Target": {
+                "Fn::Join": [
+                  "/",
+                  [
+                    "integrations",
+                    {
+                      "Ref": "HttpApiIntegrationBankAdd"
+                    }
+                  ]
+                ]
+              },
+              "AuthorizationType": "CUSTOM",
+              "AuthorizerId": {
+                "Ref": "HttpApiAuthorizerAuthorize"
+              }
+            },
+            "DependsOn": "HttpApiIntegrationBankAdd"
+          },
+          "CardTokenGetLambdaPermissionHttpApi": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "CardTokenGetLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "HttpApi"
+                    },
+                    "/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "HttpApiIntegrationCardTokenGet": {
+            "Type": "AWS::ApiGatewayV2::Integration",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "IntegrationType": "AWS_PROXY",
+              "IntegrationUri": {
+                "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"CardTokenGetLambdaPermissionHttpApi\"][\"Properties\"][\"FunctionName\"]"
+              },
+              "PayloadFormatVersion": "2.0",
+              "TimeoutInMillis": 6500
+            }
+          },
+          "HttpApiRoutePostApiBillingCardtokenget": {
+            "Type": "AWS::ApiGatewayV2::Route",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "RouteKey": "POST /api/billing/cardTokenGet",
+              "Target": {
+                "Fn::Join": [
+                  "/",
+                  [
+                    "integrations",
+                    {
+                      "Ref": "HttpApiIntegrationCardTokenGet"
+                    }
+                  ]
+                ]
+              },
+              "AuthorizationType": "CUSTOM",
+              "AuthorizerId": {
+                "Ref": "HttpApiAuthorizerAuthorize"
+              }
+            },
+            "DependsOn": "HttpApiIntegrationCardTokenGet"
+          },
+          "CardAddLambdaPermissionHttpApi": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "CardAddLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "HttpApi"
+                    },
+                    "/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "HttpApiIntegrationCardAdd": {
+            "Type": "AWS::ApiGatewayV2::Integration",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "IntegrationType": "AWS_PROXY",
+              "IntegrationUri": {
+                "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"CardAddLambdaPermissionHttpApi\"][\"Properties\"][\"FunctionName\"]"
+              },
+              "PayloadFormatVersion": "2.0",
+              "TimeoutInMillis": 6500
+            }
+          },
+          "HttpApiRoutePostApiBillingCardadd": {
+            "Type": "AWS::ApiGatewayV2::Route",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "RouteKey": "POST /api/billing/cardAdd",
+              "Target": {
+                "Fn::Join": [
+                  "/",
+                  [
+                    "integrations",
+                    {
+                      "Ref": "HttpApiIntegrationCardAdd"
+                    }
+                  ]
+                ]
+              },
+              "AuthorizationType": "CUSTOM",
+              "AuthorizerId": {
+                "Ref": "HttpApiAuthorizerAuthorize"
+              }
+            },
+            "DependsOn": "HttpApiIntegrationCardAdd"
+          }
+        },
+        "Outputs": {
+          "ServerlessDeploymentBucketName": {
+            "Value": {
+              "Ref": "ServerlessDeploymentBucket"
+            },
+            "Export": {
+              "Name": "sls-aws-dev-ServerlessDeploymentBucketName"
+            }
+          },
+          "AuthorizeLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "AuthorizeLambdaVersionR106sBytUiJWz6ycjqwv7VaiJ2sbuut39tFnxr40"
+            },
+            "Export": {
+              "Name": "sls-aws-dev-AuthorizeLambdaFunctionQualifiedArn"
+            }
+          },
+          "BankLinkTokenGetLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "BankLinkTokenGetLambdaVersionoxNIwH3dktZSZFLPqgGMizFEDDTRGIKSTVmE4Qn4Ng"
+            },
+            "Export": {
+              "Name": "sls-aws-dev-BankLinkTokenGetLambdaFunctionQualifiedArn"
+            }
+          },
+          "CardTokenGetLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "CardTokenGetLambdaVersionyyV6pwg28fy0l27d9qDZF6ZUyUvP3lELavtvFclU1lU"
+            },
+            "Export": {
+              "Name": "sls-aws-dev-CardTokenGetLambdaFunctionQualifiedArn"
+            }
+          },
+          "BankAddLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "BankAddLambdaVersionaV0y49YY1KhTDSUVe3hnbJxNDBTlmQXxyq26EVHgihc"
+            },
+            "Export": {
+              "Name": "sls-aws-dev-BankAddLambdaFunctionQualifiedArn"
+            }
+          },
+          "CardAddLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "CardAddLambdaVersionWO5zZNIw5U0pKLChOr1YH3kUcRsA9pQHgGOMcTkr7no"
+            },
+            "Export": {
+              "Name": "sls-aws-dev-CardAddLambdaFunctionQualifiedArn"
+            }
+          },
+          "SubscriptionCreateLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "SubscriptionCreateLambdaVersion5iXYYJVbucoS7RbDgfTwWHlMH5hzl4yZ7S749DOac"
+            },
+            "Export": {
+              "Name": "sls-aws-dev-SubscriptionCreateLambdaFunctionQualifiedArn"
+            }
+          },
+          "OtpCreateLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "OtpCreateLambdaVersionMLuOKS7p2yZq0XFrFXxBQwBGFpXoH2dUJMKBvexAzI"
+            },
+            "Export": {
+              "Name": "sls-aws-dev-OtpCreateLambdaFunctionQualifiedArn"
+            }
+          },
+          "SignInLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "SignInLambdaVersionxBu21MGfnIM8DmhiR8ZOnEGcTP6RDloZ3Aje0QQuBcQ"
+            },
+            "Export": {
+              "Name": "sls-aws-dev-SignInLambdaFunctionQualifiedArn"
+            }
+          },
+          "HttpApiId": {
+            "Description": "Id of the HTTP API",
+            "Value": {
+              "Ref": "HttpApi"
+            },
+            "Export": {
+              "Name": "sls-aws-dev-HttpApiId"
+            }
+          },
+          "HttpApiUrl": {
+            "Description": "URL of the HTTP API",
+            "Value": {
+              "Fn::Join": [
+                "",
+                [
+                  "https://",
+                  {
+                    "Ref": "HttpApi"
+                  },
+                  ".execute-api.",
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  ".",
+                  {
+                    "Ref": "AWS::URLSuffix"
+                  }
+                ]
+              ]
+            },
+            "Export": {
+              "Name": "sls-aws-dev-HttpApiUrl"
+            }
+          }
+        }
+      },
+      "coreCloudFormationTemplate": {
+        "AWSTemplateFormatVersion": "2010-09-09",
+        "Description": "The AWS CloudFormation template for this Serverless application",
+        "Resources": {
+          "ServerlessDeploymentBucket": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {
+              "BucketEncryption": {
+                "ServerSideEncryptionConfiguration": [
+                  {
+                    "ServerSideEncryptionByDefault": {
+                      "SSEAlgorithm": "AES256"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "ServerlessDeploymentBucketPolicy": {
+            "Type": "AWS::S3::BucketPolicy",
+            "Properties": {
+              "Bucket": {
+                "Ref": "ServerlessDeploymentBucket"
+              },
+              "PolicyDocument": {
+                "Statement": [
+                  {
+                    "Action": "s3:*",
+                    "Effect": "Deny",
+                    "Principal": "*",
+                    "Resource": [
+                      {
+                        "Fn::Join": [
+                          "",
+                          [
+                            "arn:",
+                            {
+                              "Ref": "AWS::Partition"
+                            },
+                            ":s3:::",
+                            {
+                              "Ref": "ServerlessDeploymentBucket"
+                            },
+                            "/*"
+                          ]
+                        ]
+                      },
+                      {
+                        "Fn::Join": [
+                          "",
+                          [
+                            "arn:",
+                            {
+                              "Ref": "AWS::Partition"
+                            },
+                            ":s3:::",
+                            {
+                              "Ref": "ServerlessDeploymentBucket"
+                            }
+                          ]
+                        ]
+                      }
+                    ],
+                    "Condition": {
+                      "Bool": {
+                        "aws:SecureTransport": false
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "Outputs": {
+          "ServerlessDeploymentBucketName": {
+            "Value": {
+              "Ref": "ServerlessDeploymentBucket"
+            }
+          }
+        }
+      },
+      "vpc": {}
+    },
+    "custom": {
+      "serverless-offline": {
+        "httpPort": "",
+        "allowCache": false,
+        "host": "",
+        "httpsProtocol": "",
+        "noPrependStageInUrl": true,
+        "useChildProcesses": true,
+        "ignoreJWTSignature": true
+      },
+      "dotenv": {
+        "path": "/Users/ygmin/Projects/mono_v2/app/.env.production"
+      },
+      "webpack": {
+        "packager": "yarn",
+        "webpackConfig": "../lib-backend/src/serverless/serverless.webpack.config.js"
+      }
+    },
+    "plugins": [
+      "serverless-dotenv-plugin",
+      "serverless-webpack",
+      "serverless-offline"
+    ],
+    "pluginsData": {},
+    "functions": {
+      "subscriptionCreate": {
+        "handler": "src/services/landing/subscriptionCreate.main",
+        "events": [
+          {
+            "httpApi": {
+              "path": "/api/landing/subscriptionCreate",
+              "method": "post"
+            },
+            "resolvedMethod": "POST",
+            "resolvedPath": "/api/landing/subscriptionCreate"
+          }
+        ],
+        "name": "aws-dev-subscriptionCreate",
+        "package": {
+          "artifact": ".serverless/subscriptionCreate.zip"
+        },
+        "memory": 128,
+        "timeout": 6,
+        "runtime": "nodejs14.x",
+        "vpc": {},
+        "versionLogicalId": "SubscriptionCreateLambdaVersion5iXYYJVbucoS7RbDgfTwWHlMH5hzl4yZ7S749DOac"
+      },
+      "authorize": {
+        "handler": "src/services/authentication/authorize.main",
+        "events": [],
+        "name": "aws-dev-authorize",
+        "package": {
+          "artifact": ".serverless/authorize.zip"
+        },
+        "memory": 128,
+        "timeout": 6,
+        "runtime": "nodejs14.x",
+        "vpc": {},
+        "versionLogicalId": "AuthorizeLambdaVersionR106sBytUiJWz6ycjqwv7VaiJ2sbuut39tFnxr40"
+      },
+      "otpCreate": {
+        "handler": "src/services/authentication/otpCreate.main",
+        "events": [
+          {
+            "httpApi": {
+              "path": "/api/authentication/otpCreate",
+              "method": "post"
+            },
+            "resolvedMethod": "POST",
+            "resolvedPath": "/api/authentication/otpCreate"
+          }
+        ],
+        "name": "aws-dev-otpCreate",
+        "package": {
+          "artifact": ".serverless/otpCreate.zip"
+        },
+        "memory": 128,
+        "timeout": 6,
+        "runtime": "nodejs14.x",
+        "vpc": {},
+        "versionLogicalId": "OtpCreateLambdaVersionMLuOKS7p2yZq0XFrFXxBQwBGFpXoH2dUJMKBvexAzI"
+      },
+      "signIn": {
+        "handler": "src/services/authentication/signIn.main",
+        "events": [
+          {
+            "httpApi": {
+              "path": "/api/authentication/signIn",
+              "method": "post"
+            },
+            "resolvedMethod": "POST",
+            "resolvedPath": "/api/authentication/signIn"
+          }
+        ],
+        "name": "aws-dev-signIn",
+        "package": {
+          "artifact": ".serverless/signIn.zip"
+        },
+        "memory": 128,
+        "timeout": 6,
+        "runtime": "nodejs14.x",
+        "vpc": {},
+        "versionLogicalId": "SignInLambdaVersionxBu21MGfnIM8DmhiR8ZOnEGcTP6RDloZ3Aje0QQuBcQ"
+      },
+      "bankLinkTokenGet": {
+        "handler": "src/services/billing/bankLinkTokenGet.main",
+        "events": [
+          {
+            "httpApi": {
+              "path": "/api/billing/bankLinkTokenGet",
+              "method": "post",
+              "authorizer": {
+                "name": "authorize"
+              }
+            },
+            "resolvedMethod": "POST",
+            "resolvedPath": "/api/billing/bankLinkTokenGet"
+          }
+        ],
+        "name": "aws-dev-bankLinkTokenGet",
+        "package": {
+          "artifact": ".serverless/bankLinkTokenGet.zip"
+        },
+        "memory": 128,
+        "timeout": 6,
+        "runtime": "nodejs14.x",
+        "vpc": {},
+        "versionLogicalId": "BankLinkTokenGetLambdaVersionoxNIwH3dktZSZFLPqgGMizFEDDTRGIKSTVmE4Qn4Ng"
+      },
+      "bankAdd": {
+        "handler": "src/services/billing/bankAdd.main",
+        "events": [
+          {
+            "httpApi": {
+              "path": "/api/billing/bankAdd",
+              "method": "post",
+              "authorizer": {
+                "name": "authorize"
+              }
+            },
+            "resolvedMethod": "POST",
+            "resolvedPath": "/api/billing/bankAdd"
+          }
+        ],
+        "name": "aws-dev-bankAdd",
+        "package": {
+          "artifact": ".serverless/bankAdd.zip"
+        },
+        "memory": 128,
+        "timeout": 6,
+        "runtime": "nodejs14.x",
+        "vpc": {},
+        "versionLogicalId": "BankAddLambdaVersionaV0y49YY1KhTDSUVe3hnbJxNDBTlmQXxyq26EVHgihc"
+      },
+      "cardTokenGet": {
+        "handler": "src/services/billing/cardTokenGet.main",
+        "events": [
+          {
+            "httpApi": {
+              "path": "/api/billing/cardTokenGet",
+              "method": "post",
+              "authorizer": {
+                "name": "authorize"
+              }
+            },
+            "resolvedMethod": "POST",
+            "resolvedPath": "/api/billing/cardTokenGet"
+          }
+        ],
+        "name": "aws-dev-cardTokenGet",
+        "package": {
+          "artifact": ".serverless/cardTokenGet.zip"
+        },
+        "memory": 128,
+        "timeout": 6,
+        "runtime": "nodejs14.x",
+        "vpc": {},
+        "versionLogicalId": "CardTokenGetLambdaVersionyyV6pwg28fy0l27d9qDZF6ZUyUvP3lELavtvFclU1lU"
+      },
+      "cardAdd": {
+        "handler": "src/services/billing/cardAdd.main",
+        "events": [
+          {
+            "httpApi": {
+              "path": "/api/billing/cardAdd",
+              "method": "post",
+              "authorizer": {
+                "name": "authorize"
+              }
+            },
+            "resolvedMethod": "POST",
+            "resolvedPath": "/api/billing/cardAdd"
+          }
+        ],
+        "name": "aws-dev-cardAdd",
+        "package": {
+          "artifact": ".serverless/cardAdd.zip"
+        },
+        "memory": 128,
+        "timeout": 6,
+        "runtime": "nodejs14.x",
+        "vpc": {},
+        "versionLogicalId": "CardAddLambdaVersionWO5zZNIw5U0pKLChOr1YH3kUcRsA9pQHgGOMcTkr7no"
+      }
+    },
+    "configValidationMode": "warn",
+    "serviceFilename": "serverless.ts",
+    "layers": {},
+    "initialServerlessConfig": {
+      "service": {
+        "$ref": "$[\"service\"][\"serviceObject\"]"
+      },
+      "provider": {
+        "$ref": "$[\"service\"][\"provider\"]"
+      },
+      "plugins": {
+        "$ref": "$[\"service\"][\"plugins\"]"
+      },
+      "custom": {
+        "$ref": "$[\"service\"][\"custom\"]"
+      },
+      "frameworkVersion": "2",
+      "package": {
+        "individually": true,
+        "artifactDirectoryName": "serverless/aws/dev/1626026752778-2021-07-11T18:05:52.778Z"
+      },
+      "functions": {
+        "$ref": "$[\"service\"][\"functions\"]"
+      }
+    },
+    "isDashboardMonitoringPreconfigured": false
+  },
+  "package": {
+    "individually": true,
+    "artifactDirectoryName": "serverless/aws/dev/1626026752778-2021-07-11T18:05:52.778Z",
+    "artifact": ""
+  }
+}

@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
 import { IconProps } from '@lib/frontend/core/components/Icon/Icon.model';
-import { fontStyle } from '@lib/frontend/core/styles/font.style';
 import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 
 export const PRESSABLE_ICON_SIZE_SMALL = 32;
@@ -18,6 +17,5 @@ export const iconStyle = StyleSheet.create({
 });
 
 export const getIconStyle: StyleGetterModel<IconProps> = ({ onPress, large, xlarge }) => [
-  fontStyle.center,
   ...(onPress ? [large || xlarge ? iconStyle.large : iconStyle.default] : []),
 ];

@@ -17,15 +17,21 @@ export const _Bubble = (props: _BubbleProps) => {
         }}
         wrapperStyle={{
           left: {
-            borderRadius: CommonTheme.shape.borderRadius,
-            padding: 8,
             margin: 0,
+            borderRadius: CommonTheme.shape.borderRadius,
+            paddingTop: CommonTheme.shape.spacingTight,
+            paddingBottom: CommonTheme.shape.spacingTight,
+            paddingLeft: CommonTheme.shape.spacing,
+            paddingRight: CommonTheme.shape.spacing,
             backgroundColor: colorMuted,
           },
           right: {
-            borderRadius: CommonTheme.shape.borderRadius,
-            padding: 8,
             margin: 0,
+            borderRadius: CommonTheme.shape.borderRadius,
+            paddingTop: CommonTheme.shape.spacingTight,
+            paddingBottom: CommonTheme.shape.spacingTight,
+            paddingLeft: CommonTheme.shape.spacing,
+            paddingRight: CommonTheme.shape.spacing,
             backgroundColor: CommonTheme.colors.primary.main,
           },
         }}

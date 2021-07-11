@@ -1,3 +1,4 @@
+import { isNumber } from 'lodash';
 import { StyleSheet } from 'react-native';
 import { FontProps } from '@lib/frontend/core/styles/font.model';
 import { sizeStyle } from '@lib/frontend/core/styles/size.style';
@@ -21,9 +22,9 @@ export const getFontStyle: StyleGetterModel<FontProps> = ({
   subtitle,
   title,
   uppercase,
-  tight,
+  lineHeight,
 }) => [
-  ...(tight ? [] : [fontStyle.lineHeight]),
+  ...(lineHeight ? (isNumber(lineHeight) ? [{ lineHeight }] : [fontStyle.lineHeight]) : []),
   ...(bold || title ? [fontStyle.bold] : []),
   ...(center ? [fontStyle.center] : alignRight ? [fontStyle.alignRight] : []),
   ...(title || subtitle ? [sizeStyle.large] : []),

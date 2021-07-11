@@ -10,7 +10,7 @@ export const DashboardHeader = ({ ...props }: DashboardHeaderProps) => {
   return (
     <Header>
       <Wrapper grow row alignCenter end spacingTight>
-        <ThemeSwitch />
+        {/* <ThemeSwitch /> */}
         <DashboardHeaderMenu />
       </Wrapper>
     </Header>

@@ -3,10 +3,9 @@ import React, { useState } from 'react';
 import { COMMON } from '@lib/common/core/constants';
 import { Activatable, Button, Modal, Text, Wrapper } from '@lib/frontend/core/components';
 import { PressableProps } from '@lib/frontend/core/components/Pressable/Pressable.model';
-import { useStyles } from '@lib/frontend/core/hooks';
+import { useViewStyles } from '@lib/frontend/core/hooks';
 import { useTranslation } from '@lib/frontend/locale/hooks';
 import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
-import { CommonTheme } from '@lib/frontend/theme/themes/common.theme';
 
 export const Pressable = ({
   isDisabled,
@@ -22,19 +21,22 @@ export const Pressable = ({
   ...props
 }: PressableProps) => {
   const { t } = useTranslation([COMMON]);
-  const { styles } = useStyles(props);
+  const { styles } = useViewStyles(props);
   const [confirmModalIsOpen, setConfirmModalIsOpen] = useState<boolean>(false);
 
   const isDark = useTheme<boolean>('isDark');
 
   const backgroundMain = useTheme<string>('colors.background.main');
+  const backgroundMuted = useTheme<string>('colors.background.muted');
+
   const from = { backgroundColor: backgroundMain, ...fromProps };
   const to = isDisabled
     ? from
     : {
-        backgroundColor: isDark
-          ? CommonTheme.colors.primary.dark
-          : CommonTheme.colors.primary.light,
+        backgroundColor: backgroundMuted,
+        // backgroundColor: isDark
+        //   ? CommonTheme.colors.primary.dark
+        //   : CommonTheme.colors.primary.light,
         ...toProps,
       };
 

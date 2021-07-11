@@ -18,6 +18,7 @@ module.exports = {
     nodeExternals({
       modulesDir: [resolve('node_modules'), resolve(ROOT_PATH, 'node_modules')],
     }),
+    { consolidate: 'commonjs consolidate' },
   ],
   // externalsPresets: { node: true },
   devtool: 'source-map',
