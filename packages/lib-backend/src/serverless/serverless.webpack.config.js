@@ -53,6 +53,7 @@ module.exports = {
   },
   plugins: [
     new ESLintPlugin(),
+    // TODO: need to copy other resources?
     new CopyWebpackPlugin({
       patterns: [
         {

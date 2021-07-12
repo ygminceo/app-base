@@ -1,1 +1,1 @@
-export const BOT_MESSAGES_DELAY = 1000;
+export const BOT_MESSAGES_DELAY = 500;
