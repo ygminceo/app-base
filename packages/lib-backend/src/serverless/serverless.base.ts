@@ -18,6 +18,10 @@ export const baseConfig = {
     webpack: {
       packager: 'yarn',
       webpackConfig: relative(process.cwd(), join(__dirname, 'serverless.webpack.config.js')),
+      includeModules: {
+        nodeModulesRelativeDir: '../../',
+        forceExclude: ['consolidate'],
+      },
     },
     'serverless-offline': {
       allowCache: false,

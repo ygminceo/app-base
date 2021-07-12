@@ -4,7 +4,9 @@ const nodeExternals = require('webpack-node-externals');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { EXTENSIONS, ROOT_PATH } = require('../../../../constants');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const isDev = slsw.lib.webpack.isLocal;
 
@@ -16,12 +18,13 @@ module.exports = {
   target: 'node',
   externals: [
     nodeExternals({
-      modulesDir: [resolve('node_modules'), resolve(ROOT_PATH, 'node_modules')],
+      // modulesDir: ['node_modules', resolve(ROOT_PATH, 'node_modules')],
+      additionalModuleDirs: ['node_modules', resolve(ROOT_PATH, 'node_modules')],
     }),
-    { consolidate: 'commonjs consolidate' },
+    // { consolidate: 'commonjs consolidate' },
   ],
   // externalsPresets: { node: true },
-  devtool: 'source-map',
+  // devtool: 'source-map',
   stats: 'minimal',
   output: {
     path: resolve(process.cwd(), '.webpack'),
@@ -50,11 +53,20 @@ module.exports = {
   },
   plugins: [
     new ESLintPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: resolve(ROOT_PATH, 'packages/lib-assets/src/mail'),
+          to: 'mail',
+        },
+      ],
+    }),
     new ForkTsCheckerWebpackPlugin({
       typescript: {
         configFile: tsConfig,
       },
     }),
+    ...(isDev ? [new BundleAnalyzerPlugin({ openAnalyzer })] : []),
   ],
   optimization: isDev
     ? {
@@ -64,6 +76,7 @@ module.exports = {
       }
     : {
         minimize: false,
+        concatenateModules: false,
       },
   node: {
     __dirname: true,

@@ -1,0 +1,17 @@
+{
+  "name": "aws",
+  "version": "1.0.0",
+  "description": "Packaged externals for aws",
+  "private": true,
+  "scripts": {},
+  "dependencies": {
+    "@babel/runtime": "^7.14.6",
+    "typeorm": "^0.2.34",
+    "lodash": "^4.17.21",
+    "mongodb": "^3.6.9",
+    "email-templates": "^8.0.7",
+    "nodemailer": "6.6.2",
+    "@middy/core": "^2.2.0",
+    "@middy/http-json-body-parser": "^2.2.0"
+  }
+}

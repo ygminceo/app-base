@@ -18,6 +18,8 @@ export const shapeStyle = StyleSheet.create({
   relative: { position: 'relative' },
   noRotate: { transform: [{ rotate: '0deg' }] },
   rotate90: { transform: [{ rotate: '90deg' }] },
+  rotate180: { transform: [{ rotate: '180deg' }] },
+  rotate270: { transform: [{ rotate: '270deg' }] },
   below: { zIndex: -1 },
   above: { zIndex: 1 },
   absoluteFill: {

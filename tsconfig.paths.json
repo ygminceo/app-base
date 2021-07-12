@@ -10,7 +10,6 @@
       "@app/web-ssr/*": ["packages/app-web-ssr/src/*"],
       "@app/mobile/*": ["packages/app-mobile/src/*"],
       "@serverless/aws/*": ["packages/serverless-aws/src/*"],
-      "@serverless/azure/*": ["packages/serverless-azure/src/*"],
       "react-native-vector-icons/dist/*": ["node_modules/@types/react-native-vector-icons/*"]
     }
   }

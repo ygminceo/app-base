@@ -3,12 +3,11 @@ import { APP } from '@lib/common/app/constants';
 import { AUTHENTICATION } from '@lib/common/authentication/constants';
 import { LANDING } from '@lib/common/landing/constants';
 import { Header } from '@lib/frontend/app/components';
-import { Droppable, Pressable, Text, Wrapper } from '@lib/frontend/core/components';
+import { Arrow, Droppable, Pressable, Text, Wrapper } from '@lib/frontend/core/components';
 import { LandingChatButton } from '@lib/frontend/landing/containers';
 import { LANDING_HEADER_MENU_OPTIONS } from '@lib/frontend/landing/containers/LandingHeader/LandingHeader.constants';
 import { LandingHeaderProps } from '@lib/frontend/landing/containers/LandingHeader/LandingHeader.model';
 import { useTranslation } from '@lib/frontend/locale/hooks';
-import { ThemeSwitch } from '@lib/frontend/theme/containers';
 
 export const LandingHeader = ({ ...props }: LandingHeaderProps) => {
   const { t } = useTranslation([APP, AUTHENTICATION, LANDING]);
@@ -19,7 +18,10 @@ export const LandingHeader = ({ ...props }: LandingHeaderProps) => {
           <Droppable key={i} render={() => <menuOption.component />}>
             {(isActive) => (
               <Pressable isPressed={isActive}>
-                <Text>{t(menuOption.title)}</Text>
+                <Wrapper row center alignCenter spacingTight>
+                  <Text>{t(menuOption.title)}</Text>
+                  <Arrow down rotate180={isActive} />
+                </Wrapper>
               </Pressable>
             )}
           </Droppable>

@@ -1,6 +1,7 @@
 export { Activatable } from '@lib/frontend/core/components/Activatable/Activatable';
 export { Alert } from '@lib/frontend/core/components/Alert/Alert';
 export { Appearable } from '@lib/frontend/core/components/Appearable/Appearable';
+export { Arrow } from '@lib/frontend/core/components/Arrow/Arrow';
 export { AsyncWrapper } from '@lib/frontend/core/components/AsyncWrapper/AsyncWrapper';
 export { Button } from '@lib/frontend/core/components/Button/Button';
 export { Circle } from '@lib/frontend/core/components/Circle/Circle';
