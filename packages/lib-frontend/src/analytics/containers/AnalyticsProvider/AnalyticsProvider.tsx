@@ -7,12 +7,20 @@ import {
 import { _initialize } from '@lib/frontend/analytics/containers/AnalyticsProvider/internal/_initialize';
 import { useUser } from '@lib/frontend/user/stores/user.reducer';
 
-const analyticsDefault: AnalyticsContextModel = {
+export const analyticsDefault: AnalyticsContextModel = {
   isReady: false,
   identify: () => console.warn('Tracker not ready'),
   reset: () => console.warn('Tracker not ready'),
   track: () => console.warn('Tracker not ready'),
 };
+
+export const analyticsMock: AnalyticsContextModel = {
+  isReady: true,
+  identify: (...params) => console.warn(`Non production identify: ${JSON.stringify(params)}`),
+  reset: () => console.warn('Non production reset'),
+  track: (...params) => console.warn(`Non production track: ${JSON.stringify(params)}`),
+};
+
 
 export const AnalyticsContext = createContext<AnalyticsContextModel>(analyticsDefault);
 
@@ -23,13 +31,7 @@ export const AnalyticsProvider = ({ children }: AnalyticsProviderProps) => {
 
   useEffect(() => {
     if (Platform.isNonProduction) {
-      // TODO: mock?
-      setAnalytics({
-        isReady: true,
-        identify: (...params) => console.warn(`Non production identify: ${JSON.stringify(params)}`),
-        reset: () => console.warn('Non production reset'),
-        track: (...params) => console.warn(`Non production track: ${JSON.stringify(params)}`),
-      });
+      setAnalytics(analyticsMock);
     } else {
       _initialize().then((analytics) => analytics && setAnalytics(analytics));
     }

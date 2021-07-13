@@ -6,7 +6,7 @@ import { services } from '@lib/backend/serverless/services';
 
 const API_PORT = config.get<number>('REACT_APP_API_PORT', null);
 const PUBLIC_URL = config.get<number>('REACT_APP_PUBLIC_URL', null);
-const AWS_AUTHORIZER_CACHE_SECONDS = config.get<number>('AWS_AUTHORIZER_CACHE_SECONDS', null);
+const SERVER_AWS_AUTHORIZER_CACHE_SECONDS = config.get<number>('SERVER_AWS_AUTHORIZER_CACHE_SECONDS', null);
 
 const serverlessConfig = defaultsDeep(
   {
@@ -32,7 +32,7 @@ const serverlessConfig = defaultsDeep(
             type: 'request',
             functionName: AUTHORIZE,
             identitySource: ['$request.header.Authorization'],
-            resultTtlInSeconds: AWS_AUTHORIZER_CACHE_SECONDS,
+            resultTtlInSeconds: SERVER_AWS_AUTHORIZER_CACHE_SECONDS,
           },
         },
       },
