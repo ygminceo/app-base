@@ -63,13 +63,13 @@ export const GlobalStyle = createGlobalStyle`
     ::-webkit-scrollbar * {
       background-color: transparent;
     }
-    
+
     ::-webkit-scrollbar-thumb {
       background-color: ${CommonTheme.colors.primary.dark}
       border-radius: 16px;
       border: 4px solid transparent;
     }
-    
+
     ::-webkit-scrollbar-button {
       display: none;
     }
