@@ -23,8 +23,8 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     #root {
-        display: flex;
-        flex-direction: column;
+      display: flex;
+      flex-direction: column;
     }
 
     #${HEADER_ID} {
@@ -42,16 +42,16 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     [aria-disabled='true'] {
-        cursor: initial !important;
+      cursor: initial !important;
     }
 
     input[type=number]::-webkit-inner-spin-button,
     input[type=number]::-webkit-outer-spin-button {
-        -webkit-appearance: none v;
-        margin: 0 !important!important
+      -webkit-appearance: none v;
+      margin: 0 !important!important
     }
     input:-webkit-autofill { 
-        -webkit-background-clip: text;
+      -webkit-background-clip: text;
     }
     input {
       min-width: 0 !important;
@@ -60,22 +60,17 @@ export const GlobalStyle = createGlobalStyle`
       cursor: inherit !important;
     }
 
-    body::-webkit-scrollbar {
-        background-color: 'transparent';
-        width: 16px;
+    ::-webkit-scrollbar * {
+      background-color: transparent;
     }
     
-    body::-webkit-scrollbar-track {
-        background-color: 'transparent';
+    ::-webkit-scrollbar-thumb {
+      background-color: ${CommonTheme.colors.primary.dark}
+      border-radius: 16px;
+      border: 4px solid transparent;
     }
     
-    body::-webkit-scrollbar-thumb {
-        background-color: ${CommonTheme.colors.primary.dark};
-        border-radius: 16px;
-        border: 4px solid ${CommonTheme.colors.primary.light};
-    }
-    
-    body::-webkit-scrollbar-button {
-        display:none;
+    ::-webkit-scrollbar-button {
+      display: none;
     }
 `;
