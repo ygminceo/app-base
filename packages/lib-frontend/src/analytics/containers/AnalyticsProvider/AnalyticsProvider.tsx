@@ -33,7 +33,7 @@ export const AnalyticsProvider = ({ children }: AnalyticsProviderProps) => {
     if (Platform.isNonProduction) {
       setAnalytics(analyticsMock);
     } else {
-      _initialize().then((analytics) => setAnalytics(analytics));
+      _initialize().then((analytics) => analytics && setAnalytics(analytics));
     }
   }, []);
 
