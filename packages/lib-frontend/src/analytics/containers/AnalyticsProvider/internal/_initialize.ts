@@ -10,6 +10,9 @@ export const _initialize = async (): Promise<AnalyticsContextModel> =>
   new Promise((resolve) => {
     if (Platform.isWeb) {
       init(REACT_APP_MIXPANEL_API_KEY);
+      console.warn('******');
+      console.warn(REACT_APP_MIXPANEL_API_KEY);
+      console.warn('******');
       return resolve({
         isReady: true,
         identify: (uid: string) => identify(uid),
