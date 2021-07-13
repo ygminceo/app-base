@@ -1,5 +1,5 @@
-import { StyledViewProps } from '@lib/frontend/core/hooks/useViewStyles/useViewStyles.model';
 import { ReactNode } from 'react';
+import { StyledViewProps } from '@lib/frontend/core/hooks/useViewStyles/useViewStyles.model';
 import { NativeStyleModel, StyledProps } from '@lib/frontend/core/styles/style.model';
 
 export interface PressableProps extends StyledProps, StyledViewProps {

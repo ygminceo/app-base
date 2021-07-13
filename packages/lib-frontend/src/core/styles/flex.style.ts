@@ -52,7 +52,13 @@ export const getFlexStyle: StyleGetterModel<FlexProps> = ({
 }) => [
   flexStyle.flex,
   row ? flexStyle.row : flexStyle.column,
-  end ? flexStyle.end : center ? flexStyle.center : spaceBetween ? flexStyle.spaceBetween : flexStyle.start,
+  end
+    ? flexStyle.end
+    : center
+    ? flexStyle.center
+    : spaceBetween
+    ? flexStyle.spaceBetween
+    : flexStyle.start,
   alignStart
     ? flexStyle.alignStart
     : alignCenter

@@ -2,7 +2,7 @@ import { Platform } from '@lib/frontend/core/utils/Platform/Platform';
 
 let isEnabled = false;
 
-if (Platform.isWebApp) {
+if (Platform.isWeb) {
   const HOVER_THRESHOLD_MS = 1000;
   let lastTouchTimestamp = 0;
 

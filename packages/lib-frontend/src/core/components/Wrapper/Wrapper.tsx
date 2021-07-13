@@ -96,8 +96,8 @@ export const Wrapper = forwardRef<RefObject<any>, WrapperProps>(
         alwaysBounceHorizontal: false,
         alwaysBounceVertical: false,
         horizontal: horizontalScrollable,
-        showsHorizontalScrollIndicator: Platform.isWebApp,
-        showsVerticalScrollIndicator: Platform.isWebApp,
+        showsHorizontalScrollIndicator: Platform.isWeb,
+        showsVerticalScrollIndicator: Platform.isWeb,
         contentContainerStyle: styles,
         scrollEventThrottle: 16,
         onScroll: onScroll

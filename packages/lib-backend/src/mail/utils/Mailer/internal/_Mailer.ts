@@ -16,10 +16,10 @@ const TEMPLATE_DIR = resolve(TEMPLATE_ROOT, 'mail/templates');
 
 const NODE_ENV = config.get<string>('NODE_ENV', null);
 
-const SERVER_EMAIL_HOST=config.get<string>('SERVER_EMAIL_HOST', null);
-const SERVER_EMAIL_PORT=config.get<number>('SERVER_EMAIL_PORT', null);
-const SERVER_EMAIL_USERNAME=config.get<string>('SERVER_EMAIL_USERNAME', null);
-const SERVER_EMAIL_PASSWORD=config.get<string>('SERVER_EMAIL_PASSWORD', null);
+const SERVER_EMAIL_HOST = config.get<string>('SERVER_EMAIL_HOST', null);
+const SERVER_EMAIL_PORT = config.get<number>('SERVER_EMAIL_PORT', null);
+const SERVER_EMAIL_USERNAME = config.get<string>('SERVER_EMAIL_USERNAME', null);
+const SERVER_EMAIL_PASSWORD = config.get<string>('SERVER_EMAIL_PASSWORD', null);
 
 export class _Mailer implements _MailerModel {
   private _transport: Transporter;

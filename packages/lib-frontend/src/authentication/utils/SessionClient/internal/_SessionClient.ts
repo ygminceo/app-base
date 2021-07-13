@@ -1,5 +1,14 @@
-import firebase from 'firebase/app';
-import 'firebase/auth';
+import { Analytics, getAnalytics, setUserId } from 'firebase/analytics';
+import { getApps, initializeApp } from 'firebase/app';
+import {
+  Auth,
+  getAuth,
+  onAuthStateChanged,
+  signInWithCustomToken,
+  signOut,
+  useAuthEmulator,
+  useDeviceLanguage,
+} from 'firebase/auth';
 import { pick } from 'lodash';
 import { TOKEN_CLAIM_KEYS } from '@lib/common/authentication/constants';
 import { config } from '@lib/common/core/utils/Config/Config';
@@ -10,42 +19,52 @@ import { Platform } from '@lib/frontend/core/utils/Platform/Platform';
 import { store } from '@lib/frontend/root/stores/store';
 import { userSetAction } from '@lib/frontend/user/actions/user/user.action';
 
+const REACT_APP_FIREBASE_API_KEY = config.get<string>('REACT_APP_FIREBASE_API_KEY', '');
 const REACT_APP_FIREBASE_APP_ID = config.get<string>('REACT_APP_FIREBASE_APP_ID', '');
+const REACT_APP_FIREBASE_AUTH_DOMAIN = config.get<string>('REACT_APP_FIREBASE_AUTH_DOMAIN', '');
 const REACT_APP_FIREBASE_PROJECT_ID = config.get<string>('REACT_APP_FIREBASE_PROJECT_ID', '');
-const REACT_APP_FIREBASE_TOKEN = config.get<string>('REACT_APP_FIREBASE_TOKEN', '');
-const REACT_APP_FIREBASE_DOMAIN = config.get<string>('REACT_APP_FIREBASE_DOMAIN', '');
-const REACT_APP_FIREBASE_STORAGE = config.get<string>('REACT_APP_FIREBASE_STORAGE', '');
 const REACT_APP_FIREBASE_SENDER_ID = config.get<string>('REACT_APP_FIREBASE_SENDER_ID', '');
+const REACT_APP_FIREBASE_STORAGE_BUCKET = config.get<string>(
+  'REACT_APP_FIREBASE_STORAGE_BUCKET',
+  '',
+);
 
 export class _SessionClient implements _SessionClientModel {
-  public async initialize() {
-    if (!Platform.isSsr) {
-      if (!firebase.apps.length) {
-        firebase.initializeApp({
-          apiKey: REACT_APP_FIREBASE_TOKEN,
-          authDomain: REACT_APP_FIREBASE_DOMAIN,
-          projectId: REACT_APP_FIREBASE_PROJECT_ID,
-          storageBucket: REACT_APP_FIREBASE_STORAGE,
-          messagingSenderId: REACT_APP_FIREBASE_SENDER_ID,
-          appId: REACT_APP_FIREBASE_APP_ID,
-        });
+  auth?: Auth;
+  analytics?: Analytics;
 
-        if (Platform.isTest) {
-          // TODO: ENV
-          firebase.auth().useEmulator('http://localhost:9099');
-        }
+  constructor() {
+    if (Platform.isWeb && !getApps().length) {
+      initializeApp({
+        apiKey: REACT_APP_FIREBASE_API_KEY,
+        appId: REACT_APP_FIREBASE_APP_ID,
+        authDomain: REACT_APP_FIREBASE_AUTH_DOMAIN,
+        messagingSenderId: REACT_APP_FIREBASE_SENDER_ID,
+        projectId: REACT_APP_FIREBASE_PROJECT_ID,
+        storageBucket: REACT_APP_FIREBASE_STORAGE_BUCKET,
+      });
+
+      this.auth = getAuth();
+      this.analytics = getAnalytics();
+
+      if (Platform.isTest) {
+        // TODO: ENV
+        useAuthEmulator(this.auth, 'http://localhost:9099');
       }
 
       //TODO: from locale
-      firebase.auth().useDeviceLanguage();
+      useDeviceLanguage(this.auth);
 
-      firebase.auth().onAuthStateChanged(async (user) => {
+      onAuthStateChanged(this.auth, async (user) => {
         if (user) {
           try {
+            this.analytics && setUserId(this.analytics, user.uid);
+
             const { claims } = await user.getIdTokenResult();
+
             store.dispatch(
               userSetAction({
-                ...pick(claims, TOKEN_CLAIM_KEYS),
+                ...pick(claims as object, TOKEN_CLAIM_KEYS),
                 _id: user.uid,
               }),
             );
@@ -63,15 +82,17 @@ export class _SessionClient implements _SessionClientModel {
   }
 
   public async signIn(token: string) {
-    firebase.auth().signInWithCustomToken(token);
+    this.auth && signInWithCustomToken(this.auth, token);
   }
 
   public async signOut() {
-    firebase.auth().signOut();
+    // @ts-ignore
+    this.analytics && setUserId(this.analytics, null);
+    this.auth && await signOut(this.auth);
   }
 
   public async getToken() {
-    const currentUser = firebase.auth().currentUser;
-    return currentUser && currentUser.getIdToken(true);
+    const currentUser = this.auth && this.auth.currentUser;
+    return currentUser ? await currentUser.getIdToken(true) : null;
   }
 }

@@ -4,7 +4,7 @@ import { config } from '@lib/common/core/utils/Config/Config';
 const NODE_ENV = config.get<string>('NODE_ENV', '');
 
 export class Platform {
-  static isWebApp = typeof window !== 'undefined' && NativePlatform.OS === 'web';
+  static isWeb = typeof window !== 'undefined' && NativePlatform.OS === 'web';
 
   static isSsr = typeof window === 'undefined' && NativePlatform.OS === 'web';
 

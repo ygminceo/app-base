@@ -32,9 +32,7 @@ export const LandingChatButton = ({ small, large, ...props }: LandingChatButtonP
               <Text bold small>
                 {t('bot:labels.botName', { id: ChatBotUser._id })}
               </Text>
-              <Text small>
-                {t('bot:labels.botDescription')}
-              </Text>
+              <Text small>{t('bot:labels.botDescription')}</Text>
             </Wrapper>
           </Wrapper>
         }>

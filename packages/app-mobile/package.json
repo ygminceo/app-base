@@ -13,6 +13,7 @@
     "@lib/frontend": "1.0.0",
     "@react-native-async-storage/async-storage": "^1.15.5",
     "@react-native-community/masked-view": "^0.1.11",
+    "@react-native-firebase/analytics": "^12.1.0",
     "@react-native-firebase/app": "^12.0.0",
     "@react-native-firebase/auth": "^12.0.0",
     "@react-native-masked-view/masked-view": "^0.2.4",

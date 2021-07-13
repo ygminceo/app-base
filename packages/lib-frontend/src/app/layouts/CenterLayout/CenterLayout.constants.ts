@@ -1,1 +1,1 @@
-export const CENTER_LAYOUT_WIDTH = 500;
+export const CENTER_LAYOUT_WIDTH = 550;

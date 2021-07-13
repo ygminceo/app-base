@@ -8,7 +8,9 @@ export const IconText = ({ icon, children, ...props }: IconTextProps) => {
   return (
     <Wrapper style={inheritedStyles} row alignCenter>
       {icon && <Icon style={computedStyles} icon={icon} {...props} />}
-      <Text {...props} pLeftTight>{children}</Text>
+      <Text {...props} pLeftTight>
+        {children}
+      </Text>
     </Wrapper>
   );
 };

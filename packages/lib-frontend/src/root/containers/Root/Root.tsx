@@ -7,7 +7,7 @@ import { LocaleProvider } from '@lib/frontend/locale/containers';
 import { RootProps } from '@lib/frontend/root/containers/Root/Root.model';
 import { store } from '@lib/frontend/root/stores/store';
 import { ThemeProvider } from '@lib/frontend/theme/containers';
-import { UsageProvider } from '@lib/frontend/usage/containers';
+import { AnalyticsProvider } from '@lib/frontend/analytics/containers';
 
 export const Root = ({ children }: RootProps) => (
   <Provider store={store}>
@@ -15,9 +15,9 @@ export const Root = ({ children }: RootProps) => (
       <ThemeProvider>
         <LocaleProvider>
           <AuthenticationProvider>
-            <UsageProvider>
+            <AnalyticsProvider>
               <PaperProvider>{children}</PaperProvider>
-            </UsageProvider>
+            </AnalyticsProvider>
           </AuthenticationProvider>
         </LocaleProvider>
       </ThemeProvider>

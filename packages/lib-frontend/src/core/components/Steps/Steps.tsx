@@ -3,8 +3,8 @@ import { FormModel } from '@lib/common/core/models';
 import { Appearable, Circle, Icon, Wrapper } from '@lib/frontend/core/components';
 import { Slidable } from '@lib/frontend/core/components/Slidable/Slidable';
 import { StepsProps } from '@lib/frontend/core/components/Steps/Steps.model';
-import { useStyles } from '@lib/frontend/core/hooks';
 import { stepsStyle } from '@lib/frontend/core/components/Steps/Steps.style';
+import { useStyles } from '@lib/frontend/core/hooks';
 
 export const Steps = <F extends FormModel>({ steps, onSuccess, ...props }: StepsProps<F>) => {
   const { styles } = useStyles(props);

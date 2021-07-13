@@ -6,6 +6,4 @@ export const chatStyle = StyleSheet.create({
   style: {},
 });
 
-export const getChatStyle: StyleGetterModel<ChatProps> = ({}) => [
-  chatStyle.style,
-];
+export const getChatStyle: StyleGetterModel<ChatProps> = ({}) => [chatStyle.style];

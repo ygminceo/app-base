@@ -12,12 +12,12 @@ export const useScroll: UseScrollModel = () => {
   const scrollListener = () => handleScroll(document.documentElement.scrollTop);
 
   useEffect(() => {
-    if (Platform.isWebApp) {
+    if (Platform.isWeb) {
       window.addEventListener('scroll', scrollListener);
     }
   }, []);
   useUnmount(() => {
-    if (Platform.isWebApp) {
+    if (Platform.isWeb) {
       window.removeEventListener('scroll', scrollListener);
     }
   });

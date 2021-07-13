@@ -5,8 +5,9 @@ import { _SessionClientModel } from '@lib/frontend/authentication/utils/SessionC
 import { store } from '@lib/frontend/root/stores/store';
 import { userSetAction } from '@lib/frontend/user/actions/user/user.action';
 
+// TODO; analytics
 export class _SessionClient implements _SessionClientModel {
-  public async initialize() {
+  constructor() {
     auth().onAuthStateChanged((user) => {
       if (user) {
         user?.getIdTokenResult().then((result) =>

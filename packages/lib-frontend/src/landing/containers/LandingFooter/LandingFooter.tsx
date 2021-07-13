@@ -1,10 +1,11 @@
+import React from 'react';
 import { LANDING } from '@lib/common/landing/constants';
-import { Copyright, IconText, Link, Portal, Wrapper } from '@lib/frontend/core/components';
+import { CenterLayout } from '@lib/frontend/app/layouts';
+import { Copyright, IconText, Link, Logo, Portal, Wrapper } from '@lib/frontend/core/components';
 import { LANDING_FOOTER_LINK_GROUPS } from '@lib/frontend/landing/containers/LandingFooter/LandingFooter.constants';
 import { LandingFooterProps } from '@lib/frontend/landing/containers/LandingFooter/LandingFooter.model';
 import { LocaleSwitch } from '@lib/frontend/locale/containers';
 import { useTranslation } from '@lib/frontend/locale/hooks';
-import React from 'react';
 
 export const LandingFooter = ({ ...props }: LandingFooterProps) => {
   const { t } = useTranslation([LANDING]);
@@ -16,11 +17,13 @@ export const LandingFooter = ({ ...props }: LandingFooterProps) => {
         </Wrapper>
       </Portal>
 
-      <Wrapper p fullWidth contrast>
-        <Wrapper row spacing center>
+      <Wrapper fullWidth contrast p spacing>
+        <Wrapper row spacing center fullWidth contrast p>
           {LANDING_FOOTER_LINK_GROUPS.map((group, i) => (
             <Wrapper key={i} spacingTight>
-              <IconText contrast icon={group.icon}>{t(group.label)}</IconText>
+              <IconText contrast icon={group.icon}>
+                {t(group.label)}
+              </IconText>
               {group.links.map((link, j) => (
                 <Link key={j} to={link.pathname}>
                   {t(link.label)}
@@ -29,10 +32,10 @@ export const LandingFooter = ({ ...props }: LandingFooterProps) => {
             </Wrapper>
           ))}
 
-          <LocaleSwitch />
+          {/* <LocaleSwitch /> */}
         </Wrapper>
 
-        <Wrapper row center alignCenter>
+        <Wrapper row center>
           <Copyright />
         </Wrapper>
       </Wrapper>

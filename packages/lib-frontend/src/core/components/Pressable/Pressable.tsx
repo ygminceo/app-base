@@ -1,11 +1,11 @@
-import { isFunction } from 'lodash';
-import React, { useState } from 'react';
 import { COMMON } from '@lib/common/core/constants';
 import { Activatable, Button, Modal, Text, Wrapper } from '@lib/frontend/core/components';
 import { PressableProps } from '@lib/frontend/core/components/Pressable/Pressable.model';
 import { useViewStyles } from '@lib/frontend/core/hooks';
 import { useTranslation } from '@lib/frontend/locale/hooks';
 import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
+import { isFunction } from 'lodash';
+import React, { useState } from 'react';
 
 export const Pressable = ({
   isDisabled,
@@ -24,9 +24,7 @@ export const Pressable = ({
   const { styles } = useViewStyles(props);
   const [confirmModalIsOpen, setConfirmModalIsOpen] = useState<boolean>(false);
 
-  const isDark = useTheme<boolean>('isDark');
-
-  const backgroundMain = useTheme<string>('colors.background.main');
+  const backgroundMain = useTheme<string>(`colors.background.${props.contrast ? 'contrast' : 'main'}`);
   const backgroundMuted = useTheme<string>('colors.background.muted');
 
   const from = { backgroundColor: backgroundMain, ...fromProps };
@@ -34,9 +32,6 @@ export const Pressable = ({
     ? from
     : {
         backgroundColor: backgroundMuted,
-        // backgroundColor: isDark
-        //   ? CommonTheme.colors.primary.dark
-        //   : CommonTheme.colors.primary.light,
         ...toProps,
       };
 

@@ -52,9 +52,7 @@ export const Alert = ({
         spacingTight>
         {icon && <Icon contrast icon={icon} large />}
         <Wrapper grow>
-          <Text contrast>
-            {message}
-          </Text>
+          <Text contrast>{message}</Text>
         </Wrapper>
         <Icon contrast icon="times" onPress={handleClose} />
       </Wrapper>

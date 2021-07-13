@@ -9,12 +9,17 @@ import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
 
 const PUBLIC_URL = config.get<string>('REACT_APP_PUBLIC_URL', '');
 
-export const Logo = ({ ...props }: LogoProps) => {
+export const Logo = ({ contrast, ...props }: LogoProps) => {
   const { styles } = useStyles(props, [getLogoStyle]);
   const isDark = useTheme<boolean>('isDark');
   return (
     <RouteLink to="">
-      <Image src={`${PUBLIC_URL}/images/logo_${isDark ? 'light' : 'dark'}.png`} style={styles} />
+      <Image
+        src={`${PUBLIC_URL}/images/logo_${
+          isDark ? (contrast ? 'dark' : 'light') : contrast ? 'light' : 'dark'
+        }.png`}
+        style={styles}
+      />
     </RouteLink>
   );
 };

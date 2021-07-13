@@ -5,7 +5,7 @@ export const detection = {
   lookupFromPathIndex: 0,
   lookupFromSubdomainIndex: 0,
   lookupCookie: 'lng',
-	lookupLocalStorage: 'lng',
+  lookupLocalStorage: 'lng',
   caches: ['localStorage', 'cookie'],
   cookieOptions: { path: '/', sameSite: true },
 };

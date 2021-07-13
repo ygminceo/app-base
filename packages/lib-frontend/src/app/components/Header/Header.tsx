@@ -21,7 +21,6 @@ export const Header = ({ children, ...props }: HeaderProps) => {
       pLeft
       pRight
       spacing>
-
       <Logo />
 
       {children}

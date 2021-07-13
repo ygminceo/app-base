@@ -27,7 +27,8 @@ export const useChatBot: UseChatBotModel = (chatBot, onClose) => {
   const onSend = async (message: ChatMessageModel) => {
     setMessages([...messages, message]);
     const rule = get(chatBot.rules, [message.replyToKey || '']);
-    const botMessages = rule && await rule(message.value === undefined ? message.text : message.value);
+    const botMessages =
+      rule && (await rule(message.value === undefined ? message.text : message.value));
     if (botMessages && botMessages.length) {
       streamBotMessages(botMessages);
     } else {

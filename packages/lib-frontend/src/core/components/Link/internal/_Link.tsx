@@ -10,7 +10,7 @@ export const _Link = compose<_LinkProps, AnchorHTMLAttributes<HTMLAnchorElement>
     href: to,
     target: newTab ? '_blank' : undefined,
     onClick: (e: MouseEvent<HTMLAnchorElement>) => {
-      if (onPress){
+      if (onPress) {
         e.preventDefault();
         onPress();
       }
