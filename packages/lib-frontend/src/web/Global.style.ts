@@ -59,4 +59,23 @@ export const GlobalStyle = createGlobalStyle`
       outline: inherit !important;
       cursor: inherit !important;
     }
+
+    body::-webkit-scrollbar {
+        background-color: 'transparent';
+        width: 16px;
+    }
+    
+    body::-webkit-scrollbar-track {
+        background-color: 'transparent';
+    }
+    
+    body::-webkit-scrollbar-thumb {
+        background-color: ${CommonTheme.colors.primary.dark};
+        border-radius: 16px;
+        border: 4px solid ${CommonTheme.colors.primary.light};
+    }
+    
+    body::-webkit-scrollbar-button {
+        display:none;
+    }
 `;

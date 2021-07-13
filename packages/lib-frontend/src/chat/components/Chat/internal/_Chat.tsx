@@ -42,7 +42,6 @@ export const _Chat = ({ messages, setMessages, onSend, isDisabled, isTyping }: _
           // @ts-ignore
           renderAvatar={null}
           onPressAvatar={() => null}
-          messagesContainerStyle={{ overflow: 'scroll' }}
           // scrollToBottomComponent={() => null}
           renderQuickReplies={() => null}
           infiniteScroll
