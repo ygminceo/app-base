@@ -1,8 +1,8 @@
 import { ComponentType } from 'react';
-import { RouteLinkModel } from '@lib/frontend/routing/components/RouteLink/RouteLink.model';
+import { LinkModel } from '@lib/frontend/core/components/Link/Link.model';
 
 export interface LandingHeaderMenuOptionModel {
-  title: string;
+  label: string;
   component: ComponentType;
 }
 
@@ -11,5 +11,5 @@ export interface LandingHeaderProps {}
 export interface LandingHeaderLinkGroupModel {
   label: string;
   icon: string;
-  links: RouteLinkModel[];
+  links: LinkModel[];
 }

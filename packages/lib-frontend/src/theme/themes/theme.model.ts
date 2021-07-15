@@ -13,6 +13,7 @@ export interface ColorsModel {
     main: string;
     muted: string;
     contrast: string;
+    font: string;
   };
   primary: {
     light: string;

@@ -5,9 +5,9 @@ import { useRouter } from '@lib/frontend/routing/hooks';
 
 export const _useLocale = (): _UseLocaleReturnsModel => {
   const router = useRouter();
-  const currentLocale = get(router, ['location', 'params', 'locale'], i18nConfig.fallbackLng);
+  const locale = get(router, ['location', 'params', 'locale'], i18nConfig.fallbackLng);
   return {
-    currentLocale,
+    locale,
     onLocaleChange: (locale: string) => router.push(router.location.pathname, { locale }),
   };
 };

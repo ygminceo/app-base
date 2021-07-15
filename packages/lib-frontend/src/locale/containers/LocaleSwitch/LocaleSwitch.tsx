@@ -11,17 +11,17 @@ import { useLocale } from '@lib/frontend/locale/hooks';
 
 export const LocaleSwitch = ({ ...props }: LocaleSwitchProps) => {
   const { styles } = useStyles(props);
-  const { currentLocale, onLocaleChange } = useLocale();
+  const { locale, onLocaleChange } = useLocale();
 
   const currentOption = useMemo(
-    () => find(LOCALE_SWITCH_MENU_OPTIONS, (option) => option.value === currentLocale),
-    [currentLocale],
+    () => find(LOCALE_SWITCH_MENU_OPTIONS, (option) => option.value === locale),
+    [locale],
   );
 
   return (
     <DroppableMenu
       width={LOCALE_SWITCH_MENU_WIDTH}
-      value={currentLocale}
+      value={locale}
       style={styles}
       searchable
       options={LOCALE_SWITCH_MENU_OPTIONS.map((option) => ({

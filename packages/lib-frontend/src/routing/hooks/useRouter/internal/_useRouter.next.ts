@@ -1,4 +1,4 @@
-import { get } from 'lodash';
+import { get, trim } from 'lodash';
 import { useRouter } from 'next/router';
 import i18nConfig from '@lib/frontend/locale/i18n/i18n.config';
 import { _UseRouterReturnsModel } from '@lib/frontend/routing/hooks/useRouter/internal/_useRouter.model';
@@ -19,15 +19,20 @@ export const _useRouter = (): _UseRouterReturnsModel => {
     location,
 
     push: <P extends RouterParamsModel>(pathname: string, params?: P) => {
-      const locale = params && params.locale;
-      const to = router.asPath.replace(currentLocale, locale);
-      router.push(to);
+      const to = trim(pathname, '/');
+      console.warn(currentLocale);
+      router.push(pathname, pathname, { locale: currentLocale });
+      // const locale = params && params.locale;
+      // const to = router.asPath.replace(currentLocale, locale);
+      // router.push(to);
     },
 
     replace: <P extends RouterParamsModel>(pathname: string, params?: P) => {
-      const locale = params && params.locale;
-      const to = router.asPath.replace(currentLocale, locale);
-      router.replace(to);
+      const to = trim(pathname, '/');
+      router.replace(to, to, { locale: currentLocale });
+      // const locale = params && params.locale;
+      // const to = router.asPath.replace(currentLocale, locale);
+      // router.replace(to);
     },
 
     back: router.back,

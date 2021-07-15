@@ -4,8 +4,8 @@ import compose from '@lib/frontend/core/utils/compose/compose';
 
 export const _Link = compose<_LinkProps, TextProps>({
   component: Text,
-  getProps: ({ children, to, onPress }) => ({
+  getProps: ({ children, pathname, onPress }) => ({
     children,
-    onPress: () => (to ? Linking.openURL(to) : onPress && onPress()),
+    onPress: () => (pathname ? Linking.openURL(pathname) : onPress && onPress()),
   }),
 });

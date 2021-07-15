@@ -1,4 +1,4 @@
 export interface UseLocaleReturnsModel {
-  currentLocale: string;
+  locale: string;
   onLocaleChange(locale: string): any;
 }

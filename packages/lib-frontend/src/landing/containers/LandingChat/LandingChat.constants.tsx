@@ -57,7 +57,7 @@ export const LANDING_CHAT_BOT: ChatBotModel = {
                 <Trans
                   ns="bot"
                   i18nKey="messages.replyLink"
-                  components={[<Link small bold newTab to={`/${ABOUT}`} />]}
+                  components={[<Link small bold newTab pathname={`/${ABOUT}`} />]}
                   style={sizeStyle.small}
                 />
               ),
@@ -81,7 +81,7 @@ export const LANDING_CHAT_BOT: ChatBotModel = {
                 <Trans
                   ns="bot"
                   i18nKey="messages.replyLink"
-                  components={[<Link small bold newTab to={`/${CAREERS}`} />]}
+                  components={[<Link small bold newTab pathname={`/${CAREERS}`} />]}
                   style={sizeStyle.small}
                 />
               ),

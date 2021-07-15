@@ -18,10 +18,11 @@ export const Profile = ({ ...props }: ProfileProps) => {
       <Text subtitle>{t('settings:labels.profile')}</Text>
       <Wrapper spacing>
         {PROFILE_SETTINGS_OPTIONS.map((option, i) => (
+          // TODO: icontext
           <Wrapper key={i} row spacingTight>
             {option.icon && <Icon icon={option.icon} />}
             <Wrapper>
-              {option.title && <Text>{t(option.title)}</Text>}
+              {option.label && <Text>{t(option.label)}</Text>}
               {user && <Text muted>{option.value(user) || t('common:labels.notSet')}</Text>}
             </Wrapper>
             <Button small next>

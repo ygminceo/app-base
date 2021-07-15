@@ -25,7 +25,7 @@ export const LandingFooter = ({ ...props }: LandingFooterProps) => {
                 {t(group.label)}
               </IconText>
               {group.links.map((link, j) => (
-                <Link key={j} to={link.pathname}>
+                <Link key={j} pathname={link.pathname}>
                   {t(link.label)}
                 </Link>
               ))}

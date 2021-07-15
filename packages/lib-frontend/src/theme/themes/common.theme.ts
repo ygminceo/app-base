@@ -10,6 +10,10 @@ export const CommonTheme = {
     spacingWhitespace: '0.4em',
     lineHeight: 25,
   },
+  text: {
+    font:
+      "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
+  },
   colors: {
     primary: {
       light: '#BACFFF',
@@ -19,7 +23,7 @@ export const CommonTheme = {
     secondary: {
       light: '#e0e0e0',
       main: '#9e9e9e',
-      dark: '#FFF',
+      dark: '#f5f5f5',
     },
     success: {
       light: '#53B86A',

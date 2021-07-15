@@ -6,6 +6,7 @@ import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 import { CommonTheme } from '@lib/frontend/theme/themes/common.theme';
 
 export const fontStyle = StyleSheet.create({
+  default: { fontFamily: CommonTheme.text.font },
   lineHeight: { lineHeight: CommonTheme.shape.lineHeight },
   bold: { fontWeight: '500' },
   center: { textAlign: 'center' },
@@ -24,6 +25,7 @@ export const getFontStyle: StyleGetterModel<FontProps> = ({
   uppercase,
   lineHeight,
 }) => [
+  fontStyle.default,
   ...(lineHeight ? (isNumber(lineHeight) ? [{ lineHeight }] : [fontStyle.lineHeight]) : []),
   ...(bold || title ? [fontStyle.bold] : []),
   ...(center ? [fontStyle.center] : alignRight ? [fontStyle.alignRight] : []),
