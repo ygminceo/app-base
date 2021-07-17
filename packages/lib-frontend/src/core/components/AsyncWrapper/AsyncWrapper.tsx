@@ -12,7 +12,7 @@ export const AsyncWrapper = ({ isLoading, children, ...props }: AsyncWrapperProp
           <Loading large primary />
         </Wrapper>
       )}
-      <Wrapper {...props} grow muted={isLoading}>
+      <Wrapper {...props} grow>
         {children}
       </Wrapper>
     </Wrapper>

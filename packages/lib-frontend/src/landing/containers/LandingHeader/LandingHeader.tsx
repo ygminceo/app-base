@@ -3,8 +3,8 @@ import { APP } from '@lib/common/app/constants';
 import { AUTHENTICATION } from '@lib/common/authentication/constants';
 import { LANDING } from '@lib/common/landing/constants';
 import { Header } from '@lib/frontend/app/components';
+import { SignInButton } from '@lib/frontend/authentication/containers/SignInButton/SignInButton';
 import { Droppable, Pressable, Text, Wrapper } from '@lib/frontend/core/components';
-import { LandingChatButton } from '@lib/frontend/landing/containers';
 import { LANDING_HEADER_MENU_OPTIONS } from '@lib/frontend/landing/containers/LandingHeader/LandingHeader.constants';
 import { LandingHeaderProps } from '@lib/frontend/landing/containers/LandingHeader/LandingHeader.model';
 import { useTranslation } from '@lib/frontend/locale/hooks';
@@ -27,7 +27,8 @@ export const LandingHeader = ({ ...props }: LandingHeaderProps) => {
 
       <Wrapper row spacing alignCenter>
         {/* <ThemeSwitch /> */}
-        <LandingChatButton small />
+        {/* <LandingChatButton small /> */}
+        <SignInButton />
       </Wrapper>
     </Header>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Arrow, Text, Wrapper } from '@lib/frontend/core/components';
+import { Icon, Rotatable, Text, Wrapper } from '@lib/frontend/core/components';
 import { ExpandableProps } from '@lib/frontend/core/components/Expandable/Expandable.model';
 import { MeasureModel } from '@lib/frontend/core/components/Wrapper/Wrapper.model';
 import { useStyles } from '@lib/frontend/core/hooks';
@@ -11,7 +11,9 @@ export const Expandable = ({ title, isOpen: isOpenProps, children, ...props }: E
   return (
     <Wrapper style={styles}>
       <Wrapper pTopTight pBottomTight row spacing alignCenter onPress={() => setIsOpen(!isOpen)}>
-        <Arrow rotate90={isOpen} />
+        <Rotatable z={isOpen ? 90 : 0}>
+          <Icon icon="chevron-right" />
+        </Rotatable>
         <Text subtitle>{title}</Text>
       </Wrapper>
 

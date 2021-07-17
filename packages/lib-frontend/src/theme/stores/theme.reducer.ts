@@ -6,6 +6,7 @@ import { RootStateModel } from '@lib/frontend/root/stores/rootState.model';
 import { themeSetAction } from '@lib/frontend/theme/actions/theme.action';
 import { ThemeStateModel } from '@lib/frontend/theme/stores/themeState.model';
 import { LightTheme } from '@lib/frontend/theme/themes/light.theme';
+// import { DarkTheme } from '@lib/frontend/theme/themes/dark.theme';
 import { ThemeModel } from '@lib/frontend/theme/themes/theme.model';
 
 // TODO: import default ThemeStateModel from user device

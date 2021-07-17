@@ -39,7 +39,8 @@ export class _Mailer implements _MailerModel {
 
   async send<P>({ from, to, template, params }: MailModel<P>) {
     return new Email({
-      preview: NODE_ENV === 'development',
+      // preview: NODE_ENV === 'development',
+      preview: false,
       transport: this._transport,
       views: { root: TEMPLATE_DIR },
     }).send({

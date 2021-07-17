@@ -1,7 +1,7 @@
 const { resolve } = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { reduce } = require('lodash');
-const { DefinePlugin } = require('webpack');
+const { DefinePlugin, IgnorePlugin } = require('webpack');
 const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
 const { EXTENSIONS, ROOT_PATH } = require('../../../../constants');
 
@@ -17,6 +17,7 @@ const TRANSIPLE_MODULES = [
   'react-native-paper',
   'react-native-parsed-text',
   'react-native-switch',
+  'react-native-svg',
   'react-native-typing-animation',
   'react-native-vector-icons',
 ];
@@ -51,7 +52,14 @@ module.exports = {
       }),
     ],
     resolve: {
-      alias: { 'react-native$': 'react-native-web' },
+      alias: {
+        'react-native$': 'react-native-web',
+
+        'react-native-svg': resolve(
+          ROOT_PATH,
+          'node_modules/react-native-svg/lib/module/ReactNativeSVG.web.js',
+        ),
+      },
       extensions: [...EXTENSIONS, '...'],
       modules: [resolve(ROOT_PATH, 'node_modules')],
       plugins: [new TsconfigPathsPlugin({ silent: true })],

@@ -3,8 +3,8 @@ const optimizedImages = require('next-optimized-images');
 const withPlugins = require('next-compose-plugins');
 const withTM = require('next-transpile-modules');
 const withFonts = require('next-fonts');
+const withImages = require('next-images');
 const { ROOT_PATH } = require('../../constants');
-const { i18n } = require('./next-i18next.config');
 
 const overrides = require(resolve(
   ROOT_PATH,
@@ -60,6 +60,11 @@ const nextConfig = {
 };
 
 module.exports = withPlugins(
-  [[optimizedImages, { handleImages: ['png'] }], [withTM(overrides.transpileModules)], [withFonts]],
+  [
+    [optimizedImages],
+    [withTM(overrides.transpileModules)],
+    // [withImages],
+    [withFonts],
+  ],
   nextConfig,
 );

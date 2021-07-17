@@ -47,7 +47,7 @@ export const Wrapper = forwardRef<RefObject<any>, WrapperProps>(
     },
     ref,
   ) => {
-    const { styles } = useViewStyles(props, []);
+    const { styles } = useViewStyles(props);
     const duration = useTheme<number>('animation.duration');
 
     if (isArray(children)) {

@@ -67,7 +67,7 @@ module.exports = {
         configFile: tsConfig,
       },
     }),
-    ...(isDev ? [new BundleAnalyzerPlugin({ openAnalyzer })] : []),
+    ...(isDev ? [new BundleAnalyzerPlugin({ openAnalyzer: false })] : []),
   ],
   optimization: isDev
     ? {

@@ -34,7 +34,6 @@ export const Modal = ({
                 style={[headerStyle.style]}
                 row
                 alignCenter
-                borderBottom
                 pLeft
                 pRight
                 spacingTight>
@@ -51,7 +50,7 @@ export const Modal = ({
               </Wrapper>
             )}
             {/* Content */}
-            <Wrapper grow p>
+            <Wrapper grow pWide>
               {children}
             </Wrapper>
           </Wrapper>

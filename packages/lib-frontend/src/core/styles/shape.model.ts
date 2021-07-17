@@ -9,6 +9,7 @@ export interface ShapeProps {
   below?: boolean;
   bottom?: number;
   fullWidth?: boolean;
+  fullHeight?: boolean;
   height?: number | string;
   hidden?: boolean;
   left?: number;

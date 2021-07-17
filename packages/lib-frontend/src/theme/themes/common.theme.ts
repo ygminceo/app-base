@@ -7,7 +7,7 @@ export const CommonTheme = {
     borderRadius: 13,
     spacing: 16,
     spacingTight: 8,
-    spacingWhitespace: '0.4em',
+    spacingWide: 28,
     lineHeight: 25,
   },
   text: {

@@ -22,6 +22,7 @@ export interface WrapperProps
       nativeID?: string;
       spacing?: boolean | number;
       spacingTight?: boolean;
+      spacingWide?: boolean;
       onPress?(): any;
       onLayout?(): any;
       onMeasure?(measure: MeasureModel): any;
@@ -32,4 +33,5 @@ export interface WrapperProps
       safe?: boolean;
     }> {}
 
-export interface WrapperChildProps extends Pick<WrapperProps, 'row' | 'spacing' | 'spacingTight'> {}
+export interface WrapperChildProps
+  extends Pick<WrapperProps, 'row' | 'spacing' | 'spacingTight' | 'spacingWide'> {}

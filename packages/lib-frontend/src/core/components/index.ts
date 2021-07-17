@@ -1,7 +1,6 @@
 export { Activatable } from '@lib/frontend/core/components/Activatable/Activatable';
 export { Alert } from '@lib/frontend/core/components/Alert/Alert';
 export { Appearable } from '@lib/frontend/core/components/Appearable/Appearable';
-export { Arrow } from '@lib/frontend/core/components/Arrow/Arrow';
 export { AsyncWrapper } from '@lib/frontend/core/components/AsyncWrapper/AsyncWrapper';
 export { Button } from '@lib/frontend/core/components/Button/Button';
 export { Circle } from '@lib/frontend/core/components/Circle/Circle';
@@ -26,6 +25,7 @@ export { Pill } from '@lib/frontend/core/components/Pill/Pill';
 export { Portal } from '@lib/frontend/core/components/Portal/Portal';
 export { Pressable } from '@lib/frontend/core/components/Pressable/Pressable';
 export { ProgressBar } from '@lib/frontend/core/components/ProgressBar/ProgressBar';
+export { Rotatable } from '@lib/frontend/core/components/Rotatable/Rotatable';
 export { SearchField } from '@lib/frontend/core/components/SearchField/SearchField';
 export { SelectField } from '@lib/frontend/core/components/SelectField/SelectField';
 export { Slidable } from '@lib/frontend/core/components/Slidable/Slidable';

@@ -169,7 +169,11 @@ export const _TextField = forwardRef<RefObject<any>, _TextFieldProps>(
                 <Wrapper row center alignCenter pRightTight>
                   {!noClear && !numberOfLines && (
                     <Appearable isVisible={size(value) > 0}>
-                      <Icon icon="times" onPress={() => onChange && onChange('')} />
+                      <Icon
+                        icon="times"
+                        onPress={() => onChange && onChange('')}
+                        isDisabled={isDisabled}
+                      />
                     </Appearable>
                   )}
                   {right}

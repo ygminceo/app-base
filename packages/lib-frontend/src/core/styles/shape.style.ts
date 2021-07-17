@@ -6,6 +6,7 @@ import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 
 export const shapeStyle = StyleSheet.create({
   fullWidth: { width: '100%' },
+  fullHeight: { height: '100vh' },
   overflowHidden: { overflow: 'hidden' },
   hidden: { display: 'none' },
   opaque: { opacity: 0 },
@@ -16,10 +17,6 @@ export const shapeStyle = StyleSheet.create({
   noScale: { transform: [{ scaleX: 1 }] },
   absolute: { position: 'absolute' },
   relative: { position: 'relative' },
-  noRotate: { transform: [{ rotate: '0deg' }] },
-  rotate90: { transform: [{ rotate: '90deg' }] },
-  rotate180: { transform: [{ rotate: '-180deg' }] },
-  rotate270: { transform: [{ rotate: '-270deg' }] },
   below: { zIndex: -1 },
   above: { zIndex: 1 },
   absoluteFill: {
@@ -71,6 +68,7 @@ export const getShapeStyle: StyleGetterModel<ShapeProps> = ({
   below,
   bottom,
   fullWidth,
+  fullHeight,
   height,
   hidden,
   left,
@@ -84,7 +82,11 @@ export const getShapeStyle: StyleGetterModel<ShapeProps> = ({
   isMinimized,
 }) => [
   ...(fullWidth ? [shapeStyle.fullWidth] : isNil(width) ? [] : [{ width }, flexStyle.basisAuto]),
-  ...(isNil(height) ? [] : [{ height }, flexStyle.basisAuto]),
+  ...(fullHeight
+    ? [shapeStyle.fullHeight]
+    : isNil(height)
+    ? []
+    : [{ height }, flexStyle.basisAuto]),
   ...(hidden ? [shapeStyle.hidden] : []),
   ...(opaque ? [shapeStyle.opaque] : []),
   ...(overflowHidden ? [shapeStyle.overflowHidden] : []),

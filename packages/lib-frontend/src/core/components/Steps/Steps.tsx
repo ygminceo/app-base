@@ -1,9 +1,8 @@
 import React, { createElement, useMemo, useState } from 'react';
 import { FormModel } from '@lib/common/core/models';
-import { Appearable, Circle, Icon, Wrapper } from '@lib/frontend/core/components';
+import { Appearable, Icon, Wrapper } from '@lib/frontend/core/components';
 import { Slidable } from '@lib/frontend/core/components/Slidable/Slidable';
 import { StepsProps } from '@lib/frontend/core/components/Steps/Steps.model';
-import { stepsStyle } from '@lib/frontend/core/components/Steps/Steps.style';
 import { useStyles } from '@lib/frontend/core/hooks';
 
 export const Steps = <F extends FormModel>({ steps, onSuccess, ...props }: StepsProps<F>) => {
@@ -20,28 +19,10 @@ export const Steps = <F extends FormModel>({ steps, onSuccess, ...props }: Steps
 
   return (
     <Wrapper style={styles} grow>
-      <Wrapper row relative alignCenter>
-        <Wrapper above style={[stepsStyle.navigation]}>
-          <Appearable isVisible={current > 0 && !isLastStep}>
-            <Icon icon="arrow-left" large onPress={() => handleSetStep(current - 1)} />
-          </Appearable>
-        </Wrapper>
-
-        <Wrapper row spacing absoluteFill center alignCenter>
-          {steps.map((step, i) => {
-            const isActive = current === i;
-            return (
-              <Circle
-                key={i}
-                small
-                shadow
-                primary
-                light={!isActive}
-                onPress={isActive || i > current || isLastStep ? undefined : () => handleSetStep(i)}
-              />
-            );
-          })}
-        </Wrapper>
+      <Wrapper row>
+        <Appearable isVisible={current > 0 && !isLastStep}>
+          <Icon icon="arrow-left" large onPress={() => handleSetStep(current - 1)} />
+        </Appearable>
       </Wrapper>
 
       <Wrapper grow relative>

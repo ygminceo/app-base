@@ -10,7 +10,7 @@ export const LightTheme: ThemeModel = defaultsDeep(
       border: '#ccd0d6',
       background: {
         main: '#f5f5f5',
-        muted: '#d6d6d6',
+        muted: '#eeeeee',
         contrast: '#171717',
       },
       text: {

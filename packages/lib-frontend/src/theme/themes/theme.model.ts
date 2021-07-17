@@ -40,7 +40,7 @@ export interface ColorsModel {
 export interface ShapeModel {
   spacing: number | string;
   spacingTight: number | string;
-  spacingWhitespace: number | string;
+  spacingWide: number | string;
   borderRadius: number;
   lineHeight: number;
 }

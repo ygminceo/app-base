@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
 import { HEADER_ID } from '@lib/frontend/app/components/Header/Header.constants';
 import { CommonTheme } from '@lib/frontend/theme/themes/common.theme';
+import { createGlobalStyle } from 'styled-components';
 
 const Ionicons = require('react-native-vector-icons/Fonts/Ionicons.ttf').default;
 
@@ -58,19 +58,5 @@ export const GlobalStyle = createGlobalStyle`
       border: none !important;
       outline: inherit !important;
       cursor: inherit !important;
-    }
-
-    ::-webkit-scrollbar * {
-      background-color: transparent;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background-color: ${CommonTheme.colors.primary.dark}
-      border-radius: 16px;
-      border: 4px solid transparent;
-    }
-
-    ::-webkit-scrollbar-button {
-      display: none;
     }
 `;

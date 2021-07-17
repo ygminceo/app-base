@@ -7,6 +7,7 @@ export const getWrapperChildStyle = ({
   row,
   spacing,
   spacingTight,
+  spacingWide,
 }: WrapperChildProps): NativeStyleModel => {
   if (row) {
     return isNumber(spacing)
@@ -15,6 +16,8 @@ export const getWrapperChildStyle = ({
       ? [spacingStyle.marginLeft]
       : spacingTight
       ? [spacingStyle.marginLeftTight]
+      : spacingWide
+      ? [spacingStyle.marginLeftWide]
       : [];
   }
   return isNumber(spacing)
@@ -23,5 +26,7 @@ export const getWrapperChildStyle = ({
     ? [spacingStyle.marginTop]
     : spacingTight
     ? [spacingStyle.marginTopTight]
+    : spacingWide
+    ? [spacingStyle.marginTopWide]
     : [];
 };
