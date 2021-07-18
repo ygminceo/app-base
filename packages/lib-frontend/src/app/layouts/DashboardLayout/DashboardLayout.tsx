@@ -13,7 +13,7 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
     <Wrapper grow fill relative>
       <DashboardHeader />
 
-      <Wrapper grow pTop={HEADER_HEIGHT} verticalScrollable onScroll={({ y }) => handleScroll(y)}>
+      <Wrapper grow pTop={HEADER_HEIGHT} onScroll={({ y }) => handleScroll(y)}>
         {children}
       </Wrapper>
 

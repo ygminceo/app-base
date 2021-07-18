@@ -6,22 +6,20 @@ import {
 } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import React, { createRef, Fragment } from 'react';
-import { APP } from '@lib/common/app/constants';
+import { DASHBOARD } from '@lib/common/dashboard/constants';
 import { Protected } from '@lib/frontend/authentication/containers';
 import { RouteModel } from '@lib/frontend/routing/containers/Router/Router.model';
 import { _RouterProps } from '@lib/frontend/routing/containers/Router/internal/_Router.model';
 import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
 
 const getScreens = (routes: RouteModel[]): PathConfigMap =>
-  routes.reduce(
-    (result, route) => ({
+  routes.reduce((result, route) => {
+    const path = route.pathname.replace(`/${DASHBOARD}`, '');
+    return {
       ...result,
-      [route.pathname]: route.routes
-        ? { path: route.pathname.replace(`/${APP}`, ''), screens: getScreens(route.routes) }
-        : route.pathname,
-    }),
-    {},
-  );
+      [route.pathname]: route.routes ? { path, screens: getScreens(route.routes) } : path,
+    };
+  }, {});
 
 const RouteWithSubRoutes = (route: RouteModel) => (
   <Stack.Screen
@@ -61,6 +59,7 @@ export const navigationRef = createRef<NavigationContainerRef>();
 export const _Router = ({ routes }: _RouterProps) => {
   const theme = useTheme();
   const screens = getScreens(routes);
+  console.warn(screens);
   return (
     <NavigationContainer
       ref={navigationRef}

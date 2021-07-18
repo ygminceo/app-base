@@ -1,6 +1,6 @@
 import { ADMIN, CATALOG } from '@lib/common/admin/constants';
-import { APP } from '@lib/common/app/constants';
 import { BILLING } from '@lib/common/billing/constants';
+import { DASHBOARD } from '@lib/common/dashboard/constants';
 import { SETTINGS } from '@lib/common/settings/constants';
 import { USER } from '@lib/common/user/constants';
 import { CatalogPage } from '@lib/frontend/admin/pages';
@@ -12,7 +12,7 @@ import { UserPage } from '@lib/frontend/user/pages';
 
 export const ROUTES: RouteModel[] = [
   {
-    pathname: `/${APP}`,
+    pathname: `/${DASHBOARD}`,
     component: DashboardLayout,
     routes: [
       {
@@ -31,6 +31,10 @@ export const ROUTES: RouteModel[] = [
       },
       {
         pathname: `/${CATALOG}`,
+        component: CatalogPage,
+      },
+      {
+        pathname: `/${DASHBOARD}`,
         component: CatalogPage,
       },
     ],
