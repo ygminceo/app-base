@@ -20,7 +20,7 @@ export const Steps = <F extends FormModel>({ steps, onSuccess, ...props }: Steps
   return (
     <Wrapper style={styles} grow>
       <Wrapper row>
-        <Appearable isVisible={current > 0 && !isLastStep}>
+        <Appearable isVisible={current > 0}>
           <Icon icon="arrow-left" large onPress={() => handleSetStep(current - 1)} />
         </Appearable>
       </Wrapper>

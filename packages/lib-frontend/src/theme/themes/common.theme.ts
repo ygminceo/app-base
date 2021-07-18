@@ -1,7 +1,7 @@
 export const CommonTheme = {
   animation: {
     duration: 150,
-    transition: 400,
+    transition: 500,
   },
   shape: {
     borderRadius: 13,

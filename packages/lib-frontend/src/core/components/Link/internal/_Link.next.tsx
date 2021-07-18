@@ -16,6 +16,9 @@ export const _Link = ({ pathname, children, ...props }: _LinkProps) => {
       </NextLink>
     );
   }
-
-  return <_LinkWeb {...props}>{children}</_LinkWeb>;
+  return (
+    <_LinkWeb {...props} pathname={pathname}>
+      {children}
+    </_LinkWeb>
+  );
 };

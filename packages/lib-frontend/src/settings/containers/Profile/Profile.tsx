@@ -25,7 +25,7 @@ export const Profile = ({ ...props }: ProfileProps) => {
               {option.label && <Text>{t(option.label)}</Text>}
               {user && <Text muted>{option.value(user) || t('common:labels.notSet')}</Text>}
             </Wrapper>
-            <Button small next>
+            <Button small>
               Change
             </Button>
           </Wrapper>

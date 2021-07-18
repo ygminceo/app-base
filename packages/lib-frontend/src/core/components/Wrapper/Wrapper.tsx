@@ -1,4 +1,4 @@
-import { isArray, reduce, get } from 'lodash';
+import { isArray, reduce } from 'lodash';
 import {
   Children,
   cloneElement,
@@ -22,7 +22,6 @@ import { createAnimatableComponent, View as AnimatableView } from 'react-native-
 import { WrapperProps } from '@lib/frontend/core/components/Wrapper/Wrapper.model';
 import { getWrapperChildStyle } from '@lib/frontend/core/components/Wrapper/Wrapper.style';
 import { useViewStyles } from '@lib/frontend/core/hooks';
-import { Platform } from '@lib/frontend/core/utils/Platform/Platform';
 import { useTheme } from '@lib/frontend/theme/stores/theme.reducer';
 
 const AnimatableTouchableOpacity = createAnimatableComponent(TouchableOpacity);
@@ -42,7 +41,6 @@ export const Wrapper = forwardRef<RefObject<any>, WrapperProps>(
       verticalScrollable,
       animatable,
       safe,
-      nativeID,
       ...props
     },
     ref,
@@ -96,8 +94,8 @@ export const Wrapper = forwardRef<RefObject<any>, WrapperProps>(
         alwaysBounceHorizontal: false,
         alwaysBounceVertical: false,
         horizontal: horizontalScrollable,
-        showsHorizontalScrollIndicator: Platform.isWeb,
-        showsVerticalScrollIndicator: Platform.isWeb,
+        showsHorizontalScrollIndicator: horizontalScrollable,
+        showsVerticalScrollIndicator: verticalScrollable,
         contentContainerStyle: styles,
         scrollEventThrottle: 16,
         onScroll: onScroll

@@ -20,8 +20,7 @@ export const CardElement = ({ ...props }: CardElementProps) => {
       round
       p
       relative
-      backgroundColor="#171717"
-      >
+      backgroundColor="#171717">
       <Logo small contrast />
       <Wrapper absoluteRight center alignCenter p>
         <Image src={`${PUBLIC_URL}/images/emv.png`} width={SIZE / 11} height={SIZE / 11} />

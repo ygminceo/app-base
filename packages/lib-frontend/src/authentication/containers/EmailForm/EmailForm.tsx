@@ -33,7 +33,7 @@ export const EmailForm = ({ onSubmit, onSuccess, ...props }: EmailFormProps) => 
       <Text large center>
         {t('authentication:messages.welcome')}
       </Text>
-      <Form isLoading={isLoading} onSubmit={handleSubmit} style={styles} isDisabled={!isFilled}>
+      <Form isLoading={isLoading} onSubmit={handleSubmit} isDisabled={!isFilled}>
         <TextField
           autoFocus
           icon="email"

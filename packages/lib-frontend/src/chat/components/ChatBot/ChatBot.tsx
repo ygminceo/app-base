@@ -1,10 +1,10 @@
 import React from 'react';
 import { Chat } from '@lib/frontend/chat/components';
 import { useChatBot } from '@lib/frontend/chat/hooks';
-import { LANDING_CHAT_BOT } from '@lib/frontend/landing/containers/LandingChat/LandingChat.constants';
-import { LandingChatProps } from '@lib/frontend/landing/containers/LandingChat/LandingChat.model';
+import { LANDING_CHAT_BOT } from '@lib/frontend/chat/components/ChatBot/ChatBot.constants';
+import { ChatBotProps } from '@lib/frontend/chat/components/ChatBot/ChatBot.model';
 
-export const LandingChat = ({ onClose, ...props }: LandingChatProps) => {
+export const ChatBot = ({ onClose, ...props }: ChatBotProps) => {
   const { messages, setMessages, onSend, isDisabled, isTyping } = useChatBot(
     LANDING_CHAT_BOT,
     onClose,

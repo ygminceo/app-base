@@ -9,6 +9,7 @@ export { Divider } from '@lib/frontend/core/components/Divider/Divider';
 export { Dropdown } from '@lib/frontend/core/components/Dropdown/Dropdown';
 export { Droppable } from '@lib/frontend/core/components/Droppable/Droppable';
 export { DroppableMenu } from '@lib/frontend/core/components/DroppableMenu/DroppableMenu';
+export { EmailLink } from '@lib/frontend/core/components/EmailLink/EmailLink';
 export { Expandable } from '@lib/frontend/core/components/Expandable/Expandable';
 export { Form } from '@lib/frontend/core/components/Form/Form';
 export { Hoverable } from '@lib/frontend/core/components/Hoverable/Hoverable';

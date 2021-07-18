@@ -6,7 +6,6 @@ import { StyleGetterModel } from '@lib/frontend/core/styles/style.model';
 
 export const shapeStyle = StyleSheet.create({
   fullWidth: { width: '100%' },
-  fullHeight: { height: '100vh' },
   overflowHidden: { overflow: 'hidden' },
   hidden: { display: 'none' },
   opaque: { opacity: 0 },
@@ -68,7 +67,6 @@ export const getShapeStyle: StyleGetterModel<ShapeProps> = ({
   below,
   bottom,
   fullWidth,
-  fullHeight,
   height,
   hidden,
   left,
@@ -82,9 +80,7 @@ export const getShapeStyle: StyleGetterModel<ShapeProps> = ({
   isMinimized,
 }) => [
   ...(fullWidth ? [shapeStyle.fullWidth] : isNil(width) ? [] : [{ width }, flexStyle.basisAuto]),
-  ...(fullHeight
-    ? [shapeStyle.fullHeight]
-    : isNil(height)
+  ...(isNil(height)
     ? []
     : [{ height }, flexStyle.basisAuto]),
   ...(hidden ? [shapeStyle.hidden] : []),

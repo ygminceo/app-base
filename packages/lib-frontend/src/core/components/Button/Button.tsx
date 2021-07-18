@@ -21,7 +21,6 @@ export const Button = ({
   success,
   transparent,
   fullWidth,
-  next,
   ...props
 }: ButtonProps) => {
   const { styles } = useStyles({ small, large, transparent, fullWidth, ...props }, [
@@ -91,21 +90,6 @@ export const Button = ({
               </Text>
             ) : (
               children
-            )}
-            {next && (
-              <Wrapper
-                left={isActive ? 3 : 0}
-                animatable={{ transition: ['left'] }}
-                center
-                alignCenter>
-                <Icon
-                  icon="chevron-right"
-                  contrast={!transparent}
-                  primary={transparent}
-                  large={large}
-                  small={small}
-                />
-              </Wrapper>
             )}
           </Wrapper>
 

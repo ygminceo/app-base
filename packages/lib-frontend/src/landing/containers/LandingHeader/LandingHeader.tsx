@@ -27,7 +27,7 @@ export const LandingHeader = ({ ...props }: LandingHeaderProps) => {
 
       <Wrapper row spacing alignCenter>
         {/* <ThemeSwitch /> */}
-        {/* <LandingChatButton small /> */}
+        {/* <ChatButton small /> */}
         <SignInButton />
       </Wrapper>
     </Header>

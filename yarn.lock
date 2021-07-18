@@ -17037,7 +17037,7 @@ react-native-lightbox@^0.8.1:
   dependencies:
     prop-types "^15.7.2"
 
-react-native-modal@^11.10.0:
+react-native-modal@11.10.0:
   version "11.10.0"
   resolved "https://registry.npmjs.org/react-native-modal/-/react-native-modal-11.10.0.tgz"
   integrity sha512-syRYDJYSh16bR37R5EKU9T/wC+5bEOfF17IUqf5URdhbEDd+hxyMInC++l45E8oI+MtdOaEp9yAws5xDqk8dnA==

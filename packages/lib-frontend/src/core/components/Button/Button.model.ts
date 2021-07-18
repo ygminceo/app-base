@@ -11,5 +11,4 @@ export interface ButtonProps
   icon?: string;
   isLoading?: boolean;
   fullWidth?: boolean;
-  next?: boolean;
 }
