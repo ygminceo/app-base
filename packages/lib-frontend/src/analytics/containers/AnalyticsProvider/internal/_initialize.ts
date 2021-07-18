@@ -6,7 +6,7 @@ import { Platform } from '@lib/frontend/core/utils/Platform/Platform';
 
 const REACT_APP_MIXPANEL_API_KEY = config.get<string>('REACT_APP_MIXPANEL_API_KEY', '');
 
-export const _initialize = async (): Promise<AnalyticsContextModel | null> =>
+export const _initialize = async (): Promise<AnalyticsContextModel> =>
   new Promise((resolve) => {
     if (Platform.isWeb) {
       mixpanel.init(REACT_APP_MIXPANEL_API_KEY);

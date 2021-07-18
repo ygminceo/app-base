@@ -8,6 +8,6 @@
   },
   "messages": {
     "about": "We are a team of software engineers, data scientists, and quants from firms like Goldman Sachs and Google.",
-    "careers": "We are hiring"
+    "careers": "We are hiring. Email us directly at <0>{{email}}</0>"
   }
 }
