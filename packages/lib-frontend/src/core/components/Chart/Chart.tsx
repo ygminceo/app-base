@@ -4,15 +4,17 @@ import { ChartProps } from '@lib/frontend/core/components/Chart/Chart.model';
 import { _Chart } from '@lib/frontend/core/components/Chart/internal/_Chart';
 import { useStyles } from '@lib/frontend/core/hooks';
 
-export const Chart = ({ data, ...props }: ChartProps) => {
+export const Chart = ({ title, series, x, y, ...props }: ChartProps) => {
   const { styles } = useStyles(props);
   return (
     <Wrapper style={styles} border round width={500} height={500}>
-      <Text p title>
-        Chart Title
-      </Text>
+      {title && (
+        <Text p title center>
+          {title}
+        </Text>
+      )}
       <Wrapper grow shrink>
-        <_Chart data={data} />
+        <_Chart series={series} x={x} y={y} />
       </Wrapper>
     </Wrapper>
   );

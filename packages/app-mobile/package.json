@@ -8,6 +8,7 @@
     "start": "react-native start"
   },
   "dependencies": {
+    "@highcharts/highcharts-react-native": "^3.1.7",
     "@lib/assets": "1.0.0",
     "@lib/common": "1.0.0",
     "@lib/frontend": "1.0.0",
@@ -51,8 +52,7 @@
     "react-redux": "^7.2.4",
     "redux": "^4.1.0",
     "styled-components": "^5.3.0",
-    "uuid": "^8.3.2",
-    "victory-native": "^35.3.3"
+    "uuid": "^8.3.2"
   },
   "peerDependencies": {
     "react": "^17.0.1"

@@ -59,7 +59,6 @@ export const navigationRef = createRef<NavigationContainerRef>();
 export const _Router = ({ routes }: _RouterProps) => {
   const theme = useTheme();
   const screens = getScreens(routes);
-  console.warn(screens);
   return (
     <NavigationContainer
       ref={navigationRef}

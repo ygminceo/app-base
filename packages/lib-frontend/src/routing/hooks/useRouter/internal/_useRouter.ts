@@ -1,6 +1,6 @@
 import { StackActions, useNavigation, useRoute } from '@react-navigation/native';
+import { ObjectModel } from '@lib/common/core/models';
 import { _UseRouterReturnsModel } from '@lib/frontend/routing/hooks/useRouter/internal/_useRouter.model';
-import { RouterParamsModel } from '@lib/frontend/routing/hooks/useRouter/useRouter.model';
 
 export const _useRouter = (): _UseRouterReturnsModel => {
   const navigation = useNavigation();
@@ -14,10 +14,10 @@ export const _useRouter = (): _UseRouterReturnsModel => {
   return {
     location,
 
-    push: <P extends RouterParamsModel>(pathname: string, params?: P) =>
+    push: <P extends ObjectModel>(pathname: string, params?: P) =>
       navigation && navigation.dispatch(StackActions.push(pathname, params)),
 
-    replace: <P extends RouterParamsModel>(pathname: string, params?: P) =>
+    replace: <P extends ObjectModel>(pathname: string, params?: P) =>
       navigation && navigation.dispatch(StackActions.replace(pathname, params)),
 
     back: () => navigation && navigation.dispatch(StackActions.pop(1)),

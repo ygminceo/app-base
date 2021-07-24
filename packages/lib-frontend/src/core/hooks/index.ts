@@ -1,3 +1,4 @@
+export { useAggregation } from '@lib/frontend/core/hooks/useAggregation/useAggregation';
 export { useChange } from '@lib/frontend/core/hooks/useChange/useChange';
 export { useDimension } from '@lib/frontend/core/hooks/useDimension/useDimension';
 export { useForm } from '@lib/frontend/core/hooks/useForm/useForm';
