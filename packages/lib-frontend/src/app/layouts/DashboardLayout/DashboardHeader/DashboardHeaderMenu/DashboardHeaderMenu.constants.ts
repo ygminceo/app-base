@@ -1,4 +1,5 @@
 import { BILLING } from '@lib/common/billing/constants';
+import { DASHBOARD } from '@lib/common/dashboard/constants';
 import { SETTINGS } from '@lib/common/settings/constants';
 import { signOutAction } from '@lib/frontend/authentication/actions/signOut/signOut.action';
 import { MenuOptionModel } from '@lib/frontend/core/components/Menu/Menu.model';
@@ -10,13 +11,13 @@ export const DASHBOARD_HEADER_MENU_OPTIONS: MenuOptionModel[] = [
     icon: 'settings',
     value: 'settings',
     label: tLazy('settings:labels.settings'),
-    pathname: `/${SETTINGS}`,
+    pathname: `/${DASHBOARD}/${SETTINGS}`,
   },
   {
     icon: 'card',
     value: 'billing',
     label: tLazy('billing:labels.billing'),
-    pathname: `/${BILLING}`,
+    pathname: `/${DASHBOARD}/${BILLING}`,
   },
   { divider: true },
   {

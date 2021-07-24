@@ -1,12 +1,24 @@
-import React, { createElement, useMemo, useState } from 'react';
+import React, { createElement, useEffect, useMemo, useState } from 'react';
+import {
+  ANALYTICS_ACTION_CHANGE,
+  ANALYTICS_ACTION_CLOSE,
+  ANALYTICS_ACTION_OPEN,
+} from '@lib/common/analytics/constants';
 import { FormModel } from '@lib/common/core/models';
+import { useAnalytics } from '@lib/frontend/analytics/hooks';
 import { Appearable, Icon, Wrapper } from '@lib/frontend/core/components';
 import { Slidable } from '@lib/frontend/core/components/Slidable/Slidable';
 import { StepsProps } from '@lib/frontend/core/components/Steps/Steps.model';
-import { useStyles } from '@lib/frontend/core/hooks';
+import { useStyles, useUnmount } from '@lib/frontend/core/hooks';
 
-export const Steps = <F extends FormModel>({ steps, onSuccess, ...props }: StepsProps<F>) => {
+export const Steps = <F extends FormModel>({
+  steps,
+  onSuccess,
+  trackable,
+  ...props
+}: StepsProps<F>) => {
   const { styles } = useStyles(props);
+  const analytics = useAnalytics();
   const [previous, setPrevious] = useState<number>(0);
   const [current, setCurrent] = useState<number>(0);
   const [dataAll, setDataAll] = useState<any>({});
@@ -15,7 +27,31 @@ export const Steps = <F extends FormModel>({ steps, onSuccess, ...props }: Steps
   const handleSetStep = (n: number) => {
     setPrevious(current);
     setCurrent(n);
+
+    trackable &&
+      analytics.track({
+        ...trackable,
+        action: ANALYTICS_ACTION_CHANGE,
+        params: { current: steps[n].key, previous: steps[current].key },
+      });
   };
+
+  useEffect(() => {
+    trackable &&
+      analytics.track({
+        ...trackable,
+        action: ANALYTICS_ACTION_OPEN,
+      });
+  }, []);
+
+  useUnmount(() => {
+    trackable &&
+      analytics.track({
+        ...trackable,
+        action: ANALYTICS_ACTION_CLOSE,
+        params: { current: steps[current].key },
+      });
+  });
 
   return (
     <Wrapper style={styles} grow>

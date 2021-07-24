@@ -10,6 +10,7 @@ import { store } from '@lib/frontend/root/stores/store';
 
 export const SIGNIN_FORM_STEPS: StepModel<SignInRequestModel, any>[] = [
   {
+    key: 'Email',
     getComponent: () => EmailForm,
     getProps: (data) => ({
       onSubmit: () =>
@@ -19,6 +20,7 @@ export const SIGNIN_FORM_STEPS: StepModel<SignInRequestModel, any>[] = [
   } as StepModel<SignInRequestModel, EmailFormProps>,
 
   {
+    key: 'Otp',
     getComponent: () => OtpForm,
     getProps: (data) => ({
       username: data.email,

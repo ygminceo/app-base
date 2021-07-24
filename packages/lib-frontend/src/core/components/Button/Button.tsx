@@ -21,6 +21,7 @@ export const Button = ({
   success,
   transparent,
   fullWidth,
+  trackable,
   ...props
 }: ButtonProps) => {
   const { styles } = useStyles({ small, large, transparent, fullWidth, ...props }, [
@@ -63,7 +64,8 @@ export const Button = ({
       onPress={handlePress}
       isDisabled={blocked}
       from={from}
-      to={to}>
+      to={to}
+      trackable={trackable}>
       {(isActive) => (
         <>
           <Wrapper grow row center alignCenter relative opaque={isLoadingState} spacingTight>

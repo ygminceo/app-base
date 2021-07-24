@@ -41,11 +41,15 @@ const RouteWithSubRoutes = (route: RouteModel) => (
       }
       const RouteContainer = route.protected ? Protected : Fragment;
       const RouteComponent = route.component || Fragment;
+      const props = route.component
+        ? {
+            ...(route.props || {}),
+            ...componentProps,
+          }
+        : {};
       return (
         <RouteContainer>
-          <RouteComponent {...(route.props || {})} {...componentProps}>
-            {children}
-          </RouteComponent>
+          <RouteComponent {...props}>{children}</RouteComponent>
         </RouteContainer>
       );
     }}

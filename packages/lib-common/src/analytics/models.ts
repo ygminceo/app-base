@@ -1,11 +1,11 @@
-export interface AnalyticsEventModel<T = void> {
+export interface AnalyticsEventModel<P = object> {
   object: string;
   action: string;
-  params: T;
+  params?: P;
 }
 
-export interface AnalyticsEventPageOpenModel {
+export interface AnalyticsEventPageOpenModel<P = object> {
   name: string;
   pathname: string;
-  params?: object;
+  params?: P;
 }

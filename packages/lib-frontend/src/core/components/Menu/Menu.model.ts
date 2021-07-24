@@ -1,4 +1,5 @@
 import { ReactElement } from 'react';
+import { TrackableProps } from '@lib/frontend/analytics/containers/Trackable/Trackable.model';
 import { DropdownProps } from '@lib/frontend/core/components/Dropdown/Dropdown.model';
 import { FieldProps } from '@lib/frontend/core/components/Field/Field.model';
 import { PressableProps } from '@lib/frontend/core/components/Pressable/Pressable.model';
@@ -14,7 +15,8 @@ export type MenuOptionModel = SelectableOptionModel | DividerOptionModel;
 export interface MenuProps
   extends Pick<DropdownProps, 'width' | 'height' | 'fullWidth'>,
     Pick<FieldProps<string>, 'value' | 'onChange'>,
-    StyledProps {
+    StyledProps,
+    TrackableProps {
   options: MenuOptionModel[];
   renderOption?(option: SelectableOptionModel): string;
   renderValue?(option: SelectableOptionModel): string;

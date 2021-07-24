@@ -13,7 +13,7 @@ export const SignInModal = ({ ...props }: SignInModalProps) => {
   const dispatch = useDispatch<AppDispatchModel>();
   return (
     <Modal isOpen={signInModalIsOpen} onClose={() => dispatch(signInModalIsOpenSetAction(false))}>
-      <Steps<SignInRequestModel> steps={SIGNIN_FORM_STEPS} />
+      <Steps<SignInRequestModel> steps={SIGNIN_FORM_STEPS} trackable={{ object: 'SignInSteps' }} />
     </Modal>
   );
 };

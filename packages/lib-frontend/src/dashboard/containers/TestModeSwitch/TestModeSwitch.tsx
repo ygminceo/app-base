@@ -14,6 +14,7 @@ export const TestModeSwitch = ({ ...props }: TestModeSwitchProps) => {
       {...props}
       value={isTestMode}
       onChange={(value) => dispatch(isTestModeSet(value))}
+      trackable={{ object: 'TestModeSwitch' }}
     />
   );
 };

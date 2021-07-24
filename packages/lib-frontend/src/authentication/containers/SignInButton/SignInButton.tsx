@@ -11,7 +11,10 @@ export const SignInButton = ({ ...props }: SignInButtonProps) => {
   const { t } = useTranslation([AUTHENTICATION]);
   const dispatch = useDispatch<AppDispatchModel>();
   return (
-    <Button {...props} onPress={() => dispatch(signInModalIsOpenSetAction(true))}>
+    <Button
+      {...props}
+      onPress={() => dispatch(signInModalIsOpenSetAction(true))}
+      trackable={{ object: 'SignInButton' }}>
       {t('authentication:labels.signIn')}
     </Button>
   );

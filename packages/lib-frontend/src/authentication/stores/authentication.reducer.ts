@@ -4,6 +4,7 @@ import { AUTHENTICATION } from '@lib/common/authentication/constants';
 import { signInModalIsOpenSetAction } from '@lib/frontend/authentication/actions/signInModalIsOpen/signInModalIsOpen.action';
 import { AuthenticationStateModel } from '@lib/frontend/authentication/stores/authenticationState.model';
 import { RootStateModel } from '@lib/frontend/root/stores/rootState.model';
+import { useUser } from '@lib/frontend/user/stores/user.reducer';
 
 const initialState: AuthenticationStateModel = {
   user: undefined,
@@ -20,3 +21,8 @@ export const authenticationReducer = createReducer<AuthenticationStateModel>(
 
 export const useSignInModalIsOpen = () =>
   useSelector<RootStateModel, boolean>((state) => state[AUTHENTICATION].signInModalIsOpen);
+
+export const useIsAuthenticated = () => {
+  const user = useUser();
+  return user !== undefined && user !== null;
+};

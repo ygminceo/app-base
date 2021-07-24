@@ -1,6 +1,8 @@
 import { get, isFunction, map } from 'lodash';
 import React, { cloneElement, useCallback, useState } from 'react';
+import { ANALYTICS_ACTION_CLOSE, ANALYTICS_ACTION_OPEN } from '@lib/common/analytics/constants';
 import { COMMON } from '@lib/common/core/constants';
+import { useAnalytics } from '@lib/frontend/analytics/hooks';
 import { headerStyle } from '@lib/frontend/app/components/Header/Header.style';
 import { Divider, Icon, Pressable, Text, Wrapper } from '@lib/frontend/core/components';
 import { Dropdown } from '@lib/frontend/core/components/Dropdown/Dropdown';
@@ -29,9 +31,11 @@ export const Menu = ({
   selectOnEnter,
   value: menuValue,
   width,
+  trackable,
   ...props
 }: MenuProps) => {
   const { t } = useTranslation([COMMON]);
+  const analytics = useAnalytics();
   const { search } = useSearch(optionsProp, ['label', 'value']);
   const { styles } = useStyles(props);
   const { styles: menuOptionStyles } = useStyles({}, [getMenuOptionModelStyle]);
@@ -48,10 +52,15 @@ export const Menu = ({
   };
 
   let anchorPressable = isFunction(anchor) ? anchor(isOpen) : anchor;
+  const onPress = get(anchorPressable, 'props.onPress');
   anchorPressable = cloneElement(anchorPressable, {
     onPress: () => {
-      const onPress = get(anchor, 'props.onPress');
-      promisify(onPress)().then(() => handleToggle(!isOpen));
+      trackable &&
+        analytics.track({
+          ...trackable,
+          action: isOpen ? ANALYTICS_ACTION_CLOSE : ANALYTICS_ACTION_OPEN,
+        });
+      return promisify(onPress)().then(() => handleToggle(!isOpen));
     },
   });
 

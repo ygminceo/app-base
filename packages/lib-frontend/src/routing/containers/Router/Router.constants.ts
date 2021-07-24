@@ -16,25 +16,25 @@ export const ROUTES: RouteModel[] = [
     component: DashboardLayout,
     routes: [
       {
-        pathname: `/${SETTINGS}`,
+        pathname: `/${DASHBOARD}/${SETTINGS}`,
         component: SettingsPage,
       },
       {
-        pathname: `/${BILLING}`,
+        pathname: `/${DASHBOARD}/${BILLING}`,
         component: BillingPage,
         protected: true,
       },
       {
-        pathname: `/${USER}`,
+        pathname: `/${DASHBOARD}/${USER}`,
         component: UserPage,
         protected: true,
       },
       {
-        pathname: `/${CATALOG}`,
+        pathname: `/${DASHBOARD}/${CATALOG}`,
         component: CatalogPage,
       },
       {
-        pathname: `/${DASHBOARD}`,
+        pathname: `/${DASHBOARD}/${DASHBOARD}`,
         component: CatalogPage,
       },
     ],
